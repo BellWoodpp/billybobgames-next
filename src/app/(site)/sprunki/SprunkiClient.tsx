@@ -9,7 +9,8 @@ import styles from "./sprunki.module.css";
 export default function SprunkiClient() {
   const gameFrameRef = useRef<HTMLIFrameElement | null>(null);
   const frameObserverRef = useRef<MutationObserver | null>(null);
-  const retryTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+  // Use the browser timer type to avoid NodeJS.Timeout mismatch.
+  const retryTimerRef = useRef<number | null>(null);
   const [isFullscreen, setIsFullscreen] = useState(false);
 
   const resetGameFrame = () => {
