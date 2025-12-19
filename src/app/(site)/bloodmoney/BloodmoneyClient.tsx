@@ -3,6 +3,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import { classNames } from "@/lib/classNames";
+import Image from "next/image";
 import PageShell from "../_components/PageShell";
 import styles from "./bloodmoney.module.css";
 
@@ -105,7 +106,7 @@ export default function BloodmoneyClient() {
   };
 
   return (
-    <PageShell>
+    <PageShell containerClassName={styles.fullWidth}>
       <main className={styles.wrapper}>
         <header className={styles.header}>
           <h1 className={styles.title}>BLOODMONEY</h1>
@@ -245,7 +246,14 @@ export default function BloodmoneyClient() {
 
           <aside className={styles.detailsGallery} aria-label="BLOODMONEY gallery">
             {galleryImages.map((src) => (
-              <img key={src} src={src} alt="BLOODMONEY screenshot" />
+              <Image
+                key={src}
+                src={src}
+                alt="BLOODMONEY screenshot"
+                width={800}
+                height={450}
+                sizes="(min-width: 960px) 400px, 100vw"
+              />
             ))}
           </aside>
 

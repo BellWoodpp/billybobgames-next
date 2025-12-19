@@ -1,5 +1,6 @@
 /* eslint-disable react/no-unescaped-entities, @next/next/no-img-element */
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import PageShell from "./_components/PageShell";
 import styles from "./styles/home.module.css";
@@ -48,7 +49,7 @@ const otherGames = [
   {
     href: "/funkin",
     title: "Friday Night Funkin'",
-    img: "/ahKgaq.png",
+    img: "https://r2bucket.billybobgames.org/ahKgaq.png",
     alt: "Friday Night Funkin' Linux 下载页",
   },
   {
@@ -166,9 +167,12 @@ export default function HomePage() {
             </p>
           </div>
           <Link className={styles.featuredGameLink} href="/bloodmoney">
-            <img
+            <Image
               className={styles.featuredGameImage}
               src="https://r2bucket.billybobgames.org/bloodmoney-webp/bloodmoney.webp"
+              width={1280}
+              height={720}
+              sizes="(min-width: 1024px) 640px, (min-width: 640px) 80vw, 100vw"
               alt="BLOOD MONEY gameplay"
             />
             <span className={styles.featuredGameCta}>Play BLOODMONEY</span>
@@ -180,9 +184,12 @@ export default function HomePage() {
         <div className={styles.otherGamesGrid}>
           {otherGames.map((game) => (
             <Link key={game.href} className={styles.otherGameCard} href={game.href}>
-              <img
+              <Image
                 className={styles.otherGameCardImage}
                 src={game.img}
+                width={800}
+                height={450}
+                sizes="(min-width: 1024px) 420px, (min-width: 640px) 50vw, 100vw"
                 alt={game.alt}
                 loading="lazy"
               />
@@ -204,7 +211,7 @@ export default function HomePage() {
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                <img src={link.img} alt={link.label} />
+                <Image src={link.img} alt={link.label} width={42} height={42} sizes="42px" />
                 <span>{link.label}</span>
               </a>
             ))}

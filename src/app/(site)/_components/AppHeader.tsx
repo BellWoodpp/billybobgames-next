@@ -1,4 +1,4 @@
-/* eslint-disable @next/next/no-img-element */
+import Image from "next/image";
 import Link from "next/link";
 
 const socialLinks = [
@@ -27,11 +27,14 @@ export default function AppHeader() {
     <header className="app-header">
       <div className="container bar">
         <Link className="brand" href="/" aria-label="Billy Bob Games home">
-          <img
+          <Image
             className="logo"
             src="https://r2bucket.billybobgames.org/logo/amazon-game-development.ico"
             alt="Billy Bob Games logo"
-            loading="lazy"
+            width={48}
+            height={48}
+            sizes="48px"
+            priority
           />
           <span>Billy Bob Games</span>
         </Link>
@@ -46,7 +49,7 @@ export default function AppHeader() {
               rel="noopener noreferrer"
               aria-label={link.label}
             >
-              <img src={link.icon} alt={link.alt} loading="lazy" />
+              <Image src={link.icon} alt={link.alt} width={28} height={28} sizes="28px" loading="lazy" />
             </a>
           ))}
         </nav>
