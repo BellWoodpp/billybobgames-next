@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-DJ7PED4TRM"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-DJ7PED4TRM');
+    </script>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    />
+    <title>HTML5 City Match - Puzzle Game</title>
+    <link rel="icon" href="./Assets/excel/kdkddw.png" />
+    <link rel="stylesheet" type="text/css" href="./Assets/css/style.css" />
+    <style>
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+      }
+
+      html,
+      body {
+        margin: 0;
+        padding: 0;
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+        background: radial-gradient(circle at top, #0f172a, #020617);
+        color: #f8fafc;
+        font-family: 'Helvetica Neue', Arial, sans-serif;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 1rem;
+      }
+
+      .instructions {
+        text-align: center;
+        font-weight: 600;
+        letter-spacing: 0.02em;
+        padding: 0 1.5rem;
+      }
+
+      .game-container {
+        position: relative;
+        width: min(960px, 100%);
+        aspect-ratio: 4 / 5;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 0 1rem;
+      }
+
+      #gameDiv {
+        position: relative;
+        width: 100%;
+        height: 100%;
+      }
+    </style>
+
+    <script>
+      var qici = {};
+      qici.config = {
+        projectName: 'Subara',
+        gameName: 'City Match',
+        companyName: 'qcplay',
+        bundleIdentifier: 'com.qcplay',
+        gameInstance: 'qc_game',
+        frameRate: { mobile: 40, desktop: 60 },
+        backgroundColor: 4210752,
+        runInBackground: true,
+        antialias: true,
+        transparent: false,
+        developerMode: false,
+        renderer: 'Canvas',
+        resolution: Math.min(2, devicePixelRatio || 1),
+        loadingPrefab: '',
+        scene: {
+          SubaraCity: 'Assets/state/SubaraCity.bin'
+        },
+        entryScene: 'SubaraCity',
+        dirtyRectangles: true,
+        loading: {
+          loadingText: 'Loading, please wait...',
+          loadingInterval: 200,
+          brightingInterval: 10,
+          blinkingCount: 5,
+          blinkingInterval: 70,
+          fadingInInterval: 400,
+          fadingOutInterval: 600
+        }
+      };
+
+      _pluginVariables_ = {};
+
+      qici.scripts = [
+        './Assets/meta/globalUrlMap.js',
+        './xiaoxiaole/phaser.min.js',
+        './xiaoxiaole/webfontloader.js',
+        './xiaoxiaole/qc-core.js',
+        './xiaoxiaole/qc-webgl.js',
+        './js/game-scripts-mini-1.0.js'
+      ];
+
+      qici.loadingAssetCount = 11;
+    </script>
+  </head>
+  <body onload="qici.init();">
+    <p class="instructions">
+      Match adjacent tiles to clear the board, trigger combos, and chase the highest score before time runs out.
+    </p>
+    <div class="game-container">
+      <div id="gameDiv"></div>
+    </div>
+    <script src="./xiaoxiaole/qc-loading.js"></script>
+    <script>
+      (function () {
+        const translations = {
+          '去建设一个辉煌的城市吧！': 'Build a magnificent city!',
+          '游戏首要目标：合成10级的建筑！': 'Goal: Merge buildings to level 10!',
+          '点击颜色相同的邻接区域，': 'Tap adjacent tiles of the same color,',
+          '可以将这些区域合成到一处。': 'Combine them into one area.',
+          '若多个同样颜色的建筑相邻，': 'When multiple buildings of the same color touch,',
+          '可以获得1个更高级的建筑。': "you'll create a higher-level building.",
+          '通过合成可以获得更高级的建筑！': 'Merge tiles to unlock higher-level buildings!',
+          '必要时可以拆除建筑，': 'Demolish buildings when necessary,',
+          '点击那些没有与同色相邻的建筑就行。': 'Just tap buildings without matching neighbors.',
+          '注意：11级及以上的建筑无法再合成了！': 'Note: Buildings level 11 and above cannot be merged.',
+          '去关注': 'Follow',
+          '正在登录中，请稍候……': 'Logging in, please wait...',
+          '你建设出了一座震惊世界的伟大首都！': 'You built a world-shaking capital!',
+          '你确定要删除这个地块吗': 'Are you sure you want to delete this tile?',
+          '消耗1个工人!': 'Costs 1 worker!',
+          '温馨提示': 'Tip',
+          '游戏结束': 'Game Over',
+          '游 戏 结 束': 'GAME OVER',
+          '开始游戏': 'Start Game',
+          '更多游戏': 'More Games',
+          '分享成就': 'Share Achievement',
+          '再玩一局': 'Play Again',
+          '重新开始': 'Restart',
+          '确定': 'Confirm',
+          '取消': 'Cancel',
+          '击败': 'Beat',
+          '当前分数': 'Current Score',
+          '当前分数：': 'Score:',
+          '历史最高分': 'Best Score',
+          '历史最高：': 'Best:',
+          '我的排名': 'My Ranking',
+          '人口数': 'Population',
+          '年份': 'Year',
+          '年份数': 'Years',
+          '结束年份：': 'Final Year:',
+          '工人数量': 'Workers',
+          '拆除建筑需要': 'Demolition cost',
+          '拆除建筑': 'Demolish Building',
+          '建筑数量': 'Buildings',
+          '建筑图鉴': 'Building Gallery',
+          '图鉴': 'Gallery',
+          '分享': 'Share',
+          '分享给您的好友们吧': 'Share with your friends',
+          '看看他们能取得多少分': 'See how high they score',
+          '点击右上角': 'Tap the top-right button',
+          '亲，你要[#ff0000]关注公众号[-]并通过[#ff0000]更多游戏[-]，才能查看首页哦！': 'Follow the official account and tap More Games to view the home screen!',
+          '通过合成可以获得更高级的建筑！': 'Merge tiles to unlock higher-level buildings!',
+          '点击右上角\n分享给您的好友们吧\n看看他们能取得多少分': 'Tap the top-right share button\nInvite your friends\nSee how high they score',
+          '请使用分享功能\n告诉您的好友们吧\n看看他们能取得多少分': 'Use the share feature\nChallenge your friends\nSee how high they score'
+        };
+
+        const multilineMap = {
+          '点击右上角\n分享给您的好友们吧\n看看他们能取得多少分': 'Tap the top-right share button\nInvite your friends\nSee how high they score',
+          '请使用分享功能\n告诉您的好友们吧\n看看他们能取得多少分': 'Use the share feature\nChallenge your friends\nSee how high they score'
+        };
+
+        function translateText(value) {
+          if (typeof value !== 'string') return null;
+          if (multilineMap[value]) return multilineMap[value];
+          const prefix = value.match(/^\s*/)[0];
+          const suffix = value.match(/\s*$/)[0];
+          const trimmed = value.trim();
+          if (!trimmed) return null;
+          const mapped = translations[trimmed];
+          if (!mapped) return null;
+          return prefix + mapped + suffix;
+        }
+
+        function applyToNode(node) {
+          if (!node) return;
+
+          if (typeof node.text === 'string') {
+            const replacement = translateText(node.text);
+            if (replacement) node.text = replacement;
+          }
+
+          const kids = node.children;
+          if (kids) {
+            if (typeof kids.forEach === 'function') {
+              kids.forEach(applyToNode);
+            } else if (typeof kids.length === 'number') {
+              for (let i = 0; i < kids.length; i++) {
+                applyToNode(kids[i]);
+              }
+            }
+          }
+
+          if (Array.isArray(node.scripts)) {
+            node.scripts.forEach(function (script) {
+              if (script && typeof script.text === 'string') {
+                const replacement = translateText(script.text);
+                if (replacement) script.text = replacement;
+              }
+            });
+          }
+        }
+
+        function applyTranslations() {
+          if (!window.qc_game || !qc_game.world) {
+            requestAnimationFrame(applyTranslations);
+            return;
+          }
+
+          applyToNode(qc_game.world);
+        }
+
+        function startTranslationLoop() {
+          if (!window.qc_game || !qc_game.world) {
+            requestAnimationFrame(startTranslationLoop);
+            return;
+          }
+
+          applyTranslations();
+          setInterval(function () {
+            applyTranslations();
+          }, 1000);
+        }
+
+        startTranslationLoop();
+      })();
+    </script>
+  </body>
+</html>

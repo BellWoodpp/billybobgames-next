@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-DJ7PED4TRM"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-DJ7PED4TRM');
+    </script>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    />
+    <title>Mouse Hit Mania - Whac-A-Mole</title>
+    <meta
+      name="description"
+      content="Play Mouse Hit Mania, an HTML5 whac-a-mole challenge with quick reflexes, power-ups, and escalating waves."
+    />
+    <link rel="icon" href="images/icon.png" />
+    <link rel="stylesheet" type="text/css" href="css/main.css" />
+    <style>
+      html,
+      body {
+        height: 100%;
+      }
+
+      body {
+        margin: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 1.25rem;
+        background: radial-gradient(circle at top, #0f172a 0%, #020617 70%);
+        color: #f8fafc;
+        font-family: 'Helvetica Neue', Arial, sans-serif;
+        overflow: hidden;
+        padding: 2rem 1rem;
+      }
+
+      .game-intro {
+        max-width: 760px;
+        text-align: center;
+        line-height: 1.6;
+        font-size: 1rem;
+      }
+
+      .game-intro strong {
+        color: #38bdf8;
+      }
+
+      #HelpDiv {
+        display: none;
+        position: absolute;
+        inset: 0;
+        backdrop-filter: blur(2px);
+        background: rgba(15, 23, 42, 0.9);
+        color: #f8fafc;
+      }
+
+      #HelpDiv .help-content {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: min(540px, calc(100% - 4rem));
+        border-radius: 1.25rem;
+        padding: 1.75rem 2rem;
+        background: linear-gradient(160deg, rgba(56, 189, 248, 0.15), rgba(129, 140, 248, 0.15));
+        box-shadow: 0 30px 80px -40px rgba(15, 23, 42, 0.9);
+      }
+
+      #HelpDiv h2 {
+        margin: 0 0 1rem;
+        font-size: 1.5rem;
+        font-weight: 700;
+      }
+
+      #HelpDiv ul {
+        margin: 0 0 1.5rem;
+        padding-left: 1.25rem;
+        line-height: 1.5;
+      }
+
+      #HelpDiv li {
+        margin-bottom: 0.5rem;
+      }
+
+      #btnBack {
+        position: static !important;
+        display: inline-flex !important;
+        align-items: center;
+        justify-content: center;
+        width: auto !important;
+        height: auto !important;
+        padding: 0.75rem 1.75rem;
+        border-radius: 999px;
+        background: linear-gradient(135deg, #38bdf8, #6366f1);
+        color: #0f172a;
+        font-weight: 600;
+        text-transform: uppercase;
+        box-shadow: 0 18px 40px -25px rgba(56, 189, 248, 0.9);
+      }
+
+      #btnBack:hover {
+        background: linear-gradient(135deg, #0ea5e9, #4f46e5);
+      }
+
+      #hitmouse {
+        margin: 0;
+      }
+
+      #progressText {
+        color: #f8fafc;
+      }
+    </style>
+  </head>
+  <body>
+    <section class="game-intro">
+      <strong>How to play:</strong> Toggle sound in the top-right corner, then press <em>Play</em> to begin.
+      Use your mouse to swing the hammer and hit every mole before it hides. Build streaks to boost
+      your score, clear each wave before the timer drains, and tap <em>Pause</em> whenever you need a breather.
+    </section>
+
+    <div id="hitmouse">
+      <div id="gameCover" class="block background">
+        <a href="javascript:void(0)" id="btnSound" class="icon" aria-label="Toggle sound">&nbsp;</a>
+        <a href="javascript:void(0)" id="btnPlay" class="icon" aria-label="Start game">&nbsp;</a>
+        <a href="javascript:void(0)" id="btnHelp" class="icon" aria-label="View help">&nbsp;</a>
+        <a href="javascript:void(0)" id="btnAboutMe" class="icon" aria-label="About">&nbsp;</a>
+        <span id="progressText"></span>
+      </div>
+
+      <div id="HelpDiv">
+        <div class="help-content">
+          <h2>Tips & Controls</h2>
+          <ul>
+            <li>Swap between waves by clearing every mole before the timer bar empties.</li>
+            <li>Click and hold to swing the hammer faster; release to trigger a strike.</li>
+            <li>Use the pause button in the top-right corner whenever you need a quick break.</li>
+            <li>Keep combos alive to earn bonus points and unlock tougher stages.</li>
+          </ul>
+          <a href="javascript:void(0)" id="btnBack" class="icon">Return to Menu</a>
+        </div>
+      </div>
+
+      <div id="gameBody" class="block">
+        <div id="gameCanvas" class="block">
+          <canvas width="750" height="550" id="maincanvas"></canvas>
+        </div>
+        <div id="numberAndPause" class="block">
+          <div id="numberBefore" class="icon" aria-hidden="true"></div>
+          <div id="number"></div>
+          <a href="javascript:void(0)" id="btnPause" class="icon" aria-label="Pause">&nbsp;</a>
+        </div>
+        <div id="nextLoding">
+          <span id="currentScore"></span>
+          <span id="requireScore"></span>
+        </div>
+      </div>
+
+      <div id="gameOver" class="block">
+        <span id="score"></span>
+        <a href="javascript:void(0)" id="btnRetry" class="icon" aria-label="Play again">&nbsp;</a>
+        <a href="javascript:void(0)" id="btnBackToMenu" class="icon" aria-label="Return to menu">&nbsp;</a>
+      </div>
+    </div>
+
+    <script src="myEngine/core/my.js"></script>
+    <script src="myEngine/component/Component.js"></script>
+    <script src="myEngine/component/DisplayObject.js"></script>
+    <script src="myEngine/component/Bitmap.js"></script>
+    <script src="myEngine/utils/ImageManager.js"></script>
+    <script src="myEngine/utils/DOM.js"></script>
+    <script src="myEngine/utils/Math.js"></script>
+    <script src="myEngine/utils/buzz.js"></script>
+    <script src="js/resources/images.js"></script>
+    <script src="js/resources/audios.js"></script>
+    <script src="js/frames/mouse.js"></script>
+    <script src="js/frames/star.js"></script>
+    <script src="js/frames/score.js"></script>
+    <script src="js/classes/Audio.js"></script>
+    <script src="js/classes/Animation.js"></script>
+    <script src="js/classes/star.js"></script>
+    <script src="js/classes/score.js"></script>
+    <script src="js/classes/hammer.js"></script>
+    <script src="js/classes/mouse.js"></script>
+    <script src="js/classes/MouseHit.js"></script>
+    <script src="js/classes/UI.js"></script>
+    <script src="js/main.js"></script>
+  </body>
+</html>

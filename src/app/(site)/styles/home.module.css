@@ -1,0 +1,265 @@
+.homeGray {
+  background: #f5f5f5;
+  padding: 4rem 1.25rem 4.5rem;
+}
+
+.hero {
+  display: grid;
+  gap: 0.75rem;
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.title {
+  font-size: clamp(2.25rem, 4vw, 3.25rem);
+  font-weight: 700;
+}
+
+.subtitle {
+  font-size: clamp(1.05rem, 2.2vw, 1.25rem);
+  color: #6b7280;
+}
+
+.featuredGame {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2.5rem;
+  margin-bottom: 2.5rem;
+  flex-wrap: wrap;
+}
+
+.featuredGameSummary {
+  flex: 1 1 320px;
+  max-width: 420px;
+  display: grid;
+  gap: 0.75rem;
+  text-align: left;
+}
+
+.featuredGameSummary h2 {
+  margin: 0;
+  font-size: clamp(1.65rem, 3vw, 2.25rem);
+  font-weight: 700;
+}
+
+.featuredGameSummary p {
+  margin: 0;
+  color: #4b5563;
+  line-height: 1.6;
+}
+
+.featuredGameLink {
+  display: grid;
+  gap: 0.75rem;
+  text-align: center;
+  text-decoration: none;
+  max-width: 640px;
+}
+
+.featuredGameImage {
+  width: 100%;
+  border-radius: 1rem;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+  transition: transform 160ms ease, box-shadow 160ms ease;
+}
+
+.featuredGameLink:hover .featuredGameImage,
+.featuredGameLink:focus-visible .featuredGameImage {
+  transform: translateY(-4px);
+  box-shadow: 0 30px 60px -18px rgba(0, 0, 0, 0.35);
+}
+
+.featuredGameCta {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: 600;
+  color: #2d2d2d;
+  background: linear-gradient(135deg, #e5e7eb, #9ca3af);
+  padding: 0.75rem 1.5rem;
+  border-radius: 999px;
+  box-shadow: 0 10px 30px -12px rgba(0, 0, 0, 0.2);
+  transition: transform 160ms ease, box-shadow 160ms ease;
+}
+
+.featuredGameLink:hover .featuredGameCta,
+.featuredGameLink:focus-visible .featuredGameCta {
+  transform: translateY(-2px);
+  box-shadow: 0 18px 40px -15px rgba(0, 0, 0, 0.25);
+}
+
+.sectionDivider {
+  margin: 3rem 0 2rem;
+  border: 0;
+  border-top: 1px solid #e5e7eb;
+}
+
+.otherGamesHeading {
+  font-size: clamp(1.5rem, 2.5vw, 2rem);
+  font-weight: 600;
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.otherGamesGrid {
+  display: grid;
+  gap: 1.5rem;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  justify-items: center;
+  margin-bottom: 3rem;
+}
+
+@media (min-width: 1024px) {
+  .otherGamesGrid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+.otherGameCard {
+  display: grid;
+  gap: 0.85rem;
+  width: 100%;
+  max-width: 420px;
+  text-decoration: none;
+  background: #f7f7f7;
+  border-radius: 1rem;
+  box-shadow: 0 18px 40px -18px rgba(0, 0, 0, 0.25);
+  transition: transform 160ms ease, box-shadow 160ms ease;
+  overflow: hidden;
+}
+
+.otherGameCard:hover,
+.otherGameCard:focus-visible {
+  transform: translateY(-4px);
+  box-shadow: 0 25px 55px -22px rgba(15, 23, 42, 0.45);
+}
+
+.otherGameCardImage {
+  width: 100%;
+  height: auto;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.otherGameCardBody {
+  display: grid;
+  gap: 0.5rem;
+  padding: 0 1.25rem 1.5rem;
+}
+
+.otherGameCardTitle {
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: #333333;
+}
+
+.otherGameCardCta {
+  justify-self: start;
+  font-weight: 600;
+  color: #2d2d2d;
+  background: linear-gradient(135deg, #d1d5db, #6b7280);
+  padding: 0.5rem 1.1rem;
+  border-radius: 999px;
+  box-shadow: 0 12px 28px -18px rgba(0, 0, 0, 0.25);
+}
+
+.friendLinksSection {
+  margin-top: 1.5rem;
+}
+
+.friendLinks {
+  display: flex;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.friendLink {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.75rem 1rem;
+  border-radius: 0.75rem;
+  border: 1px solid #e5e7eb;
+  background: #f5f5f5;
+  transition: transform 160ms ease, border-color 160ms ease;
+}
+
+.friendLink:hover,
+.friendLink:focus-visible {
+  transform: translateY(-2px);
+  border-color: #9ca3af;
+}
+
+.friendLink img {
+  width: 42px;
+  height: 42px;
+  object-fit: contain;
+}
+
+.brandStory {
+  margin-top: 3rem;
+  display: grid;
+  gap: 1rem;
+  padding: 2rem;
+  border-radius: 0.75rem;
+  border: 1px solid #e5e7eb;
+  background: #f3f4f6;
+}
+
+.brandStory h2 {
+  margin: 0;
+  font-size: clamp(1.65rem, 3vw, 2.25rem);
+  font-weight: 700;
+}
+
+.brandStory p {
+  margin: 0;
+  color: #4b5563;
+  line-height: 1.7;
+}
+
+@media (prefers-color-scheme: dark) {
+  .subtitle {
+    color: #e5e7eb;
+  }
+
+  .featuredGameSummary p {
+    color: #cbd5f5;
+  }
+
+  .otherGameCard {
+    background: #2a2a2a;
+    box-shadow: 0 18px 40px -18px rgba(0, 0, 0, 0.7);
+  }
+
+  .otherGameCardImage {
+    border-bottom-color: #3a3a3a;
+  }
+
+  .otherGameCardTitle,
+  .otherGameCardCta {
+    color: #f0f0f0;
+  }
+
+  .otherGameCardCta {
+    box-shadow: 0 12px 28px -18px rgba(0, 0, 0, 0.6);
+  }
+
+  .friendLink {
+    border-color: #3a3a3a;
+    background: #2a2a2a;
+  }
+
+  .featuredGameCta {
+    color: #1a1a1a;
+  }
+
+  .brandStory {
+    border-color: #3a3a3a;
+    background: #2a2a2a;
+  }
+
+  .brandStory p {
+    color: #e5e7eb;
+  }
+}
