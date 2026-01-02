@@ -33,6 +33,31 @@
   max-width: 640px;
 }
 
+.playCtas {
+  display: grid;
+  gap: 0.75rem;
+  justify-items: center;
+  margin-top: 0.75rem;
+}
+
+.playPoster {
+  display: block;
+  width: min(560px, 92vw);
+  border-radius: 1.25rem;
+  overflow: hidden;
+  border: 1px solid rgba(79, 70, 229, 0.22);
+  box-shadow: 0 28px 70px -44px rgba(79, 70, 229, 0.55);
+  text-decoration: none;
+  background: rgba(15, 23, 42, 0.08);
+  transition: transform 160ms ease, box-shadow 160ms ease;
+}
+
+.playPoster:hover,
+.playPoster:focus-visible {
+  transform: translateY(-2px);
+  box-shadow: 0 34px 88px -52px rgba(79, 70, 229, 0.75);
+}
+
 .gameShell {
   display: flex;
   justify-content: center;
@@ -265,6 +290,9 @@
 }
 
 .showMore {
+  display: inline-flex;
+  align-items: center;
+  list-style: none;
   align-self: start;
   padding: 0.5rem 1rem;
   border-radius: 999px;
@@ -274,6 +302,22 @@
   font-weight: 600;
   cursor: pointer;
   transition: transform 140ms ease, box-shadow 140ms ease;
+}
+
+.showMore::-webkit-details-marker {
+  display: none;
+}
+
+.showMoreLabelOpen {
+  display: none;
+}
+
+.detailsMore[open] .showMoreLabelClosed {
+  display: none;
+}
+
+.detailsMore[open] .showMoreLabelOpen {
+  display: inline;
 }
 
 .showMore:hover,

@@ -3,6 +3,7 @@ import Script from "next/script";
 import { Geist, Geist_Mono } from "next/font/google";
 import AppFooter from "./(site)/_components/AppFooter";
 import AppHeader from "./(site)/_components/AppHeader";
+import AppSidebar from "./(site)/_components/AppSidebar";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -76,8 +77,13 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
+        <input id="nav-toggle" className="nav-toggle" type="checkbox" aria-hidden="true" />
         <AppHeader />
-        <main className="page">{children}</main>
+        <div className="app-shell">
+          <label htmlFor="nav-toggle" className="sidebar-overlay" aria-label="关闭菜单" />
+          <AppSidebar />
+          <main className="page app-content">{children}</main>
+        </div>
         <AppFooter />
 
         <Script

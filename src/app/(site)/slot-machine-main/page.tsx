@@ -16,6 +16,11 @@ export default function SlotMachinePage() {
     <SimpleGamePage
       title="HTML5 Slot Machine"
       subtitle="Spin five Star Wars inspired reels, trigger autoplay, and chase your next big jackpot."
+      recentlyPlayed={{
+        href: "/slot-machine-main",
+        title: "HTML5 Slot Machine",
+        img: "https://r2bucket.billybobgames.org/10-slot-machine-main/10.png",
+      }}
       iframeSrc="/games/slot-machine-main/index.html"
       iframeTitle="HTML5 Slot Machine Game"
       howToItems={[

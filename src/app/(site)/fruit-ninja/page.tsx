@@ -17,6 +17,11 @@ export default function FruitNinjaPage() {
     <SimpleGamePage
       title="Fruit Ninja"
       subtitle="Slice the flying fruit and avoid the bombs."
+      recentlyPlayed={{
+        href: "/fruit-ninja",
+        title: "Fruit Ninja",
+        img: "https://r2bucket.billybobgames.org/1-FruitNinja/1.jpg",
+      }}
       iframeSrc="/games/fruit-ninja/index.html"
       iframeTitle="Fruit Ninja Game"
       frameClassName={classNames(styles.gameFrameShort, styles.gameFrameLight)}

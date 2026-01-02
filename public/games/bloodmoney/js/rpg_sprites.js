@@ -1361,8 +1361,13 @@ Sprite_Animation.prototype.updateMain = function() {
 
 Sprite_Animation.prototype.updatePosition = function() {
     if (this._animation.position === 3) {
-        this.x = this.parent.width / 2;
-        this.y = this.parent.height / 2;
+        if (this.parent) {
+            this.x = this.parent.width / 2;
+            this.y = this.parent.height / 2;
+        } else {
+            this.x = Graphics.width / 2;
+            this.y = Graphics.height / 2;
+        }
     } else {
         var parent = this._target.parent;
         var grandparent = parent ? parent.parent : null;

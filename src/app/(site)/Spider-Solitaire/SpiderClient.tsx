@@ -4,6 +4,8 @@
 import { useEffect, useRef, useState } from "react";
 import { classNames } from "@/lib/classNames";
 import PageShell from "../_components/PageShell";
+import GameBreadcrumb from "../_components/GameBreadcrumb";
+import RecentlyPlayedTracker from "../_components/RecentlyPlayedTracker";
 import styles from "./spider.module.css";
 
 type GameInstance = {
@@ -268,8 +270,14 @@ export default function SpiderClient() {
 
   return (
     <PageShell containerClassName={styles.containerWide}>
+      <RecentlyPlayedTracker
+        href="/Spider-Solitaire"
+        title="Spider Solitaire"
+        img="https://r2bucket.billybobgames.org/Spider-Solitaire/ogOjlb.webp"
+      />
       <main className={styles.wrapper}>
         <header className={styles.header}>
+          <GameBreadcrumb current="Spider Solitaire" />
           <h1 className={styles.title}>Spider Solitaire</h1>
           <p className={styles.subtitle}>
             Test your patience and strategy in this classic take on Spider Solitaire—play instantly in your browser.

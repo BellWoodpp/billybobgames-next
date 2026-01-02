@@ -21,6 +21,173 @@
         </style>
     </head>
     <body style="background-color: black">
+        <div id="bbg-loader" aria-label="Loading BLOODMONEY" role="status">
+            <div class="bbg-loader__panel">
+                <div class="bbg-loader__title">Loading BLOODMONEY</div>
+                <div class="bbg-loader__bar" aria-hidden="true">
+                    <div class="bbg-loader__barFill" style="width: 0%"></div>
+                </div>
+                <div class="bbg-loader__percent"><span id="bbg-loader-percent">0</span>%</div>
+                <div class="bbg-loader__meta" id="bbg-loader-meta">Assets: 0/0</div>
+                <div class="bbg-loader__meta bbg-loader__meta--dim" id="bbg-loader-last"></div>
+            </div>
+        </div>
+        <style>
+            #bbg-loader {
+                position: fixed;
+                inset: 0;
+                display: grid;
+                place-items: center;
+                background: #000;
+                color: #fff;
+                z-index: 2147483647;
+                transition: opacity 220ms ease;
+            }
+            #bbg-loader.bbg-loader--hide {
+                opacity: 0;
+                pointer-events: none;
+            }
+            .bbg-loader__panel {
+                width: min(480px, calc(100vw - 32px));
+                padding: 20px 18px;
+                border: 1px solid rgba(255, 255, 255, 0.12);
+                border-radius: 14px;
+                background: rgba(10, 10, 10, 0.92);
+                box-shadow: 0 18px 60px rgba(0, 0, 0, 0.55);
+                text-align: center;
+                font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+            }
+            .bbg-loader__title {
+                font-weight: 700;
+                letter-spacing: 0.02em;
+                margin-bottom: 14px;
+            }
+            .bbg-loader__bar {
+                height: 10px;
+                border-radius: 999px;
+                background: rgba(255, 255, 255, 0.12);
+                overflow: hidden;
+            }
+            .bbg-loader__barFill {
+                height: 100%;
+                width: 0%;
+                background: linear-gradient(90deg, rgba(255, 0, 0, 0.55), rgba(255, 0, 0, 0.95));
+                transition: width 120ms ease;
+            }
+            .bbg-loader__percent {
+                margin-top: 12px;
+                font-weight: 600;
+                opacity: 0.9;
+                font-variant-numeric: tabular-nums;
+            }
+            .bbg-loader__meta {
+                margin-top: 8px;
+                font-size: 13px;
+                opacity: 0.88;
+                font-variant-numeric: tabular-nums;
+                line-height: 1.35;
+                word-break: break-word;
+            }
+            .bbg-loader__meta--dim {
+                opacity: 0.72;
+            }
+        </style>
+        <script>
+            (function () {
+                const loader =
+                    (window.__BBG_LOADER__ = window.__BBG_LOADER__ || {
+                        total: 0,
+                        done: 0,
+                        errors: 0,
+                        lastStartAt: 0,
+                        lastDoneAt: 0,
+                        lastUrl: "",
+                        _seen: Object.create(null),
+                        _doneSeen: Object.create(null),
+                        markStart(url) {
+                            if (!url || this._seen[url]) return;
+                            this._seen[url] = 1;
+                            this.total++;
+                            this.lastStartAt = Date.now();
+                            this.lastUrl = url;
+                        },
+                        markDone(url, isError) {
+                            if (!url || this._doneSeen[url]) return;
+                            this._doneSeen[url] = 1;
+                            this.done++;
+                            if (isError) this.errors++;
+                            this.lastDoneAt = Date.now();
+                            this.lastUrl = url;
+                        },
+                        getPercent() {
+                            if (this.total <= 0) return 0;
+                            return Math.max(0, Math.min(100, Math.floor((this.done / this.total) * 100)));
+                        },
+                    });
+
+                const el = document.getElementById("bbg-loader");
+                const percentEl = document.getElementById("bbg-loader-percent");
+                const metaEl = document.getElementById("bbg-loader-meta");
+                const lastEl = document.getElementById("bbg-loader-last");
+                const barFill = el ? el.querySelector(".bbg-loader__barFill") : null;
+
+                let displayed = 0;
+                function isGameReady() {
+                    try {
+                        if (!window.SceneManager || !SceneManager._scene || !SceneManager._sceneStarted) return false;
+                        if (SceneManager._scene && SceneManager._scene.constructor && SceneManager._scene.constructor.name === "Scene_Boot") {
+                            return false;
+                        }
+                        return typeof SceneManager._scene.isReady === "function" ? SceneManager._scene.isReady() : false;
+                    } catch (e) {
+                        return false;
+                    }
+                }
+
+                function hide() {
+                    if (!el || el.classList.contains("bbg-loader--hide")) return;
+                    el.classList.add("bbg-loader--hide");
+                    setTimeout(() => el.remove(), 260);
+                }
+
+                function tick() {
+                    const ready = isGameReady();
+                    let pct = loader.getPercent();
+                    if (!ready) pct = Math.min(99, pct);
+                    displayed = Math.max(displayed, pct);
+                    if (ready) displayed = 100;
+
+                    if (percentEl) percentEl.textContent = String(displayed);
+                    if (barFill) barFill.style.width = displayed + "%";
+                    if (metaEl) {
+                        const total = loader.total || 0;
+                        const done = loader.done || 0;
+                        const errs = loader.errors || 0;
+                        const recentMs = Math.max(0, Date.now() - (loader.lastDoneAt || loader.lastStartAt || Date.now()));
+                        const recentSec = (recentMs / 1000).toFixed(1);
+                        let state = "Loading…";
+                        if (ready) state = "Ready";
+                        else if (total > 0 && done >= total && errs > 0) state = "Stalled (errors)";
+                        else if (total > 0 && done >= total) state = "Finalizing…";
+                        else if (recentMs > 6_000) state = "Stalled (no activity)";
+                        metaEl.textContent = `Assets: ${done}/${total} (errors ${errs}) • ${state} • last activity ${recentSec}s ago`;
+                    }
+                    if (lastEl) {
+                        const last = loader.lastUrl || "";
+                        if (!last) {
+                            lastEl.textContent = "";
+                        } else {
+                            const short = last.split("/").slice(-3).join("/");
+                            lastEl.textContent = `Last: ${short}`;
+                        }
+                    }
+                    if (ready) hide();
+                    requestAnimationFrame(tick);
+                }
+
+                requestAnimationFrame(tick);
+            })();
+        </script>
         <script type="text/javascript" src="/games/bloodmoney/js/libs/pixi.js"></script>
         <script type="text/javascript" src="/games/bloodmoney/js/libs/pixi-tilemap.js"></script>
         <script type="text/javascript" src="/games/bloodmoney/js/libs/pixi-picture.js"></script>

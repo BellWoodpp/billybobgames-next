@@ -47,10 +47,10 @@ export const metadata: Metadata = {
 
 const otherGames = [
   {
-    href: "/funkin",
-    title: "Friday Night Funkin'",
-    img: "https://r2bucket.billybobgames.org/ahKgaq.png",
-    alt: "Friday Night Funkin' Linux 下载页",
+    href: "/bloodmoney",
+    title: "BLOODMONEY",
+    img: "https://r2bucket.billybobgames.org/bloodmoney-webp/bloodmoney.webp",
+    alt: "BLOODMONEY gameplay",
   },
   {
     href: "/sprunki",
@@ -125,35 +125,32 @@ const friendLinks = [
     href: "https://itch.io/",
     label: "itch.io",
     img: "https://r2bucket.billybobgames.org/image/itch-io-logo.svg",
+    rel: "nofollow noopener noreferrer",
   },
   {
     href: "https://store.steampowered.com/",
     label: "Steam",
     img: "https://r2bucket.billybobgames.org/image/steam-icon-logo.svg",
+    rel: "nofollow noopener noreferrer",
   },
   {
     href: "https://www.xbox.com/",
     label: "Xbox",
     img: "https://r2bucket.billybobgames.org/image/xbox-9.svg",
+    rel: "nofollow noopener noreferrer",
   },
   {
     href: "https://silksong.uk/",
     label: "silksong",
     img: "https://r2boot.silksong.uk/silksong/silksong3.ico",
+    rel: "noopener noreferrer",
   },
 ];
 
 export default function HomePage() {
   return (
-    <PageShell>
+    <PageShell containerClassName={styles.homeContainer}>
       <section className={styles.homeGray}>
-        <div className={styles.hero}>
-          <h1 className={styles.title}>Welcome to Billy Bob Games</h1>
-          <p className={styles.subtitle}>
-            Play web games right in your browser. More coming soon.
-          </p>
-        </div>
-
         <section className={styles.featuredGame} aria-label="Featured game">
           <div className={styles.featuredGameSummary}>
             <h2>Billy Bob Games – Play Free Unblocked Browser Games Online</h2>
@@ -166,21 +163,10 @@ export default function HomePage() {
               controller-free experience, chase nostalgic highscores, or sample new arcade challenges between breaks.
             </p>
           </div>
-          <Link className={styles.featuredGameLink} href="/bloodmoney">
-            <Image
-              className={styles.featuredGameImage}
-              src="https://r2bucket.billybobgames.org/bloodmoney-webp/bloodmoney.webp"
-              width={1280}
-              height={720}
-              sizes="(min-width: 1024px) 640px, (min-width: 640px) 80vw, 100vw"
-              alt="BLOOD MONEY gameplay"
-            />
-            <span className={styles.featuredGameCta}>Play BLOODMONEY</span>
-          </Link>
         </section>
 
         <hr className={styles.sectionDivider} />
-        <h2 className={styles.otherGamesHeading}>Other games</h2>
+        <h2 className={styles.otherGamesHeading}>New Game</h2>
         <div className={styles.otherGamesGrid}>
           {otherGames.map((game) => (
             <Link key={game.href} className={styles.otherGameCard} href={game.href}>
@@ -209,7 +195,7 @@ export default function HomePage() {
                 className={styles.friendLink}
                 href={link.href}
                 target="_blank"
-                rel="noopener noreferrer"
+                rel={link.rel}
               >
                 <Image src={link.img} alt={link.label} width={42} height={42} sizes="42px" />
                 <span>{link.label}</span>

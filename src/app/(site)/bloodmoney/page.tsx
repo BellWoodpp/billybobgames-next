@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import BloodmoneyClient from "./BloodmoneyClient";
+import BloodmoneyContent from "./BloodmoneyContent";
 
 export const metadata: Metadata = {
   title: "BLOODMONEY - Billy Bob Games",
@@ -28,5 +28,5 @@ export const metadata: Metadata = {
 };
 
 export default function BloodmoneyPage() {
-  return <BloodmoneyClient />;
+  return <BloodmoneyContent />;
 }

@@ -15,6 +15,11 @@ export default function Html5MarioPage() {
     <SimpleGamePage
       title="HTML5 Mario"
       subtitle="Dash through colorful worlds, stomp enemies, and collect coins in this browser-friendly Mario adventure."
+      recentlyPlayed={{
+        href: "/html5-mario",
+        title: "HTML5 Mario",
+        img: "https://r2bucket.billybobgames.org/6-html5-mario/6.jpg",
+      }}
       iframeSrc="/games/html5-mario/index.html"
       iframeTitle="HTML5 Mario Game"
       howToItems={[

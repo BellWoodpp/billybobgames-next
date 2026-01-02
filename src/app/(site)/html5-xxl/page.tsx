@@ -15,6 +15,11 @@ export default function Html5XxlPage() {
     <SimpleGamePage
       title="HTML5 City Match"
       subtitle="Swap the tiles of a bustling skyline and watch cascading combos light up the board."
+      recentlyPlayed={{
+        href: "/html5-xxl",
+        title: "HTML5 City Match",
+        img: "https://r2bucket.billybobgames.org/7-Html5-xxl/7.png",
+      }}
       iframeSrc="/games/html5-xxl/index.html"
       iframeTitle="HTML5 City Match Game"
       howToItems={[

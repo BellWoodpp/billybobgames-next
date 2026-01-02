@@ -1,16 +1,13 @@
-/* eslint-disable react/no-unescaped-entities, @next/next/no-img-element */
-"use client";
+/* eslint-disable react/no-unescaped-entities */
 
-import { useEffect, useRef, useState } from "react";
+// 专注于SEO文档渲染
+
+import Link from "next/link";
 import { classNames } from "@/lib/classNames";
 import Image from "next/image";
 import PageShell from "../_components/PageShell";
+import GameBreadcrumb from "../_components/GameBreadcrumb";
 import styles from "./bloodmoney.module.css";
-
-type ReactionState = {
-  counts: { up: number; down: number; love: number };
-  active: { up: boolean; down: boolean; love: boolean };
-};
 
 const galleryImages = [
   "https://r2bucket.billybobgames.org/bloodmoney-webp/1.webp",
@@ -20,176 +17,29 @@ const galleryImages = [
   "https://r2bucket.billybobgames.org/bloodmoney-webp/5.webp",
 ];
 
-export default function BloodmoneyClient() {
-  const frameWrapperRef = useRef<HTMLDivElement | null>(null);
-  const [isFullscreen, setIsFullscreen] = useState(false);
-  const [expanded, setExpanded] = useState(false);
-  const [reaction, setReaction] = useState<ReactionState>({
-    counts: { up: 0, down: 0, love: 0 },
-    active: { up: false, down: false, love: false },
-  });
-
-  useEffect(() => {
-    const handleFullscreenChange = () => {
-      setIsFullscreen(document.fullscreenElement === frameWrapperRef.current);
-    };
-
-    document.addEventListener("fullscreenchange", handleFullscreenChange);
-    handleFullscreenChange();
-
-    return () => {
-      document.removeEventListener("fullscreenchange", handleFullscreenChange);
-    };
-  }, []);
-
-  const exitFullscreen = async () => {
-    if (document.exitFullscreen) {
-      await document.exitFullscreen();
-    }
-  };
-
-  const toggleFullscreen = async () => {
-    const target = frameWrapperRef.current;
-    if (!target) return;
-    try {
-      if (document.fullscreenElement === target) {
-        await exitFullscreen();
-      } else if (target.requestFullscreen) {
-        await target.requestFullscreen();
-      }
-    } catch (error) {
-      console.error("Failed to toggle fullscreen:", error);
-    }
-  };
-
-  const onReact = (type: "up" | "down" | "love") => {
-    setReaction((prev) => {
-      const counts = { ...prev.counts };
-      const active = { ...prev.active };
-
-      if (type === "up") {
-        if (!active.up) {
-          counts.up += 1;
-          active.up = true;
-          if (active.down && counts.down > 0) {
-            counts.down = Math.max(0, counts.down - 1);
-            active.down = false;
-          }
-        } else {
-          counts.up = Math.max(0, counts.up - 1);
-          active.up = false;
-        }
-      } else if (type === "down") {
-        if (!active.down) {
-          counts.down += 1;
-          active.down = true;
-          if (active.up && counts.up > 0) {
-            counts.up = Math.max(0, counts.up - 1);
-            active.up = false;
-          }
-        } else {
-          counts.down = Math.max(0, counts.down - 1);
-          active.down = false;
-        }
-      } else {
-        if (!active.love) {
-          counts.love += 1;
-          active.love = true;
-        } else {
-          counts.love = Math.max(0, counts.love - 1);
-          active.love = false;
-        }
-      }
-
-      return { counts, active };
-    });
-  };
-
+export default function BloodmoneyContent() {
   return (
     <PageShell containerClassName={styles.fullWidth}>
       <main className={styles.wrapper}>
         <header className={styles.header}>
+          <GameBreadcrumb current="BLOODMONEY" />
           <h1 className={styles.title}>BLOODMONEY</h1>
           <p className={styles.subtitle}>
             Dive into this atmospheric adventure without leaving BillyBob Games.
           </p>
-        </header>
-
-        <section className={styles.gameShell}>
-          <div ref={frameWrapperRef} className={styles.gameFrameWrapper}>
-            <iframe
-              className={styles.gameFrame}
-              src="/games/bloodmoney/index.html"
-              title="BLOODMONEY Game"
-              allow="autoplay; fullscreen"
-              allowFullScreen
-              loading="lazy"
-            />
-            <button
-              type="button"
-              className={classNames(
-                styles.fullscreenButton,
-                isFullscreen && styles.fullscreenButtonActive
-              )}
-              aria-label={isFullscreen ? "Exit fullscreen mode" : "Enter fullscreen mode"}
-              onClick={toggleFullscreen}
-            >
-              <span className={styles.fullscreenIcon} aria-hidden="true">
-                {isFullscreen ? "⤢" : "⛶"}
-              </span>
-              <span>{isFullscreen ? "Exit Fullscreen" : "Fullscreen"}</span>
-            </button>
-            {isFullscreen ? (
-              <button
-                type="button"
-                className={styles.fullscreenExitButton}
-                aria-label="Return to page"
-                onClick={exitFullscreen}
-              >
-                Return
-              </button>
-            ) : null}
+          <div className={styles.playCtas}>
+            <Link className={styles.playPoster} href="/bloodmoney/play" aria-label="Open BLOODMONEY play view">
+              <Image
+                src="https://r2bucket.billybobgames.org/bloodmoney-webp/bloodmoney.webp"
+                alt="Play BLOODMONEY"
+                width={1200}
+                height={675}
+                priority
+                sizes="(min-width: 960px) 560px, 92vw"
+              />
+            </Link>
           </div>
-        </section>
-
-        <section className={styles.engagement} aria-label="Engage with BLOODMONEY">
-          <button
-            type="button"
-            className={classNames(
-              styles.engagementButton,
-              reaction.active.up && styles.engagementButtonActive
-            )}
-            onClick={() => onReact("up")}
-            aria-label="Thumbs up"
-          >
-            👍<span>Like</span>
-            <strong className={styles.engagementCount}>+{reaction.counts.up}</strong>
-          </button>
-          <button
-            type="button"
-            className={classNames(
-              styles.engagementButton,
-              reaction.active.down && styles.engagementButtonActive
-            )}
-            onClick={() => onReact("down")}
-            aria-label="Thumbs down"
-          >
-            👎<span>Dislike</span>
-            <strong className={styles.engagementCount}>+{reaction.counts.down}</strong>
-          </button>
-          <button
-            type="button"
-            className={classNames(
-              styles.engagementButton,
-              reaction.active.love && styles.engagementButtonActive
-            )}
-            onClick={() => onReact("love")}
-            aria-label="Favorite"
-          >
-            ❤️<span>Collect</span>
-            <strong className={styles.engagementCount}>+{reaction.counts.love}</strong>
-          </button>
-        </section>
+        </header>
 
         <section className={styles.details} aria-label="About BLOODMONEY">
           <article className={styles.detailsContent}>
@@ -257,12 +107,12 @@ export default function BloodmoneyClient() {
             ))}
           </aside>
 
-          <div className={styles.detailsMore}>
-            <button className={styles.showMore} type="button" onClick={() => setExpanded((prev) => !prev)}>
-              {expanded ? "Show less" : "Show more"}
-            </button>
-            {expanded ? (
-              <div className={styles.moreInfo}>
+          <details className={styles.detailsMore}>
+            <summary className={styles.showMore}>
+              <span className={styles.showMoreLabelClosed}>Show more</span>
+              <span className={styles.showMoreLabelOpen}>Show less</span>
+            </summary>
+            <div className={styles.moreInfo}>
                 <p className={styles.teaser}>
                   BLOODMONEY! challenges players to earn $25,000 in a darkly twisted clicker game. Each decision ramps up
                   tension and leads to shocking endings. Play now!
@@ -427,19 +277,18 @@ export default function BloodmoneyClient() {
                 <h2 className={classNames(styles.moreInfoTitle, styles.moreInfoTitlePurple)}>
                   Unique Highlight Features
                 </h2>
-                <ul className={classNames(styles.moreInfoList, styles.moreInfoListBullets)}>
-                  <li>Addictive clicker mechanics with escalating thrills.</li>
-                  <li>Earn USD while balancing consequence and strategy.</li>
-                  <li>Multiple weapons create unique drama and surprise.</li>
-                  <li>One-time purchases force careful, strategic decision-making.</li>
-                  <li>Three distinct endings reflect your choices in the progression.</li>
-                  <li>Sardonic comedy blends with horror for immersive chaos.</li>
-                  <li>Minimalist controls keep gameplay simple yet engaging.</li>
-                  <li>Replayable paths encourage experimentation and risk-taking.</li>
-                </ul>
-              </div>
-            ) : null}
-          </div>
+              <ul className={classNames(styles.moreInfoList, styles.moreInfoListBullets)}>
+                <li>Addictive clicker mechanics with escalating thrills.</li>
+                <li>Earn USD while balancing consequence and strategy.</li>
+                <li>Multiple weapons create unique drama and surprise.</li>
+                <li>One-time purchases force careful, strategic decision-making.</li>
+                <li>Three distinct endings reflect your choices in the progression.</li>
+                <li>Sardonic comedy blends with horror for immersive chaos.</li>
+                <li>Minimalist controls keep gameplay simple yet engaging.</li>
+                <li>Replayable paths encourage experimentation and risk-taking.</li>
+              </ul>
+            </div>
+          </details>
         </section>
       </main>
     </PageShell>

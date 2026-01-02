@@ -1,11 +1,14 @@
 import type { ReactNode } from "react";
 import { classNames } from "@/lib/classNames";
 import PageShell from "./PageShell";
+import GameBreadcrumb from "./GameBreadcrumb";
+import RecentlyPlayedTracker from "./RecentlyPlayedTracker";
 import styles from "../styles/game-page.module.css";
 
 type SimpleGamePageProps = {
   title: string;
   subtitle: string;
+  recentlyPlayed?: { href: string; title: string; img?: string };
   iframeSrc: string;
   iframeTitle: string;
   allow?: string;
@@ -27,6 +30,7 @@ type SimpleGamePageProps = {
 export default function SimpleGamePage({
   title,
   subtitle,
+  recentlyPlayed,
   iframeSrc,
   iframeTitle,
   allow = "autoplay",
@@ -66,7 +70,11 @@ export default function SimpleGamePage({
   return (
     <PageShell>
       <main className={wrapperClasses}>
+        {recentlyPlayed ? (
+          <RecentlyPlayedTracker href={recentlyPlayed.href} title={recentlyPlayed.title} img={recentlyPlayed.img} />
+        ) : null}
         <header className={styles.header}>
+          <GameBreadcrumb current={title} />
           <h1 className={headingClasses}>{title}</h1>
           <p className={subtitleClasses}>{subtitle}</p>
         </header>

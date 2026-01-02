@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import { Menu } from "lucide-react";
 
 const socialLinks = [
   {
@@ -26,18 +27,28 @@ export default function AppHeader() {
   return (
     <header className="app-header">
       <div className="container bar">
-        <Link className="brand" href="/" aria-label="Billy Bob Games home">
-          <Image
-            className="logo"
-            src="https://r2bucket.billybobgames.org/logo/amazon-game-development.ico"
-            alt="Billy Bob Games logo"
-            width={48}
-            height={48}
-            sizes="48px"
-            priority
-          />
-          <span>Billy Bob Games</span>
-        </Link>
+        <div className="brand-wrap">
+          <label
+            className="nav-toggle-btn"
+            htmlFor="nav-toggle"
+            aria-label="打开菜单"
+          >
+            <Menu aria-hidden="true" />
+          </label>
+
+          <Link className="brand" href="/" aria-label="Billy Bob Games home">
+            <Image
+              className="logo"
+              src="https://r2bucket.billybobgames.org/logo/amazon-game-development.ico"
+              alt="Billy Bob Games logo"
+              width={48}
+              height={48}
+              sizes="48px"
+              priority
+            />
+            <span>Billy Bob Games</span>
+          </Link>
+        </div>
 
         <nav className="nav-social" aria-label="Social links">
           {socialLinks.map((link) => (

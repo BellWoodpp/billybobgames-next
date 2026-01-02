@@ -16,6 +16,11 @@ export default function Html5FlyPage() {
     <SimpleGamePage
       title="HTML5 Fly"
       subtitle="Take command of the starfighter, dodge enemy fire, and clear the skies."
+      recentlyPlayed={{
+        href: "/html5-fly",
+        title: "HTML5 Fly",
+        img: "https://r2bucket.billybobgames.org/5-html5-fly/5.jpg",
+      }}
       iframeSrc="/games/html5-fly/play.html"
       iframeTitle="HTML5 Fly Game"
       howToItems={[

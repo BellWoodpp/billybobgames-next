@@ -32,9 +32,37 @@ yarn-error.log*
 
 # env files (can opt-in for committing if needed)
 .env*
+!.env.example
+
+# pnpm store (local)
+.pnpm-store/
 
 # vercel
 .vercel
+
+# game media (uploaded to R2)
+/public/games/**/*.png
+/public/games/**/*.jpg
+/public/games/**/*.jpeg
+/public/games/**/*.gif
+/public/games/**/*.webp
+/public/games/**/*.svg
+/public/games/**/*.bmp
+/public/games/**/*.tiff
+/public/games/**/*.avif
+/public/games/**/*.ico
+/public/games/**/*.mp3
+/public/games/**/*.ogg
+/public/games/**/*.wav
+/public/games/**/*.m4a
+/public/games/**/*.flac
+/public/games/**/*.aac
+/public/games/**/*.opus
+/public/games/**/*.mp4
+/public/games/**/*.webm
+
+# local-only Sprunki asset workspace
+Incredibox - Sprunki/
 
 # typescript
 *.tsbuildinfo

@@ -453,17 +453,24 @@ AudioCache.prototype.truncateCache = function() {
     }.bind(this));
 };
 
+AudioCache.prototype._isBufferReady = function(buffer) {
+    if (!buffer) return false;
+    if (buffer.isReady && buffer.isReady()) return true;
+    if (buffer.isError && buffer.isError()) return true;
+    return false;
+};
+
 AudioCache.prototype.mustBeHeld = function(item) {
     if (item.reservationId) return true;
-    if (!item.buffer.isReady()) return true;
+    if (!this._isBufferReady(item.buffer)) return true;
     return false;
 };
 
 AudioCache.prototype.isReady = function() {
     let items = this._items;
     return !Object.keys(items).some(function(key){
-        return !items[key].buffer.isReady();
-    });
+        return !this._isBufferReady(items[key].buffer);
+    }.bind(this));
 };
 
 //=============================================================================

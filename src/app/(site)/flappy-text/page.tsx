@@ -17,6 +17,11 @@ export default function FlappyTextPage() {
     <SimpleGamePage
       title="Flappy Text"
       subtitle="Type your text and fly it through the obstacles."
+      recentlyPlayed={{
+        href: "/flappy-text",
+        title: "Flappy Text",
+        img: "https://r2bucket.billybobgames.org/flappy-text/3.jpg",
+      }}
       iframeSrc="/games/flappy-text/index.html"
       iframeTitle="Flappy Text Game"
       frameClassName={classNames(styles.gameFrameShort, styles.gameFrameLight)}

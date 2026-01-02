@@ -17,6 +17,11 @@ export default function Html5Demo7Page() {
     <SimpleGamePage
       title="Fish Joy Reloaded"
       subtitle="Command the deep-sea cannon, fire electric nets to catch vibrant fish shoals, and enjoy classic arcade fishing thrills."
+      recentlyPlayed={{
+        href: "/html5demo7",
+        title: "Fish Joy Reloaded",
+        img: "https://r2bucket.billybobgames.org/9-html5demo7/9.jpg",
+      }}
       iframeSrc="/games/fishjoy/index.html"
       iframeTitle="Fish Joy Reloaded Game"
       frameWrapperClassName={styles.gameShell}

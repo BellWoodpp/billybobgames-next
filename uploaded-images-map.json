@@ -1,750 +1,3027 @@
 [
   {
-    "local": "games/bloodmoney/audio/bgm/Intro.ogg",
-    "remote": "https://r2bucket.billybobgames.org/games/bloodmoney/audio/bgm/Intro.ogg"
-  },
-  {
-    "local": "games/bloodmoney/audio/bgm/Neutral Ending.ogg",
-    "remote": "https://r2bucket.billybobgames.org/games/bloodmoney/audio/bgm/Neutral Ending.ogg"
-  },
-  {
-    "local": "games/bloodmoney/audio/se/25 years without a.mp3",
-    "remote": "https://r2bucket.billybobgames.org/games/bloodmoney/audio/se/25 years without a.mp3"
-  },
-  {
-    "local": "games/bloodmoney/audio/bgm/Credits.ogg",
-    "remote": "https://r2bucket.billybobgames.org/games/bloodmoney/audio/bgm/Credits.ogg"
-  },
-  {
     "local": "games/bloodmoney/audio/bgm/Music Normal.ogg",
+    "key": "games/bloodmoney/audio/bgm/Music Normal.ogg",
     "remote": "https://r2bucket.billybobgames.org/games/bloodmoney/audio/bgm/Music Normal.ogg"
   },
   {
-    "local": "games/bloodmoney/audio/se/Ice1.ogg",
-    "remote": "https://r2bucket.billybobgames.org/games/bloodmoney/audio/se/Ice1.ogg"
+    "local": "games/bloodmoney/audio/bgm/Neutral Ending.ogg",
+    "key": "games/bloodmoney/audio/bgm/Neutral Ending.ogg",
+    "remote": "https://r2bucket.billybobgames.org/games/bloodmoney/audio/bgm/Neutral Ending.ogg"
   },
   {
-    "local": "games/bloodmoney/audio/se/SFX_Button.ogg",
-    "remote": "https://r2bucket.billybobgames.org/games/bloodmoney/audio/se/SFX_Button.ogg"
+    "local": "games/bloodmoney/audio/bgm/Credits.ogg",
+    "key": "games/bloodmoney/audio/bgm/Credits.ogg",
+    "remote": "https://r2bucket.billybobgames.org/games/bloodmoney/audio/bgm/Credits.ogg"
   },
   {
     "local": "games/bloodmoney/audio/se/Blow1.ogg",
+    "key": "games/bloodmoney/audio/se/Blow1.ogg",
     "remote": "https://r2bucket.billybobgames.org/games/bloodmoney/audio/se/Blow1.ogg"
   },
   {
+    "local": "games/bloodmoney/audio/se/25 years without a.mp3",
+    "key": "games/bloodmoney/audio/se/25 years without a.mp3",
+    "remote": "https://r2bucket.billybobgames.org/games/bloodmoney/audio/se/25 years without a.mp3"
+  },
+  {
+    "local": "games/bloodmoney/audio/se/SFX_Button.ogg",
+    "key": "games/bloodmoney/audio/se/SFX_Button.ogg",
+    "remote": "https://r2bucket.billybobgames.org/games/bloodmoney/audio/se/SFX_Button.ogg"
+  },
+  {
+    "local": "games/bloodmoney/audio/bgm/Intro.ogg",
+    "key": "games/bloodmoney/audio/bgm/Intro.ogg",
+    "remote": "https://r2bucket.billybobgames.org/games/bloodmoney/audio/bgm/Intro.ogg"
+  },
+  {
+    "local": "games/bloodmoney/audio/se/Ice1.ogg",
+    "key": "games/bloodmoney/audio/se/Ice1.ogg",
+    "remote": "https://r2bucket.billybobgames.org/games/bloodmoney/audio/se/Ice1.ogg"
+  },
+  {
     "local": "games/bloodmoney/audio/se/SFX_Decision.ogg",
+    "key": "games/bloodmoney/audio/se/SFX_Decision.ogg",
     "remote": "https://r2bucket.billybobgames.org/games/bloodmoney/audio/se/SFX_Decision.ogg"
   },
   {
-    "local": "games/bloodmoney/audio/se/SFX_Fear.ogg",
-    "remote": "https://r2bucket.billybobgames.org/games/bloodmoney/audio/se/SFX_Fear.ogg"
-  },
-  {
     "local": "games/bloodmoney/audio/se/SFX_Fire.ogg",
+    "key": "games/bloodmoney/audio/se/SFX_Fire.ogg",
     "remote": "https://r2bucket.billybobgames.org/games/bloodmoney/audio/se/SFX_Fire.ogg"
   },
   {
     "local": "games/bloodmoney/audio/se/SFX_Eek!.ogg",
+    "key": "games/bloodmoney/audio/se/SFX_Eek!.ogg",
     "remote": "https://r2bucket.billybobgames.org/games/bloodmoney/audio/se/SFX_Eek!.ogg"
   },
   {
-    "local": "games/bloodmoney/audio/se/SFX_Gore.ogg",
-    "remote": "https://r2bucket.billybobgames.org/games/bloodmoney/audio/se/SFX_Gore.ogg"
-  },
-  {
-    "local": "games/bloodmoney/audio/se/SFX_Gun1.ogg",
-    "remote": "https://r2bucket.billybobgames.org/games/bloodmoney/audio/se/SFX_Gun1.ogg"
+    "local": "games/bloodmoney/audio/bgm/Music Weird.ogg",
+    "key": "games/bloodmoney/audio/bgm/Music Weird.ogg",
+    "remote": "https://r2bucket.billybobgames.org/games/bloodmoney/audio/bgm/Music Weird.ogg"
   },
   {
     "local": "games/bloodmoney/audio/se/SFX_Foghorn.ogg",
+    "key": "games/bloodmoney/audio/se/SFX_Foghorn.ogg",
     "remote": "https://r2bucket.billybobgames.org/games/bloodmoney/audio/se/SFX_Foghorn.ogg"
   },
   {
+    "local": "games/bloodmoney/audio/se/SFX_Fear.ogg",
+    "key": "games/bloodmoney/audio/se/SFX_Fear.ogg",
+    "remote": "https://r2bucket.billybobgames.org/games/bloodmoney/audio/se/SFX_Fear.ogg"
+  },
+  {
+    "local": "games/bloodmoney/audio/se/SFX_Gun1.ogg",
+    "key": "games/bloodmoney/audio/se/SFX_Gun1.ogg",
+    "remote": "https://r2bucket.billybobgames.org/games/bloodmoney/audio/se/SFX_Gun1.ogg"
+  },
+  {
+    "local": "games/bloodmoney/audio/se/SFX_Gore.ogg",
+    "key": "games/bloodmoney/audio/se/SFX_Gore.ogg",
+    "remote": "https://r2bucket.billybobgames.org/games/bloodmoney/audio/se/SFX_Gore.ogg"
+  },
+  {
     "local": "games/bloodmoney/audio/se/SFX_Gun2.ogg",
+    "key": "games/bloodmoney/audio/se/SFX_Gun2.ogg",
     "remote": "https://r2bucket.billybobgames.org/games/bloodmoney/audio/se/SFX_Gun2.ogg"
   },
   {
     "local": "games/bloodmoney/audio/se/SFX_Gun3.ogg",
+    "key": "games/bloodmoney/audio/se/SFX_Gun3.ogg",
     "remote": "https://r2bucket.billybobgames.org/games/bloodmoney/audio/se/SFX_Gun3.ogg"
   },
   {
-    "local": "games/bloodmoney/audio/se/SFX_Money.ogg",
-    "remote": "https://r2bucket.billybobgames.org/games/bloodmoney/audio/se/SFX_Money.ogg"
-  },
-  {
-    "local": "games/bloodmoney/audio/se/SFX_Notification.ogg",
-    "remote": "https://r2bucket.billybobgames.org/games/bloodmoney/audio/se/SFX_Notification.ogg"
-  },
-  {
-    "local": "games/bloodmoney/audio/se/SFX_Hsopital.ogg",
-    "remote": "https://r2bucket.billybobgames.org/games/bloodmoney/audio/se/SFX_Hsopital.ogg"
-  },
-  {
-    "local": "games/bloodmoney/audio/se/SFX_Speech.ogg",
-    "remote": "https://r2bucket.billybobgames.org/games/bloodmoney/audio/se/SFX_Speech.ogg"
-  },
-  {
-    "local": "games/bloodmoney/audio/se/SFX_Stab2.ogg",
-    "remote": "https://r2bucket.billybobgames.org/games/bloodmoney/audio/se/SFX_Stab2.ogg"
-  },
-  {
-    "local": "games/bloodmoney/audio/bgm/Music Worst.ogg",
-    "remote": "https://r2bucket.billybobgames.org/games/bloodmoney/audio/bgm/Music Worst.ogg"
-  },
-  {
-    "local": "games/bloodmoney/audio/se/SFX_Stab.ogg",
-    "remote": "https://r2bucket.billybobgames.org/games/bloodmoney/audio/se/SFX_Stab.ogg"
-  },
-  {
-    "local": "games/bloodmoney/audio/se/SFX_Wrong.ogg",
-    "remote": "https://r2bucket.billybobgames.org/games/bloodmoney/audio/se/SFX_Wrong.ogg"
-  },
-  {
-    "local": "games/bloodmoney/audio/bgm/Music Weird.ogg",
-    "remote": "https://r2bucket.billybobgames.org/games/bloodmoney/audio/bgm/Music Weird.ogg"
-  },
-  {
-    "local": "games/bloodmoney/audio/bgs/Music Weird.ogg",
-    "remote": "https://r2bucket.billybobgames.org/games/bloodmoney/audio/bgs/Music Weird.ogg"
-  },
-  {
-    "local": "games/bloodmoney/audio/se/SFX_Yeek.ogg",
-    "remote": "https://r2bucket.billybobgames.org/games/bloodmoney/audio/se/SFX_Yeek.ogg"
-  },
-  {
-    "local": "games/bloodmoney/audio/se/VA_Cheer1.ogg",
-    "remote": "https://r2bucket.billybobgames.org/games/bloodmoney/audio/se/VA_Cheer1.ogg"
-  },
-  {
     "local": "games/bloodmoney/audio/se/SFX_HammerHeavy1.wav",
+    "key": "games/bloodmoney/audio/se/SFX_HammerHeavy1.wav",
     "remote": "https://r2bucket.billybobgames.org/games/bloodmoney/audio/se/SFX_HammerHeavy1.wav"
   },
   {
-    "local": "games/bloodmoney/audio/se/VA_Cheer2.ogg",
-    "remote": "https://r2bucket.billybobgames.org/games/bloodmoney/audio/se/VA_Cheer2.ogg"
+    "local": "games/bloodmoney/audio/se/SFX_Money.ogg",
+    "key": "games/bloodmoney/audio/se/SFX_Money.ogg",
+    "remote": "https://r2bucket.billybobgames.org/games/bloodmoney/audio/se/SFX_Money.ogg"
+  },
+  {
+    "local": "games/bloodmoney/audio/se/SFX_Speech.ogg",
+    "key": "games/bloodmoney/audio/se/SFX_Speech.ogg",
+    "remote": "https://r2bucket.billybobgames.org/games/bloodmoney/audio/se/SFX_Speech.ogg"
   },
   {
     "local": "games/bloodmoney/audio/bgm/MACHIAVELLIAN COMPLEX.wav",
+    "key": "games/bloodmoney/audio/bgm/MACHIAVELLIAN COMPLEX.wav",
     "remote": "https://r2bucket.billybobgames.org/games/bloodmoney/audio/bgm/MACHIAVELLIAN COMPLEX.wav"
   },
   {
-    "local": "games/bloodmoney/audio/se/VA_Ending1.ogg",
-    "remote": "https://r2bucket.billybobgames.org/games/bloodmoney/audio/se/VA_Ending1.ogg"
+    "local": "games/bloodmoney/audio/se/SFX_Hsopital.ogg",
+    "key": "games/bloodmoney/audio/se/SFX_Hsopital.ogg",
+    "remote": "https://r2bucket.billybobgames.org/games/bloodmoney/audio/se/SFX_Hsopital.ogg"
   },
   {
-    "local": "games/bloodmoney/audio/se/VA_Cheer4.ogg",
-    "remote": "https://r2bucket.billybobgames.org/games/bloodmoney/audio/se/VA_Cheer4.ogg"
+    "local": "games/bloodmoney/audio/se/SFX_Stab.ogg",
+    "key": "games/bloodmoney/audio/se/SFX_Stab.ogg",
+    "remote": "https://r2bucket.billybobgames.org/games/bloodmoney/audio/se/SFX_Stab.ogg"
   },
   {
-    "local": "games/bloodmoney/audio/se/VA_Cheer3.ogg",
-    "remote": "https://r2bucket.billybobgames.org/games/bloodmoney/audio/se/VA_Cheer3.ogg"
+    "local": "games/bloodmoney/audio/se/SFX_Stab2.ogg",
+    "key": "games/bloodmoney/audio/se/SFX_Stab2.ogg",
+    "remote": "https://r2bucket.billybobgames.org/games/bloodmoney/audio/se/SFX_Stab2.ogg"
   },
   {
-    "local": "games/bloodmoney/audio/se/VA_Ending2.ogg",
-    "remote": "https://r2bucket.billybobgames.org/games/bloodmoney/audio/se/VA_Ending2.ogg"
+    "local": "games/bloodmoney/audio/se/SFX_Wrong.ogg",
+    "key": "games/bloodmoney/audio/se/SFX_Wrong.ogg",
+    "remote": "https://r2bucket.billybobgames.org/games/bloodmoney/audio/se/SFX_Wrong.ogg"
   },
   {
-    "local": "games/bloodmoney/audio/se/VA_Doctor.ogg",
-    "remote": "https://r2bucket.billybobgames.org/games/bloodmoney/audio/se/VA_Doctor.ogg"
+    "local": "games/bloodmoney/audio/se/VA_Cheer1.ogg",
+    "key": "games/bloodmoney/audio/se/VA_Cheer1.ogg",
+    "remote": "https://r2bucket.billybobgames.org/games/bloodmoney/audio/se/VA_Cheer1.ogg"
+  },
+  {
+    "local": "games/bloodmoney/audio/se/SFX_Notification.ogg",
+    "key": "games/bloodmoney/audio/se/SFX_Notification.ogg",
+    "remote": "https://r2bucket.billybobgames.org/games/bloodmoney/audio/se/SFX_Notification.ogg"
+  },
+  {
+    "local": "games/bloodmoney/audio/bgs/Music Weird.ogg",
+    "key": "games/bloodmoney/audio/bgs/Music Weird.ogg",
+    "remote": "https://r2bucket.billybobgames.org/games/bloodmoney/audio/bgs/Music Weird.ogg"
   },
   {
     "local": "games/bloodmoney/audio/se/Secret Message!.ogg",
+    "key": "games/bloodmoney/audio/se/Secret Message!.ogg",
     "remote": "https://r2bucket.billybobgames.org/games/bloodmoney/audio/se/Secret Message!.ogg"
   },
   {
-    "local": "games/bloodmoney/audio/se/VA_Feather1.ogg",
-    "remote": "https://r2bucket.billybobgames.org/games/bloodmoney/audio/se/VA_Feather1.ogg"
+    "local": "games/bloodmoney/audio/se/VA_Cheer2.ogg",
+    "key": "games/bloodmoney/audio/se/VA_Cheer2.ogg",
+    "remote": "https://r2bucket.billybobgames.org/games/bloodmoney/audio/se/VA_Cheer2.ogg"
   },
   {
-    "local": "games/bloodmoney/audio/se/VA_Finale1.ogg",
-    "remote": "https://r2bucket.billybobgames.org/games/bloodmoney/audio/se/VA_Finale1.ogg"
+    "local": "games/bloodmoney/audio/se/VA_Cheer3.ogg",
+    "key": "games/bloodmoney/audio/se/VA_Cheer3.ogg",
+    "remote": "https://r2bucket.billybobgames.org/games/bloodmoney/audio/se/VA_Cheer3.ogg"
+  },
+  {
+    "local": "games/bloodmoney/audio/se/SFX_Yeek.ogg",
+    "key": "games/bloodmoney/audio/se/SFX_Yeek.ogg",
+    "remote": "https://r2bucket.billybobgames.org/games/bloodmoney/audio/se/SFX_Yeek.ogg"
+  },
+  {
+    "local": "games/bloodmoney/audio/se/VA_Cheer4.ogg",
+    "key": "games/bloodmoney/audio/se/VA_Cheer4.ogg",
+    "remote": "https://r2bucket.billybobgames.org/games/bloodmoney/audio/se/VA_Cheer4.ogg"
+  },
+  {
+    "local": "games/bloodmoney/audio/se/VA_Doctor.ogg",
+    "key": "games/bloodmoney/audio/se/VA_Doctor.ogg",
+    "remote": "https://r2bucket.billybobgames.org/games/bloodmoney/audio/se/VA_Doctor.ogg"
+  },
+  {
+    "local": "games/bloodmoney/audio/se/VA_Ending2.ogg",
+    "key": "games/bloodmoney/audio/se/VA_Ending2.ogg",
+    "remote": "https://r2bucket.billybobgames.org/games/bloodmoney/audio/se/VA_Ending2.ogg"
   },
   {
     "local": "games/bloodmoney/audio/se/VA_Feather4.ogg",
+    "key": "games/bloodmoney/audio/se/VA_Feather4.ogg",
     "remote": "https://r2bucket.billybobgames.org/games/bloodmoney/audio/se/VA_Feather4.ogg"
   },
   {
     "local": "games/bloodmoney/audio/se/VA_Feather2.ogg",
+    "key": "games/bloodmoney/audio/se/VA_Feather2.ogg",
     "remote": "https://r2bucket.billybobgames.org/games/bloodmoney/audio/se/VA_Feather2.ogg"
   },
   {
-    "local": "games/bloodmoney/audio/se/VA_Finale11.ogg",
-    "remote": "https://r2bucket.billybobgames.org/games/bloodmoney/audio/se/VA_Finale11.ogg"
-  },
-  {
-    "local": "games/bloodmoney/audio/se/VA_Finale10.ogg",
-    "remote": "https://r2bucket.billybobgames.org/games/bloodmoney/audio/se/VA_Finale10.ogg"
-  },
-  {
     "local": "games/bloodmoney/audio/se/VA_Feather3.ogg",
+    "key": "games/bloodmoney/audio/se/VA_Feather3.ogg",
     "remote": "https://r2bucket.billybobgames.org/games/bloodmoney/audio/se/VA_Feather3.ogg"
   },
   {
-    "local": "games/bloodmoney/audio/se/VA_Finale14.ogg",
-    "remote": "https://r2bucket.billybobgames.org/games/bloodmoney/audio/se/VA_Finale14.ogg"
+    "local": "games/bloodmoney/audio/se/VA_Finale1.ogg",
+    "key": "games/bloodmoney/audio/se/VA_Finale1.ogg",
+    "remote": "https://r2bucket.billybobgames.org/games/bloodmoney/audio/se/VA_Finale1.ogg"
   },
   {
-    "local": "games/bloodmoney/audio/se/VA_Finale3.ogg",
-    "remote": "https://r2bucket.billybobgames.org/games/bloodmoney/audio/se/VA_Finale3.ogg"
+    "local": "games/bloodmoney/audio/bgm/Music Worst.ogg",
+    "key": "games/bloodmoney/audio/bgm/Music Worst.ogg",
+    "remote": "https://r2bucket.billybobgames.org/games/bloodmoney/audio/bgm/Music Worst.ogg"
   },
   {
-    "local": "games/bloodmoney/audio/se/VA_Finale5.ogg",
-    "remote": "https://r2bucket.billybobgames.org/games/bloodmoney/audio/se/VA_Finale5.ogg"
-  },
-  {
-    "local": "games/bloodmoney/audio/se/VA_Finale2.ogg",
-    "remote": "https://r2bucket.billybobgames.org/games/bloodmoney/audio/se/VA_Finale2.ogg"
-  },
-  {
-    "local": "games/bloodmoney/audio/se/VA_Finale12.ogg",
-    "remote": "https://r2bucket.billybobgames.org/games/bloodmoney/audio/se/VA_Finale12.ogg"
-  },
-  {
-    "local": "games/bloodmoney/audio/se/VA_Finale4.ogg",
-    "remote": "https://r2bucket.billybobgames.org/games/bloodmoney/audio/se/VA_Finale4.ogg"
+    "local": "games/bloodmoney/audio/se/VA_Finale10.ogg",
+    "key": "games/bloodmoney/audio/se/VA_Finale10.ogg",
+    "remote": "https://r2bucket.billybobgames.org/games/bloodmoney/audio/se/VA_Finale10.ogg"
   },
   {
     "local": "games/bloodmoney/audio/se/VA_Finale13.ogg",
+    "key": "games/bloodmoney/audio/se/VA_Finale13.ogg",
     "remote": "https://r2bucket.billybobgames.org/games/bloodmoney/audio/se/VA_Finale13.ogg"
   },
   {
-    "local": "games/bloodmoney/audio/se/VA_Finale7.ogg",
-    "remote": "https://r2bucket.billybobgames.org/games/bloodmoney/audio/se/VA_Finale7.ogg"
+    "local": "games/bloodmoney/audio/se/VA_Feather1.ogg",
+    "key": "games/bloodmoney/audio/se/VA_Feather1.ogg",
+    "remote": "https://r2bucket.billybobgames.org/games/bloodmoney/audio/se/VA_Feather1.ogg"
   },
   {
-    "local": "games/bloodmoney/audio/se/VA_Finale9.ogg",
-    "remote": "https://r2bucket.billybobgames.org/games/bloodmoney/audio/se/VA_Finale9.ogg"
+    "local": "games/bloodmoney/audio/se/VA_Ending1.ogg",
+    "key": "games/bloodmoney/audio/se/VA_Ending1.ogg",
+    "remote": "https://r2bucket.billybobgames.org/games/bloodmoney/audio/se/VA_Ending1.ogg"
   },
   {
-    "local": "games/bloodmoney/audio/se/VA_Gun1.ogg",
-    "remote": "https://r2bucket.billybobgames.org/games/bloodmoney/audio/se/VA_Gun1.ogg"
+    "local": "games/bloodmoney/audio/se/VA_Finale14.ogg",
+    "key": "games/bloodmoney/audio/se/VA_Finale14.ogg",
+    "remote": "https://r2bucket.billybobgames.org/games/bloodmoney/audio/se/VA_Finale14.ogg"
+  },
+  {
+    "local": "games/bloodmoney/audio/se/VA_Finale12.ogg",
+    "key": "games/bloodmoney/audio/se/VA_Finale12.ogg",
+    "remote": "https://r2bucket.billybobgames.org/games/bloodmoney/audio/se/VA_Finale12.ogg"
+  },
+  {
+    "local": "games/bloodmoney/audio/se/VA_Finale11.ogg",
+    "key": "games/bloodmoney/audio/se/VA_Finale11.ogg",
+    "remote": "https://r2bucket.billybobgames.org/games/bloodmoney/audio/se/VA_Finale11.ogg"
+  },
+  {
+    "local": "games/bloodmoney/audio/se/VA_Finale5.ogg",
+    "key": "games/bloodmoney/audio/se/VA_Finale5.ogg",
+    "remote": "https://r2bucket.billybobgames.org/games/bloodmoney/audio/se/VA_Finale5.ogg"
   },
   {
     "local": "games/bloodmoney/audio/se/VA_Finale8.ogg",
+    "key": "games/bloodmoney/audio/se/VA_Finale8.ogg",
     "remote": "https://r2bucket.billybobgames.org/games/bloodmoney/audio/se/VA_Finale8.ogg"
   },
   {
     "local": "games/bloodmoney/audio/se/VA_Finale6.ogg",
+    "key": "games/bloodmoney/audio/se/VA_Finale6.ogg",
     "remote": "https://r2bucket.billybobgames.org/games/bloodmoney/audio/se/VA_Finale6.ogg"
   },
   {
-    "local": "games/bloodmoney/audio/se/VA_Gun4.ogg",
-    "remote": "https://r2bucket.billybobgames.org/games/bloodmoney/audio/se/VA_Gun4.ogg"
+    "local": "games/bloodmoney/audio/se/VA_Finale4.ogg",
+    "key": "games/bloodmoney/audio/se/VA_Finale4.ogg",
+    "remote": "https://r2bucket.billybobgames.org/games/bloodmoney/audio/se/VA_Finale4.ogg"
   },
   {
-    "local": "games/bloodmoney/audio/se/VA_Gun7.ogg",
-    "remote": "https://r2bucket.billybobgames.org/games/bloodmoney/audio/se/VA_Gun7.ogg"
+    "local": "games/bloodmoney/audio/se/VA_Finale7.ogg",
+    "key": "games/bloodmoney/audio/se/VA_Finale7.ogg",
+    "remote": "https://r2bucket.billybobgames.org/games/bloodmoney/audio/se/VA_Finale7.ogg"
+  },
+  {
+    "local": "games/bloodmoney/audio/se/VA_Gun1.ogg",
+    "key": "games/bloodmoney/audio/se/VA_Gun1.ogg",
+    "remote": "https://r2bucket.billybobgames.org/games/bloodmoney/audio/se/VA_Gun1.ogg"
+  },
+  {
+    "local": "games/bloodmoney/audio/se/VA_Finale2.ogg",
+    "key": "games/bloodmoney/audio/se/VA_Finale2.ogg",
+    "remote": "https://r2bucket.billybobgames.org/games/bloodmoney/audio/se/VA_Finale2.ogg"
   },
   {
     "local": "games/bloodmoney/audio/se/VA_Gun2.ogg",
+    "key": "games/bloodmoney/audio/se/VA_Gun2.ogg",
     "remote": "https://r2bucket.billybobgames.org/games/bloodmoney/audio/se/VA_Gun2.ogg"
   },
   {
-    "local": "games/bloodmoney/audio/se/VA_Gun6.ogg",
-    "remote": "https://r2bucket.billybobgames.org/games/bloodmoney/audio/se/VA_Gun6.ogg"
+    "local": "games/bloodmoney/audio/se/VA_Gun4.ogg",
+    "key": "games/bloodmoney/audio/se/VA_Gun4.ogg",
+    "remote": "https://r2bucket.billybobgames.org/games/bloodmoney/audio/se/VA_Gun4.ogg"
+  },
+  {
+    "local": "games/bloodmoney/audio/se/VA_Finale3.ogg",
+    "key": "games/bloodmoney/audio/se/VA_Finale3.ogg",
+    "remote": "https://r2bucket.billybobgames.org/games/bloodmoney/audio/se/VA_Finale3.ogg"
   },
   {
     "local": "games/bloodmoney/audio/se/VA_Gun3.ogg",
+    "key": "games/bloodmoney/audio/se/VA_Gun3.ogg",
     "remote": "https://r2bucket.billybobgames.org/games/bloodmoney/audio/se/VA_Gun3.ogg"
   },
   {
+    "local": "games/bloodmoney/audio/se/VA_Finale9.ogg",
+    "key": "games/bloodmoney/audio/se/VA_Finale9.ogg",
+    "remote": "https://r2bucket.billybobgames.org/games/bloodmoney/audio/se/VA_Finale9.ogg"
+  },
+  {
     "local": "games/bloodmoney/audio/se/VA_Gun5.ogg",
+    "key": "games/bloodmoney/audio/se/VA_Gun5.ogg",
     "remote": "https://r2bucket.billybobgames.org/games/bloodmoney/audio/se/VA_Gun5.ogg"
   },
   {
-    "local": "games/bloodmoney/audio/se/VA_Hammer13.ogg",
-    "remote": "https://r2bucket.billybobgames.org/games/bloodmoney/audio/se/VA_Hammer13.ogg"
-  },
-  {
-    "local": "games/bloodmoney/audio/se/VA_Hammer11.ogg",
-    "remote": "https://r2bucket.billybobgames.org/games/bloodmoney/audio/se/VA_Hammer11.ogg"
-  },
-  {
-    "local": "games/bloodmoney/audio/se/VA_Hammer12.ogg",
-    "remote": "https://r2bucket.billybobgames.org/games/bloodmoney/audio/se/VA_Hammer12.ogg"
+    "local": "games/bloodmoney/audio/se/VA_Gun6.ogg",
+    "key": "games/bloodmoney/audio/se/VA_Gun6.ogg",
+    "remote": "https://r2bucket.billybobgames.org/games/bloodmoney/audio/se/VA_Gun6.ogg"
   },
   {
     "local": "games/bloodmoney/audio/se/VA_Hammer1.ogg",
+    "key": "games/bloodmoney/audio/se/VA_Hammer1.ogg",
     "remote": "https://r2bucket.billybobgames.org/games/bloodmoney/audio/se/VA_Hammer1.ogg"
   },
   {
-    "local": "games/bloodmoney/audio/se/VA_Hammer15.ogg",
-    "remote": "https://r2bucket.billybobgames.org/games/bloodmoney/audio/se/VA_Hammer15.ogg"
-  },
-  {
-    "local": "games/bloodmoney/audio/se/VA_Hammer2.ogg",
-    "remote": "https://r2bucket.billybobgames.org/games/bloodmoney/audio/se/VA_Hammer2.ogg"
-  },
-  {
-    "local": "games/bloodmoney/audio/se/VA_Hammer16.ogg",
-    "remote": "https://r2bucket.billybobgames.org/games/bloodmoney/audio/se/VA_Hammer16.ogg"
-  },
-  {
-    "local": "games/bloodmoney/audio/se/VA_Hammer4.ogg",
-    "remote": "https://r2bucket.billybobgames.org/games/bloodmoney/audio/se/VA_Hammer4.ogg"
-  },
-  {
-    "local": "games/bloodmoney/audio/se/VA_Hammer3.ogg",
-    "remote": "https://r2bucket.billybobgames.org/games/bloodmoney/audio/se/VA_Hammer3.ogg"
-  },
-  {
-    "local": "games/bloodmoney/audio/se/VA_Hammer14.ogg",
-    "remote": "https://r2bucket.billybobgames.org/games/bloodmoney/audio/se/VA_Hammer14.ogg"
-  },
-  {
-    "local": "games/bloodmoney/audio/se/VA_Hammer5.ogg",
-    "remote": "https://r2bucket.billybobgames.org/games/bloodmoney/audio/se/VA_Hammer5.ogg"
-  },
-  {
-    "local": "games/bloodmoney/audio/se/VA_Hammer7.ogg",
-    "remote": "https://r2bucket.billybobgames.org/games/bloodmoney/audio/se/VA_Hammer7.ogg"
-  },
-  {
-    "local": "games/bloodmoney/audio/se/VA_Hammer9.ogg",
-    "remote": "https://r2bucket.billybobgames.org/games/bloodmoney/audio/se/VA_Hammer9.ogg"
-  },
-  {
-    "local": "games/bloodmoney/audio/se/VA_Hammer6.ogg",
-    "remote": "https://r2bucket.billybobgames.org/games/bloodmoney/audio/se/VA_Hammer6.ogg"
-  },
-  {
-    "local": "games/bloodmoney/audio/se/VA_Knife1.ogg",
-    "remote": "https://r2bucket.billybobgames.org/games/bloodmoney/audio/se/VA_Knife1.ogg"
-  },
-  {
-    "local": "games/bloodmoney/audio/se/VA_Hammer8.ogg",
-    "remote": "https://r2bucket.billybobgames.org/games/bloodmoney/audio/se/VA_Hammer8.ogg"
-  },
-  {
     "local": "games/bloodmoney/audio/se/VA_Hammer10.ogg",
+    "key": "games/bloodmoney/audio/se/VA_Hammer10.ogg",
     "remote": "https://r2bucket.billybobgames.org/games/bloodmoney/audio/se/VA_Hammer10.ogg"
   },
   {
+    "local": "games/bloodmoney/audio/se/VA_Gun7.ogg",
+    "key": "games/bloodmoney/audio/se/VA_Gun7.ogg",
+    "remote": "https://r2bucket.billybobgames.org/games/bloodmoney/audio/se/VA_Gun7.ogg"
+  },
+  {
+    "local": "games/bloodmoney/audio/se/VA_Hammer13.ogg",
+    "key": "games/bloodmoney/audio/se/VA_Hammer13.ogg",
+    "remote": "https://r2bucket.billybobgames.org/games/bloodmoney/audio/se/VA_Hammer13.ogg"
+  },
+  {
+    "local": "games/bloodmoney/audio/se/VA_Hammer14.ogg",
+    "key": "games/bloodmoney/audio/se/VA_Hammer14.ogg",
+    "remote": "https://r2bucket.billybobgames.org/games/bloodmoney/audio/se/VA_Hammer14.ogg"
+  },
+  {
+    "local": "games/bloodmoney/audio/se/VA_Hammer2.ogg",
+    "key": "games/bloodmoney/audio/se/VA_Hammer2.ogg",
+    "remote": "https://r2bucket.billybobgames.org/games/bloodmoney/audio/se/VA_Hammer2.ogg"
+  },
+  {
+    "local": "games/bloodmoney/audio/se/VA_Hammer12.ogg",
+    "key": "games/bloodmoney/audio/se/VA_Hammer12.ogg",
+    "remote": "https://r2bucket.billybobgames.org/games/bloodmoney/audio/se/VA_Hammer12.ogg"
+  },
+  {
+    "local": "games/bloodmoney/audio/se/VA_Hammer11.ogg",
+    "key": "games/bloodmoney/audio/se/VA_Hammer11.ogg",
+    "remote": "https://r2bucket.billybobgames.org/games/bloodmoney/audio/se/VA_Hammer11.ogg"
+  },
+  {
+    "local": "games/bloodmoney/audio/se/VA_Hammer16.ogg",
+    "key": "games/bloodmoney/audio/se/VA_Hammer16.ogg",
+    "remote": "https://r2bucket.billybobgames.org/games/bloodmoney/audio/se/VA_Hammer16.ogg"
+  },
+  {
+    "local": "games/bloodmoney/audio/se/VA_Hammer3.ogg",
+    "key": "games/bloodmoney/audio/se/VA_Hammer3.ogg",
+    "remote": "https://r2bucket.billybobgames.org/games/bloodmoney/audio/se/VA_Hammer3.ogg"
+  },
+  {
+    "local": "games/bloodmoney/audio/se/VA_Hammer4.ogg",
+    "key": "games/bloodmoney/audio/se/VA_Hammer4.ogg",
+    "remote": "https://r2bucket.billybobgames.org/games/bloodmoney/audio/se/VA_Hammer4.ogg"
+  },
+  {
+    "local": "games/bloodmoney/audio/se/VA_Hammer6.ogg",
+    "key": "games/bloodmoney/audio/se/VA_Hammer6.ogg",
+    "remote": "https://r2bucket.billybobgames.org/games/bloodmoney/audio/se/VA_Hammer6.ogg"
+  },
+  {
+    "local": "games/bloodmoney/audio/se/VA_Hammer15.ogg",
+    "key": "games/bloodmoney/audio/se/VA_Hammer15.ogg",
+    "remote": "https://r2bucket.billybobgames.org/games/bloodmoney/audio/se/VA_Hammer15.ogg"
+  },
+  {
+    "local": "games/bloodmoney/audio/se/VA_Hammer8.ogg",
+    "key": "games/bloodmoney/audio/se/VA_Hammer8.ogg",
+    "remote": "https://r2bucket.billybobgames.org/games/bloodmoney/audio/se/VA_Hammer8.ogg"
+  },
+  {
+    "local": "games/bloodmoney/audio/se/VA_Hammer5.ogg",
+    "key": "games/bloodmoney/audio/se/VA_Hammer5.ogg",
+    "remote": "https://r2bucket.billybobgames.org/games/bloodmoney/audio/se/VA_Hammer5.ogg"
+  },
+  {
     "local": "games/bloodmoney/audio/se/VA_Knife11.ogg",
+    "key": "games/bloodmoney/audio/se/VA_Knife11.ogg",
     "remote": "https://r2bucket.billybobgames.org/games/bloodmoney/audio/se/VA_Knife11.ogg"
   },
   {
     "local": "games/bloodmoney/audio/se/VA_Knife10.ogg",
+    "key": "games/bloodmoney/audio/se/VA_Knife10.ogg",
     "remote": "https://r2bucket.billybobgames.org/games/bloodmoney/audio/se/VA_Knife10.ogg"
   },
   {
-    "local": "games/bloodmoney/audio/se/VA_Knife12.ogg",
-    "remote": "https://r2bucket.billybobgames.org/games/bloodmoney/audio/se/VA_Knife12.ogg"
-  },
-  {
     "local": "games/bloodmoney/audio/se/VA_Knife13.ogg",
+    "key": "games/bloodmoney/audio/se/VA_Knife13.ogg",
     "remote": "https://r2bucket.billybobgames.org/games/bloodmoney/audio/se/VA_Knife13.ogg"
   },
   {
-    "local": "games/bloodmoney/audio/se/VA_Knife15.ogg",
-    "remote": "https://r2bucket.billybobgames.org/games/bloodmoney/audio/se/VA_Knife15.ogg"
+    "local": "games/bloodmoney/audio/se/VA_Knife12.ogg",
+    "key": "games/bloodmoney/audio/se/VA_Knife12.ogg",
+    "remote": "https://r2bucket.billybobgames.org/games/bloodmoney/audio/se/VA_Knife12.ogg"
   },
   {
-    "local": "games/bloodmoney/audio/se/VA_Knife18.ogg",
-    "remote": "https://r2bucket.billybobgames.org/games/bloodmoney/audio/se/VA_Knife18.ogg"
+    "local": "games/bloodmoney/audio/se/VA_Hammer7.ogg",
+    "key": "games/bloodmoney/audio/se/VA_Hammer7.ogg",
+    "remote": "https://r2bucket.billybobgames.org/games/bloodmoney/audio/se/VA_Hammer7.ogg"
+  },
+  {
+    "local": "games/bloodmoney/audio/se/VA_Hammer9.ogg",
+    "key": "games/bloodmoney/audio/se/VA_Hammer9.ogg",
+    "remote": "https://r2bucket.billybobgames.org/games/bloodmoney/audio/se/VA_Hammer9.ogg"
   },
   {
     "local": "games/bloodmoney/audio/se/VA_Knife14.ogg",
+    "key": "games/bloodmoney/audio/se/VA_Knife14.ogg",
     "remote": "https://r2bucket.billybobgames.org/games/bloodmoney/audio/se/VA_Knife14.ogg"
   },
   {
-    "local": "games/bloodmoney/audio/se/VA_Knife19.ogg",
-    "remote": "https://r2bucket.billybobgames.org/games/bloodmoney/audio/se/VA_Knife19.ogg"
+    "local": "games/bloodmoney/audio/se/VA_Knife1.ogg",
+    "key": "games/bloodmoney/audio/se/VA_Knife1.ogg",
+    "remote": "https://r2bucket.billybobgames.org/games/bloodmoney/audio/se/VA_Knife1.ogg"
   },
   {
-    "local": "games/bloodmoney/audio/se/VA_Knife2.ogg",
-    "remote": "https://r2bucket.billybobgames.org/games/bloodmoney/audio/se/VA_Knife2.ogg"
-  },
-  {
-    "local": "games/bloodmoney/audio/se/VA_Knife17.ogg",
-    "remote": "https://r2bucket.billybobgames.org/games/bloodmoney/audio/se/VA_Knife17.ogg"
-  },
-  {
-    "local": "games/bloodmoney/audio/se/VA_Knife22.ogg",
-    "remote": "https://r2bucket.billybobgames.org/games/bloodmoney/audio/se/VA_Knife22.ogg"
-  },
-  {
-    "local": "games/bloodmoney/audio/se/VA_Knife20.ogg",
-    "remote": "https://r2bucket.billybobgames.org/games/bloodmoney/audio/se/VA_Knife20.ogg"
+    "local": "games/bloodmoney/audio/se/VA_Knife15.ogg",
+    "key": "games/bloodmoney/audio/se/VA_Knife15.ogg",
+    "remote": "https://r2bucket.billybobgames.org/games/bloodmoney/audio/se/VA_Knife15.ogg"
   },
   {
     "local": "games/bloodmoney/audio/se/VA_Knife16.ogg",
+    "key": "games/bloodmoney/audio/se/VA_Knife16.ogg",
     "remote": "https://r2bucket.billybobgames.org/games/bloodmoney/audio/se/VA_Knife16.ogg"
   },
   {
-    "local": "games/bloodmoney/audio/se/VA_Knife27.ogg",
-    "remote": "https://r2bucket.billybobgames.org/games/bloodmoney/audio/se/VA_Knife27.ogg"
+    "local": "games/bloodmoney/audio/se/VA_Knife2.ogg",
+    "key": "games/bloodmoney/audio/se/VA_Knife2.ogg",
+    "remote": "https://r2bucket.billybobgames.org/games/bloodmoney/audio/se/VA_Knife2.ogg"
+  },
+  {
+    "local": "games/bloodmoney/audio/se/VA_Knife20.ogg",
+    "key": "games/bloodmoney/audio/se/VA_Knife20.ogg",
+    "remote": "https://r2bucket.billybobgames.org/games/bloodmoney/audio/se/VA_Knife20.ogg"
+  },
+  {
+    "local": "games/bloodmoney/audio/se/VA_Knife21.ogg",
+    "key": "games/bloodmoney/audio/se/VA_Knife21.ogg",
+    "remote": "https://r2bucket.billybobgames.org/games/bloodmoney/audio/se/VA_Knife21.ogg"
+  },
+  {
+    "local": "games/bloodmoney/audio/se/VA_Knife19.ogg",
+    "key": "games/bloodmoney/audio/se/VA_Knife19.ogg",
+    "remote": "https://r2bucket.billybobgames.org/games/bloodmoney/audio/se/VA_Knife19.ogg"
+  },
+  {
+    "local": "games/bloodmoney/audio/se/VA_Knife23.ogg",
+    "key": "games/bloodmoney/audio/se/VA_Knife23.ogg",
+    "remote": "https://r2bucket.billybobgames.org/games/bloodmoney/audio/se/VA_Knife23.ogg"
+  },
+  {
+    "local": "games/bloodmoney/audio/se/VA_Knife17.ogg",
+    "key": "games/bloodmoney/audio/se/VA_Knife17.ogg",
+    "remote": "https://r2bucket.billybobgames.org/games/bloodmoney/audio/se/VA_Knife17.ogg"
+  },
+  {
+    "local": "games/bloodmoney/audio/se/VA_Knife18.ogg",
+    "key": "games/bloodmoney/audio/se/VA_Knife18.ogg",
+    "remote": "https://r2bucket.billybobgames.org/games/bloodmoney/audio/se/VA_Knife18.ogg"
+  },
+  {
+    "local": "games/bloodmoney/audio/se/VA_Knife22.ogg",
+    "key": "games/bloodmoney/audio/se/VA_Knife22.ogg",
+    "remote": "https://r2bucket.billybobgames.org/games/bloodmoney/audio/se/VA_Knife22.ogg"
   },
   {
     "local": "games/bloodmoney/audio/se/VA_Knife28.ogg",
+    "key": "games/bloodmoney/audio/se/VA_Knife28.ogg",
     "remote": "https://r2bucket.billybobgames.org/games/bloodmoney/audio/se/VA_Knife28.ogg"
   },
   {
     "local": "games/bloodmoney/audio/se/VA_Knife24.ogg",
+    "key": "games/bloodmoney/audio/se/VA_Knife24.ogg",
     "remote": "https://r2bucket.billybobgames.org/games/bloodmoney/audio/se/VA_Knife24.ogg"
   },
   {
-    "local": "games/bloodmoney/audio/se/VA_Knife25.ogg",
-    "remote": "https://r2bucket.billybobgames.org/games/bloodmoney/audio/se/VA_Knife25.ogg"
-  },
-  {
-    "local": "games/bloodmoney/audio/se/VA_Knife26.ogg",
-    "remote": "https://r2bucket.billybobgames.org/games/bloodmoney/audio/se/VA_Knife26.ogg"
-  },
-  {
-    "local": "games/bloodmoney/audio/se/VA_Knife21.ogg",
-    "remote": "https://r2bucket.billybobgames.org/games/bloodmoney/audio/se/VA_Knife21.ogg"
-  },
-  {
     "local": "games/bloodmoney/audio/se/VA_Knife3.ogg",
+    "key": "games/bloodmoney/audio/se/VA_Knife3.ogg",
     "remote": "https://r2bucket.billybobgames.org/games/bloodmoney/audio/se/VA_Knife3.ogg"
   },
   {
-    "local": "games/bloodmoney/audio/se/VA_Knife4.ogg",
-    "remote": "https://r2bucket.billybobgames.org/games/bloodmoney/audio/se/VA_Knife4.ogg"
+    "local": "games/bloodmoney/audio/se/VA_Knife25.ogg",
+    "key": "games/bloodmoney/audio/se/VA_Knife25.ogg",
+    "remote": "https://r2bucket.billybobgames.org/games/bloodmoney/audio/se/VA_Knife25.ogg"
   },
   {
-    "local": "games/bloodmoney/audio/se/VA_Knife6.ogg",
-    "remote": "https://r2bucket.billybobgames.org/games/bloodmoney/audio/se/VA_Knife6.ogg"
-  },
-  {
-    "local": "games/bloodmoney/audio/se/VA_Knife9.ogg",
-    "remote": "https://r2bucket.billybobgames.org/games/bloodmoney/audio/se/VA_Knife9.ogg"
-  },
-  {
-    "local": "games/bloodmoney/audio/se/VA_Knife23.ogg",
-    "remote": "https://r2bucket.billybobgames.org/games/bloodmoney/audio/se/VA_Knife23.ogg"
-  },
-  {
-    "local": "games/bloodmoney/audio/se/VA_Knife8.ogg",
-    "remote": "https://r2bucket.billybobgames.org/games/bloodmoney/audio/se/VA_Knife8.ogg"
+    "local": "games/bloodmoney/audio/se/VA_Knife27.ogg",
+    "key": "games/bloodmoney/audio/se/VA_Knife27.ogg",
+    "remote": "https://r2bucket.billybobgames.org/games/bloodmoney/audio/se/VA_Knife27.ogg"
   },
   {
     "local": "games/bloodmoney/audio/se/VA_Knife5.ogg",
+    "key": "games/bloodmoney/audio/se/VA_Knife5.ogg",
     "remote": "https://r2bucket.billybobgames.org/games/bloodmoney/audio/se/VA_Knife5.ogg"
   },
   {
+    "local": "games/bloodmoney/audio/se/VA_Knife26.ogg",
+    "key": "games/bloodmoney/audio/se/VA_Knife26.ogg",
+    "remote": "https://r2bucket.billybobgames.org/games/bloodmoney/audio/se/VA_Knife26.ogg"
+  },
+  {
+    "local": "games/bloodmoney/audio/se/VA_Knife6.ogg",
+    "key": "games/bloodmoney/audio/se/VA_Knife6.ogg",
+    "remote": "https://r2bucket.billybobgames.org/games/bloodmoney/audio/se/VA_Knife6.ogg"
+  },
+  {
     "local": "games/bloodmoney/audio/se/VA_Knife7.ogg",
+    "key": "games/bloodmoney/audio/se/VA_Knife7.ogg",
     "remote": "https://r2bucket.billybobgames.org/games/bloodmoney/audio/se/VA_Knife7.ogg"
   },
   {
+    "local": "games/bloodmoney/audio/se/VA_Knife8.ogg",
+    "key": "games/bloodmoney/audio/se/VA_Knife8.ogg",
+    "remote": "https://r2bucket.billybobgames.org/games/bloodmoney/audio/se/VA_Knife8.ogg"
+  },
+  {
+    "local": "games/bloodmoney/audio/se/VA_Match1.ogg",
+    "key": "games/bloodmoney/audio/se/VA_Match1.ogg",
+    "remote": "https://r2bucket.billybobgames.org/games/bloodmoney/audio/se/VA_Match1.ogg"
+  },
+  {
+    "local": "games/bloodmoney/audio/se/VA_Knife4.ogg",
+    "key": "games/bloodmoney/audio/se/VA_Knife4.ogg",
+    "remote": "https://r2bucket.billybobgames.org/games/bloodmoney/audio/se/VA_Knife4.ogg"
+  },
+  {
     "local": "games/bloodmoney/audio/se/VA_Match10.ogg",
+    "key": "games/bloodmoney/audio/se/VA_Match10.ogg",
     "remote": "https://r2bucket.billybobgames.org/games/bloodmoney/audio/se/VA_Match10.ogg"
   },
   {
-    "local": "games/bloodmoney/audio/se/VA_Match14.ogg",
-    "remote": "https://r2bucket.billybobgames.org/games/bloodmoney/audio/se/VA_Match14.ogg"
+    "local": "games/bloodmoney/audio/se/VA_Match12.ogg",
+    "key": "games/bloodmoney/audio/se/VA_Match12.ogg",
+    "remote": "https://r2bucket.billybobgames.org/games/bloodmoney/audio/se/VA_Match12.ogg"
+  },
+  {
+    "local": "games/bloodmoney/audio/se/VA_Knife9.ogg",
+    "key": "games/bloodmoney/audio/se/VA_Knife9.ogg",
+    "remote": "https://r2bucket.billybobgames.org/games/bloodmoney/audio/se/VA_Knife9.ogg"
   },
   {
     "local": "games/bloodmoney/audio/se/VA_Match13.ogg",
+    "key": "games/bloodmoney/audio/se/VA_Match13.ogg",
     "remote": "https://r2bucket.billybobgames.org/games/bloodmoney/audio/se/VA_Match13.ogg"
   },
   {
     "local": "games/bloodmoney/audio/se/VA_Match11.ogg",
+    "key": "games/bloodmoney/audio/se/VA_Match11.ogg",
     "remote": "https://r2bucket.billybobgames.org/games/bloodmoney/audio/se/VA_Match11.ogg"
   },
   {
     "local": "games/bloodmoney/audio/se/VA_Match2.ogg",
+    "key": "games/bloodmoney/audio/se/VA_Match2.ogg",
     "remote": "https://r2bucket.billybobgames.org/games/bloodmoney/audio/se/VA_Match2.ogg"
   },
   {
     "local": "games/bloodmoney/audio/se/VA_Match15.ogg",
+    "key": "games/bloodmoney/audio/se/VA_Match15.ogg",
     "remote": "https://r2bucket.billybobgames.org/games/bloodmoney/audio/se/VA_Match15.ogg"
   },
   {
-    "local": "games/bloodmoney/audio/se/VA_Match12.ogg",
-    "remote": "https://r2bucket.billybobgames.org/games/bloodmoney/audio/se/VA_Match12.ogg"
-  },
-  {
-    "local": "games/bloodmoney/audio/se/VA_Match16.ogg",
-    "remote": "https://r2bucket.billybobgames.org/games/bloodmoney/audio/se/VA_Match16.ogg"
-  },
-  {
-    "local": "games/bloodmoney/audio/se/VA_Match5.ogg",
-    "remote": "https://r2bucket.billybobgames.org/games/bloodmoney/audio/se/VA_Match5.ogg"
-  },
-  {
     "local": "games/bloodmoney/audio/se/VA_Match3.ogg",
+    "key": "games/bloodmoney/audio/se/VA_Match3.ogg",
     "remote": "https://r2bucket.billybobgames.org/games/bloodmoney/audio/se/VA_Match3.ogg"
   },
   {
+    "local": "games/bloodmoney/audio/se/VA_Match5.ogg",
+    "key": "games/bloodmoney/audio/se/VA_Match5.ogg",
+    "remote": "https://r2bucket.billybobgames.org/games/bloodmoney/audio/se/VA_Match5.ogg"
+  },
+  {
     "local": "games/bloodmoney/audio/se/VA_Match4.ogg",
+    "key": "games/bloodmoney/audio/se/VA_Match4.ogg",
     "remote": "https://r2bucket.billybobgames.org/games/bloodmoney/audio/se/VA_Match4.ogg"
   },
   {
-    "local": "games/bloodmoney/audio/se/VA_Match1.ogg",
-    "remote": "https://r2bucket.billybobgames.org/games/bloodmoney/audio/se/VA_Match1.ogg"
-  },
-  {
-    "local": "games/bloodmoney/audio/se/VA_Match7.ogg",
-    "remote": "https://r2bucket.billybobgames.org/games/bloodmoney/audio/se/VA_Match7.ogg"
-  },
-  {
     "local": "games/bloodmoney/audio/se/VA_Match6.ogg",
+    "key": "games/bloodmoney/audio/se/VA_Match6.ogg",
     "remote": "https://r2bucket.billybobgames.org/games/bloodmoney/audio/se/VA_Match6.ogg"
   },
   {
-    "local": "games/bloodmoney/audio/se/VA_Needle10.ogg",
-    "remote": "https://r2bucket.billybobgames.org/games/bloodmoney/audio/se/VA_Needle10.ogg"
-  },
-  {
-    "local": "games/bloodmoney/audio/se/VA_Match9.ogg",
-    "remote": "https://r2bucket.billybobgames.org/games/bloodmoney/audio/se/VA_Match9.ogg"
-  },
-  {
-    "local": "games/bloodmoney/audio/se/VA_Needle11.ogg",
-    "remote": "https://r2bucket.billybobgames.org/games/bloodmoney/audio/se/VA_Needle11.ogg"
-  },
-  {
-    "local": "games/bloodmoney/audio/se/VA_Needle1.ogg",
-    "remote": "https://r2bucket.billybobgames.org/games/bloodmoney/audio/se/VA_Needle1.ogg"
-  },
-  {
-    "local": "games/bloodmoney/audio/se/VA_Needle4.ogg",
-    "remote": "https://r2bucket.billybobgames.org/games/bloodmoney/audio/se/VA_Needle4.ogg"
-  },
-  {
     "local": "games/bloodmoney/audio/se/VA_Match8.ogg",
+    "key": "games/bloodmoney/audio/se/VA_Match8.ogg",
     "remote": "https://r2bucket.billybobgames.org/games/bloodmoney/audio/se/VA_Match8.ogg"
   },
   {
+    "local": "games/bloodmoney/audio/se/VA_Match16.ogg",
+    "key": "games/bloodmoney/audio/se/VA_Match16.ogg",
+    "remote": "https://r2bucket.billybobgames.org/games/bloodmoney/audio/se/VA_Match16.ogg"
+  },
+  {
+    "local": "games/bloodmoney/audio/se/VA_Match14.ogg",
+    "key": "games/bloodmoney/audio/se/VA_Match14.ogg",
+    "remote": "https://r2bucket.billybobgames.org/games/bloodmoney/audio/se/VA_Match14.ogg"
+  },
+  {
+    "local": "games/bloodmoney/audio/se/VA_Match9.ogg",
+    "key": "games/bloodmoney/audio/se/VA_Match9.ogg",
+    "remote": "https://r2bucket.billybobgames.org/games/bloodmoney/audio/se/VA_Match9.ogg"
+  },
+  {
+    "local": "games/bloodmoney/audio/se/VA_Match7.ogg",
+    "key": "games/bloodmoney/audio/se/VA_Match7.ogg",
+    "remote": "https://r2bucket.billybobgames.org/games/bloodmoney/audio/se/VA_Match7.ogg"
+  },
+  {
+    "local": "games/bloodmoney/audio/se/VA_Needle1.ogg",
+    "key": "games/bloodmoney/audio/se/VA_Needle1.ogg",
+    "remote": "https://r2bucket.billybobgames.org/games/bloodmoney/audio/se/VA_Needle1.ogg"
+  },
+  {
+    "local": "games/bloodmoney/audio/se/VA_Needle10.ogg",
+    "key": "games/bloodmoney/audio/se/VA_Needle10.ogg",
+    "remote": "https://r2bucket.billybobgames.org/games/bloodmoney/audio/se/VA_Needle10.ogg"
+  },
+  {
+    "local": "games/bloodmoney/audio/se/VA_Needle4.ogg",
+    "key": "games/bloodmoney/audio/se/VA_Needle4.ogg",
+    "remote": "https://r2bucket.billybobgames.org/games/bloodmoney/audio/se/VA_Needle4.ogg"
+  },
+  {
+    "local": "games/bloodmoney/audio/se/VA_Needle3.ogg",
+    "key": "games/bloodmoney/audio/se/VA_Needle3.ogg",
+    "remote": "https://r2bucket.billybobgames.org/games/bloodmoney/audio/se/VA_Needle3.ogg"
+  },
+  {
+    "local": "games/bloodmoney/audio/se/VA_Needle11.ogg",
+    "key": "games/bloodmoney/audio/se/VA_Needle11.ogg",
+    "remote": "https://r2bucket.billybobgames.org/games/bloodmoney/audio/se/VA_Needle11.ogg"
+  },
+  {
     "local": "games/bloodmoney/audio/se/VA_Needle12.ogg",
+    "key": "games/bloodmoney/audio/se/VA_Needle12.ogg",
     "remote": "https://r2bucket.billybobgames.org/games/bloodmoney/audio/se/VA_Needle12.ogg"
   },
   {
-    "local": "games/bloodmoney/audio/se/VA_Needle8.ogg",
-    "remote": "https://r2bucket.billybobgames.org/games/bloodmoney/audio/se/VA_Needle8.ogg"
+    "local": "games/bloodmoney/audio/se/VA_Needle6.ogg",
+    "key": "games/bloodmoney/audio/se/VA_Needle6.ogg",
+    "remote": "https://r2bucket.billybobgames.org/games/bloodmoney/audio/se/VA_Needle6.ogg"
   },
   {
     "local": "games/bloodmoney/audio/se/VA_Needle2.ogg",
+    "key": "games/bloodmoney/audio/se/VA_Needle2.ogg",
     "remote": "https://r2bucket.billybobgames.org/games/bloodmoney/audio/se/VA_Needle2.ogg"
   },
   {
     "local": "games/bloodmoney/audio/se/VA_Needle5.ogg",
+    "key": "games/bloodmoney/audio/se/VA_Needle5.ogg",
     "remote": "https://r2bucket.billybobgames.org/games/bloodmoney/audio/se/VA_Needle5.ogg"
   },
   {
-    "local": "games/bloodmoney/audio/se/VA_Needle6.ogg",
-    "remote": "https://r2bucket.billybobgames.org/games/bloodmoney/audio/se/VA_Needle6.ogg"
-  },
-  {
-    "local": "games/bloodmoney/audio/se/VA_Needle3.ogg",
-    "remote": "https://r2bucket.billybobgames.org/games/bloodmoney/audio/se/VA_Needle3.ogg"
-  },
-  {
-    "local": "games/bloodmoney/audio/se/VA_Needle7.ogg",
-    "remote": "https://r2bucket.billybobgames.org/games/bloodmoney/audio/se/VA_Needle7.ogg"
-  },
-  {
-    "local": "games/bloodmoney/audio/se/VA_Scissors1.ogg",
-    "remote": "https://r2bucket.billybobgames.org/games/bloodmoney/audio/se/VA_Scissors1.ogg"
-  },
-  {
-    "local": "games/bloodmoney/audio/se/VA_Scissors12.ogg",
-    "remote": "https://r2bucket.billybobgames.org/games/bloodmoney/audio/se/VA_Scissors12.ogg"
-  },
-  {
-    "local": "games/bloodmoney/audio/se/VA_Scissors10.ogg",
-    "remote": "https://r2bucket.billybobgames.org/games/bloodmoney/audio/se/VA_Scissors10.ogg"
-  },
-  {
-    "local": "games/bloodmoney/audio/se/VA_Scissors15.ogg",
-    "remote": "https://r2bucket.billybobgames.org/games/bloodmoney/audio/se/VA_Scissors15.ogg"
+    "local": "games/bloodmoney/audio/se/VA_Needle8.ogg",
+    "key": "games/bloodmoney/audio/se/VA_Needle8.ogg",
+    "remote": "https://r2bucket.billybobgames.org/games/bloodmoney/audio/se/VA_Needle8.ogg"
   },
   {
     "local": "games/bloodmoney/audio/se/VA_Needle9.ogg",
+    "key": "games/bloodmoney/audio/se/VA_Needle9.ogg",
     "remote": "https://r2bucket.billybobgames.org/games/bloodmoney/audio/se/VA_Needle9.ogg"
   },
   {
-    "local": "games/bloodmoney/audio/se/VA_Prompt.ogg",
-    "remote": "https://r2bucket.billybobgames.org/games/bloodmoney/audio/se/VA_Prompt.ogg"
+    "local": "games/bloodmoney/audio/se/VA_Needle7.ogg",
+    "key": "games/bloodmoney/audio/se/VA_Needle7.ogg",
+    "remote": "https://r2bucket.billybobgames.org/games/bloodmoney/audio/se/VA_Needle7.ogg"
+  },
+  {
+    "local": "games/bloodmoney/audio/se/VA_Scissors10.ogg",
+    "key": "games/bloodmoney/audio/se/VA_Scissors10.ogg",
+    "remote": "https://r2bucket.billybobgames.org/games/bloodmoney/audio/se/VA_Scissors10.ogg"
+  },
+  {
+    "local": "games/bloodmoney/audio/se/VA_Scissors12.ogg",
+    "key": "games/bloodmoney/audio/se/VA_Scissors12.ogg",
+    "remote": "https://r2bucket.billybobgames.org/games/bloodmoney/audio/se/VA_Scissors12.ogg"
+  },
+  {
+    "local": "games/bloodmoney/audio/se/VA_Scissors1.ogg",
+    "key": "games/bloodmoney/audio/se/VA_Scissors1.ogg",
+    "remote": "https://r2bucket.billybobgames.org/games/bloodmoney/audio/se/VA_Scissors1.ogg"
   },
   {
     "local": "games/bloodmoney/audio/se/VA_Scissors14.ogg",
+    "key": "games/bloodmoney/audio/se/VA_Scissors14.ogg",
     "remote": "https://r2bucket.billybobgames.org/games/bloodmoney/audio/se/VA_Scissors14.ogg"
   },
   {
-    "local": "games/bloodmoney/audio/se/VA_Scissors13.ogg",
-    "remote": "https://r2bucket.billybobgames.org/games/bloodmoney/audio/se/VA_Scissors13.ogg"
-  },
-  {
-    "local": "games/bloodmoney/audio/se/VA_Scissors5.ogg",
-    "remote": "https://r2bucket.billybobgames.org/games/bloodmoney/audio/se/VA_Scissors5.ogg"
+    "local": "games/bloodmoney/audio/se/VA_Prompt.ogg",
+    "key": "games/bloodmoney/audio/se/VA_Prompt.ogg",
+    "remote": "https://r2bucket.billybobgames.org/games/bloodmoney/audio/se/VA_Prompt.ogg"
   },
   {
     "local": "games/bloodmoney/audio/se/VA_Scissors11.ogg",
+    "key": "games/bloodmoney/audio/se/VA_Scissors11.ogg",
     "remote": "https://r2bucket.billybobgames.org/games/bloodmoney/audio/se/VA_Scissors11.ogg"
   },
   {
-    "local": "games/bloodmoney/audio/se/VA_Scissors3.ogg",
-    "remote": "https://r2bucket.billybobgames.org/games/bloodmoney/audio/se/VA_Scissors3.ogg"
+    "local": "games/bloodmoney/audio/se/VA_Scissors13.ogg",
+    "key": "games/bloodmoney/audio/se/VA_Scissors13.ogg",
+    "remote": "https://r2bucket.billybobgames.org/games/bloodmoney/audio/se/VA_Scissors13.ogg"
   },
   {
-    "local": "games/bloodmoney/audio/se/VA_Scissors6.ogg",
-    "remote": "https://r2bucket.billybobgames.org/games/bloodmoney/audio/se/VA_Scissors6.ogg"
-  },
-  {
-    "local": "games/bloodmoney/audio/se/VA_Scissors2.ogg",
-    "remote": "https://r2bucket.billybobgames.org/games/bloodmoney/audio/se/VA_Scissors2.ogg"
-  },
-  {
-    "local": "games/bloodmoney/audio/se/VA_ShopIntro1.ogg",
-    "remote": "https://r2bucket.billybobgames.org/games/bloodmoney/audio/se/VA_ShopIntro1.ogg"
+    "local": "games/bloodmoney/audio/se/VA_Scissors15.ogg",
+    "key": "games/bloodmoney/audio/se/VA_Scissors15.ogg",
+    "remote": "https://r2bucket.billybobgames.org/games/bloodmoney/audio/se/VA_Scissors15.ogg"
   },
   {
     "local": "games/bloodmoney/audio/se/VA_Scissors8.ogg",
+    "key": "games/bloodmoney/audio/se/VA_Scissors8.ogg",
     "remote": "https://r2bucket.billybobgames.org/games/bloodmoney/audio/se/VA_Scissors8.ogg"
   },
   {
     "local": "games/bloodmoney/audio/se/VA_Scissors7.ogg",
+    "key": "games/bloodmoney/audio/se/VA_Scissors7.ogg",
     "remote": "https://r2bucket.billybobgames.org/games/bloodmoney/audio/se/VA_Scissors7.ogg"
   },
   {
-    "local": "games/bloodmoney/audio/se/VA_Start1.ogg",
-    "remote": "https://r2bucket.billybobgames.org/games/bloodmoney/audio/se/VA_Start1.ogg"
+    "local": "games/bloodmoney/audio/se/VA_Scissors3.ogg",
+    "key": "games/bloodmoney/audio/se/VA_Scissors3.ogg",
+    "remote": "https://r2bucket.billybobgames.org/games/bloodmoney/audio/se/VA_Scissors3.ogg"
   },
   {
-    "local": "games/bloodmoney/audio/se/VA_Start3.ogg",
-    "remote": "https://r2bucket.billybobgames.org/games/bloodmoney/audio/se/VA_Start3.ogg"
+    "local": "games/bloodmoney/audio/se/VA_Scissors2.ogg",
+    "key": "games/bloodmoney/audio/se/VA_Scissors2.ogg",
+    "remote": "https://r2bucket.billybobgames.org/games/bloodmoney/audio/se/VA_Scissors2.ogg"
+  },
+  {
+    "local": "games/bloodmoney/audio/se/VA_Scissors6.ogg",
+    "key": "games/bloodmoney/audio/se/VA_Scissors6.ogg",
+    "remote": "https://r2bucket.billybobgames.org/games/bloodmoney/audio/se/VA_Scissors6.ogg"
+  },
+  {
+    "local": "games/bloodmoney/audio/se/VA_Scissors5.ogg",
+    "key": "games/bloodmoney/audio/se/VA_Scissors5.ogg",
+    "remote": "https://r2bucket.billybobgames.org/games/bloodmoney/audio/se/VA_Scissors5.ogg"
   },
   {
     "local": "games/bloodmoney/audio/se/VA_Scissors9.ogg",
+    "key": "games/bloodmoney/audio/se/VA_Scissors9.ogg",
     "remote": "https://r2bucket.billybobgames.org/games/bloodmoney/audio/se/VA_Scissors9.ogg"
   },
   {
-    "local": "games/bloodmoney/audio/se/VA_Start2.ogg",
-    "remote": "https://r2bucket.billybobgames.org/games/bloodmoney/audio/se/VA_Start2.ogg"
-  },
-  {
-    "local": "games/bloodmoney/audio/se/VA_Scissors4.ogg",
-    "remote": "https://r2bucket.billybobgames.org/games/bloodmoney/audio/se/VA_Scissors4.ogg"
-  },
-  {
-    "local": "games/bloodmoney/audio/se/VA_SuperDebug.ogg",
-    "remote": "https://r2bucket.billybobgames.org/games/bloodmoney/audio/se/VA_SuperDebug.ogg"
-  },
-  {
-    "local": "games/bloodmoney/audio/se/VA_SuperDebug3.ogg",
-    "remote": "https://r2bucket.billybobgames.org/games/bloodmoney/audio/se/VA_SuperDebug3.ogg"
-  },
-  {
     "local": "games/bloodmoney/audio/se/VA_ShopIntro2.ogg",
+    "key": "games/bloodmoney/audio/se/VA_ShopIntro2.ogg",
     "remote": "https://r2bucket.billybobgames.org/games/bloodmoney/audio/se/VA_ShopIntro2.ogg"
   },
   {
-    "local": "games/fishjoy/sound/inverted gold coins.wav",
-    "remote": "https://r2bucket.billybobgames.org/games/fishjoy/sound/inverted gold coins.wav"
-  },
-  {
-    "local": "games/fishjoy/sound/BGM.mp3",
-    "remote": "https://r2bucket.billybobgames.org/games/fishjoy/sound/BGM.mp3"
-  },
-  {
-    "local": "games/fruit-ninja/sound/boom.ogg",
-    "remote": "https://r2bucket.billybobgames.org/games/fruit-ninja/sound/boom.ogg"
+    "local": "games/bloodmoney/audio/se/VA_Start1.ogg",
+    "key": "games/bloodmoney/audio/se/VA_Start1.ogg",
+    "remote": "https://r2bucket.billybobgames.org/games/bloodmoney/audio/se/VA_Start1.ogg"
   },
   {
     "local": "games/bloodmoney/audio/se/VA_SuperDebug2.ogg",
+    "key": "games/bloodmoney/audio/se/VA_SuperDebug2.ogg",
     "remote": "https://r2bucket.billybobgames.org/games/bloodmoney/audio/se/VA_SuperDebug2.ogg"
   },
   {
+    "local": "games/bloodmoney/audio/se/VA_SuperDebug.ogg",
+    "key": "games/bloodmoney/audio/se/VA_SuperDebug.ogg",
+    "remote": "https://r2bucket.billybobgames.org/games/bloodmoney/audio/se/VA_SuperDebug.ogg"
+  },
+  {
+    "local": "games/bloodmoney/audio/se/VA_Start3.ogg",
+    "key": "games/bloodmoney/audio/se/VA_Start3.ogg",
+    "remote": "https://r2bucket.billybobgames.org/games/bloodmoney/audio/se/VA_Start3.ogg"
+  },
+  {
+    "local": "games/bloodmoney/audio/se/VA_Start2.ogg",
+    "key": "games/bloodmoney/audio/se/VA_Start2.ogg",
+    "remote": "https://r2bucket.billybobgames.org/games/bloodmoney/audio/se/VA_Start2.ogg"
+  },
+  {
+    "local": "games/bloodmoney/audio/se/VA_ShopIntro1.ogg",
+    "key": "games/bloodmoney/audio/se/VA_ShopIntro1.ogg",
+    "remote": "https://r2bucket.billybobgames.org/games/bloodmoney/audio/se/VA_ShopIntro1.ogg"
+  },
+  {
+    "local": "games/bloodmoney/img/characters/$Me.png",
+    "key": "games/bloodmoney/img/characters/$Me.png",
+    "remote": "https://r2bucket.billybobgames.org/games/bloodmoney/img/characters/$Me.png"
+  },
+  {
+    "local": "games/bloodmoney/icon/icon.png",
+    "key": "games/bloodmoney/icon/icon.png",
+    "remote": "https://r2bucket.billybobgames.org/games/bloodmoney/icon/icon.png"
+  },
+  {
+    "local": "games/bloodmoney/audio/se/VA_Scissors4.ogg",
+    "key": "games/bloodmoney/audio/se/VA_Scissors4.ogg",
+    "remote": "https://r2bucket.billybobgames.org/games/bloodmoney/audio/se/VA_Scissors4.ogg"
+  },
+  {
+    "local": "games/bloodmoney/audio/se/VA_SuperDebug3.ogg",
+    "key": "games/bloodmoney/audio/se/VA_SuperDebug3.ogg",
+    "remote": "https://r2bucket.billybobgames.org/games/bloodmoney/audio/se/VA_SuperDebug3.ogg"
+  },
+  {
+    "local": "games/bloodmoney/img/menuBackgrounds/Sky.png",
+    "key": "games/bloodmoney/img/menuBackgrounds/Sky.png",
+    "remote": "https://r2bucket.billybobgames.org/games/bloodmoney/img/menuBackgrounds/Sky.png"
+  },
+  {
+    "local": "games/bloodmoney/img/pictures/Black.png",
+    "key": "games/bloodmoney/img/pictures/Black.png",
+    "remote": "https://r2bucket.billybobgames.org/games/bloodmoney/img/pictures/Black.png"
+  },
+  {
+    "local": "games/bloodmoney/img/parallaxes/Stall.png",
+    "key": "games/bloodmoney/img/parallaxes/Stall.png",
+    "remote": "https://r2bucket.billybobgames.org/games/bloodmoney/img/parallaxes/Stall.png"
+  },
+  {
+    "local": "games/bloodmoney/img/parallaxes/StallDark.png",
+    "key": "games/bloodmoney/img/parallaxes/StallDark.png",
+    "remote": "https://r2bucket.billybobgames.org/games/bloodmoney/img/parallaxes/StallDark.png"
+  },
+  {
+    "local": "games/bloodmoney/img/pictures/Feather.png",
+    "key": "games/bloodmoney/img/pictures/Feather.png",
+    "remote": "https://r2bucket.billybobgames.org/games/bloodmoney/img/pictures/Feather.png"
+  },
+  {
+    "local": "games/bloodmoney/img/pictures/Feather NotBought.png",
+    "key": "games/bloodmoney/img/pictures/Feather NotBought.png",
+    "remote": "https://r2bucket.billybobgames.org/games/bloodmoney/img/pictures/Feather NotBought.png"
+  },
+  {
+    "local": "games/bloodmoney/img/pictures/Bad Ending.png",
+    "key": "games/bloodmoney/img/pictures/Bad Ending.png",
+    "remote": "https://r2bucket.billybobgames.org/games/bloodmoney/img/pictures/Bad Ending.png"
+  },
+  {
+    "local": "games/bloodmoney/img/pictures/Gun.png",
+    "key": "games/bloodmoney/img/pictures/Gun.png",
+    "remote": "https://r2bucket.billybobgames.org/games/bloodmoney/img/pictures/Gun.png"
+  },
+  {
+    "local": "games/bloodmoney/img/pictures/CreditsJumpscare.png",
+    "key": "games/bloodmoney/img/pictures/CreditsJumpscare.png",
+    "remote": "https://r2bucket.billybobgames.org/games/bloodmoney/img/pictures/CreditsJumpscare.png"
+  },
+  {
+    "local": "games/bloodmoney/img/pictures/Gun NotBought.png",
+    "key": "games/bloodmoney/img/pictures/Gun NotBought.png",
+    "remote": "https://r2bucket.billybobgames.org/games/bloodmoney/img/pictures/Gun NotBought.png"
+  },
+  {
+    "local": "games/bloodmoney/img/pictures/Hammer NotBought.png",
+    "key": "games/bloodmoney/img/pictures/Hammer NotBought.png",
+    "remote": "https://r2bucket.billybobgames.org/games/bloodmoney/img/pictures/Hammer NotBought.png"
+  },
+  {
+    "local": "games/bloodmoney/img/pictures/Hammer.png",
+    "key": "games/bloodmoney/img/pictures/Hammer.png",
+    "remote": "https://r2bucket.billybobgames.org/games/bloodmoney/img/pictures/Hammer.png"
+  },
+  {
+    "local": "games/bloodmoney/img/pictures/Harvey_Burnt_Worry.png",
+    "key": "games/bloodmoney/img/pictures/Harvey_Burnt_Worry.png",
+    "remote": "https://r2bucket.billybobgames.org/games/bloodmoney/img/pictures/Harvey_Burnt_Worry.png"
+  },
+  {
+    "local": "games/bloodmoney/img/pictures/Harvey_Burnt_Crying2.png",
+    "key": "games/bloodmoney/img/pictures/Harvey_Burnt_Crying2.png",
+    "remote": "https://r2bucket.billybobgames.org/games/bloodmoney/img/pictures/Harvey_Burnt_Crying2.png"
+  },
+  {
+    "local": "games/bloodmoney/img/pictures/Harvey_Burnt_Crying3.png",
+    "key": "games/bloodmoney/img/pictures/Harvey_Burnt_Crying3.png",
+    "remote": "https://r2bucket.billybobgames.org/games/bloodmoney/img/pictures/Harvey_Burnt_Crying3.png"
+  },
+  {
+    "local": "games/bloodmoney/img/pictures/Harvey_Burnt_Crying1.png",
+    "key": "games/bloodmoney/img/pictures/Harvey_Burnt_Crying1.png",
+    "remote": "https://r2bucket.billybobgames.org/games/bloodmoney/img/pictures/Harvey_Burnt_Crying1.png"
+  },
+  {
+    "local": "games/bloodmoney/img/pictures/Harvey_ChoppedEye.png",
+    "key": "games/bloodmoney/img/pictures/Harvey_ChoppedEye.png",
+    "remote": "https://r2bucket.billybobgames.org/games/bloodmoney/img/pictures/Harvey_ChoppedEye.png"
+  },
+  {
+    "local": "games/bloodmoney/img/pictures/Harvey_Burnt_Shock.png",
+    "key": "games/bloodmoney/img/pictures/Harvey_Burnt_Shock.png",
+    "remote": "https://r2bucket.billybobgames.org/games/bloodmoney/img/pictures/Harvey_Burnt_Shock.png"
+  },
+  {
+    "local": "games/bloodmoney/img/pictures/Harvey_FuckedUp_Angry.png",
+    "key": "games/bloodmoney/img/pictures/Harvey_FuckedUp_Angry.png",
+    "remote": "https://r2bucket.billybobgames.org/games/bloodmoney/img/pictures/Harvey_FuckedUp_Angry.png"
+  },
+  {
+    "local": "games/bloodmoney/img/pictures/Harvey_FuckedUp_Crying.png",
+    "key": "games/bloodmoney/img/pictures/Harvey_FuckedUp_Crying.png",
+    "remote": "https://r2bucket.billybobgames.org/games/bloodmoney/img/pictures/Harvey_FuckedUp_Crying.png"
+  },
+  {
+    "local": "games/bloodmoney/img/pictures/Harvey_FuckedUp_FakeSmile.png",
+    "key": "games/bloodmoney/img/pictures/Harvey_FuckedUp_FakeSmile.png",
+    "remote": "https://r2bucket.billybobgames.org/games/bloodmoney/img/pictures/Harvey_FuckedUp_FakeSmile.png"
+  },
+  {
+    "local": "games/bloodmoney/img/pictures/Harvey_ChoppedEye2.png",
+    "key": "games/bloodmoney/img/pictures/Harvey_ChoppedEye2.png",
+    "remote": "https://r2bucket.billybobgames.org/games/bloodmoney/img/pictures/Harvey_ChoppedEye2.png"
+  },
+  {
+    "local": "games/bloodmoney/img/pictures/Harvey_FuckedUp_Shock.png",
+    "key": "games/bloodmoney/img/pictures/Harvey_FuckedUp_Shock.png",
+    "remote": "https://r2bucket.billybobgames.org/games/bloodmoney/img/pictures/Harvey_FuckedUp_Shock.png"
+  },
+  {
+    "local": "games/bloodmoney/img/pictures/Harvey_FuckedUp_Seething.png",
+    "key": "games/bloodmoney/img/pictures/Harvey_FuckedUp_Seething.png",
+    "remote": "https://r2bucket.billybobgames.org/games/bloodmoney/img/pictures/Harvey_FuckedUp_Seething.png"
+  },
+  {
+    "local": "games/bloodmoney/img/pictures/Harvey_Happy_Injured.png",
+    "key": "games/bloodmoney/img/pictures/Harvey_Happy_Injured.png",
+    "remote": "https://r2bucket.billybobgames.org/games/bloodmoney/img/pictures/Harvey_Happy_Injured.png"
+  },
+  {
+    "local": "games/bloodmoney/img/pictures/Harvey_HoldingEye_AngryScared.png",
+    "key": "games/bloodmoney/img/pictures/Harvey_HoldingEye_AngryScared.png",
+    "remote": "https://r2bucket.billybobgames.org/games/bloodmoney/img/pictures/Harvey_HoldingEye_AngryScared.png"
+  },
+  {
+    "local": "games/bloodmoney/img/pictures/Harvey_FuckedUp_Smug.png",
+    "key": "games/bloodmoney/img/pictures/Harvey_FuckedUp_Smug.png",
+    "remote": "https://r2bucket.billybobgames.org/games/bloodmoney/img/pictures/Harvey_FuckedUp_Smug.png"
+  },
+  {
+    "local": "games/bloodmoney/img/pictures/Harvey_FuckedUp_Shouting.png",
+    "key": "games/bloodmoney/img/pictures/Harvey_FuckedUp_Shouting.png",
+    "remote": "https://r2bucket.billybobgames.org/games/bloodmoney/img/pictures/Harvey_FuckedUp_Shouting.png"
+  },
+  {
+    "local": "games/bloodmoney/img/pictures/Harvey_HoldingEye_Scared.png",
+    "key": "games/bloodmoney/img/pictures/Harvey_HoldingEye_Scared.png",
+    "remote": "https://r2bucket.billybobgames.org/games/bloodmoney/img/pictures/Harvey_HoldingEye_Scared.png"
+  },
+  {
+    "local": "games/bloodmoney/img/pictures/Harvey_HoldingEye_Shock.png",
+    "key": "games/bloodmoney/img/pictures/Harvey_HoldingEye_Shock.png",
+    "remote": "https://r2bucket.billybobgames.org/games/bloodmoney/img/pictures/Harvey_HoldingEye_Shock.png"
+  },
+  {
+    "local": "games/bloodmoney/img/pictures/Harvey_ChoppedEye3.png",
+    "key": "games/bloodmoney/img/pictures/Harvey_ChoppedEye3.png",
+    "remote": "https://r2bucket.billybobgames.org/games/bloodmoney/img/pictures/Harvey_ChoppedEye3.png"
+  },
+  {
+    "local": "games/bloodmoney/img/pictures/Harvey_HoldingEye_Angry.png",
+    "key": "games/bloodmoney/img/pictures/Harvey_HoldingEye_Angry.png",
+    "remote": "https://r2bucket.billybobgames.org/games/bloodmoney/img/pictures/Harvey_HoldingEye_Angry.png"
+  },
+  {
+    "local": "games/bloodmoney/img/pictures/Harvey_HoldingEye_Crying.png",
+    "key": "games/bloodmoney/img/pictures/Harvey_HoldingEye_Crying.png",
+    "remote": "https://r2bucket.billybobgames.org/games/bloodmoney/img/pictures/Harvey_HoldingEye_Crying.png"
+  },
+  {
+    "local": "games/bloodmoney/img/pictures/Harvey_KnifeGrab.png",
+    "key": "games/bloodmoney/img/pictures/Harvey_KnifeGrab.png",
+    "remote": "https://r2bucket.billybobgames.org/games/bloodmoney/img/pictures/Harvey_KnifeGrab.png"
+  },
+  {
+    "local": "games/bloodmoney/img/pictures/Harvey_Pain_Shock.png",
+    "key": "games/bloodmoney/img/pictures/Harvey_Pain_Shock.png",
+    "remote": "https://r2bucket.billybobgames.org/games/bloodmoney/img/pictures/Harvey_Pain_Shock.png"
+  },
+  {
+    "local": "games/bloodmoney/img/pictures/Harvey_Rage_Realization.png",
+    "key": "games/bloodmoney/img/pictures/Harvey_Rage_Realization.png",
+    "remote": "https://r2bucket.billybobgames.org/games/bloodmoney/img/pictures/Harvey_Rage_Realization.png"
+  },
+  {
+    "local": "games/bloodmoney/img/pictures/Harvey_KnifeGrab_2.png",
+    "key": "games/bloodmoney/img/pictures/Harvey_KnifeGrab_2.png",
+    "remote": "https://r2bucket.billybobgames.org/games/bloodmoney/img/pictures/Harvey_KnifeGrab_2.png"
+  },
+  {
+    "local": "games/bloodmoney/img/pictures/Harvey_Rage_Crying.png",
+    "key": "games/bloodmoney/img/pictures/Harvey_Rage_Crying.png",
+    "remote": "https://r2bucket.billybobgames.org/games/bloodmoney/img/pictures/Harvey_Rage_Crying.png"
+  },
+  {
+    "local": "games/bloodmoney/img/pictures/Harvey_Rage_Horror.png",
+    "key": "games/bloodmoney/img/pictures/Harvey_Rage_Horror.png",
+    "remote": "https://r2bucket.billybobgames.org/games/bloodmoney/img/pictures/Harvey_Rage_Horror.png"
+  },
+  {
+    "local": "games/bloodmoney/img/pictures/Harvey_Rage_TerrorCrying.png",
+    "key": "games/bloodmoney/img/pictures/Harvey_Rage_TerrorCrying.png",
+    "remote": "https://r2bucket.billybobgames.org/games/bloodmoney/img/pictures/Harvey_Rage_TerrorCrying.png"
+  },
+  {
+    "local": "games/bloodmoney/img/pictures/Harvey_KnifeGrab_3.png",
+    "key": "games/bloodmoney/img/pictures/Harvey_KnifeGrab_3.png",
+    "remote": "https://r2bucket.billybobgames.org/games/bloodmoney/img/pictures/Harvey_KnifeGrab_3.png"
+  },
+  {
+    "local": "games/bloodmoney/img/pictures/Intro2.png",
+    "key": "games/bloodmoney/img/pictures/Intro2.png",
+    "remote": "https://r2bucket.billybobgames.org/games/bloodmoney/img/pictures/Intro2.png"
+  },
+  {
+    "local": "games/bloodmoney/img/pictures/Knife.png",
+    "key": "games/bloodmoney/img/pictures/Knife.png",
+    "remote": "https://r2bucket.billybobgames.org/games/bloodmoney/img/pictures/Knife.png"
+  },
+  {
+    "local": "games/bloodmoney/img/pictures/Intro1.png",
+    "key": "games/bloodmoney/img/pictures/Intro1.png",
+    "remote": "https://r2bucket.billybobgames.org/games/bloodmoney/img/pictures/Intro1.png"
+  },
+  {
+    "local": "games/bloodmoney/img/pictures/Needle.png",
+    "key": "games/bloodmoney/img/pictures/Needle.png",
+    "remote": "https://r2bucket.billybobgames.org/games/bloodmoney/img/pictures/Needle.png"
+  },
+  {
+    "local": "games/bloodmoney/img/pictures/Knife NotBought.png",
+    "key": "games/bloodmoney/img/pictures/Knife NotBought.png",
+    "remote": "https://r2bucket.billybobgames.org/games/bloodmoney/img/pictures/Knife NotBought.png"
+  },
+  {
+    "local": "games/bloodmoney/img/pictures/Needle NotBought.png",
+    "key": "games/bloodmoney/img/pictures/Needle NotBought.png",
+    "remote": "https://r2bucket.billybobgames.org/games/bloodmoney/img/pictures/Needle NotBought.png"
+  },
+  {
+    "local": "games/bloodmoney/img/pictures/Match.png",
+    "key": "games/bloodmoney/img/pictures/Match.png",
+    "remote": "https://r2bucket.billybobgames.org/games/bloodmoney/img/pictures/Match.png"
+  },
+  {
+    "local": "games/bloodmoney/img/pictures/NeutralEnding_Intro.png",
+    "key": "games/bloodmoney/img/pictures/NeutralEnding_Intro.png",
+    "remote": "https://r2bucket.billybobgames.org/games/bloodmoney/img/pictures/NeutralEnding_Intro.png"
+  },
+  {
+    "local": "games/bloodmoney/img/pictures/Match NotBought.png",
+    "key": "games/bloodmoney/img/pictures/Match NotBought.png",
+    "remote": "https://r2bucket.billybobgames.org/games/bloodmoney/img/pictures/Match NotBought.png"
+  },
+  {
+    "local": "games/bloodmoney/img/pictures/NeutralEnding_HarveySMK.png",
+    "key": "games/bloodmoney/img/pictures/NeutralEnding_HarveySMK.png",
+    "remote": "https://r2bucket.billybobgames.org/games/bloodmoney/img/pictures/NeutralEnding_HarveySMK.png"
+  },
+  {
+    "local": "games/bloodmoney/img/pictures/NeutralEnding_HarveyS.png",
+    "key": "games/bloodmoney/img/pictures/NeutralEnding_HarveyS.png",
+    "remote": "https://r2bucket.billybobgames.org/games/bloodmoney/img/pictures/NeutralEnding_HarveyS.png"
+  },
+  {
+    "local": "games/bloodmoney/img/pictures/NeutralEnding_HarveySM.png",
+    "key": "games/bloodmoney/img/pictures/NeutralEnding_HarveySM.png",
+    "remote": "https://r2bucket.billybobgames.org/games/bloodmoney/img/pictures/NeutralEnding_HarveySM.png"
+  },
+  {
+    "local": "games/bloodmoney/img/pictures/Shop Layout.png",
+    "key": "games/bloodmoney/img/pictures/Shop Layout.png",
+    "remote": "https://r2bucket.billybobgames.org/games/bloodmoney/img/pictures/Shop Layout.png"
+  },
+  {
+    "local": "games/bloodmoney/img/pictures/Scissors.png",
+    "key": "games/bloodmoney/img/pictures/Scissors.png",
+    "remote": "https://r2bucket.billybobgames.org/games/bloodmoney/img/pictures/Scissors.png"
+  },
+  {
+    "local": "games/bloodmoney/img/pictures/Harvey_KnifeGrab_2[4x2].png",
+    "key": "games/bloodmoney/img/pictures/Harvey_KnifeGrab_2[4x2].png",
+    "remote": "https://r2bucket.billybobgames.org/games/bloodmoney/img/pictures/Harvey_KnifeGrab_2[4x2].png"
+  },
+  {
+    "local": "games/bloodmoney/img/pictures/Shop.png",
+    "key": "games/bloodmoney/img/pictures/Shop.png",
+    "remote": "https://r2bucket.billybobgames.org/games/bloodmoney/img/pictures/Shop.png"
+  },
+  {
+    "local": "games/bloodmoney/img/pictures/Shop Notification.png",
+    "key": "games/bloodmoney/img/pictures/Shop Notification.png",
+    "remote": "https://r2bucket.billybobgames.org/games/bloodmoney/img/pictures/Shop Notification.png"
+  },
+  {
+    "local": "games/bloodmoney/img/pictures/Scissors NotBought.png",
+    "key": "games/bloodmoney/img/pictures/Scissors NotBought.png",
+    "remote": "https://r2bucket.billybobgames.org/games/bloodmoney/img/pictures/Scissors NotBought.png"
+  },
+  {
+    "local": "games/bloodmoney/img/pictures/Shop Close.png",
+    "key": "games/bloodmoney/img/pictures/Shop Close.png",
+    "remote": "https://r2bucket.billybobgames.org/games/bloodmoney/img/pictures/Shop Close.png"
+  },
+  {
+    "local": "games/bloodmoney/img/pictures/Stall Layer.png",
+    "key": "games/bloodmoney/img/pictures/Stall Layer.png",
+    "remote": "https://r2bucket.billybobgames.org/games/bloodmoney/img/pictures/Stall Layer.png"
+  },
+  {
+    "local": "games/bloodmoney/img/pictures/RESIST.png",
+    "key": "games/bloodmoney/img/pictures/RESIST.png",
+    "remote": "https://r2bucket.billybobgames.org/games/bloodmoney/img/pictures/RESIST.png"
+  },
+  {
+    "local": "games/bloodmoney/img/pictures/Tyler_Normal_Happy.png",
+    "key": "games/bloodmoney/img/pictures/Tyler_Normal_Happy.png",
+    "remote": "https://r2bucket.billybobgames.org/games/bloodmoney/img/pictures/Tyler_Normal_Happy.png"
+  },
+  {
+    "local": "games/bloodmoney/img/pictures/Tyler_Normal_Neutral.png",
+    "key": "games/bloodmoney/img/pictures/Tyler_Normal_Neutral.png",
+    "remote": "https://r2bucket.billybobgames.org/games/bloodmoney/img/pictures/Tyler_Normal_Neutral.png"
+  },
+  {
+    "local": "games/bloodmoney/img/pictures/Tyler_Normal_PainHammer.png",
+    "key": "games/bloodmoney/img/pictures/Tyler_Normal_PainHammer.png",
+    "remote": "https://r2bucket.billybobgames.org/games/bloodmoney/img/pictures/Tyler_Normal_PainHammer.png"
+  },
+  {
+    "local": "games/bloodmoney/img/pictures/Tyler_Normal_ConfusedUnharmed.png",
+    "key": "games/bloodmoney/img/pictures/Tyler_Normal_ConfusedUnharmed.png",
+    "remote": "https://r2bucket.billybobgames.org/games/bloodmoney/img/pictures/Tyler_Normal_ConfusedUnharmed.png"
+  },
+  {
+    "local": "games/bloodmoney/img/pictures/Tyler_Straight_Neutral.png",
+    "key": "games/bloodmoney/img/pictures/Tyler_Straight_Neutral.png",
+    "remote": "https://r2bucket.billybobgames.org/games/bloodmoney/img/pictures/Tyler_Straight_Neutral.png"
+  },
+  {
+    "local": "games/bloodmoney/img/pictures/Tyler_Normal_WorryHammer.png",
+    "key": "games/bloodmoney/img/pictures/Tyler_Normal_WorryHammer.png",
+    "remote": "https://r2bucket.billybobgames.org/games/bloodmoney/img/pictures/Tyler_Normal_WorryHammer.png"
+  },
+  {
+    "local": "games/bloodmoney/img/pictures/Tyler_Normal_Confused.png",
+    "key": "games/bloodmoney/img/pictures/Tyler_Normal_Confused.png",
+    "remote": "https://r2bucket.billybobgames.org/games/bloodmoney/img/pictures/Tyler_Normal_Confused.png"
+  },
+  {
+    "local": "games/bloodmoney/img/pictures/Tyler_Normal_Worry.png",
+    "key": "games/bloodmoney/img/pictures/Tyler_Normal_Worry.png",
+    "remote": "https://r2bucket.billybobgames.org/games/bloodmoney/img/pictures/Tyler_Normal_Worry.png"
+  },
+  {
+    "local": "games/bloodmoney/img/pictures/Tyler_Straight_Scared.png",
+    "key": "games/bloodmoney/img/pictures/Tyler_Straight_Scared.png",
+    "remote": "https://r2bucket.billybobgames.org/games/bloodmoney/img/pictures/Tyler_Straight_Scared.png"
+  },
+  {
+    "local": "games/bloodmoney/img/pictures/Tyler_Normal_WorryInjured.png",
+    "key": "games/bloodmoney/img/pictures/Tyler_Normal_WorryInjured.png",
+    "remote": "https://r2bucket.billybobgames.org/games/bloodmoney/img/pictures/Tyler_Normal_WorryInjured.png"
+  },
+  {
+    "local": "games/bloodmoney/img/pictures/Tyler_Straight_Worry.png",
+    "key": "games/bloodmoney/img/pictures/Tyler_Straight_Worry.png",
+    "remote": "https://r2bucket.billybobgames.org/games/bloodmoney/img/pictures/Tyler_Straight_Worry.png"
+  },
+  {
+    "local": "games/bloodmoney/img/pictures/Tyler_Normal_ShockHammer.png",
+    "key": "games/bloodmoney/img/pictures/Tyler_Normal_ShockHammer.png",
+    "remote": "https://r2bucket.billybobgames.org/games/bloodmoney/img/pictures/Tyler_Normal_ShockHammer.png"
+  },
+  {
+    "local": "games/bloodmoney/img/pictures/Tyler_Straight_WorryHammer.png",
+    "key": "games/bloodmoney/img/pictures/Tyler_Straight_WorryHammer.png",
+    "remote": "https://r2bucket.billybobgames.org/games/bloodmoney/img/pictures/Tyler_Straight_WorryHammer.png"
+  },
+  {
+    "local": "games/bloodmoney/img/system/ButtonSet.png",
+    "key": "games/bloodmoney/img/system/ButtonSet.png",
+    "remote": "https://r2bucket.billybobgames.org/games/bloodmoney/img/system/ButtonSet.png"
+  },
+  {
+    "local": "games/bloodmoney/img/system/Damage.png",
+    "key": "games/bloodmoney/img/system/Damage.png",
+    "remote": "https://r2bucket.billybobgames.org/games/bloodmoney/img/system/Damage.png"
+  },
+  {
+    "local": "games/bloodmoney/img/system/Balloon.png",
+    "key": "games/bloodmoney/img/system/Balloon.png",
+    "remote": "https://r2bucket.billybobgames.org/games/bloodmoney/img/system/Balloon.png"
+  },
+  {
+    "local": "games/bloodmoney/img/pictures/Tyler_Straight_ScaredHammer.png",
+    "key": "games/bloodmoney/img/pictures/Tyler_Straight_ScaredHammer.png",
+    "remote": "https://r2bucket.billybobgames.org/games/bloodmoney/img/pictures/Tyler_Straight_ScaredHammer.png"
+  },
+  {
+    "local": "games/bloodmoney/img/system/GameOver.png",
+    "key": "games/bloodmoney/img/system/GameOver.png",
+    "remote": "https://r2bucket.billybobgames.org/games/bloodmoney/img/system/GameOver.png"
+  },
+  {
+    "local": "games/bloodmoney/img/system/Loading.png",
+    "key": "games/bloodmoney/img/system/Loading.png",
+    "remote": "https://r2bucket.billybobgames.org/games/bloodmoney/img/system/Loading.png"
+  },
+  {
+    "local": "games/bloodmoney/img/pictures/Tyler_Normal_Shock.png",
+    "key": "games/bloodmoney/img/pictures/Tyler_Normal_Shock.png",
+    "remote": "https://r2bucket.billybobgames.org/games/bloodmoney/img/pictures/Tyler_Normal_Shock.png"
+  },
+  {
+    "local": "games/bloodmoney/img/system/IconSet.png",
+    "key": "games/bloodmoney/img/system/IconSet.png",
+    "remote": "https://r2bucket.billybobgames.org/games/bloodmoney/img/system/IconSet.png"
+  },
+  {
+    "local": "games/bloodmoney/img/system/Shadow1.png",
+    "key": "games/bloodmoney/img/system/Shadow1.png",
+    "remote": "https://r2bucket.billybobgames.org/games/bloodmoney/img/system/Shadow1.png"
+  },
+  {
+    "local": "games/bloodmoney/img/system/Shadow2.png",
+    "key": "games/bloodmoney/img/system/Shadow2.png",
+    "remote": "https://r2bucket.billybobgames.org/games/bloodmoney/img/system/Shadow2.png"
+  },
+  {
+    "local": "games/bloodmoney/img/pictures/White.png",
+    "key": "games/bloodmoney/img/pictures/White.png",
+    "remote": "https://r2bucket.billybobgames.org/games/bloodmoney/img/pictures/White.png"
+  },
+  {
+    "local": "games/bloodmoney/img/system/MadeWithMv.png",
+    "key": "games/bloodmoney/img/system/MadeWithMv.png",
+    "remote": "https://r2bucket.billybobgames.org/games/bloodmoney/img/system/MadeWithMv.png"
+  },
+  {
+    "local": "games/bloodmoney/img/system/Weapons1.png",
+    "key": "games/bloodmoney/img/system/Weapons1.png",
+    "remote": "https://r2bucket.billybobgames.org/games/bloodmoney/img/system/Weapons1.png"
+  },
+  {
+    "local": "games/bloodmoney/img/system/Weapons2.png",
+    "key": "games/bloodmoney/img/system/Weapons2.png",
+    "remote": "https://r2bucket.billybobgames.org/games/bloodmoney/img/system/Weapons2.png"
+  },
+  {
+    "local": "games/bloodmoney/img/system/States.png",
+    "key": "games/bloodmoney/img/system/States.png",
+    "remote": "https://r2bucket.billybobgames.org/games/bloodmoney/img/system/States.png"
+  },
+  {
+    "local": "games/bloodmoney/img/system/Window.png",
+    "key": "games/bloodmoney/img/system/Window.png",
+    "remote": "https://r2bucket.billybobgames.org/games/bloodmoney/img/system/Window.png"
+  },
+  {
+    "local": "games/bloodmoney/img/system/Weapons3.png",
+    "key": "games/bloodmoney/img/system/Weapons3.png",
+    "remote": "https://r2bucket.billybobgames.org/games/bloodmoney/img/system/Weapons3.png"
+  },
+  {
+    "local": "games/bloodmoney/img/system/Splash.png",
+    "key": "games/bloodmoney/img/system/Splash.png",
+    "remote": "https://r2bucket.billybobgames.org/games/bloodmoney/img/system/Splash.png"
+  },
+  {
+    "local": "games/bloodmoney/img/titles2/Command_1.png",
+    "key": "games/bloodmoney/img/titles2/Command_1.png",
+    "remote": "https://r2bucket.billybobgames.org/games/bloodmoney/img/titles2/Command_1.png"
+  },
+  {
+    "local": "games/bloodmoney/img/titles2/Sub_0.png",
+    "key": "games/bloodmoney/img/titles2/Sub_0.png",
+    "remote": "https://r2bucket.billybobgames.org/games/bloodmoney/img/titles2/Sub_0.png"
+  },
+  {
+    "local": "games/bloodmoney/img/titles1/Title.png",
+    "key": "games/bloodmoney/img/titles1/Title.png",
+    "remote": "https://r2bucket.billybobgames.org/games/bloodmoney/img/titles1/Title.png"
+  },
+  {
+    "local": "games/bloodmoney/img/system/msgimg_0.png",
+    "key": "games/bloodmoney/img/system/msgimg_0.png",
+    "remote": "https://r2bucket.billybobgames.org/games/bloodmoney/img/system/msgimg_0.png"
+  },
+  {
+    "local": "games/bloodmoney/img/tilesets/Outside_B.png",
+    "key": "games/bloodmoney/img/tilesets/Outside_B.png",
+    "remote": "https://r2bucket.billybobgames.org/games/bloodmoney/img/tilesets/Outside_B.png"
+  },
+  {
+    "local": "games/bloodmoney/img/titles2/Cursor.png",
+    "key": "games/bloodmoney/img/titles2/Cursor.png",
+    "remote": "https://r2bucket.billybobgames.org/games/bloodmoney/img/titles2/Cursor.png"
+  },
+  {
+    "local": "games/bloodmoney/img/titles2/Command_2.png",
+    "key": "games/bloodmoney/img/titles2/Command_2.png",
+    "remote": "https://r2bucket.billybobgames.org/games/bloodmoney/img/titles2/Command_2.png"
+  },
+  {
+    "local": "games/bloodmoney/img/titles2/Sub_3.png",
+    "key": "games/bloodmoney/img/titles2/Sub_3.png",
+    "remote": "https://r2bucket.billybobgames.org/games/bloodmoney/img/titles2/Sub_3.png"
+  },
+  {
+    "local": "games/bloodmoney/img/titles2/Command_0.png",
+    "key": "games/bloodmoney/img/titles2/Command_0.png",
+    "remote": "https://r2bucket.billybobgames.org/games/bloodmoney/img/titles2/Command_0.png"
+  },
+  {
+    "local": "games/bloodmoney/img/titles2/Title.png",
+    "key": "games/bloodmoney/img/titles2/Title.png",
+    "remote": "https://r2bucket.billybobgames.org/games/bloodmoney/img/titles2/Title.png"
+  },
+  {
+    "local": "games/bloodmoney/img/titles2/Sub_1.png",
+    "key": "games/bloodmoney/img/titles2/Sub_1.png",
+    "remote": "https://r2bucket.billybobgames.org/games/bloodmoney/img/titles2/Sub_1.png"
+  },
+  {
+    "local": "games/bloodmoney/img/titles2/Sub_2.png",
+    "key": "games/bloodmoney/img/titles2/Sub_2.png",
+    "remote": "https://r2bucket.billybobgames.org/games/bloodmoney/img/titles2/Sub_2.png"
+  },
+  {
+    "local": "games/bloodmoney/img/variablehud/Hud_1.png",
+    "key": "games/bloodmoney/img/variablehud/Hud_1.png",
+    "remote": "https://r2bucket.billybobgames.org/games/bloodmoney/img/variablehud/Hud_1.png"
+  },
+  {
+    "local": "games/fishjoy/images/bottom-bar.png",
+    "key": "games/fishjoy/images/bottom-bar.png",
+    "remote": "https://r2bucket.billybobgames.org/games/fishjoy/images/bottom-bar.png"
+  },
+  {
+    "local": "games/fishjoy/images/bottom.png",
+    "key": "games/fishjoy/images/bottom.png",
+    "remote": "https://r2bucket.billybobgames.org/games/fishjoy/images/bottom.png"
+  },
+  {
+    "local": "games/fishjoy/images/bullet.png",
+    "key": "games/fishjoy/images/bullet.png",
+    "remote": "https://r2bucket.billybobgames.org/games/fishjoy/images/bullet.png"
+  },
+  {
+    "local": "games/fishjoy/images/bullet1.png",
+    "key": "games/fishjoy/images/bullet1.png",
+    "remote": "https://r2bucket.billybobgames.org/games/fishjoy/images/bullet1.png"
+  },
+  {
+    "local": "games/fishjoy/images/bullet2.png",
+    "key": "games/fishjoy/images/bullet2.png",
+    "remote": "https://r2bucket.billybobgames.org/games/fishjoy/images/bullet2.png"
+  },
+  {
+    "local": "games/fishjoy/images/bullet4.png",
+    "key": "games/fishjoy/images/bullet4.png",
+    "remote": "https://r2bucket.billybobgames.org/games/fishjoy/images/bullet4.png"
+  },
+  {
+    "local": "games/fishjoy/images/bullet3.png",
+    "key": "games/fishjoy/images/bullet3.png",
+    "remote": "https://r2bucket.billybobgames.org/games/fishjoy/images/bullet3.png"
+  },
+  {
+    "local": "games/fishjoy/images/cannon1.png",
+    "key": "games/fishjoy/images/cannon1.png",
+    "remote": "https://r2bucket.billybobgames.org/games/fishjoy/images/cannon1.png"
+  },
+  {
+    "local": "games/fishjoy/images/bullet5.png",
+    "key": "games/fishjoy/images/bullet5.png",
+    "remote": "https://r2bucket.billybobgames.org/games/fishjoy/images/bullet5.png"
+  },
+  {
+    "local": "games/fishjoy/images/bullet6.png",
+    "key": "games/fishjoy/images/bullet6.png",
+    "remote": "https://r2bucket.billybobgames.org/games/fishjoy/images/bullet6.png"
+  },
+  {
+    "local": "games/fishjoy/images/bullet8.png",
+    "key": "games/fishjoy/images/bullet8.png",
+    "remote": "https://r2bucket.billybobgames.org/games/fishjoy/images/bullet8.png"
+  },
+  {
+    "local": "games/fishjoy/images/cannon2.png",
+    "key": "games/fishjoy/images/cannon2.png",
+    "remote": "https://r2bucket.billybobgames.org/games/fishjoy/images/cannon2.png"
+  },
+  {
+    "local": "games/fishjoy/images/cannon3.png",
+    "key": "games/fishjoy/images/cannon3.png",
+    "remote": "https://r2bucket.billybobgames.org/games/fishjoy/images/cannon3.png"
+  },
+  {
+    "local": "games/fishjoy/images/cannon6.png",
+    "key": "games/fishjoy/images/cannon6.png",
+    "remote": "https://r2bucket.billybobgames.org/games/fishjoy/images/cannon6.png"
+  },
+  {
+    "local": "games/fishjoy/images/cannon_minus.png",
+    "key": "games/fishjoy/images/cannon_minus.png",
+    "remote": "https://r2bucket.billybobgames.org/games/fishjoy/images/cannon_minus.png"
+  },
+  {
+    "local": "games/fishjoy/images/cannon5.png",
+    "key": "games/fishjoy/images/cannon5.png",
+    "remote": "https://r2bucket.billybobgames.org/games/fishjoy/images/cannon5.png"
+  },
+  {
+    "local": "games/fishjoy/images/cannon_minus_down.png",
+    "key": "games/fishjoy/images/cannon_minus_down.png",
+    "remote": "https://r2bucket.billybobgames.org/games/fishjoy/images/cannon_minus_down.png"
+  },
+  {
+    "local": "games/fishjoy/images/cannon4.png",
+    "key": "games/fishjoy/images/cannon4.png",
+    "remote": "https://r2bucket.billybobgames.org/games/fishjoy/images/cannon4.png"
+  },
+  {
+    "local": "games/fishjoy/images/cannon7.png",
+    "key": "games/fishjoy/images/cannon7.png",
+    "remote": "https://r2bucket.billybobgames.org/games/fishjoy/images/cannon7.png"
+  },
+  {
+    "local": "games/fishjoy/images/bullet7.png",
+    "key": "games/fishjoy/images/bullet7.png",
+    "remote": "https://r2bucket.billybobgames.org/games/fishjoy/images/bullet7.png"
+  },
+  {
+    "local": "games/fishjoy/images/cannon_plus_down.png",
+    "key": "games/fishjoy/images/cannon_plus_down.png",
+    "remote": "https://r2bucket.billybobgames.org/games/fishjoy/images/cannon_plus_down.png"
+  },
+  {
+    "local": "games/fishjoy/images/cannon_plus.png",
+    "key": "games/fishjoy/images/cannon_plus.png",
+    "remote": "https://r2bucket.billybobgames.org/games/fishjoy/images/cannon_plus.png"
+  },
+  {
+    "local": "games/fishjoy/images/coinText.png",
+    "key": "games/fishjoy/images/coinText.png",
+    "remote": "https://r2bucket.billybobgames.org/games/fishjoy/images/coinText.png"
+  },
+  {
+    "local": "games/fishjoy/images/fish1.png",
+    "key": "games/fishjoy/images/fish1.png",
+    "remote": "https://r2bucket.billybobgames.org/games/fishjoy/images/fish1.png"
+  },
+  {
+    "local": "games/fishjoy/images/coinAni2.png",
+    "key": "games/fishjoy/images/coinAni2.png",
+    "remote": "https://r2bucket.billybobgames.org/games/fishjoy/images/coinAni2.png"
+  },
+  {
+    "local": "games/fishjoy/images/energy-bar.png",
+    "key": "games/fishjoy/images/energy-bar.png",
+    "remote": "https://r2bucket.billybobgames.org/games/fishjoy/images/energy-bar.png"
+  },
+  {
+    "local": "games/fishjoy/images/coinAni1.png",
+    "key": "games/fishjoy/images/coinAni1.png",
+    "remote": "https://r2bucket.billybobgames.org/games/fishjoy/images/coinAni1.png"
+  },
+  {
+    "local": "games/fishjoy/images/fish3.png",
+    "key": "games/fishjoy/images/fish3.png",
+    "remote": "https://r2bucket.billybobgames.org/games/fishjoy/images/fish3.png"
+  },
+  {
+    "local": "games/fishjoy/images/fish4.png",
+    "key": "games/fishjoy/images/fish4.png",
+    "remote": "https://r2bucket.billybobgames.org/games/fishjoy/images/fish4.png"
+  },
+  {
+    "local": "games/fishjoy/images/fish2.png",
+    "key": "games/fishjoy/images/fish2.png",
+    "remote": "https://r2bucket.billybobgames.org/games/fishjoy/images/fish2.png"
+  },
+  {
+    "local": "games/fishjoy/images/fish6.png",
+    "key": "games/fishjoy/images/fish6.png",
+    "remote": "https://r2bucket.billybobgames.org/games/fishjoy/images/fish6.png"
+  },
+  {
+    "local": "games/fishjoy/images/fish5.png",
+    "key": "games/fishjoy/images/fish5.png",
+    "remote": "https://r2bucket.billybobgames.org/games/fishjoy/images/fish5.png"
+  },
+  {
+    "local": "games/fishjoy/images/fish7.png",
+    "key": "games/fishjoy/images/fish7.png",
+    "remote": "https://r2bucket.billybobgames.org/games/fishjoy/images/fish7.png"
+  },
+  {
+    "local": "games/fishjoy/images/fish10.png",
+    "key": "games/fishjoy/images/fish10.png",
+    "remote": "https://r2bucket.billybobgames.org/games/fishjoy/images/fish10.png"
+  },
+  {
+    "local": "games/fishjoy/images/fish8.png",
+    "key": "games/fishjoy/images/fish8.png",
+    "remote": "https://r2bucket.billybobgames.org/games/fishjoy/images/fish8.png"
+  },
+  {
+    "local": "games/fishjoy/images/level_bar.png",
+    "key": "games/fishjoy/images/level_bar.png",
+    "remote": "https://r2bucket.billybobgames.org/games/fishjoy/images/level_bar.png"
+  },
+  {
+    "local": "games/fishjoy/images/fish9.png",
+    "key": "games/fishjoy/images/fish9.png",
+    "remote": "https://r2bucket.billybobgames.org/games/fishjoy/images/fish9.png"
+  },
+  {
+    "local": "games/fishjoy/images/fish-hd.png",
+    "key": "games/fishjoy/images/fish-hd.png",
+    "remote": "https://r2bucket.billybobgames.org/games/fishjoy/images/fish-hd.png"
+  },
+  {
+    "local": "games/fishjoy/images/level_back.png",
+    "key": "games/fishjoy/images/level_back.png",
+    "remote": "https://r2bucket.billybobgames.org/games/fishjoy/images/level_back.png"
+  },
+  {
+    "local": "games/fishjoy/images/level_shuxian.png",
+    "key": "games/fishjoy/images/level_shuxian.png",
+    "remote": "https://r2bucket.billybobgames.org/games/fishjoy/images/level_shuxian.png"
+  },
+  {
+    "local": "games/fishjoy/images/number_black.png",
+    "key": "games/fishjoy/images/number_black.png",
+    "remote": "https://r2bucket.billybobgames.org/games/fishjoy/images/number_black.png"
+  },
+  {
+    "local": "games/fishjoy/images/level_bg.png",
+    "key": "games/fishjoy/images/level_bg.png",
+    "remote": "https://r2bucket.billybobgames.org/games/fishjoy/images/level_bg.png"
+  },
+  {
+    "local": "games/fishjoy/images/game_bg_2_hd.jpg",
+    "key": "games/fishjoy/images/game_bg_2_hd.jpg",
+    "remote": "https://r2bucket.billybobgames.org/games/fishjoy/images/game_bg_2_hd.jpg"
+  },
+  {
+    "local": "games/fishjoy/images/shark1.png",
+    "key": "games/fishjoy/images/shark1.png",
+    "remote": "https://r2bucket.billybobgames.org/games/fishjoy/images/shark1.png"
+  },
+  {
+    "local": "games/fishjoy/images/shark-hd.png",
+    "key": "games/fishjoy/images/shark-hd.png",
+    "remote": "https://r2bucket.billybobgames.org/games/fishjoy/images/shark-hd.png"
+  },
+  {
+    "local": "games/fishjoy/images/startbg.jpg",
+    "key": "games/fishjoy/images/startbg.jpg",
+    "remote": "https://r2bucket.billybobgames.org/games/fishjoy/images/startbg.jpg"
+  },
+  {
+    "local": "games/fishjoy/images/web1.png",
+    "key": "games/fishjoy/images/web1.png",
+    "remote": "https://r2bucket.billybobgames.org/games/fishjoy/images/web1.png"
+  },
+  {
+    "local": "games/fishjoy/images/web.png",
+    "key": "games/fishjoy/images/web.png",
+    "remote": "https://r2bucket.billybobgames.org/games/fishjoy/images/web.png"
+  },
+  {
+    "local": "games/fishjoy/images/web3.png",
+    "key": "games/fishjoy/images/web3.png",
+    "remote": "https://r2bucket.billybobgames.org/games/fishjoy/images/web3.png"
+  },
+  {
+    "local": "games/fishjoy/images/shark2.png",
+    "key": "games/fishjoy/images/shark2.png",
+    "remote": "https://r2bucket.billybobgames.org/games/fishjoy/images/shark2.png"
+  },
+  {
+    "local": "games/fishjoy/images/web2.png",
+    "key": "games/fishjoy/images/web2.png",
+    "remote": "https://r2bucket.billybobgames.org/games/fishjoy/images/web2.png"
+  },
+  {
+    "local": "games/fishjoy/images/web5.png",
+    "key": "games/fishjoy/images/web5.png",
+    "remote": "https://r2bucket.billybobgames.org/games/fishjoy/images/web5.png"
+  },
+  {
+    "local": "games/fishjoy/images/web4.png",
+    "key": "games/fishjoy/images/web4.png",
+    "remote": "https://r2bucket.billybobgames.org/games/fishjoy/images/web4.png"
+  },
+  {
+    "local": "games/fishjoy/images/web6.png",
+    "key": "games/fishjoy/images/web6.png",
+    "remote": "https://r2bucket.billybobgames.org/games/fishjoy/images/web6.png"
+  },
+  {
+    "local": "games/fishjoy/sound/BGM.mp3",
+    "key": "games/fishjoy/sound/BGM.mp3",
+    "remote": "https://r2bucket.billybobgames.org/games/fishjoy/sound/BGM.mp3"
+  },
+  {
+    "local": "games/fishjoy/sound/get gold coins.mp3",
+    "key": "games/fishjoy/sound/get gold coins.mp3",
+    "remote": "https://r2bucket.billybobgames.org/games/fishjoy/sound/get gold coins.mp3"
+  },
+  {
+    "local": "games/fruit-ninja/images/developing.png",
+    "key": "games/fruit-ninja/images/developing.png",
+    "remote": "https://r2bucket.billybobgames.org/games/fruit-ninja/images/developing.png"
+  },
+  {
+    "local": "games/fruit-ninja/images/blank.gif",
+    "key": "games/fruit-ninja/images/blank.gif",
+    "remote": "https://r2bucket.billybobgames.org/games/fruit-ninja/images/blank.gif"
+  },
+  {
+    "local": "games/fishjoy/images/web7.png",
+    "key": "games/fishjoy/images/web7.png",
+    "remote": "https://r2bucket.billybobgames.org/games/fishjoy/images/web7.png"
+  },
+  {
+    "local": "games/fruit-ninja/images/dojo.png",
+    "key": "games/fruit-ninja/images/dojo.png",
+    "remote": "https://r2bucket.billybobgames.org/games/fruit-ninja/images/dojo.png"
+  },
+  {
+    "local": "games/fishjoy/sound/inverted gold coins.wav",
+    "key": "games/fishjoy/sound/inverted gold coins.wav",
+    "remote": "https://r2bucket.billybobgames.org/games/fishjoy/sound/inverted gold coins.wav"
+  },
+  {
+    "local": "games/fruit-ninja/images/flash.png",
+    "key": "games/fruit-ninja/images/flash.png",
+    "remote": "https://r2bucket.billybobgames.org/games/fruit-ninja/images/flash.png"
+  },
+  {
+    "local": "games/fruit-ninja/images/background.jpg",
+    "key": "games/fruit-ninja/images/background.jpg",
+    "remote": "https://r2bucket.billybobgames.org/games/fruit-ninja/images/background.jpg"
+  },
+  {
+    "local": "games/fruit-ninja/images/fruit/apple-1.png",
+    "key": "games/fruit-ninja/images/fruit/apple-1.png",
+    "remote": "https://r2bucket.billybobgames.org/games/fruit-ninja/images/fruit/apple-1.png"
+  },
+  {
+    "local": "games/fruit-ninja/images/fruit/apple.png",
+    "key": "games/fruit-ninja/images/fruit/apple.png",
+    "remote": "https://r2bucket.billybobgames.org/games/fruit-ninja/images/fruit/apple.png"
+  },
+  {
+    "local": "games/fruit-ninja/images/fruit/apple-2.png",
+    "key": "games/fruit-ninja/images/fruit/apple-2.png",
+    "remote": "https://r2bucket.billybobgames.org/games/fruit-ninja/images/fruit/apple-2.png"
+  },
+  {
+    "local": "games/fruit-ninja/images/fruit/banana.png",
+    "key": "games/fruit-ninja/images/fruit/banana.png",
+    "remote": "https://r2bucket.billybobgames.org/games/fruit-ninja/images/fruit/banana.png"
+  },
+  {
+    "local": "games/fruit-ninja/images/fruit/basaha-1.png",
+    "key": "games/fruit-ninja/images/fruit/basaha-1.png",
+    "remote": "https://r2bucket.billybobgames.org/games/fruit-ninja/images/fruit/basaha-1.png"
+  },
+  {
+    "local": "games/fruit-ninja/images/fruit/banana-2.png",
+    "key": "games/fruit-ninja/images/fruit/banana-2.png",
+    "remote": "https://r2bucket.billybobgames.org/games/fruit-ninja/images/fruit/banana-2.png"
+  },
+  {
+    "local": "games/fruit-ninja/images/fruit/basaha-2.png",
+    "key": "games/fruit-ninja/images/fruit/basaha-2.png",
+    "remote": "https://r2bucket.billybobgames.org/games/fruit-ninja/images/fruit/basaha-2.png"
+  },
+  {
+    "local": "games/fruit-ninja/images/fruit/banana-1.png",
+    "key": "games/fruit-ninja/images/fruit/banana-1.png",
+    "remote": "https://r2bucket.billybobgames.org/games/fruit-ninja/images/fruit/banana-1.png"
+  },
+  {
+    "local": "games/fruit-ninja/images/fruit/peach-1.png",
+    "key": "games/fruit-ninja/images/fruit/peach-1.png",
+    "remote": "https://r2bucket.billybobgames.org/games/fruit-ninja/images/fruit/peach-1.png"
+  },
+  {
+    "local": "games/fruit-ninja/images/fruit/peach-2.png",
+    "key": "games/fruit-ninja/images/fruit/peach-2.png",
+    "remote": "https://r2bucket.billybobgames.org/games/fruit-ninja/images/fruit/peach-2.png"
+  },
+  {
+    "local": "games/fruit-ninja/images/fruit/boom.png",
+    "key": "games/fruit-ninja/images/fruit/boom.png",
+    "remote": "https://r2bucket.billybobgames.org/games/fruit-ninja/images/fruit/boom.png"
+  },
+  {
+    "local": "games/fruit-ninja/images/fruit/sandia-1.png",
+    "key": "games/fruit-ninja/images/fruit/sandia-1.png",
+    "remote": "https://r2bucket.billybobgames.org/games/fruit-ninja/images/fruit/sandia-1.png"
+  },
+  {
+    "local": "games/fruit-ninja/images/fruit/sandia-2.png",
+    "key": "games/fruit-ninja/images/fruit/sandia-2.png",
+    "remote": "https://r2bucket.billybobgames.org/games/fruit-ninja/images/fruit/sandia-2.png"
+  },
+  {
+    "local": "games/fruit-ninja/images/fruit/basaha.png",
+    "key": "games/fruit-ninja/images/fruit/basaha.png",
+    "remote": "https://r2bucket.billybobgames.org/games/fruit-ninja/images/fruit/basaha.png"
+  },
+  {
+    "local": "games/fruit-ninja/images/home-desc.png",
+    "key": "games/fruit-ninja/images/home-desc.png",
+    "remote": "https://r2bucket.billybobgames.org/games/fruit-ninja/images/home-desc.png"
+  },
+  {
+    "local": "games/fruit-ninja/images/fruit/peach.png",
+    "key": "games/fruit-ninja/images/fruit/peach.png",
+    "remote": "https://r2bucket.billybobgames.org/games/fruit-ninja/images/fruit/peach.png"
+  },
+  {
+    "local": "games/fruit-ninja/images/fruit/sandia.png",
+    "key": "games/fruit-ninja/images/fruit/sandia.png",
+    "remote": "https://r2bucket.billybobgames.org/games/fruit-ninja/images/fruit/sandia.png"
+  },
+  {
+    "local": "games/fruit-ninja/images/lose.png",
+    "key": "games/fruit-ninja/images/lose.png",
+    "remote": "https://r2bucket.billybobgames.org/games/fruit-ninja/images/lose.png"
+  },
+  {
+    "local": "games/fruit-ninja/images/logo.png",
+    "key": "games/fruit-ninja/images/logo.png",
+    "remote": "https://r2bucket.billybobgames.org/games/fruit-ninja/images/logo.png"
+  },
+  {
+    "local": "games/fruit-ninja/images/new-game.png",
+    "key": "games/fruit-ninja/images/new-game.png",
+    "remote": "https://r2bucket.billybobgames.org/games/fruit-ninja/images/new-game.png"
+  },
+  {
+    "local": "games/fruit-ninja/images/home-mask.png",
+    "key": "games/fruit-ninja/images/home-mask.png",
+    "remote": "https://r2bucket.billybobgames.org/games/fruit-ninja/images/home-mask.png"
+  },
+  {
+    "local": "games/fruit-ninja/images/game-over.png",
+    "key": "games/fruit-ninja/images/game-over.png",
+    "remote": "https://r2bucket.billybobgames.org/games/fruit-ninja/images/game-over.png"
+  },
+  {
+    "local": "games/fruit-ninja/images/quit.png",
+    "key": "games/fruit-ninja/images/quit.png",
+    "remote": "https://r2bucket.billybobgames.org/games/fruit-ninja/images/quit.png"
+  },
+  {
+    "local": "games/fruit-ninja/images/new.png",
+    "key": "games/fruit-ninja/images/new.png",
+    "remote": "https://r2bucket.billybobgames.org/games/fruit-ninja/images/new.png"
+  },
+  {
+    "local": "games/fruit-ninja/images/ninja.png",
+    "key": "games/fruit-ninja/images/ninja.png",
+    "remote": "https://r2bucket.billybobgames.org/games/fruit-ninja/images/ninja.png"
+  },
+  {
+    "local": "games/fruit-ninja/images/score.png",
+    "key": "games/fruit-ninja/images/score.png",
+    "remote": "https://r2bucket.billybobgames.org/games/fruit-ninja/images/score.png"
+  },
+  {
+    "local": "games/fruit-ninja/images/shadow.png",
+    "key": "games/fruit-ninja/images/shadow.png",
+    "remote": "https://r2bucket.billybobgames.org/games/fruit-ninja/images/shadow.png"
+  },
+  {
+    "local": "games/fruit-ninja/images/smoke.png",
+    "key": "games/fruit-ninja/images/smoke.png",
+    "remote": "https://r2bucket.billybobgames.org/games/fruit-ninja/images/smoke.png"
+  },
+  {
+    "local": "games/fruit-ninja/images/x.png",
+    "key": "games/fruit-ninja/images/x.png",
+    "remote": "https://r2bucket.billybobgames.org/games/fruit-ninja/images/x.png"
+  },
+  {
+    "local": "games/fruit-ninja/images/xf.png",
+    "key": "games/fruit-ninja/images/xf.png",
+    "remote": "https://r2bucket.billybobgames.org/games/fruit-ninja/images/xf.png"
+  },
+  {
+    "local": "games/fruit-ninja/images/xxf.png",
+    "key": "games/fruit-ninja/images/xxf.png",
+    "remote": "https://r2bucket.billybobgames.org/games/fruit-ninja/images/xxf.png"
+  },
+  {
+    "local": "games/fruit-ninja/images/xx.png",
+    "key": "games/fruit-ninja/images/xx.png",
+    "remote": "https://r2bucket.billybobgames.org/games/fruit-ninja/images/xx.png"
+  },
+  {
+    "local": "games/fruit-ninja/images/xxx.png",
+    "key": "games/fruit-ninja/images/xxx.png",
+    "remote": "https://r2bucket.billybobgames.org/games/fruit-ninja/images/xxx.png"
+  },
+  {
+    "local": "games/fruit-ninja/images/xxxf.png",
+    "key": "games/fruit-ninja/images/xxxf.png",
+    "remote": "https://r2bucket.billybobgames.org/games/fruit-ninja/images/xxxf.png"
+  },
+  {
     "local": "games/fruit-ninja/sound/boom.mp3",
+    "key": "games/fruit-ninja/sound/boom.mp3",
     "remote": "https://r2bucket.billybobgames.org/games/fruit-ninja/sound/boom.mp3"
   },
   {
+    "local": "games/fruit-ninja/sound/boom.ogg",
+    "key": "games/fruit-ninja/sound/boom.ogg",
+    "remote": "https://r2bucket.billybobgames.org/games/fruit-ninja/sound/boom.ogg"
+  },
+  {
     "local": "games/fruit-ninja/sound/over.mp3",
+    "key": "games/fruit-ninja/sound/over.mp3",
     "remote": "https://r2bucket.billybobgames.org/games/fruit-ninja/sound/over.mp3"
   },
   {
-    "local": "games/fruit-ninja/sound/menu.ogg",
-    "remote": "https://r2bucket.billybobgames.org/games/fruit-ninja/sound/menu.ogg"
-  },
-  {
-    "local": "games/fruit-ninja/sound/menu.mp3",
-    "remote": "https://r2bucket.billybobgames.org/games/fruit-ninja/sound/menu.mp3"
-  },
-  {
     "local": "games/fruit-ninja/sound/over.ogg",
+    "key": "games/fruit-ninja/sound/over.ogg",
     "remote": "https://r2bucket.billybobgames.org/games/fruit-ninja/sound/over.ogg"
   },
   {
     "local": "games/fruit-ninja/sound/splatter.mp3",
+    "key": "games/fruit-ninja/sound/splatter.mp3",
     "remote": "https://r2bucket.billybobgames.org/games/fruit-ninja/sound/splatter.mp3"
   },
   {
     "local": "games/fruit-ninja/sound/splatter.ogg",
+    "key": "games/fruit-ninja/sound/splatter.ogg",
     "remote": "https://r2bucket.billybobgames.org/games/fruit-ninja/sound/splatter.ogg"
   },
   {
-    "local": "games/fishjoy/sound/get gold coins.mp3",
-    "remote": "https://r2bucket.billybobgames.org/games/fishjoy/sound/get gold coins.mp3"
+    "local": "games/fruit-ninja/sound/start.mp3",
+    "key": "games/fruit-ninja/sound/start.mp3",
+    "remote": "https://r2bucket.billybobgames.org/games/fruit-ninja/sound/start.mp3"
+  },
+  {
+    "local": "games/fruit-ninja/sound/menu.ogg",
+    "key": "games/fruit-ninja/sound/menu.ogg",
+    "remote": "https://r2bucket.billybobgames.org/games/fruit-ninja/sound/menu.ogg"
+  },
+  {
+    "local": "games/fruit-ninja/sound/menu.mp3",
+    "key": "games/fruit-ninja/sound/menu.mp3",
+    "remote": "https://r2bucket.billybobgames.org/games/fruit-ninja/sound/menu.mp3"
+  },
+  {
+    "local": "games/fruit-ninja/sound/start.ogg",
+    "key": "games/fruit-ninja/sound/start.ogg",
+    "remote": "https://r2bucket.billybobgames.org/games/fruit-ninja/sound/start.ogg"
   },
   {
     "local": "games/fruit-ninja/sound/throw.mp3",
+    "key": "games/fruit-ninja/sound/throw.mp3",
     "remote": "https://r2bucket.billybobgames.org/games/fruit-ninja/sound/throw.mp3"
   },
   {
     "local": "games/fruit-ninja/sound/throw.ogg",
+    "key": "games/fruit-ninja/sound/throw.ogg",
     "remote": "https://r2bucket.billybobgames.org/games/fruit-ninja/sound/throw.ogg"
   },
   {
-    "local": "games/fruit-ninja/sound/start.mp3",
-    "remote": "https://r2bucket.billybobgames.org/games/fruit-ninja/sound/start.mp3"
+    "local": "games/html5-fly/artifact_chard.png",
+    "key": "games/html5-fly/artifact_chard.png",
+    "remote": "https://r2bucket.billybobgames.org/games/html5-fly/artifact_chard.png"
   },
   {
-    "local": "games/fruit-ninja/sound/start.ogg",
-    "remote": "https://r2bucket.billybobgames.org/games/fruit-ninja/sound/start.ogg"
+    "local": "games/html5-fly/artifact_skull.png",
+    "key": "games/html5-fly/artifact_skull.png",
+    "remote": "https://r2bucket.billybobgames.org/games/html5-fly/artifact_skull.png"
+  },
+  {
+    "local": "games/html5-fly/double_image.png",
+    "key": "games/html5-fly/double_image.png",
+    "remote": "https://r2bucket.billybobgames.org/games/html5-fly/double_image.png"
+  },
+  {
+    "local": "games/html5-fly/enemy_artifact.png",
+    "key": "games/html5-fly/enemy_artifact.png",
+    "remote": "https://r2bucket.billybobgames.org/games/html5-fly/enemy_artifact.png"
+  },
+  {
+    "local": "games/html5-fly/enemy_artifact_2.png",
+    "key": "games/html5-fly/enemy_artifact_2.png",
+    "remote": "https://r2bucket.billybobgames.org/games/html5-fly/enemy_artifact_2.png"
+  },
+  {
+    "local": "games/html5-fly/enemy_small_2.png",
+    "key": "games/html5-fly/enemy_small_2.png",
+    "remote": "https://r2bucket.billybobgames.org/games/html5-fly/enemy_small_2.png"
+  },
+  {
+    "local": "games/html5-fly/command_ship.png",
+    "key": "games/html5-fly/command_ship.png",
+    "remote": "https://r2bucket.billybobgames.org/games/html5-fly/command_ship.png"
+  },
+  {
+    "local": "games/html5-fly/enemy_small_2_special.png",
+    "key": "games/html5-fly/enemy_small_2_special.png",
+    "remote": "https://r2bucket.billybobgames.org/games/html5-fly/enemy_small_2_special.png"
+  },
+  {
+    "local": "games/html5-fly/boss_loop.ogg",
+    "key": "games/html5-fly/boss_loop.ogg",
+    "remote": "https://r2bucket.billybobgames.org/games/html5-fly/boss_loop.ogg"
+  },
+  {
+    "local": "games/html5-fly/enemy_small_3.png",
+    "key": "games/html5-fly/enemy_small_3.png",
+    "remote": "https://r2bucket.billybobgames.org/games/html5-fly/enemy_small_3.png"
+  },
+  {
+    "local": "games/html5-fly/enemy_small_special.png",
+    "key": "games/html5-fly/enemy_small_special.png",
+    "remote": "https://r2bucket.billybobgames.org/games/html5-fly/enemy_small_special.png"
+  },
+  {
+    "local": "games/html5-fly/enemy_small.png",
+    "key": "games/html5-fly/enemy_small.png",
+    "remote": "https://r2bucket.billybobgames.org/games/html5-fly/enemy_small.png"
+  },
+  {
+    "local": "games/html5-fly/enemy_small_4_special.png",
+    "key": "games/html5-fly/enemy_small_4_special.png",
+    "remote": "https://r2bucket.billybobgames.org/games/html5-fly/enemy_small_4_special.png"
+  },
+  {
+    "local": "games/html5-fly/enemy_small_4.png",
+    "key": "games/html5-fly/enemy_small_4.png",
+    "remote": "https://r2bucket.billybobgames.org/games/html5-fly/enemy_small_4.png"
+  },
+  {
+    "local": "games/html5-fly/gem_image.png",
+    "key": "games/html5-fly/gem_image.png",
+    "remote": "https://r2bucket.billybobgames.org/games/html5-fly/gem_image.png"
+  },
+  {
+    "local": "games/html5-fly/gun_image.png",
+    "key": "games/html5-fly/gun_image.png",
+    "remote": "https://r2bucket.billybobgames.org/games/html5-fly/gun_image.png"
+  },
+  {
+    "local": "games/html5-fly/foreground.png",
+    "key": "games/html5-fly/foreground.png",
+    "remote": "https://r2bucket.billybobgames.org/games/html5-fly/foreground.png"
+  },
+  {
+    "local": "games/html5-fly/foreground_light.png",
+    "key": "games/html5-fly/foreground_light.png",
+    "remote": "https://r2bucket.billybobgames.org/games/html5-fly/foreground_light.png"
+  },
+  {
+    "local": "games/html5-fly/loading.png",
+    "key": "games/html5-fly/loading.png",
+    "remote": "https://r2bucket.billybobgames.org/games/html5-fly/loading.png"
+  },
+  {
+    "local": "games/html5-fly/ship_center.png",
+    "key": "games/html5-fly/ship_center.png",
+    "remote": "https://r2bucket.billybobgames.org/games/html5-fly/ship_center.png"
   },
   {
     "local": "games/html5-fly/level_1_preloop.ogg",
+    "key": "games/html5-fly/level_1_preloop.ogg",
     "remote": "https://r2bucket.billybobgames.org/games/html5-fly/level_1_preloop.ogg"
   },
   {
-    "local": "games/html5-fly/level_1_loop.ogg",
-    "remote": "https://r2bucket.billybobgames.org/games/html5-fly/level_1_loop.ogg"
-  },
-  {
     "local": "games/html5-fly/loading_music.ogg",
+    "key": "games/html5-fly/loading_music.ogg",
     "remote": "https://r2bucket.billybobgames.org/games/html5-fly/loading_music.ogg"
   },
   {
     "local": "games/html5-fly/level_passed.ogg",
+    "key": "games/html5-fly/level_passed.ogg",
     "remote": "https://r2bucket.billybobgames.org/games/html5-fly/level_passed.ogg"
   },
   {
-    "local": "games/mouseHit/audio/begin_music.ogg",
-    "remote": "https://r2bucket.billybobgames.org/games/mouseHit/audio/begin_music.ogg"
+    "local": "games/html5-fly/ship_death_2.png",
+    "key": "games/html5-fly/ship_death_2.png",
+    "remote": "https://r2bucket.billybobgames.org/games/html5-fly/ship_death_2.png"
   },
   {
-    "local": "games/html5-fly/boss_loop.ogg",
-    "remote": "https://r2bucket.billybobgames.org/games/html5-fly/boss_loop.ogg"
+    "local": "games/html5-fly/ship_death_3.png",
+    "key": "games/html5-fly/ship_death_3.png",
+    "remote": "https://r2bucket.billybobgames.org/games/html5-fly/ship_death_3.png"
   },
   {
-    "local": "games/mouseHit/audio/game_pass.ogg",
-    "remote": "https://r2bucket.billybobgames.org/games/mouseHit/audio/game_pass.ogg"
+    "local": "games/html5-fly/ship_death_1.png",
+    "key": "games/html5-fly/ship_death_1.png",
+    "remote": "https://r2bucket.billybobgames.org/games/html5-fly/ship_death_1.png"
+  },
+  {
+    "local": "games/html5-fly/ship_death_6.png",
+    "key": "games/html5-fly/ship_death_6.png",
+    "remote": "https://r2bucket.billybobgames.org/games/html5-fly/ship_death_6.png"
+  },
+  {
+    "local": "games/html5-fly/ship_death_5.png",
+    "key": "games/html5-fly/ship_death_5.png",
+    "remote": "https://r2bucket.billybobgames.org/games/html5-fly/ship_death_5.png"
+  },
+  {
+    "local": "games/html5-fly/ship_death_4.png",
+    "key": "games/html5-fly/ship_death_4.png",
+    "remote": "https://r2bucket.billybobgames.org/games/html5-fly/ship_death_4.png"
+  },
+  {
+    "local": "games/html5-fly/ship_down_1.png",
+    "key": "games/html5-fly/ship_down_1.png",
+    "remote": "https://r2bucket.billybobgames.org/games/html5-fly/ship_down_1.png"
+  },
+  {
+    "local": "games/html5-fly/ship_down_2.png",
+    "key": "games/html5-fly/ship_down_2.png",
+    "remote": "https://r2bucket.billybobgames.org/games/html5-fly/ship_down_2.png"
+  },
+  {
+    "local": "games/html5-fly/ship_icon.png",
+    "key": "games/html5-fly/ship_icon.png",
+    "remote": "https://r2bucket.billybobgames.org/games/html5-fly/ship_icon.png"
+  },
+  {
+    "local": "games/html5-fly/level_1_loop.ogg",
+    "key": "games/html5-fly/level_1_loop.ogg",
+    "remote": "https://r2bucket.billybobgames.org/games/html5-fly/level_1_loop.ogg"
+  },
+  {
+    "local": "games/html5-fly/ship_down_3.png",
+    "key": "games/html5-fly/ship_down_3.png",
+    "remote": "https://r2bucket.billybobgames.org/games/html5-fly/ship_down_3.png"
+  },
+  {
+    "local": "games/html5-fly/ship_up_2.png",
+    "key": "games/html5-fly/ship_up_2.png",
+    "remote": "https://r2bucket.billybobgames.org/games/html5-fly/ship_up_2.png"
   },
   {
     "local": "games/html5-fly/level_2_loop.ogg",
+    "key": "games/html5-fly/level_2_loop.ogg",
     "remote": "https://r2bucket.billybobgames.org/games/html5-fly/level_2_loop.ogg"
   },
   {
-    "local": "games/mouseHit/audio/game_music.ogg",
-    "remote": "https://r2bucket.billybobgames.org/games/mouseHit/audio/game_music.ogg"
+    "local": "games/html5-fly/ship_death_7.png",
+    "key": "games/html5-fly/ship_death_7.png",
+    "remote": "https://r2bucket.billybobgames.org/games/html5-fly/ship_death_7.png"
+  },
+  {
+    "local": "games/html5-fly/ship_up_1.png",
+    "key": "games/html5-fly/ship_up_1.png",
+    "remote": "https://r2bucket.billybobgames.org/games/html5-fly/ship_up_1.png"
+  },
+  {
+    "local": "games/html5-fly/shot_image.png",
+    "key": "games/html5-fly/shot_image.png",
+    "remote": "https://r2bucket.billybobgames.org/games/html5-fly/shot_image.png"
+  },
+  {
+    "local": "games/html5-fly/speed_image.png",
+    "key": "games/html5-fly/speed_image.png",
+    "remote": "https://r2bucket.billybobgames.org/games/html5-fly/speed_image.png"
+  },
+  {
+    "local": "games/html5-fly/splode_1.png",
+    "key": "games/html5-fly/splode_1.png",
+    "remote": "https://r2bucket.billybobgames.org/games/html5-fly/splode_1.png"
+  },
+  {
+    "local": "games/html5-fly/splode_2.png",
+    "key": "games/html5-fly/splode_2.png",
+    "remote": "https://r2bucket.billybobgames.org/games/html5-fly/splode_2.png"
+  },
+  {
+    "local": "games/html5-fly/ship_up_3.png",
+    "key": "games/html5-fly/ship_up_3.png",
+    "remote": "https://r2bucket.billybobgames.org/games/html5-fly/ship_up_3.png"
+  },
+  {
+    "local": "games/html5-fly/sky.jpg",
+    "key": "games/html5-fly/sky.jpg",
+    "remote": "https://r2bucket.billybobgames.org/games/html5-fly/sky.jpg"
+  },
+  {
+    "local": "games/html5-fly/splode_4.png",
+    "key": "games/html5-fly/splode_4.png",
+    "remote": "https://r2bucket.billybobgames.org/games/html5-fly/splode_4.png"
+  },
+  {
+    "local": "games/html5-fly/splode_6.png",
+    "key": "games/html5-fly/splode_6.png",
+    "remote": "https://r2bucket.billybobgames.org/games/html5-fly/splode_6.png"
+  },
+  {
+    "local": "games/html5-fly/splode_7.png",
+    "key": "games/html5-fly/splode_7.png",
+    "remote": "https://r2bucket.billybobgames.org/games/html5-fly/splode_7.png"
+  },
+  {
+    "local": "games/html5-fly/splash_screen.jpg",
+    "key": "games/html5-fly/splash_screen.jpg",
+    "remote": "https://r2bucket.billybobgames.org/games/html5-fly/splash_screen.jpg"
+  },
+  {
+    "local": "games/html5-fly/splode_5.png",
+    "key": "games/html5-fly/splode_5.png",
+    "remote": "https://r2bucket.billybobgames.org/games/html5-fly/splode_5.png"
+  },
+  {
+    "local": "games/html5-fly/title.png",
+    "key": "games/html5-fly/title.png",
+    "remote": "https://r2bucket.billybobgames.org/games/html5-fly/title.png"
+  },
+  {
+    "local": "games/html5-fly/splode_3.png",
+    "key": "games/html5-fly/splode_3.png",
+    "remote": "https://r2bucket.billybobgames.org/games/html5-fly/splode_3.png"
+  },
+  {
+    "local": "games/html5-mario/images/firemariosheet.png",
+    "key": "games/html5-mario/images/firemariosheet.png",
+    "remote": "https://r2bucket.billybobgames.org/games/html5-mario/images/firemariosheet.png"
+  },
+  {
+    "local": "games/html5-mario/images/font.gif",
+    "key": "games/html5-mario/images/font.gif",
+    "remote": "https://r2bucket.billybobgames.org/games/html5-mario/images/font.gif"
+  },
+  {
+    "local": "games/html5-fly/starfield.jpg",
+    "key": "games/html5-fly/starfield.jpg",
+    "remote": "https://r2bucket.billybobgames.org/games/html5-fly/starfield.jpg"
+  },
+  {
+    "local": "games/html5-mario/images/gameovergost.gif",
+    "key": "games/html5-mario/images/gameovergost.gif",
+    "remote": "https://r2bucket.billybobgames.org/games/html5-mario/images/gameovergost.gif"
+  },
+  {
+    "local": "games/html5-mario/images/endscene.gif",
+    "key": "games/html5-mario/images/endscene.gif",
+    "remote": "https://r2bucket.billybobgames.org/games/html5-mario/images/endscene.gif"
+  },
+  {
+    "local": "games/html5-mario/images/bgsheet.png",
+    "key": "games/html5-mario/images/bgsheet.png",
+    "remote": "https://r2bucket.billybobgames.org/games/html5-mario/images/bgsheet.png"
+  },
+  {
+    "local": "games/html5-mario/images/itemsheet.png",
+    "key": "games/html5-mario/images/itemsheet.png",
+    "remote": "https://r2bucket.billybobgames.org/games/html5-mario/images/itemsheet.png"
+  },
+  {
+    "local": "games/html5-mario/images/enemysheet.png",
+    "key": "games/html5-mario/images/enemysheet.png",
+    "remote": "https://r2bucket.billybobgames.org/games/html5-mario/images/enemysheet.png"
+  },
+  {
+    "local": "games/html5-mario/images/mapsheet.png",
+    "key": "games/html5-mario/images/mapsheet.png",
+    "remote": "https://r2bucket.billybobgames.org/games/html5-mario/images/mapsheet.png"
+  },
+  {
+    "local": "games/html5-mario/images/particlesheet.png",
+    "key": "games/html5-mario/images/particlesheet.png",
+    "remote": "https://r2bucket.billybobgames.org/games/html5-mario/images/particlesheet.png"
+  },
+  {
+    "local": "games/html5-mario/images/racoonmariosheet.png",
+    "key": "games/html5-mario/images/racoonmariosheet.png",
+    "remote": "https://r2bucket.billybobgames.org/games/html5-mario/images/racoonmariosheet.png"
+  },
+  {
+    "local": "games/html5-mario/images/logo.gif",
+    "key": "games/html5-mario/images/logo.gif",
+    "remote": "https://r2bucket.billybobgames.org/games/html5-mario/images/logo.gif"
+  },
+  {
+    "local": "games/html5-mario/images/worldmap.png",
+    "key": "games/html5-mario/images/worldmap.png",
+    "remote": "https://r2bucket.billybobgames.org/games/html5-mario/images/worldmap.png"
+  },
+  {
+    "local": "games/html5-mario/images/title.gif",
+    "key": "games/html5-mario/images/title.gif",
+    "remote": "https://r2bucket.billybobgames.org/games/html5-mario/images/title.gif"
+  },
+  {
+    "local": "games/html5-mario/images/smallmariosheet.png",
+    "key": "games/html5-mario/images/smallmariosheet.png",
+    "remote": "https://r2bucket.billybobgames.org/games/html5-mario/images/smallmariosheet.png"
+  },
+  {
+    "local": "games/html5-mario/images/mariosheet.png",
+    "key": "games/html5-mario/images/mariosheet.png",
+    "remote": "https://r2bucket.billybobgames.org/games/html5-mario/images/mariosheet.png"
+  },
+  {
+    "local": "games/html5-xxl/Assets/excel/kdkddw.png",
+    "key": "games/html5-xxl/Assets/excel/kdkddw.png",
+    "remote": "https://r2bucket.billybobgames.org/games/html5-xxl/Assets/excel/kdkddw.png"
+  },
+  {
+    "local": "games/html5-xxl/Assets/excel/9602x90.jpg",
+    "key": "games/html5-xxl/Assets/excel/9602x90.jpg",
+    "remote": "https://r2bucket.billybobgames.org/games/html5-xxl/Assets/excel/9602x90.jpg"
+  },
+  {
+    "local": "games/html5-xxl/Assets/excel/logo22.gif",
+    "key": "games/html5-xxl/Assets/excel/logo22.gif",
+    "remote": "https://r2bucket.billybobgames.org/games/html5-xxl/Assets/excel/logo22.gif"
+  },
+  {
+    "local": "games/incredibox-sprunki/20dd7bff5b7f33e61e878d6e7b03e48c.wav",
+    "key": "games/incredibox-sprunki/20dd7bff5b7f33e61e878d6e7b03e48c.wav",
+    "remote": "https://r2bucket.billybobgames.org/games/incredibox-sprunki/20dd7bff5b7f33e61e878d6e7b03e48c.wav"
+  },
+  {
+    "local": "games/incredibox-sprunki/11c71cb1a330eb37ef0e620f5fbad195.wav",
+    "key": "games/incredibox-sprunki/11c71cb1a330eb37ef0e620f5fbad195.wav",
+    "remote": "https://r2bucket.billybobgames.org/games/incredibox-sprunki/11c71cb1a330eb37ef0e620f5fbad195.wav"
+  },
+  {
+    "local": "games/incredibox-sprunki/0217bdff028fdb9a21b92a172f36fbe8.wav",
+    "key": "games/incredibox-sprunki/0217bdff028fdb9a21b92a172f36fbe8.wav",
+    "remote": "https://r2bucket.billybobgames.org/games/incredibox-sprunki/0217bdff028fdb9a21b92a172f36fbe8.wav"
+  },
+  {
+    "local": "games/incredibox-sprunki/014ba584c04fb0655bfeb6727ffe8256.wav",
+    "key": "games/incredibox-sprunki/014ba584c04fb0655bfeb6727ffe8256.wav",
+    "remote": "https://r2bucket.billybobgames.org/games/incredibox-sprunki/014ba584c04fb0655bfeb6727ffe8256.wav"
+  },
+  {
+    "local": "games/incredibox-sprunki/25657e6a259b97b2d0d4f9b24c1eba1e.wav",
+    "key": "games/incredibox-sprunki/25657e6a259b97b2d0d4f9b24c1eba1e.wav",
+    "remote": "https://r2bucket.billybobgames.org/games/incredibox-sprunki/25657e6a259b97b2d0d4f9b24c1eba1e.wav"
+  },
+  {
+    "local": "games/incredibox-sprunki/2644a35847318d88e0cc230566e53a40.wav",
+    "key": "games/incredibox-sprunki/2644a35847318d88e0cc230566e53a40.wav",
+    "remote": "https://r2bucket.billybobgames.org/games/incredibox-sprunki/2644a35847318d88e0cc230566e53a40.wav"
+  },
+  {
+    "local": "games/incredibox-sprunki/2cafd1592fa01924b13f3cbffb1bdada.wav",
+    "key": "games/incredibox-sprunki/2cafd1592fa01924b13f3cbffb1bdada.wav",
+    "remote": "https://r2bucket.billybobgames.org/games/incredibox-sprunki/2cafd1592fa01924b13f3cbffb1bdada.wav"
+  },
+  {
+    "local": "games/incredibox-sprunki/25db76755896bea9f2be69ba1ed2b862.wav",
+    "key": "games/incredibox-sprunki/25db76755896bea9f2be69ba1ed2b862.wav",
+    "remote": "https://r2bucket.billybobgames.org/games/incredibox-sprunki/25db76755896bea9f2be69ba1ed2b862.wav"
+  },
+  {
+    "local": "games/incredibox-sprunki/005fd69af635eeee88d2515b0ff1fd4d.wav",
+    "key": "games/incredibox-sprunki/005fd69af635eeee88d2515b0ff1fd4d.wav",
+    "remote": "https://r2bucket.billybobgames.org/games/incredibox-sprunki/005fd69af635eeee88d2515b0ff1fd4d.wav"
+  },
+  {
+    "local": "games/incredibox-sprunki/2d95f722bf4b21913f02cde2faeb792a.wav",
+    "key": "games/incredibox-sprunki/2d95f722bf4b21913f02cde2faeb792a.wav",
+    "remote": "https://r2bucket.billybobgames.org/games/incredibox-sprunki/2d95f722bf4b21913f02cde2faeb792a.wav"
+  },
+  {
+    "local": "games/incredibox-sprunki/2ff9e556ae0b3cb4f9e4750dbe9b17d4.wav",
+    "key": "games/incredibox-sprunki/2ff9e556ae0b3cb4f9e4750dbe9b17d4.wav",
+    "remote": "https://r2bucket.billybobgames.org/games/incredibox-sprunki/2ff9e556ae0b3cb4f9e4750dbe9b17d4.wav"
+  },
+  {
+    "local": "games/incredibox-sprunki/347dead247cb42851bb4f766ad2da762.wav",
+    "key": "games/incredibox-sprunki/347dead247cb42851bb4f766ad2da762.wav",
+    "remote": "https://r2bucket.billybobgames.org/games/incredibox-sprunki/347dead247cb42851bb4f766ad2da762.wav"
+  },
+  {
+    "local": "games/incredibox-sprunki/3b725f348a5b90f2190ff1c50709f1cd.wav",
+    "key": "games/incredibox-sprunki/3b725f348a5b90f2190ff1c50709f1cd.wav",
+    "remote": "https://r2bucket.billybobgames.org/games/incredibox-sprunki/3b725f348a5b90f2190ff1c50709f1cd.wav"
+  },
+  {
+    "local": "games/incredibox-sprunki/1259ba8412c42cdade7048ca04e35f4a.wav",
+    "key": "games/incredibox-sprunki/1259ba8412c42cdade7048ca04e35f4a.wav",
+    "remote": "https://r2bucket.billybobgames.org/games/incredibox-sprunki/1259ba8412c42cdade7048ca04e35f4a.wav"
+  },
+  {
+    "local": "games/incredibox-sprunki/304cc4859cb39313ff0948047c5ff11e.wav",
+    "key": "games/incredibox-sprunki/304cc4859cb39313ff0948047c5ff11e.wav",
+    "remote": "https://r2bucket.billybobgames.org/games/incredibox-sprunki/304cc4859cb39313ff0948047c5ff11e.wav"
+  },
+  {
+    "local": "games/incredibox-sprunki/47b17dfa93445ecd1184cdfab4c0e09a.wav",
+    "key": "games/incredibox-sprunki/47b17dfa93445ecd1184cdfab4c0e09a.wav",
+    "remote": "https://r2bucket.billybobgames.org/games/incredibox-sprunki/47b17dfa93445ecd1184cdfab4c0e09a.wav"
+  },
+  {
+    "local": "games/incredibox-sprunki/42132de97f842fb6725c7ce9ce35b3eb.wav",
+    "key": "games/incredibox-sprunki/42132de97f842fb6725c7ce9ce35b3eb.wav",
+    "remote": "https://r2bucket.billybobgames.org/games/incredibox-sprunki/42132de97f842fb6725c7ce9ce35b3eb.wav"
+  },
+  {
+    "local": "games/incredibox-sprunki/40c9fa416e1e31fe84ee723549d5426f.wav",
+    "key": "games/incredibox-sprunki/40c9fa416e1e31fe84ee723549d5426f.wav",
+    "remote": "https://r2bucket.billybobgames.org/games/incredibox-sprunki/40c9fa416e1e31fe84ee723549d5426f.wav"
+  },
+  {
+    "local": "games/incredibox-sprunki/57f635c1d4fa2890299d33a8693f6629.wav",
+    "key": "games/incredibox-sprunki/57f635c1d4fa2890299d33a8693f6629.wav",
+    "remote": "https://r2bucket.billybobgames.org/games/incredibox-sprunki/57f635c1d4fa2890299d33a8693f6629.wav"
+  },
+  {
+    "local": "games/incredibox-sprunki/489ddfc8c7c57c3c4a914ef814e98472.wav",
+    "key": "games/incredibox-sprunki/489ddfc8c7c57c3c4a914ef814e98472.wav",
+    "remote": "https://r2bucket.billybobgames.org/games/incredibox-sprunki/489ddfc8c7c57c3c4a914ef814e98472.wav"
+  },
+  {
+    "local": "games/incredibox-sprunki/5af077595ce5ece3c73a7cb302394015.wav",
+    "key": "games/incredibox-sprunki/5af077595ce5ece3c73a7cb302394015.wav",
+    "remote": "https://r2bucket.billybobgames.org/games/incredibox-sprunki/5af077595ce5ece3c73a7cb302394015.wav"
+  },
+  {
+    "local": "games/incredibox-sprunki/65b35bccccee72ec1afbcb69269e9d46.wav",
+    "key": "games/incredibox-sprunki/65b35bccccee72ec1afbcb69269e9d46.wav",
+    "remote": "https://r2bucket.billybobgames.org/games/incredibox-sprunki/65b35bccccee72ec1afbcb69269e9d46.wav"
+  },
+  {
+    "local": "games/incredibox-sprunki/5a09fb11b6441a49fc732a93b3b86b00.wav",
+    "key": "games/incredibox-sprunki/5a09fb11b6441a49fc732a93b3b86b00.wav",
+    "remote": "https://r2bucket.billybobgames.org/games/incredibox-sprunki/5a09fb11b6441a49fc732a93b3b86b00.wav"
+  },
+  {
+    "local": "games/incredibox-sprunki/6f69ede8c2c180e12261d088adf4b8b2.wav",
+    "key": "games/incredibox-sprunki/6f69ede8c2c180e12261d088adf4b8b2.wav",
+    "remote": "https://r2bucket.billybobgames.org/games/incredibox-sprunki/6f69ede8c2c180e12261d088adf4b8b2.wav"
+  },
+  {
+    "local": "games/incredibox-sprunki/010667e9c7c5d755a22e2e04508088ed.wav",
+    "key": "games/incredibox-sprunki/010667e9c7c5d755a22e2e04508088ed.wav",
+    "remote": "https://r2bucket.billybobgames.org/games/incredibox-sprunki/010667e9c7c5d755a22e2e04508088ed.wav"
+  },
+  {
+    "local": "games/incredibox-sprunki/4eb9f3c28b6f5d78b1ea76a71df5cc43.wav",
+    "key": "games/incredibox-sprunki/4eb9f3c28b6f5d78b1ea76a71df5cc43.wav",
+    "remote": "https://r2bucket.billybobgames.org/games/incredibox-sprunki/4eb9f3c28b6f5d78b1ea76a71df5cc43.wav"
+  },
+  {
+    "local": "games/incredibox-sprunki/793e0dde46587175bc6817a4cfd37699.wav",
+    "key": "games/incredibox-sprunki/793e0dde46587175bc6817a4cfd37699.wav",
+    "remote": "https://r2bucket.billybobgames.org/games/incredibox-sprunki/793e0dde46587175bc6817a4cfd37699.wav"
+  },
+  {
+    "local": "games/incredibox-sprunki/70a511bac6487b9dfb4b9420ad7e86f6.wav",
+    "key": "games/incredibox-sprunki/70a511bac6487b9dfb4b9420ad7e86f6.wav",
+    "remote": "https://r2bucket.billybobgames.org/games/incredibox-sprunki/70a511bac6487b9dfb4b9420ad7e86f6.wav"
+  },
+  {
+    "local": "games/incredibox-sprunki/3ff567bc278b8e218f4e028911fb3b17.wav",
+    "key": "games/incredibox-sprunki/3ff567bc278b8e218f4e028911fb3b17.wav",
+    "remote": "https://r2bucket.billybobgames.org/games/incredibox-sprunki/3ff567bc278b8e218f4e028911fb3b17.wav"
+  },
+  {
+    "local": "games/incredibox-sprunki/755b17efd1132952872dd572901b3566.wav",
+    "key": "games/incredibox-sprunki/755b17efd1132952872dd572901b3566.wav",
+    "remote": "https://r2bucket.billybobgames.org/games/incredibox-sprunki/755b17efd1132952872dd572901b3566.wav"
+  },
+  {
+    "local": "games/incredibox-sprunki/7168c28e0a595c468f461cedced06589.wav",
+    "key": "games/incredibox-sprunki/7168c28e0a595c468f461cedced06589.wav",
+    "remote": "https://r2bucket.billybobgames.org/games/incredibox-sprunki/7168c28e0a595c468f461cedced06589.wav"
+  },
+  {
+    "local": "games/incredibox-sprunki/81c754a5cfcf08ac3f91019a98906574.wav",
+    "key": "games/incredibox-sprunki/81c754a5cfcf08ac3f91019a98906574.wav",
+    "remote": "https://r2bucket.billybobgames.org/games/incredibox-sprunki/81c754a5cfcf08ac3f91019a98906574.wav"
+  },
+  {
+    "local": "games/incredibox-sprunki/83a9787d4cb6f3b7632b4ddfebf74367.wav",
+    "key": "games/incredibox-sprunki/83a9787d4cb6f3b7632b4ddfebf74367.wav",
+    "remote": "https://r2bucket.billybobgames.org/games/incredibox-sprunki/83a9787d4cb6f3b7632b4ddfebf74367.wav"
+  },
+  {
+    "local": "games/incredibox-sprunki/7ad41cc2db9d0d788120792fd804a8ba.wav",
+    "key": "games/incredibox-sprunki/7ad41cc2db9d0d788120792fd804a8ba.wav",
+    "remote": "https://r2bucket.billybobgames.org/games/incredibox-sprunki/7ad41cc2db9d0d788120792fd804a8ba.wav"
+  },
+  {
+    "local": "games/incredibox-sprunki/92ed28220e031b247f5bcce8d0436130.wav",
+    "key": "games/incredibox-sprunki/92ed28220e031b247f5bcce8d0436130.wav",
+    "remote": "https://r2bucket.billybobgames.org/games/incredibox-sprunki/92ed28220e031b247f5bcce8d0436130.wav"
+  },
+  {
+    "local": "games/incredibox-sprunki/7f08e76918d14fdfa46c4c61728808fc.wav",
+    "key": "games/incredibox-sprunki/7f08e76918d14fdfa46c4c61728808fc.wav",
+    "remote": "https://r2bucket.billybobgames.org/games/incredibox-sprunki/7f08e76918d14fdfa46c4c61728808fc.wav"
+  },
+  {
+    "local": "games/incredibox-sprunki/97d7c85d4f0acd1f12fa65afb27bb1a5.wav",
+    "key": "games/incredibox-sprunki/97d7c85d4f0acd1f12fa65afb27bb1a5.wav",
+    "remote": "https://r2bucket.billybobgames.org/games/incredibox-sprunki/97d7c85d4f0acd1f12fa65afb27bb1a5.wav"
+  },
+  {
+    "local": "games/incredibox-sprunki/9898ece4ca9a389e15dab39b981757ce.wav",
+    "key": "games/incredibox-sprunki/9898ece4ca9a389e15dab39b981757ce.wav",
+    "remote": "https://r2bucket.billybobgames.org/games/incredibox-sprunki/9898ece4ca9a389e15dab39b981757ce.wav"
+  },
+  {
+    "local": "games/incredibox-sprunki/7a3fe5b0d779187cf5e7d51cbf58e7e1.wav",
+    "key": "games/incredibox-sprunki/7a3fe5b0d779187cf5e7d51cbf58e7e1.wav",
+    "remote": "https://r2bucket.billybobgames.org/games/incredibox-sprunki/7a3fe5b0d779187cf5e7d51cbf58e7e1.wav"
+  },
+  {
+    "local": "games/incredibox-sprunki/8c8b1362a6602d83b976d8faa8283555.wav",
+    "key": "games/incredibox-sprunki/8c8b1362a6602d83b976d8faa8283555.wav",
+    "remote": "https://r2bucket.billybobgames.org/games/incredibox-sprunki/8c8b1362a6602d83b976d8faa8283555.wav"
+  },
+  {
+    "local": "games/incredibox-sprunki/9f2b469fe298e16a125fa3c28167df47.wav",
+    "key": "games/incredibox-sprunki/9f2b469fe298e16a125fa3c28167df47.wav",
+    "remote": "https://r2bucket.billybobgames.org/games/incredibox-sprunki/9f2b469fe298e16a125fa3c28167df47.wav"
+  },
+  {
+    "local": "games/incredibox-sprunki/9a64e35275249dafad42b40a2aedf53d.wav",
+    "key": "games/incredibox-sprunki/9a64e35275249dafad42b40a2aedf53d.wav",
+    "remote": "https://r2bucket.billybobgames.org/games/incredibox-sprunki/9a64e35275249dafad42b40a2aedf53d.wav"
+  },
+  {
+    "local": "games/incredibox-sprunki/a61d4acb6949d64706ec7246eefc7e96.wav",
+    "key": "games/incredibox-sprunki/a61d4acb6949d64706ec7246eefc7e96.wav",
+    "remote": "https://r2bucket.billybobgames.org/games/incredibox-sprunki/a61d4acb6949d64706ec7246eefc7e96.wav"
+  },
+  {
+    "local": "games/incredibox-sprunki/a241da320fdf120b146456732065baa6.wav",
+    "key": "games/incredibox-sprunki/a241da320fdf120b146456732065baa6.wav",
+    "remote": "https://r2bucket.billybobgames.org/games/incredibox-sprunki/a241da320fdf120b146456732065baa6.wav"
+  },
+  {
+    "local": "games/incredibox-sprunki/ac76a6a92f290e7fac145dd9cf8c2b32.wav",
+    "key": "games/incredibox-sprunki/ac76a6a92f290e7fac145dd9cf8c2b32.wav",
+    "remote": "https://r2bucket.billybobgames.org/games/incredibox-sprunki/ac76a6a92f290e7fac145dd9cf8c2b32.wav"
+  },
+  {
+    "local": "games/incredibox-sprunki/9c67f8a107d42ff01b38fb0b222c133c.wav",
+    "key": "games/incredibox-sprunki/9c67f8a107d42ff01b38fb0b222c133c.wav",
+    "remote": "https://r2bucket.billybobgames.org/games/incredibox-sprunki/9c67f8a107d42ff01b38fb0b222c133c.wav"
+  },
+  {
+    "local": "games/incredibox-sprunki/c2923c409173fa2ca34dc532a894f9f7.wav",
+    "key": "games/incredibox-sprunki/c2923c409173fa2ca34dc532a894f9f7.wav",
+    "remote": "https://r2bucket.billybobgames.org/games/incredibox-sprunki/c2923c409173fa2ca34dc532a894f9f7.wav"
+  },
+  {
+    "local": "games/incredibox-sprunki/bfb682f97520199a8861aa95695d7a3f.wav",
+    "key": "games/incredibox-sprunki/bfb682f97520199a8861aa95695d7a3f.wav",
+    "remote": "https://r2bucket.billybobgames.org/games/incredibox-sprunki/bfb682f97520199a8861aa95695d7a3f.wav"
+  },
+  {
+    "local": "games/incredibox-sprunki/ae111f7b2abb4ffe113d49e85cadcf7c.wav",
+    "key": "games/incredibox-sprunki/ae111f7b2abb4ffe113d49e85cadcf7c.wav",
+    "remote": "https://r2bucket.billybobgames.org/games/incredibox-sprunki/ae111f7b2abb4ffe113d49e85cadcf7c.wav"
+  },
+  {
+    "local": "games/incredibox-sprunki/c05fb970b4d75f940ab7a6dc54d672a8.wav",
+    "key": "games/incredibox-sprunki/c05fb970b4d75f940ab7a6dc54d672a8.wav",
+    "remote": "https://r2bucket.billybobgames.org/games/incredibox-sprunki/c05fb970b4d75f940ab7a6dc54d672a8.wav"
+  },
+  {
+    "local": "games/incredibox-sprunki/be1cb011ce50969caf9511048105f167.wav",
+    "key": "games/incredibox-sprunki/be1cb011ce50969caf9511048105f167.wav",
+    "remote": "https://r2bucket.billybobgames.org/games/incredibox-sprunki/be1cb011ce50969caf9511048105f167.wav"
+  },
+  {
+    "local": "games/incredibox-sprunki/cc85f2be1b1764358cd1ab84455d00a0.wav",
+    "key": "games/incredibox-sprunki/cc85f2be1b1764358cd1ab84455d00a0.wav",
+    "remote": "https://r2bucket.billybobgames.org/games/incredibox-sprunki/cc85f2be1b1764358cd1ab84455d00a0.wav"
+  },
+  {
+    "local": "games/incredibox-sprunki/acaf6404c535865366f3ec3f5f4757a7.wav",
+    "key": "games/incredibox-sprunki/acaf6404c535865366f3ec3f5f4757a7.wav",
+    "remote": "https://r2bucket.billybobgames.org/games/incredibox-sprunki/acaf6404c535865366f3ec3f5f4757a7.wav"
+  },
+  {
+    "local": "games/incredibox-sprunki/c8e1bfd11759410ffa43805419850dec.wav",
+    "key": "games/incredibox-sprunki/c8e1bfd11759410ffa43805419850dec.wav",
+    "remote": "https://r2bucket.billybobgames.org/games/incredibox-sprunki/c8e1bfd11759410ffa43805419850dec.wav"
+  },
+  {
+    "local": "games/incredibox-sprunki/c39e54d80f08fd650cc23e04b733a83d.wav",
+    "key": "games/incredibox-sprunki/c39e54d80f08fd650cc23e04b733a83d.wav",
+    "remote": "https://r2bucket.billybobgames.org/games/incredibox-sprunki/c39e54d80f08fd650cc23e04b733a83d.wav"
+  },
+  {
+    "local": "games/incredibox-sprunki/cd2290c8ad545070517a54f007060c68.wav",
+    "key": "games/incredibox-sprunki/cd2290c8ad545070517a54f007060c68.wav",
+    "remote": "https://r2bucket.billybobgames.org/games/incredibox-sprunki/cd2290c8ad545070517a54f007060c68.wav"
+  },
+  {
+    "local": "games/incredibox-sprunki/d3412e9a60ca1e4fb3db49587687ec28.wav",
+    "key": "games/incredibox-sprunki/d3412e9a60ca1e4fb3db49587687ec28.wav",
+    "remote": "https://r2bucket.billybobgames.org/games/incredibox-sprunki/d3412e9a60ca1e4fb3db49587687ec28.wav"
+  },
+  {
+    "local": "games/incredibox-sprunki/cfb7b02755c589d6a021459ccc2879a4.wav",
+    "key": "games/incredibox-sprunki/cfb7b02755c589d6a021459ccc2879a4.wav",
+    "remote": "https://r2bucket.billybobgames.org/games/incredibox-sprunki/cfb7b02755c589d6a021459ccc2879a4.wav"
+  },
+  {
+    "local": "games/incredibox-sprunki/d4559705743f97dfb16350a2e199ac41.wav",
+    "key": "games/incredibox-sprunki/d4559705743f97dfb16350a2e199ac41.wav",
+    "remote": "https://r2bucket.billybobgames.org/games/incredibox-sprunki/d4559705743f97dfb16350a2e199ac41.wav"
+  },
+  {
+    "local": "games/incredibox-sprunki/d4864d2ac4176cff6ecffa0064f6a9b8.wav",
+    "key": "games/incredibox-sprunki/d4864d2ac4176cff6ecffa0064f6a9b8.wav",
+    "remote": "https://r2bucket.billybobgames.org/games/incredibox-sprunki/d4864d2ac4176cff6ecffa0064f6a9b8.wav"
+  },
+  {
+    "local": "games/incredibox-sprunki/cff73bda43f2ad689913599323b8d402.wav",
+    "key": "games/incredibox-sprunki/cff73bda43f2ad689913599323b8d402.wav",
+    "remote": "https://r2bucket.billybobgames.org/games/incredibox-sprunki/cff73bda43f2ad689913599323b8d402.wav"
+  },
+  {
+    "local": "games/incredibox-sprunki/d690ea637972fe97870d672dca854c80.wav",
+    "key": "games/incredibox-sprunki/d690ea637972fe97870d672dca854c80.wav",
+    "remote": "https://r2bucket.billybobgames.org/games/incredibox-sprunki/d690ea637972fe97870d672dca854c80.wav"
+  },
+  {
+    "local": "games/incredibox-sprunki/d7dff4e0ca2d49846587f42fe1ee1c8f.wav",
+    "key": "games/incredibox-sprunki/d7dff4e0ca2d49846587f42fe1ee1c8f.wav",
+    "remote": "https://r2bucket.billybobgames.org/games/incredibox-sprunki/d7dff4e0ca2d49846587f42fe1ee1c8f.wav"
+  },
+  {
+    "local": "games/incredibox-sprunki/d56f8124c08bf51717a97780c4c77067.wav",
+    "key": "games/incredibox-sprunki/d56f8124c08bf51717a97780c4c77067.wav",
+    "remote": "https://r2bucket.billybobgames.org/games/incredibox-sprunki/d56f8124c08bf51717a97780c4c77067.wav"
+  },
+  {
+    "local": "games/incredibox-sprunki/d10ff60c2885d6eb682e8ad375a08612.wav",
+    "key": "games/incredibox-sprunki/d10ff60c2885d6eb682e8ad375a08612.wav",
+    "remote": "https://r2bucket.billybobgames.org/games/incredibox-sprunki/d10ff60c2885d6eb682e8ad375a08612.wav"
+  },
+  {
+    "local": "games/incredibox-sprunki/d85f0f3f1411b871e9d5d2b14c6184f0.wav",
+    "key": "games/incredibox-sprunki/d85f0f3f1411b871e9d5d2b14c6184f0.wav",
+    "remote": "https://r2bucket.billybobgames.org/games/incredibox-sprunki/d85f0f3f1411b871e9d5d2b14c6184f0.wav"
+  },
+  {
+    "local": "games/incredibox-sprunki/dfc4e0e27b844fefd14c04892a578aa0.wav",
+    "key": "games/incredibox-sprunki/dfc4e0e27b844fefd14c04892a578aa0.wav",
+    "remote": "https://r2bucket.billybobgames.org/games/incredibox-sprunki/dfc4e0e27b844fefd14c04892a578aa0.wav"
+  },
+  {
+    "local": "games/incredibox-sprunki/ee4e3c3c7d03f577a31e16d85f142b3e.wav",
+    "key": "games/incredibox-sprunki/ee4e3c3c7d03f577a31e16d85f142b3e.wav",
+    "remote": "https://r2bucket.billybobgames.org/games/incredibox-sprunki/ee4e3c3c7d03f577a31e16d85f142b3e.wav"
+  },
+  {
+    "local": "games/incredibox-sprunki/ec7d9db5e1818f1a797dee7578ca97d9.wav",
+    "key": "games/incredibox-sprunki/ec7d9db5e1818f1a797dee7578ca97d9.wav",
+    "remote": "https://r2bucket.billybobgames.org/games/incredibox-sprunki/ec7d9db5e1818f1a797dee7578ca97d9.wav"
+  },
+  {
+    "local": "games/mouseHit/audio/begin_music.ogg",
+    "key": "games/mouseHit/audio/begin_music.ogg",
+    "remote": "https://r2bucket.billybobgames.org/games/mouseHit/audio/begin_music.ogg"
+  },
+  {
+    "local": "games/incredibox-sprunki/e5e938c53d6855c3e4d0ede6da8ec066.wav",
+    "key": "games/incredibox-sprunki/e5e938c53d6855c3e4d0ede6da8ec066.wav",
+    "remote": "https://r2bucket.billybobgames.org/games/incredibox-sprunki/e5e938c53d6855c3e4d0ede6da8ec066.wav"
+  },
+  {
+    "local": "games/incredibox-sprunki/f064ef28df9cde45030240be85bb9c0d.wav",
+    "key": "games/incredibox-sprunki/f064ef28df9cde45030240be85bb9c0d.wav",
+    "remote": "https://r2bucket.billybobgames.org/games/incredibox-sprunki/f064ef28df9cde45030240be85bb9c0d.wav"
+  },
+  {
+    "local": "games/mouseHit/audio/game_pass.ogg",
+    "key": "games/mouseHit/audio/game_pass.ogg",
+    "remote": "https://r2bucket.billybobgames.org/games/mouseHit/audio/game_pass.ogg"
   },
   {
     "local": "games/mouseHit/audio/no_hit.ogg",
+    "key": "games/mouseHit/audio/no_hit.ogg",
     "remote": "https://r2bucket.billybobgames.org/games/mouseHit/audio/no_hit.ogg"
   },
   {
     "local": "games/mouseHit/audio/over_music.ogg",
+    "key": "games/mouseHit/audio/over_music.ogg",
     "remote": "https://r2bucket.billybobgames.org/games/mouseHit/audio/over_music.ogg"
   },
   {
-    "local": "video/dealing_cards2.mp3",
-    "remote": "https://r2bucket.billybobgames.org/video/dealing_cards2.mp3"
+    "local": "games/mouseHit/audio/second_music.ogg",
+    "key": "games/mouseHit/audio/second_music.ogg",
+    "remote": "https://r2bucket.billybobgames.org/games/mouseHit/audio/second_music.ogg"
   },
   {
-    "local": "games/mouseHit/audio/second_music.ogg",
-    "remote": "https://r2bucket.billybobgames.org/games/mouseHit/audio/second_music.ogg"
+    "local": "games/incredibox-sprunki/e7f583c38ef79d14bc048a333127e174.wav",
+    "key": "games/incredibox-sprunki/e7f583c38ef79d14bc048a333127e174.wav",
+    "remote": "https://r2bucket.billybobgames.org/games/incredibox-sprunki/e7f583c38ef79d14bc048a333127e174.wav"
+  },
+  {
+    "local": "games/incredibox-sprunki/ef3c0e50f5c2ac26bfc5700fce42db63.wav",
+    "key": "games/incredibox-sprunki/ef3c0e50f5c2ac26bfc5700fce42db63.wav",
+    "remote": "https://r2bucket.billybobgames.org/games/incredibox-sprunki/ef3c0e50f5c2ac26bfc5700fce42db63.wav"
+  },
+  {
+    "local": "games/mouseHit/images/bg_hole.png",
+    "key": "games/mouseHit/images/bg_hole.png",
+    "remote": "https://r2bucket.billybobgames.org/games/mouseHit/images/bg_hole.png"
+  },
+  {
+    "local": "games/mouseHit/audio/game_music.ogg",
+    "key": "games/mouseHit/audio/game_music.ogg",
+    "remote": "https://r2bucket.billybobgames.org/games/mouseHit/audio/game_music.ogg"
+  },
+  {
+    "local": "games/mouseHit/images/bg_canvas.png",
+    "key": "games/mouseHit/images/bg_canvas.png",
+    "remote": "https://r2bucket.billybobgames.org/games/mouseHit/images/bg_canvas.png"
+  },
+  {
+    "local": "games/mouseHit/images/hammer.png",
+    "key": "games/mouseHit/images/hammer.png",
+    "remote": "https://r2bucket.billybobgames.org/games/mouseHit/images/hammer.png"
+  },
+  {
+    "local": "games/mouseHit/images/mouse.png",
+    "key": "games/mouseHit/images/mouse.png",
+    "remote": "https://r2bucket.billybobgames.org/games/mouseHit/images/mouse.png"
+  },
+  {
+    "local": "games/mouseHit/images/icon.png",
+    "key": "games/mouseHit/images/icon.png",
+    "remote": "https://r2bucket.billybobgames.org/games/mouseHit/images/icon.png"
+  },
+  {
+    "local": "games/mouseHit/images/help.png",
+    "key": "games/mouseHit/images/help.png",
+    "remote": "https://r2bucket.billybobgames.org/games/mouseHit/images/help.png"
+  },
+  {
+    "local": "games/mouseHit/images/time_roller.png",
+    "key": "games/mouseHit/images/time_roller.png",
+    "remote": "https://r2bucket.billybobgames.org/games/mouseHit/images/time_roller.png"
+  },
+  {
+    "local": "games/mouseHit/images/bg_gameover.png",
+    "key": "games/mouseHit/images/bg_gameover.png",
+    "remote": "https://r2bucket.billybobgames.org/games/mouseHit/images/bg_gameover.png"
+  },
+  {
+    "local": "games/mouseHit/images/star.png",
+    "key": "games/mouseHit/images/star.png",
+    "remote": "https://r2bucket.billybobgames.org/games/mouseHit/images/star.png"
+  },
+  {
+    "local": "games/slot-machine-main/0379613a4269155f45b3.svg",
+    "key": "games/slot-machine-main/0379613a4269155f45b3.svg",
+    "remote": "https://r2bucket.billybobgames.org/games/slot-machine-main/0379613a4269155f45b3.svg"
+  },
+  {
+    "local": "games/mouseHit/images/set_board.png",
+    "key": "games/mouseHit/images/set_board.png",
+    "remote": "https://r2bucket.billybobgames.org/games/mouseHit/images/set_board.png"
+  },
+  {
+    "local": "games/mouseHit/images/next.png",
+    "key": "games/mouseHit/images/next.png",
+    "remote": "https://r2bucket.billybobgames.org/games/mouseHit/images/next.png"
+  },
+  {
+    "local": "games/slot-machine-main/01e008fb4d3f3df23e7d.jpg",
+    "key": "games/slot-machine-main/01e008fb4d3f3df23e7d.jpg",
+    "remote": "https://r2bucket.billybobgames.org/games/slot-machine-main/01e008fb4d3f3df23e7d.jpg"
+  },
+  {
+    "local": "games/pac-man/favicon.png",
+    "key": "games/pac-man/favicon.png",
+    "remote": "https://r2bucket.billybobgames.org/games/pac-man/favicon.png"
+  },
+  {
+    "local": "games/slot-machine-main/3392ebef20e51148368e.svg",
+    "key": "games/slot-machine-main/3392ebef20e51148368e.svg",
+    "remote": "https://r2bucket.billybobgames.org/games/slot-machine-main/3392ebef20e51148368e.svg"
+  },
+  {
+    "local": "games/slot-machine-main/4c0ad8f5f10199effb77.svg",
+    "key": "games/slot-machine-main/4c0ad8f5f10199effb77.svg",
+    "remote": "https://r2bucket.billybobgames.org/games/slot-machine-main/4c0ad8f5f10199effb77.svg"
+  },
+  {
+    "local": "games/slot-machine-main/61e5b40f641dff097d3f.svg",
+    "key": "games/slot-machine-main/61e5b40f641dff097d3f.svg",
+    "remote": "https://r2bucket.billybobgames.org/games/slot-machine-main/61e5b40f641dff097d3f.svg"
+  },
+  {
+    "local": "games/slot-machine-main/7d600c80a7f5f31bc337.svg",
+    "key": "games/slot-machine-main/7d600c80a7f5f31bc337.svg",
+    "remote": "https://r2bucket.billybobgames.org/games/slot-machine-main/7d600c80a7f5f31bc337.svg"
+  },
+  {
+    "local": "games/slot-machine-main/9ae79499243776a4de6e.svg",
+    "key": "games/slot-machine-main/9ae79499243776a4de6e.svg",
+    "remote": "https://r2bucket.billybobgames.org/games/slot-machine-main/9ae79499243776a4de6e.svg"
+  },
+  {
+    "local": "games/slot-machine-main/b33cd68d7fb870c59309.svg",
+    "key": "games/slot-machine-main/b33cd68d7fb870c59309.svg",
+    "remote": "https://r2bucket.billybobgames.org/games/slot-machine-main/b33cd68d7fb870c59309.svg"
+  },
+  {
+    "local": "games/spider-solitaire/favicon.ico",
+    "key": "games/spider-solitaire/favicon.ico",
+    "remote": "https://r2bucket.billybobgames.org/games/spider-solitaire/favicon.ico"
+  },
+  {
+    "local": "games/slot-machine-main/92e4eecf1c83293e3395.svg",
+    "key": "games/slot-machine-main/92e4eecf1c83293e3395.svg",
+    "remote": "https://r2bucket.billybobgames.org/games/slot-machine-main/92e4eecf1c83293e3395.svg"
+  },
+  {
+    "local": "games/slot-machine-main/a97a2e9fa184dcab972b.svg",
+    "key": "games/slot-machine-main/a97a2e9fa184dcab972b.svg",
+    "remote": "https://r2bucket.billybobgames.org/games/slot-machine-main/a97a2e9fa184dcab972b.svg"
+  },
+  {
+    "local": "games/spider-solitaire/img/11_h.fe1d983e.png",
+    "key": "games/spider-solitaire/img/11_h.fe1d983e.png",
+    "remote": "https://r2bucket.billybobgames.org/games/spider-solitaire/img/11_h.fe1d983e.png"
+  },
+  {
+    "local": "games/spider-solitaire/img/11_c.951dd020.png",
+    "key": "games/spider-solitaire/img/11_c.951dd020.png",
+    "remote": "https://r2bucket.billybobgames.org/games/spider-solitaire/img/11_c.951dd020.png"
+  },
+  {
+    "local": "games/spider-solitaire/img/10_s.07f12c82.png",
+    "key": "games/spider-solitaire/img/10_s.07f12c82.png",
+    "remote": "https://r2bucket.billybobgames.org/games/spider-solitaire/img/10_s.07f12c82.png"
+  },
+  {
+    "local": "games/spider-solitaire/img/11_d.b0459e0b.png",
+    "key": "games/spider-solitaire/img/11_d.b0459e0b.png",
+    "remote": "https://r2bucket.billybobgames.org/games/spider-solitaire/img/11_d.b0459e0b.png"
+  },
+  {
+    "local": "games/spider-solitaire/img/10_c.b12969de.png",
+    "key": "games/spider-solitaire/img/10_c.b12969de.png",
+    "remote": "https://r2bucket.billybobgames.org/games/spider-solitaire/img/10_c.b12969de.png"
+  },
+  {
+    "local": "games/slot-machine-main/dbdfdc8f51630ddfbb3f.jpg",
+    "key": "games/slot-machine-main/dbdfdc8f51630ddfbb3f.jpg",
+    "remote": "https://r2bucket.billybobgames.org/games/slot-machine-main/dbdfdc8f51630ddfbb3f.jpg"
+  },
+  {
+    "local": "games/spider-solitaire/img/10_d.0ddab9a2.png",
+    "key": "games/spider-solitaire/img/10_d.0ddab9a2.png",
+    "remote": "https://r2bucket.billybobgames.org/games/spider-solitaire/img/10_d.0ddab9a2.png"
+  },
+  {
+    "local": "games/spider-solitaire/img/11_s.d5d6774d.png",
+    "key": "games/spider-solitaire/img/11_s.d5d6774d.png",
+    "remote": "https://r2bucket.billybobgames.org/games/spider-solitaire/img/11_s.d5d6774d.png"
+  },
+  {
+    "local": "games/spider-solitaire/img/12_c.472d0e19.png",
+    "key": "games/spider-solitaire/img/12_c.472d0e19.png",
+    "remote": "https://r2bucket.billybobgames.org/games/spider-solitaire/img/12_c.472d0e19.png"
+  },
+  {
+    "local": "games/spider-solitaire/img/12_h.0d6e90c1.png",
+    "key": "games/spider-solitaire/img/12_h.0d6e90c1.png",
+    "remote": "https://r2bucket.billybobgames.org/games/spider-solitaire/img/12_h.0d6e90c1.png"
+  },
+  {
+    "local": "games/spider-solitaire/img/13_c.c4dc2f66.png",
+    "key": "games/spider-solitaire/img/13_c.c4dc2f66.png",
+    "remote": "https://r2bucket.billybobgames.org/games/spider-solitaire/img/13_c.c4dc2f66.png"
+  },
+  {
+    "local": "games/spider-solitaire/img/12_d.35cd120c.png",
+    "key": "games/spider-solitaire/img/12_d.35cd120c.png",
+    "remote": "https://r2bucket.billybobgames.org/games/spider-solitaire/img/12_d.35cd120c.png"
+  },
+  {
+    "local": "games/spider-solitaire/img/12_s.93c1558d.png",
+    "key": "games/spider-solitaire/img/12_s.93c1558d.png",
+    "remote": "https://r2bucket.billybobgames.org/games/spider-solitaire/img/12_s.93c1558d.png"
+  },
+  {
+    "local": "games/spider-solitaire/img/13_d.164d3bd9.png",
+    "key": "games/spider-solitaire/img/13_d.164d3bd9.png",
+    "remote": "https://r2bucket.billybobgames.org/games/spider-solitaire/img/13_d.164d3bd9.png"
+  },
+  {
+    "local": "games/spider-solitaire/img/13_h.9dfdc73e.png",
+    "key": "games/spider-solitaire/img/13_h.9dfdc73e.png",
+    "remote": "https://r2bucket.billybobgames.org/games/spider-solitaire/img/13_h.9dfdc73e.png"
+  },
+  {
+    "local": "games/spider-solitaire/img/13_s.4e5f8f60.png",
+    "key": "games/spider-solitaire/img/13_s.4e5f8f60.png",
+    "remote": "https://r2bucket.billybobgames.org/games/spider-solitaire/img/13_s.4e5f8f60.png"
+  },
+  {
+    "local": "games/spider-solitaire/img/10_h.b5cc8c68.png",
+    "key": "games/spider-solitaire/img/10_h.b5cc8c68.png",
+    "remote": "https://r2bucket.billybobgames.org/games/spider-solitaire/img/10_h.b5cc8c68.png"
+  },
+  {
+    "local": "games/spider-solitaire/img/1_h.1ac791e8.png",
+    "key": "games/spider-solitaire/img/1_h.1ac791e8.png",
+    "remote": "https://r2bucket.billybobgames.org/games/spider-solitaire/img/1_h.1ac791e8.png"
+  },
+  {
+    "local": "games/spider-solitaire/img/1_c.e504b876.png",
+    "key": "games/spider-solitaire/img/1_c.e504b876.png",
+    "remote": "https://r2bucket.billybobgames.org/games/spider-solitaire/img/1_c.e504b876.png"
+  },
+  {
+    "local": "games/spider-solitaire/img/1_d.9112333b.png",
+    "key": "games/spider-solitaire/img/1_d.9112333b.png",
+    "remote": "https://r2bucket.billybobgames.org/games/spider-solitaire/img/1_d.9112333b.png"
+  },
+  {
+    "local": "games/spider-solitaire/img/3_c.b1b7c349.png",
+    "key": "games/spider-solitaire/img/3_c.b1b7c349.png",
+    "remote": "https://r2bucket.billybobgames.org/games/spider-solitaire/img/3_c.b1b7c349.png"
+  },
+  {
+    "local": "games/spider-solitaire/img/2_h.f3940f09.png",
+    "key": "games/spider-solitaire/img/2_h.f3940f09.png",
+    "remote": "https://r2bucket.billybobgames.org/games/spider-solitaire/img/2_h.f3940f09.png"
+  },
+  {
+    "local": "games/spider-solitaire/img/2_d.a10d33ac.png",
+    "key": "games/spider-solitaire/img/2_d.a10d33ac.png",
+    "remote": "https://r2bucket.billybobgames.org/games/spider-solitaire/img/2_d.a10d33ac.png"
+  },
+  {
+    "local": "games/spider-solitaire/img/1_s.8189adc7.png",
+    "key": "games/spider-solitaire/img/1_s.8189adc7.png",
+    "remote": "https://r2bucket.billybobgames.org/games/spider-solitaire/img/1_s.8189adc7.png"
+  },
+  {
+    "local": "games/spider-solitaire/img/3_h.44885463.png",
+    "key": "games/spider-solitaire/img/3_h.44885463.png",
+    "remote": "https://r2bucket.billybobgames.org/games/spider-solitaire/img/3_h.44885463.png"
+  },
+  {
+    "local": "games/spider-solitaire/img/4_d.9cfeef6b.png",
+    "key": "games/spider-solitaire/img/4_d.9cfeef6b.png",
+    "remote": "https://r2bucket.billybobgames.org/games/spider-solitaire/img/4_d.9cfeef6b.png"
+  },
+  {
+    "local": "games/spider-solitaire/img/4_h.8d0ac3c7.png",
+    "key": "games/spider-solitaire/img/4_h.8d0ac3c7.png",
+    "remote": "https://r2bucket.billybobgames.org/games/spider-solitaire/img/4_h.8d0ac3c7.png"
+  },
+  {
+    "local": "games/spider-solitaire/img/4_s.35b6e88b.png",
+    "key": "games/spider-solitaire/img/4_s.35b6e88b.png",
+    "remote": "https://r2bucket.billybobgames.org/games/spider-solitaire/img/4_s.35b6e88b.png"
+  },
+  {
+    "local": "games/spider-solitaire/img/4_c.22cfd5b4.png",
+    "key": "games/spider-solitaire/img/4_c.22cfd5b4.png",
+    "remote": "https://r2bucket.billybobgames.org/games/spider-solitaire/img/4_c.22cfd5b4.png"
+  },
+  {
+    "local": "games/spider-solitaire/img/3_s.3a7204f4.png",
+    "key": "games/spider-solitaire/img/3_s.3a7204f4.png",
+    "remote": "https://r2bucket.billybobgames.org/games/spider-solitaire/img/3_s.3a7204f4.png"
+  },
+  {
+    "local": "games/spider-solitaire/img/5_c.c3bd0d37.png",
+    "key": "games/spider-solitaire/img/5_c.c3bd0d37.png",
+    "remote": "https://r2bucket.billybobgames.org/games/spider-solitaire/img/5_c.c3bd0d37.png"
+  },
+  {
+    "local": "games/spider-solitaire/img/3_d.f35d63ea.png",
+    "key": "games/spider-solitaire/img/3_d.f35d63ea.png",
+    "remote": "https://r2bucket.billybobgames.org/games/spider-solitaire/img/3_d.f35d63ea.png"
+  },
+  {
+    "local": "games/spider-solitaire/img/5_d.2c5103fd.png",
+    "key": "games/spider-solitaire/img/5_d.2c5103fd.png",
+    "remote": "https://r2bucket.billybobgames.org/games/spider-solitaire/img/5_d.2c5103fd.png"
+  },
+  {
+    "local": "games/spider-solitaire/img/5_s.21a4f5d9.png",
+    "key": "games/spider-solitaire/img/5_s.21a4f5d9.png",
+    "remote": "https://r2bucket.billybobgames.org/games/spider-solitaire/img/5_s.21a4f5d9.png"
+  },
+  {
+    "local": "games/spider-solitaire/img/5_h.ea9093b6.png",
+    "key": "games/spider-solitaire/img/5_h.ea9093b6.png",
+    "remote": "https://r2bucket.billybobgames.org/games/spider-solitaire/img/5_h.ea9093b6.png"
+  },
+  {
+    "local": "games/spider-solitaire/img/6_c.25043f7e.png",
+    "key": "games/spider-solitaire/img/6_c.25043f7e.png",
+    "remote": "https://r2bucket.billybobgames.org/games/spider-solitaire/img/6_c.25043f7e.png"
+  },
+  {
+    "local": "games/spider-solitaire/img/6_h.d875accd.png",
+    "key": "games/spider-solitaire/img/6_h.d875accd.png",
+    "remote": "https://r2bucket.billybobgames.org/games/spider-solitaire/img/6_h.d875accd.png"
+  },
+  {
+    "local": "games/spider-solitaire/img/6_s.35c03735.png",
+    "key": "games/spider-solitaire/img/6_s.35c03735.png",
+    "remote": "https://r2bucket.billybobgames.org/games/spider-solitaire/img/6_s.35c03735.png"
+  },
+  {
+    "local": "games/spider-solitaire/img/7_d.5f4015bf.png",
+    "key": "games/spider-solitaire/img/7_d.5f4015bf.png",
+    "remote": "https://r2bucket.billybobgames.org/games/spider-solitaire/img/7_d.5f4015bf.png"
+  },
+  {
+    "local": "games/spider-solitaire/img/6_d.6b6dcb51.png",
+    "key": "games/spider-solitaire/img/6_d.6b6dcb51.png",
+    "remote": "https://r2bucket.billybobgames.org/games/spider-solitaire/img/6_d.6b6dcb51.png"
+  },
+  {
+    "local": "games/spider-solitaire/img/7_c.6ff4aad7.png",
+    "key": "games/spider-solitaire/img/7_c.6ff4aad7.png",
+    "remote": "https://r2bucket.billybobgames.org/games/spider-solitaire/img/7_c.6ff4aad7.png"
+  },
+  {
+    "local": "games/spider-solitaire/img/7_h.9d086ad7.png",
+    "key": "games/spider-solitaire/img/7_h.9d086ad7.png",
+    "remote": "https://r2bucket.billybobgames.org/games/spider-solitaire/img/7_h.9d086ad7.png"
+  },
+  {
+    "local": "games/spider-solitaire/img/7_s.b729b9fe.png",
+    "key": "games/spider-solitaire/img/7_s.b729b9fe.png",
+    "remote": "https://r2bucket.billybobgames.org/games/spider-solitaire/img/7_s.b729b9fe.png"
+  },
+  {
+    "local": "games/spider-solitaire/img/8_d.5a7af0bf.png",
+    "key": "games/spider-solitaire/img/8_d.5a7af0bf.png",
+    "remote": "https://r2bucket.billybobgames.org/games/spider-solitaire/img/8_d.5a7af0bf.png"
+  },
+  {
+    "local": "games/spider-solitaire/img/8_s.1997df69.png",
+    "key": "games/spider-solitaire/img/8_s.1997df69.png",
+    "remote": "https://r2bucket.billybobgames.org/games/spider-solitaire/img/8_s.1997df69.png"
+  },
+  {
+    "local": "games/spider-solitaire/img/8_c.257da200.png",
+    "key": "games/spider-solitaire/img/8_c.257da200.png",
+    "remote": "https://r2bucket.billybobgames.org/games/spider-solitaire/img/8_c.257da200.png"
+  },
+  {
+    "local": "games/spider-solitaire/img/9_c.5c612001.png",
+    "key": "games/spider-solitaire/img/9_c.5c612001.png",
+    "remote": "https://r2bucket.billybobgames.org/games/spider-solitaire/img/9_c.5c612001.png"
+  },
+  {
+    "local": "games/spider-solitaire/img/8_h.5177d6af.png",
+    "key": "games/spider-solitaire/img/8_h.5177d6af.png",
+    "remote": "https://r2bucket.billybobgames.org/games/spider-solitaire/img/8_h.5177d6af.png"
+  },
+  {
+    "local": "games/spider-solitaire/img/9_d.448a8a07.png",
+    "key": "games/spider-solitaire/img/9_d.448a8a07.png",
+    "remote": "https://r2bucket.billybobgames.org/games/spider-solitaire/img/9_d.448a8a07.png"
+  },
+  {
+    "local": "games/spider-solitaire/img/cardBack.e0d48cdb.png",
+    "key": "games/spider-solitaire/img/cardBack.e0d48cdb.png",
+    "remote": "https://r2bucket.billybobgames.org/games/spider-solitaire/img/cardBack.e0d48cdb.png"
+  },
+  {
+    "local": "games/spider-solitaire/img/9_h.776ad3e5.png",
+    "key": "games/spider-solitaire/img/9_h.776ad3e5.png",
+    "remote": "https://r2bucket.billybobgames.org/games/spider-solitaire/img/9_h.776ad3e5.png"
+  },
+  {
+    "local": "games/spider-solitaire/img/9_s.0ef93920.png",
+    "key": "games/spider-solitaire/img/9_s.0ef93920.png",
+    "remote": "https://r2bucket.billybobgames.org/games/spider-solitaire/img/9_s.0ef93920.png"
+  },
+  {
+    "local": "games/spider-solitaire/img/green_felt.dcc4d65a.jpg",
+    "key": "games/spider-solitaire/img/green_felt.dcc4d65a.jpg",
+    "remote": "https://r2bucket.billybobgames.org/games/spider-solitaire/img/green_felt.dcc4d65a.jpg"
+  },
+  {
+    "local": "games/spider-solitaire/img/undo_disable.a62a45ef.png",
+    "key": "games/spider-solitaire/img/undo_disable.a62a45ef.png",
+    "remote": "https://r2bucket.billybobgames.org/games/spider-solitaire/img/undo_disable.a62a45ef.png"
+  },
+  {
+    "local": "games/spider-solitaire/img/new_game.43c26803.png",
+    "key": "games/spider-solitaire/img/new_game.43c26803.png",
+    "remote": "https://r2bucket.billybobgames.org/games/spider-solitaire/img/new_game.43c26803.png"
+  },
+  {
+    "local": "games/spider-solitaire/img/undo.ddb92d9c.png",
+    "key": "games/spider-solitaire/img/undo.ddb92d9c.png",
+    "remote": "https://r2bucket.billybobgames.org/games/spider-solitaire/img/undo.ddb92d9c.png"
+  },
+  {
+    "local": "games/spider-solitaire/img/choice_difficulty.b5521ee5.png",
+    "key": "games/spider-solitaire/img/choice_difficulty.b5521ee5.png",
+    "remote": "https://r2bucket.billybobgames.org/games/spider-solitaire/img/choice_difficulty.b5521ee5.png"
   }
 ]

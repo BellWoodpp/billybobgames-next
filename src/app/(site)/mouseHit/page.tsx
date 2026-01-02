@@ -15,6 +15,11 @@ export default function MouseHitPage() {
     <SimpleGamePage
       title="Mouse Hit Mania"
       subtitle="Swing the mallet, smack every rogue mole, and race the clock to keep your streak alive."
+      recentlyPlayed={{
+        href: "/mouseHit",
+        title: "Mouse Hit Mania",
+        img: "https://r2bucket.billybobgames.org/8-mouseHit/8.jpg",
+      }}
       iframeSrc="/games/mouseHit/index.html"
       iframeTitle="Mouse Hit Mania Game"
       howToItems={[

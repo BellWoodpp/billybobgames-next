@@ -4,6 +4,8 @@
 import { useEffect, useRef, useState } from "react";
 import { classNames } from "@/lib/classNames";
 import PageShell from "../_components/PageShell";
+import GameBreadcrumb from "../_components/GameBreadcrumb";
+import RecentlyPlayedTracker from "../_components/RecentlyPlayedTracker";
 import styles from "./sprunki.module.css";
 
 export default function SprunkiClient() {
@@ -191,8 +193,14 @@ export default function SprunkiClient() {
 
   return (
     <PageShell>
+      <RecentlyPlayedTracker
+        href="/sprunki"
+        title="Sprunki Remix"
+        img="https://r2bucket.billybobgames.org/sprunki/sprunki.webp"
+      />
       <main className={styles.wrapper}>
         <header className={styles.header}>
+          <GameBreadcrumb current="Sprunki Incredibox Remix" />
           <h1 className={styles.title}>Sprunki Incredibox Remix</h1>
           <p className={styles.subtitle}>
             Mix beats, layer vocals, and experiment with haunting Sprunki sounds directly in your browser.

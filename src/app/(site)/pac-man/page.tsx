@@ -15,6 +15,11 @@ export default function PacManPage() {
     <SimpleGamePage
       title="Pac-Man"
       subtitle="Gobble every pellet while dodging the ghosts in this arcade classic."
+      recentlyPlayed={{
+        href: "/pac-man",
+        title: "Pac-Man",
+        img: "https://r2bucket.billybobgames.org/4-pac-man/4.jpg",
+      }}
       iframeSrc="/games/pac-man/index.html"
       iframeTitle="Pac-Man Game"
       howToItems={[
