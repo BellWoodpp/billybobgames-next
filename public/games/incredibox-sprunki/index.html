@@ -73,16 +73,22 @@
       width: 200px;
       max-width: 200px;
     }
-    .progress-bar-inner {
-      height: 100%;
-      width: 0;
-      background-color: currentColor;
-    }
-    .loading-text, noscript {
-      font-weight: normal;
-      font-size: 36px;
-      margin: 0 0 16px;
-    }
+	    .progress-bar-inner {
+	      height: 100%;
+	      width: 0;
+	      background-color: currentColor;
+	    }
+	    .loading-percent {
+	      margin-top: 14px;
+	      font-size: 14px;
+	      letter-spacing: 0.5px;
+	      opacity: 0.9;
+	    }
+	    .loading-text, noscript {
+	      font-weight: normal;
+	      font-size: 36px;
+	      margin: 0 0 16px;
+	    }
     .loading-image {
       margin: 0 0 16px;
     }
@@ -159,11 +165,12 @@
   </div>
 
   <div id="loading" class="screen">
-    <noscript>Enable JavaScript</noscript>
-    
-    
-    <div class="progress-bar-outer"><div class="progress-bar-inner" id="loading-inner"></div></div>
-  </div>
+	    <noscript>Enable JavaScript</noscript>
+	    
+	    
+	    <div class="progress-bar-outer"><div class="progress-bar-inner" id="loading-inner"></div></div>
+	    <div id="loading-percent" class="loading-percent">0%</div>
+	  </div>
 
   <div id="error" class="screen" hidden>
     <h1>Error</h1>
@@ -175,13 +182,14 @@
 
   <script src="script.js"></script>
   <script>
-    const appElement = document.getElementById('app');
-    const launchScreen = document.getElementById('launch');
-    const loadingScreen = document.getElementById('loading');
-    const loadingInner = document.getElementById('loading-inner');
-    const errorScreen = document.getElementById('error');
-    const errorScreenMessage = document.getElementById('error-message');
-    const errorScreenStack = document.getElementById('error-stack');
+	    const appElement = document.getElementById('app');
+	    const launchScreen = document.getElementById('launch');
+	    const loadingScreen = document.getElementById('loading');
+	    const loadingInner = document.getElementById('loading-inner');
+	    const loadingPercent = document.getElementById('loading-percent');
+	    const errorScreen = document.getElementById('error');
+	    const errorScreenMessage = document.getElementById('error-message');
+	    const errorScreenStack = document.getElementById('error-stack');
 
     const handleError = (error) => {
       console.error(error);
@@ -191,11 +199,13 @@
       let debug = error && error.stack || 'no stack';
       debug += '\nUser agent: ' + navigator.userAgent;
       errorScreenStack.textContent = debug;
-    };
-    const setProgress = (progress) => {
-      if (loadingInner) loadingInner.style.width = progress * 100 + '%';
-    };
-    const interpolate = (a, b, t) => a + t * (b - a);
+	    };
+	    const setProgress = (progress) => {
+	      const clamped = Math.max(0, Math.min(1, Number(progress) || 0));
+	      if (loadingInner) loadingInner.style.width = clamped * 100 + '%';
+	      if (loadingPercent) loadingPercent.textContent = Math.round(clamped * 100) + '%';
+	    };
+	    const interpolate = (a, b, t) => a + t * (b - a);
 
     try {
       setProgress(0.1);
