@@ -83,3 +83,29 @@ This file is the handoff record for this repo (`/home/lcl/nuxt-to-next/2.billybo
 
 ### TODO (next time)
 - Consider applying the same skeleton pattern to other image-heavy sections (e.g. future featured areas) if you want consistent loading UX.
+
+## 2026-01-02 (Neon engagement / likes)
+### Changed
+- Added Neon-backed anonymous engagement (per-game per-visitor, cancellable):
+  - API: `/api/games/:slug/engagement` (like/dislike/collect)
+  - DB schema: `scripts/sql/neon-game-engagement.sql`
+  - Neon helper: `src/lib/neon.ts`
+  - BLOODMONEY UI wired to API: `src/app/(site)/bloodmoney/BloodmoneyEngagementClient.tsx`
+- Kept the legacy `/api/games/:slug/like` endpoint (single-like) for compatibility, but recommended path is `engagement`.
+- Added `.env.example` and updated `.gitignore` to allow committing it (and ignore local `.pnpm-store/`).
+
+### BLOODMONEY page CTA
+- `/bloodmoney` now uses a clickable hero image CTA to open `/bloodmoney/play`:
+  - Image: `https://r2bucket.billybobgames.org/bloodmoney-webp/bloodmoney.webp`
+  - Code: `src/app/(site)/bloodmoney/BloodmoneyContent.tsx`
+
+### TODO (next time)
+- In Neon: execute `scripts/sql/neon-game-engagement.sql` and set `DATABASE_URL` on Vercel.
+- Decide whether to remove the legacy `/api/games/:slug/like` endpoint once all pages use `/engagement`.
+
+## 2026-01-02 (AdSense Auto ads)
+### Changed
+- Enabled global AdSense Auto ads script in the Next root layout (loads on all Next pages): `src/app/layout.tsx`.
+
+### TODO (next time)
+- If you want ads inside raw static game HTML pages under `public/games/**`, inject the AdSense script into those `index.html` files too (currently intentionally skipped).
