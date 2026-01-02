@@ -1,8 +1,8 @@
 /* eslint-disable react/no-unescaped-entities, @next/next/no-img-element */
 import type { Metadata } from "next";
 import Image from "next/image";
-import Link from "next/link";
 import PageShell from "./_components/PageShell";
+import HomeGameCard from "./_components/HomeGameCard";
 import styles from "./styles/home.module.css";
 
 export const metadata: Metadata = {
@@ -169,20 +169,7 @@ export default function HomePage() {
         <h2 className={styles.otherGamesHeading}>New Game</h2>
         <div className={styles.otherGamesGrid}>
           {otherGames.map((game) => (
-            <Link key={game.href} className={styles.otherGameCard} href={game.href}>
-              <Image
-                className={styles.otherGameCardImage}
-                src={game.img}
-                width={800}
-                height={450}
-                sizes="(min-width: 1024px) 420px, (min-width: 640px) 50vw, 100vw"
-                alt={game.alt}
-                loading="lazy"
-              />
-              <div className={styles.otherGameCardBody}>
-                <h3 className={styles.otherGameCardTitle}>{game.title}</h3>
-              </div>
-            </Link>
+            <HomeGameCard key={game.href} href={game.href} title={game.title} img={game.img} alt={game.alt} />
           ))}
         </div>
 

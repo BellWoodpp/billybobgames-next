@@ -76,3 +76,10 @@ This file is the handoff record for this repo (`/home/lcl/nuxt-to-next/2.billybo
 ### Changed
 - Updated repo `AGENTS.md` so saying “收工” also runs `git add .` → `git commit -m "new change"` → `git push` (skips if nothing to commit).
 - Ensured local-only folder `Incredibox - Sprunki/` is gitignored to avoid committing large local assets.
+
+## 2026-01-02 (homepage loading skeleton)
+### Changed
+- Added shadcn `Skeleton` UI component and used it on the homepage game cards so images show a skeleton placeholder until loaded (with fade-in).
+
+### TODO (next time)
+- Consider applying the same skeleton pattern to other image-heavy sections (e.g. future featured areas) if you want consistent loading UX.
