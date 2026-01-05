@@ -19,13 +19,14 @@ function formatWhen(timestamp: number) {
 }
 
 export default function RecentlyPlayed() {
-  const [entries, setEntries] = useState<RecentlyPlayedEntry[]>([]);
+  const [entries, setEntries] = useState<RecentlyPlayedEntry[]>(() => {
+    if (typeof window === "undefined") return [];
+    return readRecentlyPlayed();
+  });
 
   const hasEntries = entries.length > 0;
 
   useEffect(() => {
-    setEntries(readRecentlyPlayed());
-
     const onStorage = (event: StorageEvent) => {
       if (event.storageArea !== window.localStorage) return;
       setEntries(readRecentlyPlayed());
@@ -91,4 +92,3 @@ export default function RecentlyPlayed() {
     </main>
   );
 }
-
