@@ -4,7 +4,7 @@
 
 import Link from "next/link";
 import { classNames } from "@/lib/classNames";
-import Image from "next/image";
+import { WsrvImage } from "@/components/WsrvImage";
 import PageShell from "../_components/PageShell";
 import GameBreadcrumb from "../_components/GameBreadcrumb";
 import styles from "./bloodmoney.module.css";
@@ -29,13 +29,14 @@ export default function BloodmoneyContent() {
           </p>
           <div className={styles.playCtas}>
             <Link className={styles.playPoster} href="/bloodmoney/play" aria-label="Open BLOODMONEY play view">
-              <Image
+              <WsrvImage
                 src="https://r2bucket.billybobgames.org/bloodmoney-webp/bloodmoney.webp"
                 alt="Play BLOODMONEY"
                 width={1200}
                 height={675}
                 priority
                 sizes="(min-width: 960px) 560px, 92vw"
+                layout="constrained"
               />
             </Link>
           </div>
@@ -96,13 +97,14 @@ export default function BloodmoneyContent() {
 
           <aside className={styles.detailsGallery} aria-label="BLOODMONEY gallery">
             {galleryImages.map((src) => (
-              <Image
+              <WsrvImage
                 key={src}
                 src={src}
                 alt="BLOODMONEY screenshot"
                 width={800}
                 height={450}
                 sizes="(min-width: 960px) 400px, 100vw"
+                layout="constrained"
               />
             ))}
           </aside>

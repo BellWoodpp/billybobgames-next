@@ -1,6 +1,6 @@
 /* eslint-disable react/no-unescaped-entities, @next/next/no-img-element */
 import type { Metadata } from "next";
-import Image from "next/image";
+import { WsrvImage } from "@/components/WsrvImage";
 import PageShell from "./_components/PageShell";
 import HomeGameCard from "./_components/HomeGameCard";
 import styles from "./styles/home.module.css";
@@ -184,7 +184,7 @@ export default function HomePage() {
                 target="_blank"
                 rel={link.rel}
               >
-                <Image src={link.img} alt={link.label} width={42} height={42} sizes="42px" />
+                <WsrvImage src={link.img} alt={link.label} width={42} height={42} sizes="42px" layout="fixed" />
                 <span>{link.label}</span>
               </a>
             ))}

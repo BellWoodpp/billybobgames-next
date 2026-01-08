@@ -1,4 +1,4 @@
-import Image from "next/image";
+import { WsrvImage } from "@/components/WsrvImage";
 import Link from "next/link";
 import { Menu } from "lucide-react";
 
@@ -37,13 +37,14 @@ export default function AppHeader() {
           </label>
 
           <Link className="brand" href="/" aria-label="Billy Bob Games home">
-            <Image
+            <WsrvImage
               className="logo"
               src="https://r2bucket.billybobgames.org/logo/amazon-game-development.ico"
               alt="Billy Bob Games logo"
               width={48}
               height={48}
               sizes="48px"
+              layout="fixed"
               priority
             />
             <span>Billy Bob Games</span>
@@ -60,7 +61,7 @@ export default function AppHeader() {
               rel="noopener noreferrer"
               aria-label={link.label}
             >
-              <Image src={link.icon} alt={link.alt} width={28} height={28} sizes="28px" loading="lazy" />
+              <WsrvImage src={link.icon} alt={link.alt} width={28} height={28} sizes="28px" layout="fixed" loading="lazy" />
             </a>
           ))}
         </nav>
