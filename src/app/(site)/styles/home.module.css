@@ -109,6 +109,26 @@
   margin-bottom: 2rem;
 }
 
+.otherGamesDescription {
+  max-width: 42rem;
+  margin: -1rem auto 2rem;
+  text-align: center;
+  color: #6b7280;
+  line-height: 1.6;
+}
+
+.otherGamesEmpty {
+  margin: 0 auto 3rem;
+  max-width: 40rem;
+  padding: 1.25rem 1.5rem;
+  border: 1px solid #e5e7eb;
+  border-radius: 1rem;
+  background: #f9fafb;
+  color: #4b5563;
+  text-align: center;
+  box-shadow: 0 18px 40px -28px rgba(15, 23, 42, 0.2);
+}
+
 .otherGamesGrid {
   display: grid;
   gap: 1.5rem;
@@ -121,6 +141,14 @@
   .otherGamesGrid {
     grid-template-columns: repeat(4, minmax(0, 1fr));
   }
+}
+
+.otherGameCardWrap {
+  position: relative;
+  width: 100%;
+  padding-top: 0.4rem;
+  padding-left: 0.45rem;
+  box-sizing: border-box;
 }
 
 .otherGameCard {
@@ -155,12 +183,79 @@
   transition: opacity 200ms ease;
 }
 
+.otherGameCardImageContain {
+  object-fit: contain;
+}
+
+.otherGameCardPreview {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  transform: scale(1.01);
+  transition: opacity 200ms ease, transform 240ms ease;
+  pointer-events: none;
+  background: #111827;
+}
+
+.otherGameCardPreviewContain {
+  object-fit: contain;
+}
+
+.otherGameCardPreviewHidden {
+  opacity: 0;
+}
+
+.otherGameCardPreviewVisible {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.otherGameCardBadge {
+  position: absolute;
+  top: -0.18rem;
+  left: -0.12rem;
+  z-index: 2;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.38rem 0.72rem;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.34);
+  background: linear-gradient(135deg, #d946ef 0%, #8b5cf6 52%, #7c3aed 100%);
+  color: #ffffff;
+  box-shadow: 0 16px 30px -16px rgba(124, 58, 237, 0.95), 0 6px 12px -8px rgba(216, 70, 239, 0.6);
+  backdrop-filter: blur(10px);
+  transform: translate(-6%, -10%);
+}
+
+.otherGameCardBadgeIcon {
+  width: 0.82rem;
+  height: 0.82rem;
+  flex: 0 0 auto;
+  stroke-width: 2.4;
+}
+
+.otherGameCardBadgeLabel {
+  font-size: 0.8rem;
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: 0.01em;
+}
+
 .otherGameCardImageHidden {
   opacity: 0;
 }
 
 .otherGameCardImageVisible {
   opacity: 1;
+}
+
+.otherGameCardImagePreviewHidden {
+  opacity: 0;
 }
 
 .otherGameCardSkeleton {
@@ -259,6 +354,16 @@
 
   .featuredGameSummary p {
     color: #cbd5f5;
+  }
+
+  .otherGamesDescription,
+  .otherGamesEmpty {
+    color: #e5e7eb;
+  }
+
+  .otherGamesEmpty {
+    border-color: #3a3a3a;
+    background: #2a2a2a;
   }
 
   .otherGameCard {

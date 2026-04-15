@@ -1,4 +1,4 @@
-/* eslint-disable react/no-unescaped-entities, @next/next/no-img-element */
+/* eslint-disable react/no-unescaped-entities */
 import type { Metadata } from "next";
 import { WsrvImage } from "@/components/WsrvImage";
 import PageShell from "./_components/PageShell";
@@ -45,7 +45,32 @@ export const metadata: Metadata = {
   },
 };
 
-const otherGames = [
+type HomeGame = {
+  href: string;
+  title: string;
+  img: string;
+  alt: string;
+  imageFit?: "cover" | "contain";
+  newUntil?: string;
+  previewVideo?: string;
+};
+
+type HomePageProps = {
+  searchParams?: Promise<{
+    sort?: string | string[];
+  }>;
+};
+
+const otherGames: HomeGame[] = [
+  {
+    href: "/evolve",
+    title: "Evolve Idle",
+    img: "/games/evolve/evolve.webp",
+    alt: "Evolve Idle cover art",
+    imageFit: "contain",
+    newUntil: "2026-04-22T23:59:59+08:00",
+    previewVideo: "/games/evolve/evolve-preview.mp4",
+  },
   {
     href: "/bloodmoney",
     title: "BLOODMONEY",
@@ -147,7 +172,25 @@ const friendLinks = [
   },
 ];
 
-export default function HomePage() {
+function getSingleQueryValue(value: string | string[] | undefined) {
+  return Array.isArray(value) ? value[0] : value;
+}
+
+function isGameCurrentlyNew(game: HomeGame, now: number) {
+  if (!game.newUntil) return false;
+
+  const newUntilTimestamp = new Date(game.newUntil).getTime();
+  return Number.isFinite(newUntilTimestamp) && now < newUntilTimestamp;
+}
+
+export default async function HomePage({ searchParams }: HomePageProps) {
+  const resolvedSearchParams = searchParams ? await searchParams : undefined;
+  const activeSort = getSingleQueryValue(resolvedSearchParams?.sort);
+  const isNewView = activeSort === "new";
+  const now = Date.now();
+  const visibleGames = isNewView ? otherGames.filter((game) => isGameCurrentlyNew(game, now)) : otherGames;
+  const hasVisibleGames = visibleGames.length > 0;
+
   return (
     <PageShell containerClassName={styles.homeContainer}>
       <section className={styles.homeGray}>
@@ -166,12 +209,30 @@ export default function HomePage() {
         </section>
 
         <hr className={styles.sectionDivider} />
-        <h2 className={styles.otherGamesHeading}>New Game</h2>
-        <div className={styles.otherGamesGrid}>
-          {otherGames.map((game) => (
-            <HomeGameCard key={game.href} href={game.href} title={game.title} img={game.img} alt={game.alt} />
-          ))}
-        </div>
+        <h2 className={styles.otherGamesHeading}>{isNewView ? "New" : "New Game"}</h2>
+        {isNewView ? (
+          <p className={styles.otherGamesDescription}>
+            {hasVisibleGames ? "Showing games that currently carry the New badge." : "最近没有发布最新游戏。"}
+          </p>
+        ) : null}
+        {hasVisibleGames ? (
+          <div className={styles.otherGamesGrid}>
+            {visibleGames.map((game) => (
+              <HomeGameCard
+                key={game.href}
+                href={game.href}
+                title={game.title}
+                img={game.img}
+                alt={game.alt}
+                imageFit={game.imageFit}
+                newUntil={game.newUntil}
+                previewVideo={game.previewVideo}
+              />
+            ))}
+          </div>
+        ) : (
+          <div className={styles.otherGamesEmpty}>最近没有发布最新游戏。</div>
+        )}
 
         <section className={styles.friendLinksSection} aria-label="Friend Links">
           <h2>Friend Links</h2>

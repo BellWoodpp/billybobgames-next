@@ -60,6 +60,7 @@ yarn-error.log*
 /public/games/**/*.opus
 /public/games/**/*.mp4
 /public/games/**/*.webm
+/public/games/**/*.mkv
 
 # local-only Sprunki asset workspace
 Incredibox - Sprunki/

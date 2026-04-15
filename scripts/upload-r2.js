@@ -84,6 +84,11 @@ const audioExts = new Set([
   ".opus",
 ]);
 
+const videoExts = new Set([
+  ".mp4",
+  ".webm",
+]);
+
 const mimeByExt = {
   ".png": "image/png",
   ".jpg": "image/jpeg",
@@ -102,6 +107,8 @@ const mimeByExt = {
   ".flac": "audio/flac",
   ".aac": "audio/aac",
   ".opus": "audio/opus",
+  ".mp4": "video/mp4",
+  ".webm": "video/webm",
 };
 
 const toPosix = (inputPath) => inputPath.split(path.sep).join("/");
@@ -109,7 +116,7 @@ const toPosix = (inputPath) => inputPath.split(path.sep).join("/");
 function parseArgs(argv) {
   const opts = {
     dir: null,
-    kind: "all", // all | image | audio
+    kind: "all", // all | image | audio | video
     concurrency: 8,
     mapPath: MAP_PATH,
     writeMap: true,
@@ -130,7 +137,7 @@ Usage:
 
 Options:
   --dir <public-subdir>   Upload only from a subdir under public/ (e.g. "sprunki")
-  --kind <all|image|audio> Filter what to upload (default: all)
+  --kind <all|image|audio|video> Filter what to upload (default: all)
   -c, --concurrency <n>   Parallel uploads (default: 8)
   --cache-control <v>     Cache-Control header (default: ${DEFAULT_CACHE_CONTROL})
   --max-attempts <n>      Max attempts per file (default: ${DEFAULT_MAX_ATTEMPTS})
@@ -211,8 +218,8 @@ Credentials (set in your shell, do not commit):
     process.exit(1);
   }
 
-  if (!["all", "image", "audio"].includes(opts.kind)) {
-    console.error("--kind must be one of: all, image, audio");
+  if (!["all", "image", "audio", "video"].includes(opts.kind)) {
+    console.error("--kind must be one of: all, image, audio, video");
     process.exit(1);
   }
 
@@ -224,6 +231,7 @@ function isAssetByKind(filePath, kind) {
   const ext = path.extname(filePath).toLowerCase();
   if (kind === "image") return imageExts.has(ext);
   if (kind === "audio") return audioExts.has(ext);
+  if (kind === "video") return videoExts.has(ext);
   return false;
 }
 
@@ -256,7 +264,7 @@ async function collectAssets(dir, kind, acc) {
       await collectAssets(fullPath, kind, acc);
     } else {
       const ext = path.extname(entry.name).toLowerCase();
-      if ((imageExts.has(ext) || audioExts.has(ext)) && isAssetByKind(fullPath, kind)) {
+      if ((imageExts.has(ext) || audioExts.has(ext) || videoExts.has(ext)) && isAssetByKind(fullPath, kind)) {
         acc.push(fullPath);
       }
     }
@@ -431,7 +439,7 @@ async function main() {
   await collectAssets(scanRoot, opts.kind, files);
 
   if (!files.length) {
-    console.log(`No ${opts.kind === "all" ? "images or audio" : opts.kind} found under ${toPosix(path.relative(PUBLIC_DIR, scanRoot) || ".")}/.`);
+    console.log(`No ${opts.kind === "all" ? "media assets" : opts.kind} found under ${toPosix(path.relative(PUBLIC_DIR, scanRoot) || ".")}/.`);
     return;
   }
 
