@@ -39,6 +39,7 @@ export default function ContactPage() {
           <h2>Helpful links</h2>
           <div className={styles.actions}>
             <Link className={styles.actionLink} href="/about">About Billy Bob Games</Link>
+            <Link className={styles.actionLink} href="/privacy-policy">Privacy Policy</Link>
             <Link className={styles.actionLink} href="/">Homepage</Link>
             <Link className={styles.actionLink} href="/arcade-games">Arcade Games</Link>
           </div>

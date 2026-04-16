@@ -4,6 +4,7 @@ import PageShell from "./PageShell";
 import GameBreadcrumb from "./GameBreadcrumb";
 import RecentlyPlayedTracker from "./RecentlyPlayedTracker";
 import GameFrameWithControls from "./GameFrameWithControls";
+import GameStructuredData from "./GameStructuredData";
 import styles from "../styles/game-page.module.css";
 
 type SimpleGamePageProps = {
@@ -60,6 +61,14 @@ export default function SimpleGamePage({
 
   return (
     <PageShell>
+      {recentlyPlayed?.href ? (
+        <GameStructuredData
+          title={title}
+          description={subtitle}
+          path={recentlyPlayed.href}
+          image={recentlyPlayed.img}
+        />
+      ) : null}
       <main className={wrapperClasses}>
         {recentlyPlayed ? (
           <RecentlyPlayedTracker href={recentlyPlayed.href} title={recentlyPlayed.title} img={recentlyPlayed.img} />

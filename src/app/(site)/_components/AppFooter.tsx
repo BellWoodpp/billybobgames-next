@@ -8,6 +8,7 @@ export default function AppFooter() {
         <nav className="footer-links" aria-label="Footer links">
           <Link href="/about">About</Link>
           <Link href="/contact">Contact</Link>
+          <Link href="/privacy-policy">Privacy Policy</Link>
           <Link href="/arcade-games">Arcade Games</Link>
           <Link href="/idle-games">Idle Games</Link>
         </nav>

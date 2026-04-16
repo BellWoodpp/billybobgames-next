@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import GameStructuredData from "../_components/GameStructuredData";
 import BloodmoneyContent from "./BloodmoneyContent";
 
 export const metadata: Metadata = {
@@ -28,5 +29,15 @@ export const metadata: Metadata = {
 };
 
 export default function BloodmoneyPage() {
-  return <BloodmoneyContent />;
+  return (
+    <>
+      <GameStructuredData
+        title="BLOODMONEY"
+        description="Play BLOODMONEY!, a unique clicker horror game that combines dark humor with elements of horror. Collect $25,000 for surgery across three possible endings."
+        path="/bloodmoney"
+        image="https://r2bucket.billybobgames.org/bloodmoney-webp/bloodmoney.webp"
+      />
+      <BloodmoneyContent />
+    </>
+  );
 }
