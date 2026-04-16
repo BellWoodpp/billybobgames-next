@@ -27,13 +27,13 @@ export default function HomeGameCard({
   newUntil,
   previewVideo,
 }: HomeGameCardProps) {
-  const [isLoaded, setIsLoaded] = useState(false);
+  const isLocalImage = img.startsWith("/");
+  const [isLoaded, setIsLoaded] = useState(() => !isLocalImage);
   const [now, setNow] = useState(() => Date.now());
   const [isPreviewRequested, setIsPreviewRequested] = useState(false);
   const [isPreviewReady, setIsPreviewReady] = useState(false);
   const [isPreviewActive, setIsPreviewActive] = useState(false);
   const videoRef = useRef<HTMLVideoElement | null>(null);
-  const isLocalImage = img.startsWith("/");
   const hasPreviewVideo = Boolean(previewVideo);
   const shouldShowPreview = hasPreviewVideo && isPreviewReady && isPreviewActive;
   const imageClassName = `${styles.otherGameCardImage} ${imageFit === "contain" ? styles.otherGameCardImageContain : ""} ${shouldShowPreview ? styles.otherGameCardImagePreviewHidden : isLoaded ? styles.otherGameCardImageVisible : styles.otherGameCardImageHidden} absolute inset-0 h-full w-full`;
