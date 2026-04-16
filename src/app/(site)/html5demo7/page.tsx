@@ -24,6 +24,8 @@ export default function Html5Demo7Page() {
       }}
       iframeSrc="/games/fishjoy/index.html"
       iframeTitle="Fish Joy Reloaded Game"
+      allowFullScreen
+      showFullscreenButton
       frameWrapperClassName={styles.gameShell}
       frameClassName={styles.gameFrameWide}
       wrapperClassName={styles.wrapperWide}

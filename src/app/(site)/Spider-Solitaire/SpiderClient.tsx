@@ -2,10 +2,10 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import { classNames } from "@/lib/classNames";
 import PageShell from "../_components/PageShell";
 import GameBreadcrumb from "../_components/GameBreadcrumb";
 import RecentlyPlayedTracker from "../_components/RecentlyPlayedTracker";
+import GameFrameWithControls from "../_components/GameFrameWithControls";
 import styles from "./spider.module.css";
 
 type GameInstance = {
@@ -19,7 +19,6 @@ const backgroundMusicUrl = "https://r2bucket.billybobgames.org/Spider-Solitaire/
 
 export default function SpiderClient() {
   const gameFrameRef = useRef<HTMLIFrameElement | null>(null);
-  const [isFullscreen, setIsFullscreen] = useState(false);
   const [isMuted, setIsMuted] = useState(false);
   const dealAudioRef = useRef<HTMLAudioElement | null>(null);
   const bgmAudioRef = useRef<HTMLAudioElement | null>(null);
@@ -32,10 +31,6 @@ export default function SpiderClient() {
   const lastDealSoundAtRef = useRef(0);
 
   const getNow = () => (typeof performance !== "undefined" ? performance.now() : Date.now());
-
-  const handleFullscreenChange = () => {
-    setIsFullscreen(document.fullscreenElement === gameFrameRef.current);
-  };
 
   const playDealSound = () => {
     if (isMuted) return;
@@ -189,28 +184,7 @@ export default function SpiderClient() {
     requestBackgroundMusicPlayback();
   };
 
-  const exitFullscreen = async () => {
-    if (document.exitFullscreen) {
-      await document.exitFullscreen();
-    }
-  };
-
-  const toggleFullscreen = async () => {
-    const frame = gameFrameRef.current;
-    if (!frame) return;
-    try {
-      if (document.fullscreenElement === frame) {
-        await exitFullscreen();
-      } else if (frame.requestFullscreen) {
-        await frame.requestFullscreen();
-      }
-    } catch (error) {
-      console.error("Failed to toggle fullscreen:", error);
-    }
-  };
-
   useEffect(() => {
-    document.addEventListener("fullscreenchange", handleFullscreenChange);
     setupBackgroundMusic();
     requestBackgroundMusicPlayback();
     if (gameFrameRef.current?.contentDocument?.readyState === "complete") {
@@ -218,7 +192,6 @@ export default function SpiderClient() {
     }
 
     return () => {
-      document.removeEventListener("fullscreenchange", handleFullscreenChange);
       deckCardObserverRef.current?.disconnect();
       deckCardsWithListener.current.forEach((card) => {
         card.removeEventListener("click", playDealSound);
@@ -284,46 +257,28 @@ export default function SpiderClient() {
           </p>
         </header>
         <section className={styles.gameShell} aria-label="Spider Solitaire game container">
-          <div className={styles.gameFrameWrapper}>
-            <button
-              type="button"
-              className={styles.audioToggle}
-              aria-pressed={isMuted}
-              aria-label={isMuted ? "取消静音" : "静音页面音效"}
-              onClick={toggleMute}
-            >
-              <span aria-hidden="true">{isMuted ? "🔇" : "🔊"}</span>
-            </button>
-            <iframe
-              ref={gameFrameRef}
-              className={styles.gameFrame}
-              src="/games/spider-solitaire/index.html"
-              title="Spider Solitaire Game"
-              allowFullScreen
-              onLoad={onGameLoaded}
-            />
-            <button
-              type="button"
-              className={classNames(styles.fullscreenBtn, isFullscreen && styles.fullscreenBtnActive)}
-              aria-label={isFullscreen ? "Exit fullscreen mode" : "Enter fullscreen mode"}
-              onClick={toggleFullscreen}
-            >
-              <span className={styles.fullscreenIcon} aria-hidden="true">
-                {isFullscreen ? "⤢" : "⛶"}
-              </span>
-              <span>{isFullscreen ? "Exit Fullscreen" : "Fullscreen"}</span>
-            </button>
-            {isFullscreen ? (
+          <GameFrameWithControls
+            iframeRef={gameFrameRef}
+            iframeSrc="/games/spider-solitaire/index.html"
+            iframeTitle="Spider Solitaire Game"
+            allow="autoplay"
+            allowFullScreen
+            onLoad={onGameLoaded}
+            frameClassName={styles.gameFrame}
+            frameContainerClassName={styles.gameFrameWrapper}
+            overlayContent={
               <button
                 type="button"
-                className={styles.fullscreenExitBtn}
-                aria-label="Return to page"
-                onClick={exitFullscreen}
+                className={styles.audioToggle}
+                aria-pressed={isMuted}
+                aria-label={isMuted ? "Unmute page audio" : "Mute page audio"}
+                onClick={toggleMute}
               >
-                Return
+                <span aria-hidden="true">{isMuted ? "🔇" : "🔊"}</span>
               </button>
-            ) : null}
-          </div>
+            }
+            showFullscreenButton
+          />
           <p className={styles.gameHint}>
             If the game does not appear right away, refresh the page or wait for the assets to finish loading.
           </p>

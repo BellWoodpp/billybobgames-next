@@ -23,6 +23,8 @@ export default function Html5FlyPage() {
       }}
       iframeSrc="/games/html5-fly/play.html"
       iframeTitle="HTML5 Fly Game"
+      allowFullScreen
+      showFullscreenButton
       howToItems={[
         <>
           Press the arrow keys or WASD to steer the ship away from incoming fire.

@@ -1,195 +1,187 @@
-/* eslint-disable react/no-unescaped-entities, @typescript-eslint/no-unused-vars */
+/* eslint-disable react/no-unescaped-entities */
 "use client";
 
-import { useEffect, useRef, useState } from "react";
-import { classNames } from "@/lib/classNames";
+import { useCallback, useEffect, useRef } from "react";
 import PageShell from "../_components/PageShell";
 import GameBreadcrumb from "../_components/GameBreadcrumb";
 import RecentlyPlayedTracker from "../_components/RecentlyPlayedTracker";
+import GameFrameWithControls from "../_components/GameFrameWithControls";
 import styles from "./sprunki.module.css";
 
 export default function SprunkiClient() {
   const gameFrameRef = useRef<HTMLIFrameElement | null>(null);
   const frameObserverRef = useRef<MutationObserver | null>(null);
-  // Use the browser timer type to avoid NodeJS.Timeout mismatch.
+  const activeDocumentRef = useRef<Document | null>(null);
   const retryTimerRef = useRef<number | null>(null);
-  const [isFullscreen, setIsFullscreen] = useState(false);
 
-  const resetGameFrame = () => {
+  const resetGameFrame = useCallback(() => {
     const frame = gameFrameRef.current;
     if (!frame) return;
     try {
       frame.contentWindow?.location.reload();
-    } catch (error) {
+    } catch {
       const src = frame.getAttribute("src");
       if (src) {
         frame.setAttribute("src", src);
       }
     }
-  };
+  }, []);
 
-  const removeResetButton = (doc: Document) => {
+  const removeResetButton = useCallback((doc: Document) => {
     const existing = doc.getElementById("sprunki-reset-container");
     if (existing) {
       existing.remove();
     }
-  };
+  }, []);
 
-  const ensureResetButton = (doc: Document) => {
-    if (!doc.body) {
-      if (retryTimerRef.current === null) {
-        retryTimerRef.current = window.setTimeout(() => {
-          retryTimerRef.current = null;
-          ensureResetButton(doc);
-        }, 250);
+  const clearRetryTimer = useCallback(() => {
+    if (retryTimerRef.current !== null) {
+      window.clearTimeout(retryTimerRef.current);
+      retryTimerRef.current = null;
+    }
+  }, []);
+
+  const ensureResetButton = useCallback(
+    function ensure(doc: Document) {
+      if (!doc.body) {
+        if (retryTimerRef.current === null) {
+          retryTimerRef.current = window.setTimeout(() => {
+            retryTimerRef.current = null;
+            ensure(doc);
+          }, 250);
+        }
+        return;
       }
-      return;
-    }
 
-    let container = doc.getElementById("sprunki-reset-container") as HTMLDivElement | null;
-    if (!container) {
-      container = doc.createElement("div");
-      container.id = "sprunki-reset-container";
-      container.style.cssText = `
-        position: fixed;
-        top: 16px;
-        left: 50%;
-        transform: translateX(-50%);
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        z-index: 9999;
-        gap: 0.75rem;
-        padding: 0.5rem 1rem;
-        border-radius: 9999px;
-        background: rgba(17, 24, 39, 0.75);
-        box-shadow: 0 12px 30px -12px rgba(15, 23, 42, 0.8);
-        backdrop-filter: blur(6px);
-        pointer-events: auto;
-      `;
-      doc.body.appendChild(container);
-    }
+      let container = doc.getElementById("sprunki-reset-container") as HTMLDivElement | null;
+      if (!container) {
+        container = doc.createElement("div");
+        container.id = "sprunki-reset-container";
+        container.style.cssText = `
+          position: fixed;
+          top: 16px;
+          left: 50%;
+          transform: translateX(-50%);
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          z-index: 9999;
+          gap: 0.75rem;
+          padding: 0.5rem 1rem;
+          border-radius: 9999px;
+          background: rgba(17, 24, 39, 0.75);
+          box-shadow: 0 12px 30px -12px rgba(15, 23, 42, 0.8);
+          backdrop-filter: blur(6px);
+          pointer-events: auto;
+        `;
+        doc.body.appendChild(container);
+      }
 
-    let button = container.querySelector("button[data-reset-style]") as HTMLButtonElement | null;
-    if (!button) {
-      button = doc.createElement("button");
-      button.dataset.resetStyle = "true";
-      button.type = "button";
-      button.textContent = "Initialization";
-      button.style.cssText = `
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-        gap: 0.5rem;
-        padding: 0.65rem 1.5rem;
-        border-radius: 9999px;
-        border: 1px solid #7c3aed;
-        background: linear-gradient(120deg, #7c3aed, #5b21b6);
-        color: #ffffff;
-        font-weight: 600;
-        cursor: pointer;
-        font-size: 0.95rem;
-        transition: transform 0.2s ease, box-shadow 0.2s ease, opacity 0.2s ease;
-      `;
-      button.addEventListener("mouseenter", () => {
-        button?.style.setProperty("transform", "translateY(-1px)");
-        button?.style.setProperty("box-shadow", "0 12px 28px -14px rgba(124, 58, 237, 0.85)");
-      });
-      button.addEventListener("mouseleave", () => {
-        button?.style.removeProperty("transform");
-        button?.style.setProperty("box-shadow", "0 10px 25px -10px rgba(76, 29, 149, 0.8)");
-      });
-      button.addEventListener("mousedown", () => {
-        button?.style.setProperty("transform", "translateY(0)");
-        button?.style.setProperty("opacity", "0.85");
-      });
-      button.addEventListener("mouseup", () => {
-        button?.style.removeProperty("opacity");
-      });
-      button.addEventListener("focus", () => {
-        button?.style.setProperty("box-shadow", "0 10px 25px -10px rgba(76, 29, 149, 0.8)");
-      });
-      button.addEventListener("blur", () => {
-        button?.style.removeProperty("box-shadow");
-      });
-      button.addEventListener("click", resetGameFrame);
-      container.appendChild(button);
-    }
-  };
+      let button = container.querySelector("button[data-reset-style]") as HTMLButtonElement | null;
+      if (!button) {
+        button = doc.createElement("button");
+        button.dataset.resetStyle = "true";
+        button.type = "button";
+        button.textContent = "Initialization";
+        button.style.cssText = `
+          display: inline-flex;
+          align-items: center;
+          justify-content: center;
+          gap: 0.5rem;
+          padding: 0.65rem 1.5rem;
+          border-radius: 9999px;
+          border: 1px solid #7c3aed;
+          background: linear-gradient(120deg, #7c3aed, #5b21b6);
+          color: #ffffff;
+          font-weight: 600;
+          cursor: pointer;
+          font-size: 0.95rem;
+          transition: transform 0.2s ease, box-shadow 0.2s ease, opacity 0.2s ease;
+        `;
+        button.addEventListener("mouseenter", () => {
+          button?.style.setProperty("transform", "translateY(-1px)");
+          button?.style.setProperty("box-shadow", "0 12px 28px -14px rgba(124, 58, 237, 0.85)");
+        });
+        button.addEventListener("mouseleave", () => {
+          button?.style.removeProperty("transform");
+          button?.style.setProperty("box-shadow", "0 10px 25px -10px rgba(76, 29, 149, 0.8)");
+        });
+        button.addEventListener("mousedown", () => {
+          button?.style.setProperty("transform", "translateY(0)");
+          button?.style.setProperty("opacity", "0.85");
+        });
+        button.addEventListener("mouseup", () => {
+          button?.style.removeProperty("opacity");
+        });
+        button.addEventListener("focus", () => {
+          button?.style.setProperty("box-shadow", "0 10px 25px -10px rgba(76, 29, 149, 0.8)");
+        });
+        button.addEventListener("blur", () => {
+          button?.style.removeProperty("box-shadow");
+        });
+        button.addEventListener("click", resetGameFrame);
+        container.appendChild(button);
+      }
+    },
+    [resetGameFrame],
+  );
 
-  const attachObserver = (doc: Document) => {
-    if (!doc.body) return;
-    frameObserverRef.current?.disconnect();
-    frameObserverRef.current = new MutationObserver(() => {
-      ensureResetButton(doc);
-    });
-    frameObserverRef.current.observe(doc.body, { childList: true, subtree: true });
-  };
+  const attachObserver = useCallback(
+    (doc: Document) => {
+      if (!doc.body) return;
 
-  const injectResetButton = () => {
+      if (activeDocumentRef.current && activeDocumentRef.current !== doc) {
+        removeResetButton(activeDocumentRef.current);
+      }
+
+      frameObserverRef.current?.disconnect();
+      frameObserverRef.current = new MutationObserver(() => {
+        ensureResetButton(doc);
+      });
+      frameObserverRef.current.observe(doc.body, { childList: true, subtree: true });
+      activeDocumentRef.current = doc;
+    },
+    [ensureResetButton, removeResetButton],
+  );
+
+  const injectResetButton = useCallback(function inject() {
     const frame = gameFrameRef.current;
     if (!frame) return;
+
     const doc = frame.contentDocument;
     if (!doc) return;
+
     if (!doc.body) {
       if (retryTimerRef.current === null) {
         retryTimerRef.current = window.setTimeout(() => {
           retryTimerRef.current = null;
-          injectResetButton();
+          inject();
         }, 250);
       }
       return;
     }
+
     ensureResetButton(doc);
     attachObserver(doc);
-  };
+  }, [attachObserver, ensureResetButton]);
 
-  const handleFullscreenChange = () => {
-    setIsFullscreen(document.fullscreenElement === gameFrameRef.current);
-  };
-
-  const exitFullscreen = async () => {
-    if (document.exitFullscreen) {
-      await document.exitFullscreen();
-    }
-  };
-
-  const toggleFullscreen = async () => {
-    const frame = gameFrameRef.current;
-    if (!frame) return;
-    try {
-      if (document.fullscreenElement === frame) {
-        await exitFullscreen();
-      } else if (frame.requestFullscreen) {
-        await frame.requestFullscreen();
-      }
-    } catch (error) {
-      console.error("Failed to toggle fullscreen:", error);
-    }
-  };
-
-  // eslint-disable-next-line react-hooks/exhaustive-deps
   useEffect(() => {
-    document.addEventListener("fullscreenchange", handleFullscreenChange);
     if (gameFrameRef.current?.contentDocument) {
       ensureResetButton(gameFrameRef.current.contentDocument);
       attachObserver(gameFrameRef.current.contentDocument);
     }
 
     return () => {
-      document.removeEventListener("fullscreenchange", handleFullscreenChange);
       frameObserverRef.current?.disconnect();
       frameObserverRef.current = null;
-      if (retryTimerRef.current !== null) {
-        window.clearTimeout(retryTimerRef.current);
-        retryTimerRef.current = null;
-      }
-      if (gameFrameRef.current?.contentDocument) {
-        removeResetButton(gameFrameRef.current.contentDocument);
+      clearRetryTimer();
+      if (activeDocumentRef.current) {
+        removeResetButton(activeDocumentRef.current);
+        activeDocumentRef.current = null;
       }
     };
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, [attachObserver, clearRetryTimer, ensureResetButton, removeResetButton]);
+
 
   return (
     <PageShell>
@@ -206,30 +198,17 @@ export default function SprunkiClient() {
             Mix beats, layer vocals, and experiment with haunting Sprunki sounds directly in your browser.
           </p>
         </header>
-        <div className={styles.gameFrameWrapper}>
-          <iframe
-            ref={gameFrameRef}
-            className={styles.gameFrame}
-            src="/games/incredibox-sprunki/index.html"
-            title="Sprunki Incredibox Remix"
-            allow="autoplay"
-            onLoad={injectResetButton}
-          />
-          <button
-            type="button"
-            className={classNames(
-              styles.fullscreenToggle,
-              isFullscreen && styles.fullscreenToggleActive
-            )}
-            aria-label={isFullscreen ? "Exit fullscreen mode" : "Enter fullscreen mode"}
-            onClick={toggleFullscreen}
-          >
-            <span aria-hidden="true">{isFullscreen ? "⤢" : "⛶"}</span>
-            <span className={styles.fullscreenToggleText}>
-              {isFullscreen ? "Exit Fullscreen" : "Fullscreen"}
-            </span>
-          </button>
-        </div>
+        <GameFrameWithControls
+          iframeRef={gameFrameRef}
+          iframeSrc="/games/incredibox-sprunki/index.html"
+          iframeTitle="Sprunki Incredibox Remix"
+          allow="autoplay"
+          allowFullScreen
+          onLoad={injectResetButton}
+          showFullscreenButton
+          frameContainerClassName={styles.gameFrameWrapper}
+          frameClassName={styles.gameFrame}
+        />
         <section className={styles.howToPlay} aria-label="How to play Sprunki Incredibox Remix">
           <h2>Play Tips</h2>
           <ul>

@@ -22,6 +22,8 @@ export default function Html5MarioPage() {
       }}
       iframeSrc="/games/html5-mario/index.html"
       iframeTitle="HTML5 Mario Game"
+      allowFullScreen
+      showFullscreenButton
       howToItems={[
         "Use the arrow keys to move and jump; combine them to clear tricky gaps.",
         "Collect coins, hit blocks, and avoid enemies to keep your run alive.",

@@ -22,6 +22,8 @@ export default function MouseHitPage() {
       }}
       iframeSrc="/games/mouseHit/index.html"
       iframeTitle="Mouse Hit Mania Game"
+      allowFullScreen
+      showFullscreenButton
       howToItems={[
         "Click the sound icon to mute or unmute, then press Play to drop into the arcade.",
         "Move the cursor to aim the hammer and click to smash moles before they burrow back down.",

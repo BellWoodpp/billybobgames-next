@@ -24,6 +24,8 @@ export default function FruitNinjaPage() {
       }}
       iframeSrc="/games/fruit-ninja/index.html"
       iframeTitle="Fruit Ninja Game"
+      allowFullScreen
+      showFullscreenButton
       frameClassName={classNames(styles.gameFrameShort, styles.gameFrameLight)}
       howToItems={[
         "Swipe or drag across the screen to slice the fruit before it falls.",

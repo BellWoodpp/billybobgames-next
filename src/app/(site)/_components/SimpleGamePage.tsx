@@ -3,6 +3,7 @@ import { classNames } from "@/lib/classNames";
 import PageShell from "./PageShell";
 import GameBreadcrumb from "./GameBreadcrumb";
 import RecentlyPlayedTracker from "./RecentlyPlayedTracker";
+import GameFrameWithControls from "./GameFrameWithControls";
 import styles from "../styles/game-page.module.css";
 
 type SimpleGamePageProps = {
@@ -14,6 +15,7 @@ type SimpleGamePageProps = {
   allow?: string;
   allowFullScreen?: boolean;
   loading?: "lazy" | "eager";
+  showFullscreenButton?: boolean;
   wrapperClassName?: string;
   frameWrapperClassName?: string;
   frameClassName?: string;
@@ -36,6 +38,7 @@ export default function SimpleGamePage({
   allow = "autoplay",
   allowFullScreen,
   loading,
+  showFullscreenButton,
   wrapperClassName,
   frameWrapperClassName,
   frameClassName,
@@ -49,23 +52,11 @@ export default function SimpleGamePage({
   howToTitleClassName,
 }: SimpleGamePageProps) {
   const wrapperClasses = classNames(styles.wrapper, wrapperClassName);
-  const frameClasses = classNames(styles.gameFrame, frameClassName);
   const headingClasses = classNames(styles.title, titleClassName);
   const subtitleClasses = classNames(styles.subtitle, subtitleClassName);
   const howToClasses = classNames(styles.howToPlay, howToClassName);
   const howToListClasses = classNames(styles.howToPlayList, howToListClassName);
   const howToTitleClasses = classNames(styles.howToPlayTitle, howToTitleClassName);
-
-  const frameElement = (
-    <iframe
-      className={frameClasses}
-      src={iframeSrc}
-      title={iframeTitle}
-      allow={allow}
-      allowFullScreen={allowFullScreen}
-      loading={loading}
-    />
-  );
 
   return (
     <PageShell>
@@ -79,11 +70,16 @@ export default function SimpleGamePage({
           <p className={subtitleClasses}>{subtitle}</p>
         </header>
 
-        {frameWrapperClassName ? (
-          <div className={frameWrapperClassName}>{frameElement}</div>
-        ) : (
-          frameElement
-        )}
+        <GameFrameWithControls
+          iframeSrc={iframeSrc}
+          iframeTitle={iframeTitle}
+          allow={allow}
+          allowFullScreen={allowFullScreen}
+          loading={loading}
+          showFullscreenButton={showFullscreenButton}
+          wrapperClassName={frameWrapperClassName}
+          frameClassName={frameClassName}
+        />
 
         {supportingText ? <p className={styles.supportingText}>{supportingText}</p> : null}
 

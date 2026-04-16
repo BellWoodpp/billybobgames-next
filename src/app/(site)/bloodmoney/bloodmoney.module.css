@@ -58,6 +58,7 @@
   box-shadow: 0 34px 88px -52px rgba(79, 70, 229, 0.75);
 }
 
+
 .gameShell {
   display: flex;
   justify-content: center;
@@ -74,7 +75,6 @@
 }
 
 .gameFrameWrapper {
-  position: relative;
   display: inline-block;
   width: 100%;
   max-width: 1400px;
@@ -84,14 +84,16 @@
   margin: 0 auto;
 }
 
-.gameFrame {
+.gameFrame.gameFrame {
   position: absolute;
   inset: 0;
   width: 100%;
   height: 100%;
+  min-height: 100%;
   border: none;
   border-radius: 0;
   background: #000;
+  box-shadow: none;
 }
 
 .fullscreenButton {

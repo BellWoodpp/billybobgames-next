@@ -2,7 +2,7 @@
 import type { Metadata } from "next";
 import { WsrvImage } from "@/components/WsrvImage";
 import PageShell from "./_components/PageShell";
-import HomeGameCard from "./_components/HomeGameCard";
+import HomeGamesSection, { type HomeGame } from "./_components/HomeGamesSection";
 import styles from "./styles/home.module.css";
 
 export const metadata: Metadata = {
@@ -45,21 +45,22 @@ export const metadata: Metadata = {
   },
 };
 
-type HomeGame = {
-  href: string;
-  title: string;
-  img: string;
-  alt: string;
-  imageFit?: "cover" | "contain";
-  newUntil?: string;
-  previewVideo?: string;
-};
-
 type HomePageProps = {
   searchParams?: Promise<{
     sort?: string | string[];
   }>;
 };
+
+const r2AssetDomain = (process.env.R2_ASSET_DOMAIN || "https://r2bucket.billybobgames.org").replace(
+  /\/$/,
+  "",
+);
+const useLocalPreviewVideos = process.env.NODE_ENV === "development";
+
+function previewVideoUrl(localPath: string, r2Path = localPath) {
+  if (useLocalPreviewVideos) return localPath;
+  return `${r2AssetDomain}/${r2Path.replace(/^\/+/, "")}`;
+}
 
 const otherGames: HomeGame[] = [
   {
@@ -69,31 +70,38 @@ const otherGames: HomeGame[] = [
     alt: "Evolve Idle cover art",
     imageFit: "contain",
     newUntil: "2026-04-22T23:59:59+08:00",
-    previewVideo: "/games/evolve/evolve-preview.mp4",
+    previewVideo: previewVideoUrl("/games/evolve/evolve-preview.mp4"),
   },
   {
     href: "/bloodmoney",
     title: "BLOODMONEY",
     img: "https://r2bucket.billybobgames.org/bloodmoney-webp/bloodmoney.webp",
     alt: "BLOODMONEY gameplay",
+    previewVideo: previewVideoUrl("/videos/bloodmoney-preview.mp4"),
   },
   {
     href: "/sprunki",
     title: "Sprunki Remix",
     img: "https://r2bucket.billybobgames.org/sprunki/sprunki.webp",
     alt: "Sprunki Incredibox Remix gameplay",
+    previewVideo: previewVideoUrl(
+      "/games/incredibox-sprunki/sprunki-preview.mp4",
+      "/sprunki/sprunki-preview.mp4",
+    ),
   },
   {
     href: "/Spider-Solitaire",
     title: "Spider Solitaire",
     img: "https://r2bucket.billybobgames.org/Spider-Solitaire/ogOjlb.webp",
     alt: "Spider Solitaire gameplay",
+    previewVideo: previewVideoUrl("/games/spider-solitaire/spider-solitaire-preview.mp4"),
   },
   {
     href: "/flappy-text",
     title: "Flappy Text",
     img: "https://r2bucket.billybobgames.org/flappy-text/3.jpg",
     alt: "Flappy Text gameplay",
+    previewVideo: previewVideoUrl("/games/flappy-text/flappy-text-preview.mp4"),
   },
   {
     href: "/pac-man",
@@ -176,20 +184,10 @@ function getSingleQueryValue(value: string | string[] | undefined) {
   return Array.isArray(value) ? value[0] : value;
 }
 
-function isGameCurrentlyNew(game: HomeGame, now: number) {
-  if (!game.newUntil) return false;
-
-  const newUntilTimestamp = new Date(game.newUntil).getTime();
-  return Number.isFinite(newUntilTimestamp) && now < newUntilTimestamp;
-}
-
 export default async function HomePage({ searchParams }: HomePageProps) {
   const resolvedSearchParams = searchParams ? await searchParams : undefined;
   const activeSort = getSingleQueryValue(resolvedSearchParams?.sort);
   const isNewView = activeSort === "new";
-  const now = Date.now();
-  const visibleGames = isNewView ? otherGames.filter((game) => isGameCurrentlyNew(game, now)) : otherGames;
-  const hasVisibleGames = visibleGames.length > 0;
 
   return (
     <PageShell containerClassName={styles.homeContainer}>
@@ -208,31 +206,7 @@ export default async function HomePage({ searchParams }: HomePageProps) {
           </div>
         </section>
 
-        <hr className={styles.sectionDivider} />
-        <h2 className={styles.otherGamesHeading}>{isNewView ? "New" : "New Game"}</h2>
-        {isNewView ? (
-          <p className={styles.otherGamesDescription}>
-            {hasVisibleGames ? "Showing games that currently carry the New badge." : "最近没有发布最新游戏。"}
-          </p>
-        ) : null}
-        {hasVisibleGames ? (
-          <div className={styles.otherGamesGrid}>
-            {visibleGames.map((game) => (
-              <HomeGameCard
-                key={game.href}
-                href={game.href}
-                title={game.title}
-                img={game.img}
-                alt={game.alt}
-                imageFit={game.imageFit}
-                newUntil={game.newUntil}
-                previewVideo={game.previewVideo}
-              />
-            ))}
-          </div>
-        ) : (
-          <div className={styles.otherGamesEmpty}>最近没有发布最新游戏。</div>
-        )}
+        <HomeGamesSection games={otherGames} isNewView={isNewView} />
 
         <section className={styles.friendLinksSection} aria-label="Friend Links">
           <h2>Friend Links</h2>

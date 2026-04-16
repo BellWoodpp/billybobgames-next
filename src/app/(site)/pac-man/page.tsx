@@ -22,6 +22,8 @@ export default function PacManPage() {
       }}
       iframeSrc="/games/pac-man/index.html"
       iframeTitle="Pac-Man Game"
+      allowFullScreen
+      showFullscreenButton
       howToItems={[
         "Use the arrow keys to guide Pac-Man and clear every pellet in the maze.",
         "Keep your distance from ghosts or grab a power pellet to turn them blue and score big.",

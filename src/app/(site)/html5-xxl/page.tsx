@@ -22,6 +22,8 @@ export default function Html5XxlPage() {
       }}
       iframeSrc="/games/html5-xxl/index.html"
       iframeTitle="HTML5 City Match Game"
+      allowFullScreen
+      showFullscreenButton
       howToItems={[
         "Tap or click two adjacent tiles to swap them and form a line of three or more.",
         "Trigger chain reactions to earn bonus points and charge up the special meter.",

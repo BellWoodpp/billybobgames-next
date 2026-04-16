@@ -23,6 +23,8 @@ export default function SlotMachinePage() {
       }}
       iframeSrc="/games/slot-machine-main/index.html"
       iframeTitle="HTML5 Slot Machine Game"
+      allowFullScreen
+      showFullscreenButton
       howToItems={[
         <>
           Press <kbd className={styles.kbd}>Spin</kbd> to set all five reels in motion.

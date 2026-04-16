@@ -24,6 +24,8 @@ export default function FlappyTextPage() {
       }}
       iframeSrc="/games/flappy-text/index.html"
       iframeTitle="Flappy Text Game"
+      allowFullScreen
+      showFullscreenButton
       frameClassName={classNames(styles.gameFrameShort, styles.gameFrameLight)}
       supportingText="Enter up to ten characters, press GO!, then tap or click to keep your text airborne."
       howToItems={[
