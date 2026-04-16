@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import SimpleGamePage from "../_components/SimpleGamePage";
 
 export const metadata: Metadata = {
-  title: "HTML5 City Match - Billy Bob Games",
+  title: "HTML5 City Match",
   description:
     "Match vibrant city tiles in HTML5 City Match—trigger cascading combos, unlock boosters, and chase high scores directly in your browser.",
   alternates: {

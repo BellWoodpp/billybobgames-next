@@ -8,7 +8,7 @@ import BloodmoneyEngagementClient from "../BloodmoneyEngagementClient";
 import styles from "../bloodmoney.module.css";
 
 export const metadata: Metadata = {
-  title: "Play BLOODMONEY - Billy Bob Games",
+  title: "Play BLOODMONEY",
   description: "Play BLOODMONEY! in a dedicated game view.",
   alternates: {
     canonical: "https://billybobgames.org/bloodmoney",

@@ -4,7 +4,7 @@ import SimpleGamePage from "../_components/SimpleGamePage";
 import styles from "../styles/game-page.module.css";
 
 export const metadata: Metadata = {
-  title: "Evolve Idle - Billy Bob Games",
+  title: "Evolve Idle",
   description:
     "Guide a civilization from primordial ooze to a spacefaring empire in Evolve Idle, a deep incremental strategy game packed with research, jobs, and prestige layers.",
   alternates: {

@@ -3,7 +3,7 @@ import PageShell from "../_components/PageShell";
 import RecentlyPlayed from "./recently-played";
 
 export const metadata: Metadata = {
-  title: "Recently Played - Billy Bob Games",
+  title: "Recently Played",
   description: "Your recently played games on Billy Bob Games.",
   alternates: {
     canonical: "https://billybobgames.org/recently-played",

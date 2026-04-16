@@ -4,7 +4,7 @@ import SimpleGamePage from "../_components/SimpleGamePage";
 import styles from "../styles/game-page.module.css";
 
 export const metadata: Metadata = {
-  title: "Fish Joy Reloaded - BillyBob Games",
+  title: "Fish Joy Reloaded",
   description:
     "In Fish Joy Reloaded, command an undersea cannon to capture dazzling fish and enjoy arcade-style combos and upgrades.",
   alternates: {

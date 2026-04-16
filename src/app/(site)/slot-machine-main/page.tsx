@@ -3,7 +3,7 @@ import SimpleGamePage from "../_components/SimpleGamePage";
 import styles from "../styles/game-page.module.css";
 
 export const metadata: Metadata = {
-  title: "HTML5 Slot Machine - Billy Bob Games",
+  title: "HTML5 Slot Machine",
   description:
     "Spin through a galaxy of symbols with the HTML5 Slot Machine. Trigger autoplay, chase jackpots, and enjoy silky smooth animations.",
   alternates: {

@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import SimpleGamePage from "../_components/SimpleGamePage";
 
 export const metadata: Metadata = {
-  title: "Mouse Hit Mania - Billy Bob Games",
+  title: "Mouse Hit Mania",
   description:
     "Play Mouse Hit Mania online: crush every sneaky mole, build high-score combos, and clear wave after wave of fast-paced whac-a-mole action.",
   alternates: {

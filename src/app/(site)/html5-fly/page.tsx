@@ -3,7 +3,7 @@ import SimpleGamePage from "../_components/SimpleGamePage";
 import styles from "../styles/game-page.module.css";
 
 export const metadata: Metadata = {
-  title: "HTML5 Fly - Billy Bob Games",
+  title: "HTML5 Fly",
   description:
     "Pilot your ship through relentless enemy waves, collect upgrades, and chase high scores in the HTML5 Fly space shooter.",
   alternates: {

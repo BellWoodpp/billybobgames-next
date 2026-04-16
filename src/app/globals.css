@@ -375,9 +375,28 @@ a {
 }
 
 .app-footer .bar {
+  display: grid;
+  gap: 0.65rem;
   padding: 1rem;
   color: var(--muted);
   text-align: center;
+}
+
+.footer-links {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.85rem;
+}
+
+.footer-links a {
+  text-decoration: none;
+  color: var(--muted);
+}
+
+.footer-links a:hover,
+.footer-links a:focus-visible {
+  color: var(--text);
 }
 
 .error-wrap {

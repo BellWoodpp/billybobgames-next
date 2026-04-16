@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import SimpleGamePage from "../_components/SimpleGamePage";
 
 export const metadata: Metadata = {
-  title: "HTML5 Mario - Billy Bob Games",
+  title: "HTML5 Mario",
   description:
     "Run, jump, and stomp Goombas in this HTML5 tribute to classic Mario platforming—play directly in your browser at Billy Bob Games.",
   alternates: {

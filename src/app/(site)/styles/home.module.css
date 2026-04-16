@@ -44,7 +44,7 @@
   text-align: left;
 }
 
-.featuredGameSummary h2 {
+.featuredGameSummary h1 {
   margin: 0;
   font-size: clamp(1.65rem, 3vw, 2.25rem);
   font-weight: 700;
@@ -405,5 +405,56 @@
 
   .brandStory p {
     color: #e5e7eb;
+  }
+}
+
+
+.categorySection {
+  display: grid;
+  gap: 1rem;
+  margin-bottom: 3rem;
+  padding: 1.5rem;
+  border: 1px solid #e5e7eb;
+  border-radius: 1rem;
+  background: #f9fafb;
+}
+
+.categorySection h2 {
+  margin: 0;
+  font-size: clamp(1.35rem, 2.4vw, 1.75rem);
+  text-align: center;
+}
+
+.categoryLinks {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.75rem;
+}
+
+.categoryLink {
+  padding: 0.65rem 0.95rem;
+  border: 1px solid #d1d5db;
+  border-radius: 999px;
+  text-decoration: none;
+  color: #111827;
+  background: #ffffff;
+}
+
+.categoryLink:hover,
+.categoryLink:focus-visible {
+  border-color: #8b5cf6;
+}
+
+@media (prefers-color-scheme: dark) {
+  .categorySection {
+    border-color: #3a3a3a;
+    background: #2a2a2a;
+  }
+
+  .categoryLink {
+    border-color: #3a3a3a;
+    background: #1f2937;
+    color: #f9fafb;
   }
 }

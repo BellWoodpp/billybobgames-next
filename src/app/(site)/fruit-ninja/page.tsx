@@ -4,7 +4,7 @@ import SimpleGamePage from "../_components/SimpleGamePage";
 import styles from "../styles/game-page.module.css";
 
 export const metadata: Metadata = {
-  title: "Fruit Ninja - Billy Bob Games",
+  title: "Fruit Ninja",
   description:
     "Slice through waves of flying fruit, dodge the bombs, and chase high scores in this free browser version of Fruit Ninja.",
   alternates: {

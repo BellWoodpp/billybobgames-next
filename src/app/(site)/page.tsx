@@ -1,12 +1,16 @@
 /* eslint-disable react/no-unescaped-entities */
 import type { Metadata } from "next";
+import Link from "next/link";
 import { WsrvImage } from "@/components/WsrvImage";
 import PageShell from "./_components/PageShell";
 import HomeGamesSection, { type HomeGame } from "./_components/HomeGamesSection";
+import { gameCategories } from "./_data/game-catalog";
 import styles from "./styles/home.module.css";
 
 export const metadata: Metadata = {
-  title: "Billy Bob Games | Free Unblocked Browser Games",
+  title: {
+    absolute: "Billy Bob Games | Free Unblocked Browser Games",
+  },
   description:
     "Play free unblocked browser games at Billy Bob Games—no downloads, no paywalls. Enjoy retro favorites, indie gems, and new arcade challenges updated weekly.",
   keywords: [
@@ -18,7 +22,7 @@ export const metadata: Metadata = {
     "Flappy Text",
   ],
   openGraph: {
-    title: "Billy Bob Great Online Games | Free Unblocked Browser Games",
+    title: "Billy Bob Games | Free Unblocked Browser Games",
     description:
       "Play free unblocked browser games at Billy Bob Games—no downloads, no paywalls. Enjoy retro favorites, indie gems, and new arcade challenges updated weekly.",
     url: "https://billybobgames.org/",
@@ -35,7 +39,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Billy Bob Great Online Games | Free Unblocked Browser Games",
+    title: "Billy Bob Games | Free Unblocked Browser Games",
     description:
       "Play free unblocked browser games at Billy Bob Games—no downloads, no paywalls. Enjoy retro favorites, indie gems, and new arcade challenges updated weekly.",
     images: ["https://r2bucket.billybobgames.org/logo/amazon-game-development.svg"],
@@ -61,6 +65,42 @@ function previewVideoUrl(localPath: string, r2Path = localPath) {
   if (useLocalPreviewVideos) return localPath;
   return `${r2AssetDomain}/${r2Path.replace(/^\/+/, "")}`;
 }
+
+const homeStructuredData = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://billybobgames.org/#organization",
+      name: "Billy Bob Games",
+      url: "https://billybobgames.org/",
+      logo: "https://r2bucket.billybobgames.org/logo/amazon-game-development.svg",
+      description:
+        "Billy Bob Games is a free unblocked browser games website focused on fast-loading browser play.",
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://billybobgames.org/#website",
+      name: "Billy Bob Games",
+      url: "https://billybobgames.org/",
+      publisher: {
+        "@id": "https://billybobgames.org/#organization",
+      },
+    },
+    {
+      "@type": "WebPage",
+      "@id": "https://billybobgames.org/#webpage",
+      url: "https://billybobgames.org/",
+      name: "Billy Bob Games | Free Unblocked Browser Games",
+      isPartOf: {
+        "@id": "https://billybobgames.org/#website",
+      },
+      about: {
+        "@id": "https://billybobgames.org/#organization",
+      },
+    },
+  ],
+};
 
 const otherGames: HomeGame[] = [
   {
@@ -192,9 +232,15 @@ export default async function HomePage({ searchParams }: HomePageProps) {
   return (
     <PageShell containerClassName={styles.homeContainer}>
       <section className={styles.homeGray}>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(homeStructuredData),
+          }}
+        />
         <section className={styles.featuredGame} aria-label="Featured game">
           <div className={styles.featuredGameSummary}>
-            <h2>Billy Bob Games – Play Free Unblocked Browser Games Online</h2>
+            <h1>Billy Bob Games – Play Free Unblocked Browser Games Online</h1>
             <p>
               Discover Billy Bob Games—your global hub for free, unblocked HTML5 fun. Explore classic retro games,
               quick browser puzzles, and sleek arcade adventures that load instantly in any modern web browser.
@@ -207,6 +253,17 @@ export default async function HomePage({ searchParams }: HomePageProps) {
         </section>
 
         <HomeGamesSection games={otherGames} isNewView={isNewView} />
+
+        <section className={styles.categorySection} aria-labelledby="browse-by-category-heading">
+          <h2 id="browse-by-category-heading">Browse by Category</h2>
+          <nav className={styles.categoryLinks} aria-label="Homepage category links">
+            {gameCategories.map((category) => (
+              <Link key={category.slug} className={styles.categoryLink} href={`/${category.slug}`}>
+                {category.title}
+              </Link>
+            ))}
+          </nav>
+        </section>
 
         <section className={styles.friendLinksSection} aria-label="Friend Links">
           <h2>Friend Links</h2>

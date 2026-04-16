@@ -35,7 +35,7 @@ export const metadata: Metadata = {
     "Flappy Text",
   ],
   openGraph: {
-    title: "Billy Bob Great Online Games | Free Unblocked Browser Games",
+    title: "Billy Bob Games | Free Unblocked Browser Games",
     description:
       "Play free unblocked browser games at Billy Bob Games—no downloads, no paywalls. Enjoy retro favorites, indie gems, and new arcade challenges updated weekly.",
     url: metadataBase,
@@ -52,7 +52,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Billy Bob Great Online Games | Free Unblocked Browser Games",
+    title: "Billy Bob Games | Free Unblocked Browser Games",
     description:
       "Play free unblocked browser games at Billy Bob Games—no downloads, no paywalls. Enjoy retro favorites, indie gems, and new arcade challenges updated weekly.",
     images: ["/logo_amazon-game-development.svg"],

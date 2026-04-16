@@ -2,9 +2,9 @@ import type { Metadata } from "next";
 import SimpleGamePage from "../_components/SimpleGamePage";
 
 export const metadata: Metadata = {
-  title: "Pac-Man - Billy Bob Games",
+  title: "Pac-Man",
   description:
-    "Play the browser version of Pac-Man, clear each maze of pellets, dodge the ghosts, and chase high scores right inside BillyBob Games.",
+    "Play the browser version of Pac-Man, clear each maze of pellets, dodge the ghosts, and chase high scores right inside Billy Bob Games.",
   alternates: {
     canonical: "https://billybobgames.org/pac-man",
   },

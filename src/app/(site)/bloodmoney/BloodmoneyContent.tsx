@@ -25,7 +25,7 @@ export default function BloodmoneyContent() {
           <GameBreadcrumb current="BLOODMONEY" />
           <h1 className={styles.title}>BLOODMONEY</h1>
           <p className={styles.subtitle}>
-            Dive into this atmospheric adventure without leaving BillyBob Games.
+            Dive into this atmospheric adventure without leaving Billy Bob Games.
           </p>
           <div className={styles.playCtas}>
             <Link className={styles.playPoster} href="/bloodmoney/play" aria-label="Open BLOODMONEY play view">

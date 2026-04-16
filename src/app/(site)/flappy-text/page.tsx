@@ -4,7 +4,7 @@ import SimpleGamePage from "../_components/SimpleGamePage";
 import styles from "../styles/game-page.module.css";
 
 export const metadata: Metadata = {
-  title: "Flappy Text - Billy Bob Games",
+  title: "Flappy Text",
   description:
     "Customize the word you fly with, tap to stay aloft, and weave through obstacles in this playful Flappy Bird-style typing challenge.",
   alternates: {
