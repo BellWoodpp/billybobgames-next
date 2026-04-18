@@ -1,5 +1,6 @@
 import type { ReactNode } from "react";
 import { classNames } from "@/lib/classNames";
+import { createGameTrackingContext } from "@/lib/analytics";
 import PageShell from "./PageShell";
 import GameBreadcrumb from "./GameBreadcrumb";
 import RecentlyPlayedTracker from "./RecentlyPlayedTracker";
@@ -58,6 +59,9 @@ export default function SimpleGamePage({
   const howToClasses = classNames(styles.howToPlay, howToClassName);
   const howToListClasses = classNames(styles.howToPlayList, howToListClassName);
   const howToTitleClasses = classNames(styles.howToPlayTitle, howToTitleClassName);
+  const analyticsGame = recentlyPlayed
+    ? createGameTrackingContext(recentlyPlayed.href, recentlyPlayed.title)
+    : undefined;
 
   return (
     <PageShell>
@@ -88,6 +92,7 @@ export default function SimpleGamePage({
           showFullscreenButton={showFullscreenButton}
           wrapperClassName={frameWrapperClassName}
           frameClassName={frameClassName}
+          analyticsGame={analyticsGame}
         />
 
         {supportingText ? <p className={styles.supportingText}>{supportingText}</p> : null}

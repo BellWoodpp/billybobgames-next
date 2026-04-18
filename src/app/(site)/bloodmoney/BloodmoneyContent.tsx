@@ -2,11 +2,11 @@
 
 // 专注于SEO文档渲染
 
-import Link from "next/link";
 import { classNames } from "@/lib/classNames";
 import { WsrvImage } from "@/components/WsrvImage";
 import PageShell from "../_components/PageShell";
 import GameBreadcrumb from "../_components/GameBreadcrumb";
+import TrackedGameLink from "../_components/TrackedGameLink";
 import styles from "./bloodmoney.module.css";
 
 const galleryImages = [
@@ -28,7 +28,15 @@ export default function BloodmoneyContent() {
             Dive into this atmospheric adventure without leaving Billy Bob Games.
           </p>
           <div className={styles.playCtas}>
-            <Link className={styles.playPoster} href="/bloodmoney/play" aria-label="Open BLOODMONEY play view">
+            <TrackedGameLink
+              className={styles.playPoster}
+              href="/bloodmoney/play"
+              gameHref="/bloodmoney/play"
+              gameTitle="BLOODMONEY"
+              trackingSource="bloodmoney_landing_play_poster"
+              trackingPosition={1}
+              aria-label="Open BLOODMONEY play view"
+            >
               <WsrvImage
                 src="https://r2bucket.billybobgames.org/bloodmoney-webp/bloodmoney.webp"
                 alt="Play BLOODMONEY"
@@ -38,7 +46,7 @@ export default function BloodmoneyContent() {
                 sizes="(min-width: 960px) 560px, 92vw"
                 layout="constrained"
               />
-            </Link>
+            </TrackedGameLink>
           </div>
         </header>
 

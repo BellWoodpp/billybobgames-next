@@ -206,6 +206,7 @@ export default function SprunkiClient() {
           allowFullScreen
           onLoad={injectResetButton}
           showFullscreenButton
+          analyticsGame={{ gameId: "sprunki", gameName: "Sprunki Incredibox Remix", gamePath: "/sprunki" }}
           frameContainerClassName={styles.gameFrameWrapper}
           frameClassName={styles.gameFrame}
         />

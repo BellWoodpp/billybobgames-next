@@ -24,6 +24,7 @@ export default function BloodmoneyGameClient({
       allowFullScreen
       loading="lazy"
       showFullscreenButton
+      analyticsGame={{ gameId: "bloodmoney", gameName: "BLOODMONEY", gamePath: "/bloodmoney/play" }}
       frameContainerClassName={styles.gameFrameWrapper}
       frameClassName={styles.gameFrame}
     />

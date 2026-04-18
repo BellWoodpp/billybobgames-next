@@ -6,6 +6,7 @@ import { WsrvImage } from "@/components/WsrvImage";
 import Link from "next/link";
 import { Sparkles } from "lucide-react";
 import { Skeleton } from "@/components/ui/skeleton";
+import { trackGameClick } from "@/lib/analytics";
 import styles from "../styles/home.module.css";
 
 type HomeGameCardProps = {
@@ -16,6 +17,8 @@ type HomeGameCardProps = {
   imageFit?: "cover" | "contain";
   newUntil?: string;
   previewVideo?: string;
+  trackingSource?: string;
+  trackingPosition?: number;
 };
 
 export default function HomeGameCard({
@@ -26,6 +29,8 @@ export default function HomeGameCard({
   imageFit = "cover",
   newUntil,
   previewVideo,
+  trackingSource = "home_game_grid",
+  trackingPosition,
 }: HomeGameCardProps) {
   const isLocalImage = img.startsWith("/");
   const [isLoaded, setIsLoaded] = useState(() => !isLocalImage);
@@ -94,6 +99,15 @@ export default function HomeGameCard({
     setIsPreviewActive(true);
   }, [hasPreviewVideo]);
 
+  const trackClick = useCallback(() => {
+    trackGameClick({
+      href,
+      title,
+      placement: trackingSource,
+      position: trackingPosition,
+    });
+  }, [href, title, trackingPosition, trackingSource]);
+
   return (
     <div className={styles.otherGameCardWrap}>
       {showNewBadge ? (
@@ -105,6 +119,7 @@ export default function HomeGameCard({
       <Link
         className={styles.otherGameCard}
         href={href}
+        onClick={trackClick}
         onMouseEnter={startPreview}
         onMouseLeave={stopPreview}
         onFocus={startPreview}

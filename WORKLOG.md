@@ -171,3 +171,69 @@ This file is the handoff record for this repo (`/home/lcl/nuxt-to-next/2.billybo
 - Decide whether to keep or clean up local preview video files that are now only needed for development.
 - Decide whether to keep relying on R2 fallback for `BLOODMONEY` pictures or explicitly allow committing the restored local images.
 - Review the untracked `Evolve` page/assets state before any production push.
+
+## 2026-04-16 (GA4 / game engagement analytics)
+### Changed
+- Confirmed existing analytics stack:
+  - GA4 is already loaded globally in `src/app/layout.tsx` with measurement ID `G-DJ7PED4TRM`.
+  - Umami is already loaded in `src/app/head.tsx`.
+- Added shared analytics helpers in `src/lib/analytics.ts`:
+  - Sends custom events through `window.gtag("event", ...)` when available.
+  - Falls back to `window.dataLayer.push(...)` before GA is ready.
+  - Also mirrors events to Umami when `window.umami.track` exists.
+- Added game click tracking:
+  - Event: `game_click`
+  - Parameters: `game_id`, `game_name`, `game_path`, `placement`, `position`, `page_path`
+  - Wired into homepage game cards, category game cards, recently played links, and the BLOODMONEY landing poster CTA.
+- Added iframe-based gameplay session tracking in the shared frame component:
+  - Event: `game_start` when the iframe loads.
+  - Event: `game_heartbeat` every 30 seconds while the page is visible after at least 15 seconds active time.
+  - Event: `game_end` on page hide/unmount with `active_time_sec`, `total_time_sec`, `heartbeat_count`, and `interaction_count`.
+- Wired analytics context into:
+  - `SimpleGamePage`-based games
+  - `BLOODMONEY`
+  - `Sprunki Remix`
+  - `Spider Solitaire`
+- Verified with:
+  - `npm run lint` (passes; only pre-existing warnings remain)
+  - `npm run build` (passes; only baseline-browser-mapping freshness warning remains)
+
+### Important notes
+- No code was committed or pushed in this save-progress step.
+- The repo currently has many pre-existing modified/untracked files; review `git status --short` before committing to avoid accidentally bundling unrelated work.
+- For GA4 reporting, register custom dimensions/metrics for `game_id`, `game_name`, `placement`, `active_time_sec`, `total_time_sec`, and `interaction_count`.
+- Use `game_end.active_time_sec` for average playtime; do not estimate playtime by summing heartbeat rows.
+
+### TODO (next time)
+- Open GA4 DebugView / Realtime after deploying or running locally with GA enabled and confirm `game_click`, `game_start`, `game_heartbeat`, and `game_end` arrive with expected parameters.
+- Create GA4 custom dimensions/metrics for the new event parameters.
+- Build a simple report/table: game name → clicks, starts, start rate, avg active time, avg interactions.
+- Decide whether to add deeper in-game events for games we control directly (e.g. score, level complete, death, restart), beyond iframe-level session tracking.
+- Review current working tree and decide what should be included in the next commit/push.
+
+## 2026-04-18 (deploy prep / GA4 verification handoff)
+### Changed
+- Re-checked the current GA4 implementation before pushing:
+  - Shared analytics helper remains in `src/lib/analytics.ts`.
+  - Click tracking covers homepage cards, category cards, recently played links, and the BLOODMONEY poster CTA.
+  - Session tracking covers iframe-based gameplay with `game_start`, `game_heartbeat`, and `game_end`.
+- Verified the repo still passes:
+  - `npm run lint` (passes; only pre-existing warnings remain)
+  - `npm run build` (passes; only baseline-browser-mapping freshness warning remains)
+- Cleaned the local `Evolve` workspace before push:
+  - Removed nested `.git`, `node_modules`, source/build workspace files, and local recording leftovers.
+  - Reduced `public/games/evolve` from local-workspace scale down to runtime-only files for the site.
+- Unified embedded `Evolve` GA usage with the site GA4 property `G-DJ7PED4TRM` and disabled iframe auto page views to reduce duplicate reporting:
+  - `public/games/evolve/Evolve/index.html`
+  - `public/games/evolve/Evolve/save.html`
+  - `public/games/evolve/Evolve/wiki.html`
+- Moved the BLOODMONEY local dev preview video out of the untracked `public/videos/` folder and kept production using the existing R2 preview path.
+
+### Important notes
+- I could verify the analytics code path and build output locally, but I could not directly confirm GA4 Realtime / DebugView delivery inside this container because browser-based GA admin verification still needs a real browser session.
+- `public/games/evolve/` still contains runtime files that are currently untracked and will be included in the next commit unless intentionally excluded.
+
+### TODO (next time)
+- After pushing/deploying, open the site in a real browser and verify `game_click`, `game_start`, `game_heartbeat`, and `game_end` through DevTools Network plus GA4 Realtime / DebugView.
+- Decide whether the remaining `Evolve` runtime files should stay in git long-term or be moved to the R2-based media flow.
+- Add GA4 custom dimensions/metrics for `game_id`, `game_name`, `placement`, `active_time_sec`, `total_time_sec`, and `interaction_count` if not already configured.

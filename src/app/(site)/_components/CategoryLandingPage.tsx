@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { WsrvImage } from "@/components/WsrvImage";
 import PageShell from "./PageShell";
+import TrackedGameLink from "./TrackedGameLink";
 import { gameCategories, getCategory, getGamesByCategory, type GameCategorySlug } from "../_data/game-catalog";
 import styles from "../styles/category-page.module.css";
 
@@ -24,8 +25,16 @@ export default function CategoryLandingPage({ slug }: CategoryLandingPageProps) 
         </section>
 
         <section className={styles.grid} aria-label={`${category.title} list`}>
-          {games.map((game) => (
-            <Link key={game.href} className={styles.card} href={game.href}>
+          {games.map((game, index) => (
+            <TrackedGameLink
+              key={game.href}
+              className={styles.card}
+              href={game.href}
+              gameHref={game.href}
+              gameTitle={game.title}
+              trackingSource={`category_${slug}`}
+              trackingPosition={index + 1}
+            >
               <div className={styles.media}>
                 {game.img.startsWith("/") ? (
                   <Image src={game.img} alt={game.alt} fill unoptimized sizes="(min-width: 1024px) 25vw, 100vw" />
@@ -37,7 +46,7 @@ export default function CategoryLandingPage({ slug }: CategoryLandingPageProps) 
                 <h2>{game.title}</h2>
                 <p>{game.description}</p>
               </div>
-            </Link>
+            </TrackedGameLink>
           ))}
         </section>
 

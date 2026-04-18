@@ -1,8 +1,8 @@
 "use client";
 
 import { useEffect, useMemo, useState } from "react";
-import Link from "next/link";
 import { clearRecentlyPlayed, readRecentlyPlayed, type RecentlyPlayedEntry } from "@/lib/recentlyPlayed";
+import TrackedGameLink from "../_components/TrackedGameLink";
 import styles from "./recently-played.module.css";
 
 function formatWhen(timestamp: number) {
@@ -47,9 +47,16 @@ export default function RecentlyPlayed() {
 
     return (
       <ul className={styles.list}>
-        {entries.map((entry) => (
+        {entries.map((entry, index) => (
           <li key={`${entry.href}:${entry.playedAt}`} className={styles.item}>
-            <Link className={styles.link} href={entry.href}>
+            <TrackedGameLink
+              className={styles.link}
+              href={entry.href}
+              gameHref={entry.href}
+              gameTitle={entry.title}
+              trackingSource="recently_played"
+              trackingPosition={index + 1}
+            >
               {entry.img ? (
                 // eslint-disable-next-line @next/next/no-img-element
                 <img className={styles.thumb} src={entry.img} alt="" loading="lazy" />
@@ -60,7 +67,7 @@ export default function RecentlyPlayed() {
                 <div className={styles.title}>{entry.title}</div>
                 <div className={styles.when}>{formatWhen(entry.playedAt)}</div>
               </div>
-            </Link>
+            </TrackedGameLink>
           </li>
         ))}
       </ul>

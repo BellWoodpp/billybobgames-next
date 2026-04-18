@@ -117,7 +117,10 @@ const otherGames: HomeGame[] = [
     title: "BLOODMONEY",
     img: "https://r2bucket.billybobgames.org/bloodmoney-webp/bloodmoney.webp",
     alt: "BLOODMONEY gameplay",
-    previewVideo: previewVideoUrl("/videos/bloodmoney-preview.mp4"),
+    previewVideo: previewVideoUrl(
+      "/games/bloodmoney/bloodmoney-preview.mp4",
+      "/videos/bloodmoney-preview.mp4",
+    ),
   },
   {
     href: "/sprunki",

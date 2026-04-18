@@ -67,7 +67,7 @@ export default function HomeGamesSection({ games, isNewView }: HomeGamesSectionP
       ) : null}
       {hasVisibleGames ? (
         <div className={styles.otherGamesGrid}>
-          {visibleGames.map((game) => (
+          {visibleGames.map((game, index) => (
             <HomeGameCard
               key={game.href}
               href={game.href}
@@ -77,6 +77,8 @@ export default function HomeGamesSection({ games, isNewView }: HomeGamesSectionP
               imageFit={game.imageFit}
               newUntil={game.newUntil}
               previewVideo={game.previewVideo}
+              trackingSource={isNewView ? "home_new_filter" : "home_game_grid"}
+              trackingPosition={index + 1}
             />
           ))}
         </div>

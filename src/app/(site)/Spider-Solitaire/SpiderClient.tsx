@@ -266,6 +266,7 @@ export default function SpiderClient() {
             onLoad={onGameLoaded}
             frameClassName={styles.gameFrame}
             frameContainerClassName={styles.gameFrameWrapper}
+            analyticsGame={{ gameId: "spider-solitaire", gameName: "Spider Solitaire", gamePath: "/Spider-Solitaire" }}
             overlayContent={
               <button
                 type="button"
