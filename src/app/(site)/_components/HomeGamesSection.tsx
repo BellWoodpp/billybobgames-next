@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useMemo, useState } from "react";
-import HomeGameCard from "./HomeGameCard";
+import HomeGameCard, { type HomeGamePreviewSource } from "./HomeGameCard";
 import styles from "../styles/home.module.css";
 
 export type HomeGame = {
@@ -11,7 +11,7 @@ export type HomeGame = {
   alt: string;
   imageFit?: "cover" | "contain";
   newUntil?: string;
-  previewVideo?: string;
+  previewSources?: HomeGamePreviewSource[];
 };
 
 type HomeGamesSectionProps = {
@@ -76,7 +76,7 @@ export default function HomeGamesSection({ games, isNewView }: HomeGamesSectionP
               alt={game.alt}
               imageFit={game.imageFit}
               newUntil={game.newUntil}
-              previewVideo={game.previewVideo}
+              previewSources={game.previewSources}
               trackingSource={isNewView ? "home_new_filter" : "home_game_grid"}
               trackingPosition={index + 1}
             />

@@ -201,6 +201,119 @@
         <script type="text/javascript" src="/games/bloodmoney/js/rpg_sprites.js"></script>
         <script type="text/javascript" src="/games/bloodmoney/js/rpg_windows.js"></script>
         <script type="text/javascript" src="/games/bloodmoney/js/plugins.js"></script>
+        <script>
+            (function () {
+                const audioProbeUrl = "/games/bloodmoney/audio/bgm/Music%20Normal.ogg";
+
+                function createSilentBuffer() {
+                    return {
+                        _reservedSeName: "",
+                        _url: "",
+                        volume: 0,
+                        pitch: 100,
+                        pan: 0,
+                        play() {},
+                        stop() {},
+                        clear() {},
+                        fadeIn() {},
+                        fadeOut() {},
+                        seek() { return 0; },
+                        isPlaying() { return false; },
+                        isReady() { return true; },
+                        isError() { return false; },
+                        addStopListener(listener) {
+                            if (typeof listener === "function") listener();
+                        },
+                        addLoadListener(listener) {
+                            if (typeof listener === "function") listener();
+                        },
+                        bufferSize() { return 0; },
+                    };
+                }
+
+                function installSilentAudioFallback() {
+                    if (!window.AudioManager || window.__BBG_BLOODMONEY_SILENT_AUDIO__) return;
+
+                    window.__BBG_BLOODMONEY_SILENT_AUDIO__ = true;
+                    const makeBuffer = () => createSilentBuffer();
+                    const noop = () => {};
+                    const clearBgm = function () {
+                        this._bgmBuffer = null;
+                        this._currentBgm = null;
+                    };
+                    const clearBgs = function () {
+                        this._bgsBuffer = null;
+                        this._currentBgs = null;
+                    };
+
+                    AudioManager.isReady = () => true;
+                    AudioManager.createBuffer = makeBuffer;
+                    AudioManager.loadAudio = makeBuffer;
+                    AudioManager.loadBgm = makeBuffer;
+                    AudioManager.loadBgs = makeBuffer;
+                    AudioManager.loadSe = makeBuffer;
+                    AudioManager.loadMe = makeBuffer;
+                    AudioManager.reserveAudio = makeBuffer;
+                    AudioManager.reserveBgm = makeBuffer;
+                    AudioManager.reserveBgs = makeBuffer;
+                    AudioManager.reserveSe = makeBuffer;
+                    AudioManager.reserveMe = makeBuffer;
+                    AudioManager.loadStaticSe = noop;
+                    AudioManager.playStaticSe = noop;
+                    AudioManager.playSe = noop;
+                    AudioManager.stopSe = function () { this._seBuffers = []; };
+                    AudioManager.playBgm = function (bgm) {
+                        this._currentBgm = bgm || null;
+                        this._bgmBuffer = makeBuffer();
+                    };
+                    AudioManager.playBgs = function (bgs) {
+                        this._currentBgs = bgs || null;
+                        this._bgsBuffer = makeBuffer();
+                    };
+                    AudioManager.playMe = function () {
+                        this._meBuffer = makeBuffer();
+                    };
+                    AudioManager.stopBgm = clearBgm;
+                    AudioManager.stopBgs = clearBgs;
+                    AudioManager.stopMe = function () { this._meBuffer = null; };
+                    AudioManager.stopAll = function () {
+                        this.stopMe();
+                        this.stopBgm();
+                        this.stopBgs();
+                        this.stopSe();
+                    };
+
+                    if (window.__BBG_LOADER__) {
+                        window.__BBG_LOADER__.lastUrl = "audio disabled: missing BLOODMONEY audio bundle";
+                    }
+                    console.warn("[BBG] BLOODMONEY audio bundle is missing; starting the game in silent mode.");
+                }
+
+                function probeAudioBundle() {
+                    const controller = typeof AbortController === "function" ? new AbortController() : null;
+                    const timeoutId = window.setTimeout(() => {
+                        if (controller) controller.abort();
+                    }, 1800);
+
+                    return fetch(audioProbeUrl, {
+                        method: "HEAD",
+                        cache: "no-store",
+                        signal: controller ? controller.signal : undefined,
+                    })
+                        .then((response) => response.ok)
+                        .catch(() => false)
+                        .finally(() => window.clearTimeout(timeoutId));
+                }
+
+                window.__BBG_START_BLOODMONEY__ = function (startGame) {
+                    probeAudioBundle()
+                        .then((hasAudioBundle) => {
+                            if (!hasAudioBundle) installSilentAudioFallback();
+                        })
+                        .finally(startGame);
+                };
+            })();
+        </script>
         <script type="text/javascript" src="/games/bloodmoney/js/main.js"></script>
     </body>
 </html>

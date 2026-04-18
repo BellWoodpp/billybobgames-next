@@ -9,6 +9,11 @@ import { Skeleton } from "@/components/ui/skeleton";
 import { trackGameClick } from "@/lib/analytics";
 import styles from "../styles/home.module.css";
 
+export type HomeGamePreviewSource = {
+  src: string;
+  type: "video/webm" | "video/mp4";
+};
+
 type HomeGameCardProps = {
   href: string;
   title: string;
@@ -16,7 +21,7 @@ type HomeGameCardProps = {
   alt: string;
   imageFit?: "cover" | "contain";
   newUntil?: string;
-  previewVideo?: string;
+  previewSources?: HomeGamePreviewSource[];
   trackingSource?: string;
   trackingPosition?: number;
 };
@@ -28,18 +33,20 @@ export default function HomeGameCard({
   alt,
   imageFit = "cover",
   newUntil,
-  previewVideo,
+  previewSources,
   trackingSource = "home_game_grid",
   trackingPosition,
 }: HomeGameCardProps) {
   const isLocalImage = img.startsWith("/");
   const [isLoaded, setIsLoaded] = useState(() => !isLocalImage);
   const [now, setNow] = useState(() => Date.now());
+  const [canPreview, setCanPreview] = useState(false);
   const [isPreviewRequested, setIsPreviewRequested] = useState(false);
   const [isPreviewReady, setIsPreviewReady] = useState(false);
   const [isPreviewActive, setIsPreviewActive] = useState(false);
   const videoRef = useRef<HTMLVideoElement | null>(null);
-  const hasPreviewVideo = Boolean(previewVideo);
+  const previewDelayTimeoutRef = useRef<number | null>(null);
+  const hasPreviewVideo = canPreview && Boolean(previewSources?.length);
   const shouldShowPreview = hasPreviewVideo && isPreviewReady && isPreviewActive;
   const imageClassName = `${styles.otherGameCardImage} ${imageFit === "contain" ? styles.otherGameCardImageContain : ""} ${shouldShowPreview ? styles.otherGameCardImagePreviewHidden : isLoaded ? styles.otherGameCardImageVisible : styles.otherGameCardImageHidden} absolute inset-0 h-full w-full`;
   const previewClassName = `${styles.otherGameCardPreview} ${imageFit === "contain" ? styles.otherGameCardPreviewContain : ""} ${shouldShowPreview ? styles.otherGameCardPreviewVisible : styles.otherGameCardPreviewHidden}`;
@@ -58,6 +65,29 @@ export default function HomeGameCard({
 
     return () => window.clearTimeout(timeoutId);
   }, [newUntilTimestamp, now]);
+
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+
+    const hoverMediaQuery = window.matchMedia("(hover: hover) and (pointer: fine)");
+    const syncCanPreview = () => {
+      setCanPreview(hoverMediaQuery.matches);
+    };
+
+    syncCanPreview();
+
+    if (typeof hoverMediaQuery.addEventListener === "function") {
+      hoverMediaQuery.addEventListener("change", syncCanPreview);
+      return () => {
+        hoverMediaQuery.removeEventListener("change", syncCanPreview);
+      };
+    }
+
+    hoverMediaQuery.addListener(syncCanPreview);
+    return () => {
+      hoverMediaQuery.removeListener(syncCanPreview);
+    };
+  }, []);
 
   useEffect(() => {
     if (!hasPreviewVideo || !isPreviewRequested) return;
@@ -82,7 +112,15 @@ export default function HomeGameCard({
     }
   }, [hasPreviewVideo, isPreviewActive, isPreviewReady, isPreviewRequested]);
 
+  const clearPreviewDelay = useCallback(() => {
+    if (previewDelayTimeoutRef.current === null) return;
+
+    window.clearTimeout(previewDelayTimeoutRef.current);
+    previewDelayTimeoutRef.current = null;
+  }, []);
+
   const stopPreview = useCallback(() => {
+    clearPreviewDelay();
     setIsPreviewActive(false);
 
     const video = videoRef.current;
@@ -90,14 +128,18 @@ export default function HomeGameCard({
 
     video.pause();
     video.currentTime = 0;
-  }, []);
+  }, [clearPreviewDelay]);
 
   const startPreview = useCallback(() => {
     if (!hasPreviewVideo) return;
 
-    setIsPreviewRequested(true);
-    setIsPreviewActive(true);
-  }, [hasPreviewVideo]);
+    clearPreviewDelay();
+    previewDelayTimeoutRef.current = window.setTimeout(() => {
+      setIsPreviewRequested(true);
+      setIsPreviewActive(true);
+      previewDelayTimeoutRef.current = null;
+    }, 400);
+  }, [clearPreviewDelay, hasPreviewVideo]);
 
   const trackClick = useCallback(() => {
     trackGameClick({
@@ -107,6 +149,14 @@ export default function HomeGameCard({
       position: trackingPosition,
     });
   }, [href, title, trackingPosition, trackingSource]);
+
+  useEffect(() => {
+    if (canPreview) return;
+
+    stopPreview();
+  }, [canPreview, stopPreview]);
+
+  useEffect(() => clearPreviewDelay, [clearPreviewDelay]);
 
   return (
     <div className={styles.otherGameCardWrap}>
@@ -119,6 +169,7 @@ export default function HomeGameCard({
       <Link
         className={styles.otherGameCard}
         href={href}
+        prefetch={false}
         onClick={trackClick}
         onMouseEnter={startPreview}
         onMouseLeave={stopPreview}
@@ -140,14 +191,19 @@ export default function HomeGameCard({
               muted
               playsInline
               preload="metadata"
-              src={isPreviewRequested ? previewVideo : undefined}
               tabIndex={-1}
               onLoadedData={() => setIsPreviewReady(true)}
               onError={() => {
                 setIsPreviewReady(false);
                 setIsPreviewActive(false);
               }}
-            />
+            >
+              {isPreviewRequested
+                ? previewSources?.map((source) => (
+                    <source key={source.src} src={source.src} type={source.type} />
+                  ))
+                : null}
+            </video>
           ) : null}
           {isLocalImage ? (
             <Image

@@ -68,3 +68,10 @@ Incredibox - Sprunki/
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# tracked homepage preview webm files
+!/public/games/evolve/evolve-preview.webm
+!/public/games/bloodmoney/bloodmoney-preview.webm
+!/public/games/incredibox-sprunki/sprunki-preview.webm
+!/public/games/spider-solitaire/spider-solitaire-preview.webm
+!/public/games/flappy-text/flappy-text-preview.webm

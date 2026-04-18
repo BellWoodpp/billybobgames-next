@@ -66,6 +66,19 @@ function previewVideoUrl(localPath: string, r2Path = localPath) {
   return `${r2AssetDomain}/${r2Path.replace(/^\/+/, "")}`;
 }
 
+function previewSources(localBasePath: string, r2BasePath = localBasePath) {
+  return [
+    {
+      src: previewVideoUrl(`${localBasePath}.webm`, `${r2BasePath}.webm`),
+      type: "video/webm" as const,
+    },
+    {
+      src: previewVideoUrl(`${localBasePath}.mp4`, `${r2BasePath}.mp4`),
+      type: "video/mp4" as const,
+    },
+  ];
+}
+
 const homeStructuredData = {
   "@context": "https://schema.org",
   "@graph": [
@@ -110,16 +123,16 @@ const otherGames: HomeGame[] = [
     alt: "Evolve Idle cover art",
     imageFit: "contain",
     newUntil: "2026-04-22T23:59:59+08:00",
-    previewVideo: previewVideoUrl("/games/evolve/evolve-preview.mp4"),
+    previewSources: previewSources("/games/evolve/evolve-preview"),
   },
   {
     href: "/bloodmoney",
     title: "BLOODMONEY",
     img: "https://r2bucket.billybobgames.org/bloodmoney-webp/bloodmoney.webp",
     alt: "BLOODMONEY gameplay",
-    previewVideo: previewVideoUrl(
-      "/games/bloodmoney/bloodmoney-preview.mp4",
-      "/videos/bloodmoney-preview.mp4",
+    previewSources: previewSources(
+      "/games/bloodmoney/bloodmoney-preview",
+      "/videos/bloodmoney-preview",
     ),
   },
   {
@@ -127,9 +140,9 @@ const otherGames: HomeGame[] = [
     title: "Sprunki Remix",
     img: "https://r2bucket.billybobgames.org/sprunki/sprunki.webp",
     alt: "Sprunki Incredibox Remix gameplay",
-    previewVideo: previewVideoUrl(
-      "/games/incredibox-sprunki/sprunki-preview.mp4",
-      "/sprunki/sprunki-preview.mp4",
+    previewSources: previewSources(
+      "/games/incredibox-sprunki/sprunki-preview",
+      "/sprunki/sprunki-preview",
     ),
   },
   {
@@ -137,14 +150,14 @@ const otherGames: HomeGame[] = [
     title: "Spider Solitaire",
     img: "https://r2bucket.billybobgames.org/Spider-Solitaire/ogOjlb.webp",
     alt: "Spider Solitaire gameplay",
-    previewVideo: previewVideoUrl("/games/spider-solitaire/spider-solitaire-preview.mp4"),
+    previewSources: previewSources("/games/spider-solitaire/spider-solitaire-preview"),
   },
   {
     href: "/flappy-text",
     title: "Flappy Text",
     img: "https://r2bucket.billybobgames.org/flappy-text/3.jpg",
     alt: "Flappy Text gameplay",
-    previewVideo: previewVideoUrl("/games/flappy-text/flappy-text-preview.mp4"),
+    previewSources: previewSources("/games/flappy-text/flappy-text-preview"),
   },
   {
     href: "/pac-man",
