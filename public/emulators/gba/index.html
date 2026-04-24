@@ -237,6 +237,62 @@
         background: #000;
       }
 
+      .loading-overlay {
+        position: absolute;
+        inset: 0;
+        z-index: 8;
+        display: grid;
+        place-items: center;
+        padding: 1.5rem;
+        background:
+          radial-gradient(circle at top, rgba(239, 68, 68, 0.16), transparent 40%),
+          rgba(0, 0, 0, 0.9);
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity 180ms ease;
+      }
+
+      .loading-overlay.visible {
+        opacity: 1;
+        pointer-events: auto;
+      }
+
+      .loading-card {
+        display: grid;
+        justify-items: center;
+        gap: 0.9rem;
+        max-width: 320px;
+        text-align: center;
+      }
+
+      .loading-spinner {
+        width: 3rem;
+        height: 3rem;
+        border: 4px solid rgba(255, 255, 255, 0.18);
+        border-top-color: #ef4444;
+        border-radius: 999px;
+        animation: gba-spin 0.8s linear infinite;
+      }
+
+      .loading-title {
+        margin: 0;
+        font-size: 1.2rem;
+        font-weight: 800;
+        color: #ffffff;
+      }
+
+      .loading-copy {
+        margin: 0;
+        color: #cbd5e1;
+        line-height: 1.6;
+      }
+
+      @keyframes gba-spin {
+        to {
+          transform: rotate(360deg);
+        }
+      }
+
       .game {
         width: 100%;
         height: 100%;
@@ -263,6 +319,9 @@
       }
 
       .game .ejs_start_button {
+        display: inline-flex !important;
+        align-items: center !important;
+        justify-content: center !important;
         min-width: 180px;
         padding: 0.9rem 1.6rem !important;
         border: 0 !important;
@@ -271,7 +330,10 @@
         color: #ffffff !important;
         font-size: 1rem !important;
         font-weight: 800 !important;
+        line-height: 1.2 !important;
         letter-spacing: 0.02em;
+        text-align: center !important;
+        white-space: nowrap;
         box-shadow: 0 20px 40px -20px rgba(239, 68, 68, 0.9) !important;
       }
 
@@ -394,6 +456,13 @@
     <main class="shell">
       <section class="emulator-card" id="emulatorCard" aria-label="Pokémon FireRed game">
         <div class="game-shell">
+          <div id="loadingOverlay" class="loading-overlay" aria-live="polite" aria-hidden="true">
+            <div class="loading-card">
+              <div class="loading-spinner" aria-hidden="true"></div>
+              <p class="loading-title">Loading Pokémon FireRed…</p>
+              <p class="loading-copy">Please wait a moment — the game is starting.</p>
+            </div>
+          </div>
           <div id="game" class="game"></div>
         </div>
       </section>
@@ -412,6 +481,7 @@
 
       const emulatorCard = document.getElementById("emulatorCard");
       const gameContainer = document.getElementById("game");
+      const loadingOverlay = document.getElementById("loadingOverlay");
 
       let currentRomUrl = "";
       let currentRomName = "";
@@ -461,11 +531,25 @@
 
       function setStatus(message, type = "") {
         if (type === "error") {
+          hideLoadingOverlay();
+        }
+
+        if (type === "error") {
           postToParent("gba-status", { message });
           return;
         }
 
         postToParent("gba-status-clear");
+      }
+
+      function showLoadingOverlay() {
+        loadingOverlay?.classList.add("visible");
+        loadingOverlay?.setAttribute("aria-hidden", "false");
+      }
+
+      function hideLoadingOverlay() {
+        loadingOverlay?.classList.remove("visible");
+        loadingOverlay?.setAttribute("aria-hidden", "true");
       }
 
       function getEmulator() {
@@ -676,6 +760,7 @@
 
       function cleanupEmulator({ clearRom = false } = {}) {
         clearStartupWatchers();
+        hideLoadingOverlay();
 
         const oldLoader = document.getElementById("emulatorjs-loader");
         if (oldLoader) oldLoader.remove();
@@ -771,6 +856,7 @@
           if (version !== loadVersion) return;
           clearStartupWatchers();
           ensureExternalToolbarBridge();
+          hideLoadingOverlay();
           setStatus("");
           postControlState();
         };
@@ -976,6 +1062,15 @@
         },
         { passive: false },
       );
+
+      gameContainer.addEventListener("click", function (event) {
+        const target = event.target;
+        if (!(target instanceof Element)) return;
+
+        if (target.closest(".ejs_start_button")) {
+          showLoadingOverlay();
+        }
+      });
 
       window.addEventListener("beforeunload", function () {
         cleanupEmulator({ clearRom: true });
