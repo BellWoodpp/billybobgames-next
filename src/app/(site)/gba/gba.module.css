@@ -9,6 +9,91 @@
   gap: 1rem;
 }
 
+.savePanel {
+  display: grid;
+  gap: 0.8rem;
+  padding: 1rem 1.05rem;
+  border: 1px solid rgba(56, 189, 248, 0.22);
+  border-radius: 1rem;
+  background: rgba(56, 189, 248, 0.08);
+}
+
+.saveActions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.primaryAction,
+.secondaryAction {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 2.75rem;
+  padding: 0.72rem 1rem;
+  border-radius: 0.85rem;
+  font-weight: 700;
+  line-height: 1.2;
+  cursor: pointer;
+  transition:
+    transform 120ms ease,
+    background-color 120ms ease,
+    border-color 120ms ease,
+    opacity 120ms ease;
+}
+
+.primaryAction {
+  border: 1px solid rgba(185, 28, 28, 0.3);
+  background: linear-gradient(180deg, #ef4444, #dc2626);
+  color: #fff;
+  box-shadow: 0 18px 34px -24px rgba(185, 28, 28, 0.9);
+}
+
+.secondaryAction {
+  border: 1px solid rgba(15, 23, 42, 0.16);
+  background: rgba(255, 255, 255, 0.92);
+  color: #0f172a;
+}
+
+.primaryAction:hover:not(:disabled),
+.secondaryAction:hover:not(:disabled) {
+  transform: translateY(-1px);
+}
+
+.primaryAction:disabled,
+.secondaryAction:disabled {
+  opacity: 0.65;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.saveHint {
+  margin: 0;
+  color: #4b5563;
+  line-height: 1.6;
+}
+
+.saveStatus {
+  margin: 0;
+  padding: 0.85rem 1rem;
+  border: 1px solid transparent;
+  border-radius: 0.9rem;
+  line-height: 1.6;
+}
+
+.saveStatusInfo {
+  border-color: rgba(56, 189, 248, 0.3);
+  background: rgba(56, 189, 248, 0.12);
+  color: #0c4a6e;
+}
+
+.saveStatusSuccess {
+  border-color: rgba(34, 197, 94, 0.28);
+  background: rgba(34, 197, 94, 0.12);
+  color: #166534;
+}
+
+.saveStatusError,
 .errorStatus {
   margin: 0;
   padding: 0.85rem 1rem;
@@ -64,6 +149,10 @@
   font-size: 0.84rem;
 }
 
+.hiddenInput {
+  display: none;
+}
+
 @media (max-width: 820px) {
   .gbaFrame {
     height: 600px;
@@ -81,6 +170,33 @@
 }
 
 @media (prefers-color-scheme: dark) {
+  .savePanel {
+    border-color: rgba(148, 163, 184, 0.22);
+    background: #111827;
+  }
+
+  .secondaryAction {
+    border-color: rgba(148, 163, 184, 0.22);
+    background: rgba(15, 23, 42, 0.92);
+    color: #e5eefc;
+  }
+
+  .saveHint {
+    color: #cbd5f5;
+  }
+
+  .saveStatusInfo {
+    border-color: rgba(56, 189, 248, 0.35);
+    background: rgba(8, 47, 73, 0.5);
+    color: #bae6fd;
+  }
+
+  .saveStatusSuccess {
+    border-color: rgba(34, 197, 94, 0.3);
+    background: rgba(20, 83, 45, 0.36);
+    color: #bbf7d0;
+  }
+
   .errorStatus {
     border-color: rgba(248, 113, 113, 0.35);
     background: rgba(127, 29, 29, 0.24);

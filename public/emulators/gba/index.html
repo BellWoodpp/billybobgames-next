@@ -491,8 +491,7 @@
       let startupTimeoutId = 0;
       let lastNonZeroVolume = 1;
       let automaticSaveIntervalId = 0;
-      let saveSyncInFlight = false;
-      let saveSyncPending = false;
+      let saveQueue = Promise.resolve();
 
       function ensureTrailingSlash(path) {
         return path.endsWith("/") ? path : `${path}/`;
@@ -610,44 +609,59 @@
 
       function syncCartridgeSaveToStorage() {
         const fileSystem = getEmulator()?.gameManager?.FS;
-        if (!fileSystem || typeof fileSystem.syncfs !== "function") return;
+        if (!fileSystem || typeof fileSystem.syncfs !== "function") return Promise.resolve();
 
-        if (saveSyncInFlight) {
-          saveSyncPending = true;
-          return;
-        }
-
-        saveSyncInFlight = true;
-
-        try {
-          fileSystem.syncfs(false, function (error) {
-            saveSyncInFlight = false;
-
-            if (error) {
-              console.warn("Failed to sync GBA save data", error);
-            }
-
-            if (saveSyncPending) {
-              saveSyncPending = false;
-              syncCartridgeSaveToStorage();
-            }
-          });
-        } catch (error) {
-          saveSyncInFlight = false;
-          console.warn("Failed to queue GBA save sync", error);
-        }
+        return new Promise((resolve, reject) => {
+          try {
+            fileSystem.syncfs(false, function (error) {
+              if (error) {
+                reject(error);
+                return;
+              }
+              resolve();
+            });
+          } catch (error) {
+            reject(error);
+          }
+        });
       }
 
       function persistCartridgeSave() {
-        try {
-          const gameManager = getEmulator()?.gameManager;
-          if (!gameManager) return;
-
-          gameManager.saveSaveFiles?.();
-          syncCartridgeSaveToStorage();
-        } catch (error) {
-          console.warn("Failed to persist GBA save data", error);
+        const gameManager = getEmulator()?.gameManager;
+        if (!gameManager) {
+          return Promise.resolve({
+            ok: false,
+            message: "The emulator is still starting up.",
+          });
         }
+
+        const runSave = async () => {
+          try {
+            gameManager.saveSaveFiles?.();
+            const saveFile = gameManager.getSaveFile?.(false);
+            if (!saveFile) {
+              return {
+                ok: false,
+                message: "No in-game save exists yet. Save inside FireRed first, then try again.",
+              };
+            }
+
+            await syncCartridgeSaveToStorage();
+            return {
+              ok: true,
+              message: "Save synced to this browser. It is now safe to close the tab.",
+            };
+          } catch (error) {
+            console.warn("Failed to persist GBA save data", error);
+            return {
+              ok: false,
+              message: "Failed to save to this browser. Export a backup save instead.",
+            };
+          }
+        };
+
+        saveQueue = saveQueue.catch(() => undefined).then(runSave);
+        return saveQueue;
       }
 
       function stopAutomaticSaveLoop() {
@@ -1077,20 +1091,41 @@
         }
 
         if (data.type === "gba-export-save-request") {
+          await persistCartridgeSave();
           const saveFile = await emulator.gameManager?.getSaveFile?.();
           if (!saveFile) {
             throw new Error("No cartridge save is available yet.");
           }
 
-          const savePath = emulator.gameManager?.getSaveFilePath?.() || "game.sav";
-          const fileName = savePath.split("/").pop() || "game.sav";
-          postDownloadToParent(fileName, "application/octet-stream", saveFile);
+          const baseName = (emulator.getBaseFileName?.() || currentRomName || "game")
+            .replace(/\.(gba|zip|sav|srm)$/i, "")
+            .trim();
+          postDownloadToParent(`${baseName || "game"}.sav`, "application/octet-stream", saveFile);
           return;
         }
 
         if (data.type === "gba-import-save-file") {
           await importSaveFile(data.file);
+          emulator.gameManager?.restart?.();
+          emulator.play?.();
+          const result = await persistCartridgeSave();
+          postToParent("gba-import-save-result", {
+            ok: result.ok,
+            message: result.ok
+              ? "Save imported, synced to this browser, and FireRed is restarting to load it."
+              : result.message,
+          });
           postControlState();
+          return;
+        }
+
+        if (data.type === "gba-persist-save-request") {
+          const result = await persistCartridgeSave();
+          postToParent("gba-save-result", {
+            requestId: data.requestId,
+            ok: result.ok,
+            message: result.message,
+          });
           return;
         }
 
