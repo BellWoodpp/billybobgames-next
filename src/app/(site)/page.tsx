@@ -117,6 +117,14 @@ const homeStructuredData = {
 
 const otherGames: HomeGame[] = [
   {
+    href: "/gba",
+    title: "Pokémon FireRed",
+    img: "https://pub-7a7bcc9e985340b68807f06d96ba2d0a.r2.dev/GBA-Red/red-image.jpeg",
+    alt: "Pokémon FireRed artwork",
+    imageFit: "contain",
+    newUntil: "2026-05-07T23:59:59+08:00",
+  },
+  {
     href: "/evolve",
     title: "Evolve Idle",
     img: "/games/evolve/evolve.webp",

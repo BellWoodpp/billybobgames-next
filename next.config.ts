@@ -10,6 +10,10 @@ const nextConfig: NextConfig = {
   async rewrites() {
     const useR2Games = process.env.GAMES_FROM_R2 === "1";
     const r2AssetDomain = process.env.R2_ASSET_DOMAIN || "https://r2bucket.billybobgames.org";
+    const gbaRomProxyRewrite = {
+      source: "/gba-rom/:path*",
+      destination: `${r2AssetDomain}/GBA-Red/:path*`,
+    };
 
     const sprunkiRewrite = {
       source: "/r2/sprunki/:path*",
@@ -30,17 +34,39 @@ const nextConfig: NextConfig = {
     };
 
     if (useR2Games) {
-      return [sprunkiRewrite, sprunkiGameAssetsRewrite, gamesRewrite];
+      return [gbaRomProxyRewrite, sprunkiRewrite, sprunkiGameAssetsRewrite, gamesRewrite];
     }
 
     // Many game bundles are intentionally incomplete in `public/games` (to keep repo size down),
     // but the missing assets are available in R2. Use a fallback rewrite so local files win when
     // present, and only missing `/games/*` assets are proxied to R2.
     return {
-      beforeFiles: [sprunkiRewrite],
+      beforeFiles: [gbaRomProxyRewrite, sprunkiRewrite],
       afterFiles: [],
       fallback: [sprunkiGameAssetsRewrite, gamesRewrite],
     };
+  },
+  async headers() {
+    return [
+      {
+        source: "/gba",
+        headers: [
+          { key: "Cross-Origin-Opener-Policy", value: "same-origin" },
+          { key: "Cross-Origin-Embedder-Policy", value: "require-corp" },
+        ],
+      },
+      {
+        source: "/emulators/gba/:path*",
+        headers: [
+          { key: "Cross-Origin-Embedder-Policy", value: "require-corp" },
+          { key: "Cross-Origin-Resource-Policy", value: "same-site" },
+        ],
+      },
+      {
+        source: "/gba-rom/:path*",
+        headers: [{ key: "Cross-Origin-Resource-Policy", value: "same-origin" }],
+      },
+    ];
   },
   reactCompiler: true,
 };

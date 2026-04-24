@@ -1,0 +1,989 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Pokémon FireRed</title>
+    <style>
+      :root {
+        color-scheme: dark;
+        --bg: #0f172a;
+        --panel: #111827;
+        --panel-soft: rgba(17, 24, 39, 0.72);
+        --border: rgba(148, 163, 184, 0.28);
+        --text: #e5e7eb;
+        --muted: #94a3b8;
+        --accent: #38bdf8;
+        --accent-strong: #0ea5e9;
+        --danger: #f87171;
+        --success: #34d399;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      html,
+      body {
+        height: 100%;
+        min-height: 100%;
+      }
+
+      body {
+        margin: 0;
+        overflow: hidden;
+        background: #000;
+        color: var(--text);
+        font-family:
+          Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      }
+
+      button,
+      input {
+        font: inherit;
+      }
+
+      .shell {
+        width: 100%;
+        height: 100%;
+        margin: 0;
+        padding: 0;
+      }
+
+      .hero {
+        display: grid;
+        gap: 0.7rem;
+        padding: 1.35rem;
+        border: 1px solid var(--border);
+        border-radius: 1.25rem;
+        background: rgba(15, 23, 42, 0.72);
+        box-shadow: 0 24px 70px -42px rgba(0, 0, 0, 0.92);
+      }
+
+      .hero h1 {
+        margin: 0;
+        font-size: clamp(1.7rem, 4vw, 2.55rem);
+        line-height: 1.08;
+      }
+
+      .hero p {
+        max-width: 760px;
+        margin: 0;
+        color: var(--muted);
+        line-height: 1.6;
+      }
+
+      .upload {
+        display: grid;
+        gap: 1rem;
+        place-items: center;
+        min-height: 210px;
+        padding: 2rem 1.25rem;
+        border: 2px dashed rgba(56, 189, 248, 0.68);
+        border-radius: 1.25rem;
+        background: linear-gradient(180deg, rgba(17, 24, 39, 0.92), rgba(15, 23, 42, 0.92));
+        text-align: center;
+        cursor: pointer;
+        transition:
+          border-color 160ms ease,
+          transform 160ms ease,
+          background 160ms ease;
+      }
+
+      .upload:hover,
+      .upload.drag-over {
+        border-color: var(--accent);
+        background: linear-gradient(180deg, rgba(14, 165, 233, 0.18), rgba(15, 23, 42, 0.96));
+        transform: translateY(-1px);
+      }
+
+      .hidden {
+        display: none !important;
+      }
+
+      .upload input {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        overflow: hidden;
+        clip: rect(0, 0, 0, 0);
+        white-space: nowrap;
+      }
+
+      .upload-icon {
+        display: grid;
+        place-items: center;
+        width: 4.5rem;
+        height: 4.5rem;
+        border-radius: 1.35rem;
+        background: rgba(56, 189, 248, 0.12);
+        color: var(--accent);
+      }
+
+      .upload-title {
+        margin: 0;
+        font-size: 1.35rem;
+        font-weight: 800;
+      }
+
+      .upload-copy {
+        display: grid;
+        gap: 0.3rem;
+      }
+
+      .upload-copy p {
+        margin: 0;
+        color: var(--muted);
+      }
+
+      .status {
+        min-height: 2.4rem;
+        padding: 0.72rem 0.9rem;
+        border: 1px solid var(--border);
+        border-radius: 0.95rem;
+        background: var(--panel-soft);
+        color: var(--muted);
+        line-height: 1.45;
+      }
+
+      .status.error {
+        border-color: rgba(248, 113, 113, 0.42);
+        color: #fecaca;
+      }
+
+      .status.success {
+        border-color: rgba(52, 211, 153, 0.42);
+        color: #bbf7d0;
+      }
+
+      .emulator-card {
+        display: none;
+        width: 100%;
+        height: 100%;
+        padding: 0;
+        border: 0;
+        border-radius: 0;
+        background: #000;
+      }
+
+      .emulator-card.visible {
+        display: block;
+      }
+
+      .toolbar {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: space-between;
+        gap: 0.8rem;
+      }
+
+      .game-title {
+        margin: 0;
+        color: var(--text);
+        font-size: 1rem;
+        font-weight: 700;
+      }
+
+      .actions {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.55rem;
+      }
+
+      .interaction-hint {
+        display: none;
+        margin: 0;
+        color: var(--muted);
+        font-size: 0.94rem;
+        line-height: 1.5;
+      }
+
+      .interaction-hint.visible {
+        display: block;
+      }
+
+      .button {
+        border: 1px solid rgba(56, 189, 248, 0.45);
+        border-radius: 999px;
+        background: rgba(56, 189, 248, 0.12);
+        color: var(--text);
+        cursor: pointer;
+        padding: 0.55rem 0.9rem;
+        transition:
+          background 140ms ease,
+          transform 140ms ease,
+          opacity 140ms ease;
+      }
+
+      .button:hover:not(:disabled) {
+        background: rgba(56, 189, 248, 0.22);
+        transform: translateY(-1px);
+      }
+
+      .button:disabled {
+        cursor: not-allowed;
+        opacity: 0.55;
+      }
+
+      .game-shell {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        min-height: 100%;
+        overflow: hidden;
+        border: 0;
+        border-radius: 0;
+        background: #000;
+      }
+
+      .game {
+        width: 100%;
+        height: 100%;
+      }
+
+      .game > * {
+        width: 100%;
+        height: 100%;
+      }
+
+      .game canvas,
+      .game iframe {
+        display: block;
+        width: 100% !important;
+        height: 100% !important;
+      }
+
+      .game .ejs_start_button,
+      .game .ejs_start_button_border {
+        position: absolute !important;
+        top: 50% !important;
+        left: 50% !important;
+        transform: translate(-50%, -50%) !important;
+      }
+
+      .game .ejs_start_button {
+        min-width: 180px;
+        padding: 0.9rem 1.6rem !important;
+        border: 0 !important;
+        border-radius: 999px !important;
+        background: linear-gradient(180deg, #ef4444, #dc2626) !important;
+        color: #ffffff !important;
+        font-size: 1rem !important;
+        font-weight: 800 !important;
+        letter-spacing: 0.02em;
+        box-shadow: 0 20px 40px -20px rgba(239, 68, 68, 0.9) !important;
+      }
+
+      .game .ejs_start_button:hover {
+        background: linear-gradient(180deg, #f87171, #dc2626) !important;
+      }
+
+      .game .ejs_start_button_border {
+        width: auto !important;
+        height: auto !important;
+        padding: 0 !important;
+        border: 0 !important;
+        background: transparent !important;
+      }
+
+      html.gba-external-toolbar .ejs_menu_bar {
+        display: none !important;
+      }
+
+      #gba-settings-anchor {
+        position: fixed !important;
+        right: 16px !important;
+        bottom: 16px !important;
+        width: 0 !important;
+        height: 0 !important;
+        overflow: visible !important;
+        pointer-events: none !important;
+        z-index: 2147483647 !important;
+      }
+
+      #gba-settings-anchor > .ejs_menu_button {
+        position: absolute !important;
+        top: 0 !important;
+        left: 0 !important;
+        width: 1px !important;
+        height: 1px !important;
+        padding: 0 !important;
+        opacity: 0 !important;
+        pointer-events: none !important;
+      }
+
+      #gba-settings-anchor > .ejs_settings_parent {
+        pointer-events: auto !important;
+      }
+
+      .info-grid {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 0.8rem;
+      }
+
+      .info-card {
+        padding: 1rem;
+        border: 1px solid var(--border);
+        border-radius: 1rem;
+        background: var(--panel-soft);
+      }
+
+      .info-card h2 {
+        margin: 0 0 0.45rem;
+        font-size: 1rem;
+      }
+
+      .info-card p,
+      .info-card ul {
+        margin: 0;
+        color: var(--muted);
+        line-height: 1.55;
+      }
+
+      .info-card ul {
+        display: grid;
+        gap: 0.25rem;
+        padding-left: 1.15rem;
+      }
+
+      kbd {
+        display: inline-flex;
+        min-width: 1.7rem;
+        justify-content: center;
+        padding: 0.08rem 0.34rem;
+        border: 1px solid rgba(226, 232, 240, 0.24);
+        border-radius: 0.35rem;
+        background: rgba(15, 23, 42, 0.9);
+        color: #f8fafc;
+        font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
+        font-size: 0.82rem;
+      }
+
+      @media (max-width: 820px) {
+        .info-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .game-shell {
+          height: 520px;
+          min-height: 520px;
+        }
+      }
+
+      @media (max-width: 520px) {
+        .shell {
+          padding: 0.65rem;
+        }
+
+        .hero,
+        .upload,
+        .emulator-card {
+          border-radius: 1rem;
+        }
+
+        .game-shell {
+          height: 460px;
+          min-height: 460px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <main class="shell">
+      <section class="emulator-card" id="emulatorCard" aria-label="Pokémon FireRed game">
+        <div class="game-shell">
+          <div id="game" class="game"></div>
+        </div>
+      </section>
+    </main>
+
+    <script>
+      const dataPathQuery = new URLSearchParams(window.location.search).get("dataPath");
+      const romQuery = new URLSearchParams(window.location.search).get("rom");
+      const bundledRomUrl = "/gba-rom/gba-other-game.gba";
+      const emulatorDataPath = ensureTrailingSlash(
+        dataPathQuery || "https://cdn.emulatorjs.org/stable/data/",
+      );
+      const maxRomSizeBytes = 64 * 1024 * 1024;
+      const recommendedAudioLatency = "128";
+      const defaultRomUrl = romQuery ? decodeURIComponent(romQuery) : bundledRomUrl;
+
+      const emulatorCard = document.getElementById("emulatorCard");
+      const gameContainer = document.getElementById("game");
+
+      let currentRomUrl = "";
+      let currentRomName = "";
+      let loadVersion = 0;
+      let emulatorErrorObserver = null;
+      let startupTimeoutId = 0;
+      let lastNonZeroVolume = 1;
+
+      function ensureTrailingSlash(path) {
+        return path.endsWith("/") ? path : `${path}/`;
+      }
+
+      function postToParent(type, payload = {}) {
+        if (window.parent === window) return;
+
+        window.parent.postMessage(
+          {
+            source: "gba-emulator",
+            type,
+            ...payload,
+          },
+          window.location.origin,
+        );
+      }
+
+      function toStandaloneArrayBuffer(bytes) {
+        const view = bytes instanceof Uint8Array ? bytes : new Uint8Array(bytes);
+        return view.buffer.slice(view.byteOffset, view.byteOffset + view.byteLength);
+      }
+
+      function postDownloadToParent(fileName, mimeType, bytes) {
+        const buffer = toStandaloneArrayBuffer(bytes);
+        if (window.parent === window) return;
+
+        window.parent.postMessage(
+          {
+            source: "gba-emulator",
+            type: "gba-download",
+            fileName,
+            mimeType,
+            buffer,
+          },
+          window.location.origin,
+          [buffer],
+        );
+      }
+
+      function setStatus(message, type = "") {
+        if (type === "error") {
+          postToParent("gba-status", { message });
+          return;
+        }
+
+        postToParent("gba-status-clear");
+      }
+
+      function getEmulator() {
+        return window.EJS_emulator || null;
+      }
+
+      function postControlState() {
+        const emulator = getEmulator();
+        if (!emulator) return;
+
+        const volume = typeof emulator.volume === "number" ? emulator.volume : 1;
+        if (volume > 0) {
+          lastNonZeroVolume = volume;
+        }
+
+        postToParent("gba-state", {
+          paused: Boolean(emulator.paused),
+          muted: Boolean(emulator.muted || volume === 0),
+          volume,
+        });
+      }
+
+      function getSettingsTriggerButton() {
+        const settingsEntry = getEmulator()?.elements?.bottomBar?.settings?.[0];
+        if (!settingsEntry) return null;
+        return Array.isArray(settingsEntry) ? settingsEntry[0] : settingsEntry;
+      }
+
+      function openSettingsMenu() {
+        const settingsButton = getSettingsTriggerButton();
+        settingsButton?.click?.();
+      }
+
+      function ensureExternalToolbarBridge() {
+        const emulator = getEmulator();
+        if (!emulator || emulator.__gbaExternalToolbarReady) return;
+
+        emulator.__gbaExternalToolbarReady = true;
+        document.documentElement.classList.add("gba-external-toolbar");
+
+        if (emulator.settingParent) {
+          emulator.settingParent.id = "gba-settings-anchor";
+          emulator.elements.parent.appendChild(emulator.settingParent);
+        }
+
+        if (!emulator.__gbaWrappedSetVolume && typeof emulator.setVolume === "function") {
+          const originalSetVolume = emulator.setVolume.bind(emulator);
+          emulator.setVolume = function (volume) {
+            originalSetVolume(volume);
+            postControlState();
+          };
+          emulator.__gbaWrappedSetVolume = true;
+        }
+
+        if (!emulator.__gbaWrappedTogglePlaying && typeof emulator.togglePlaying === "function") {
+          const originalTogglePlaying = emulator.togglePlaying.bind(emulator);
+          emulator.togglePlaying = function (dontUpdate) {
+            originalTogglePlaying(dontUpdate);
+            postControlState();
+          };
+          emulator.__gbaWrappedTogglePlaying = true;
+        }
+
+        postControlState();
+      }
+
+      function isTextField(target) {
+        if (!target) return false;
+        const tag = target.tagName;
+        return tag === "INPUT" || tag === "TEXTAREA" || target.isContentEditable;
+      }
+
+      function hasWebGLSupport() {
+        try {
+          const canvas = document.createElement("canvas");
+          return Boolean(
+            canvas.getContext("webgl2") ||
+              canvas.getContext("webgl") ||
+              canvas.getContext("experimental-webgl"),
+          );
+        } catch {
+          return false;
+        }
+      }
+
+      function browserSupportMessage() {
+        return "This browser could not start the GBA core. Please make sure WebGL/hardware acceleration is enabled, then try Chrome, Edge, or another modern browser.";
+      }
+
+      function supportsThreadedCore() {
+        return window.crossOriginIsolated === true && typeof window.SharedArrayBuffer === "function";
+      }
+
+      function getSettingsStorageKey(gameId, gameName) {
+        return `ejs-${gameId}-gba-${gameName}-settings`;
+      }
+
+      function persistRecommendedSettings(gameId, gameName) {
+        window.EJS_defaultOptions = {
+          audio_latency: recommendedAudioLatency,
+        };
+
+        try {
+          if (!window.localStorage) return;
+
+          const key = getSettingsStorageKey(gameId, gameName);
+          const existingValue = localStorage.getItem(key);
+          let existingSettings = {};
+
+          if (existingValue) {
+            const parsedSettings = JSON.parse(existingValue);
+            if (parsedSettings && typeof parsedSettings === "object") {
+              existingSettings = parsedSettings;
+            }
+          }
+
+          const currentOptions =
+            existingSettings.settings && typeof existingSettings.settings === "object"
+              ? existingSettings.settings
+              : {};
+
+          if (typeof currentOptions.audio_latency !== "string") {
+            currentOptions.audio_latency = recommendedAudioLatency;
+          }
+
+          if (supportsThreadedCore() && typeof currentOptions.ejs_threads !== "string") {
+            currentOptions.ejs_threads = "enabled";
+          }
+
+          existingSettings.settings = currentOptions;
+          localStorage.setItem(key, JSON.stringify(existingSettings));
+        } catch (error) {
+          console.warn("Failed to persist recommended emulator settings", error);
+        }
+      }
+
+      function clearStartupWatchers() {
+        if (startupTimeoutId) {
+          window.clearTimeout(startupTimeoutId);
+          startupTimeoutId = 0;
+        }
+
+        if (emulatorErrorObserver) {
+          emulatorErrorObserver.disconnect();
+          emulatorErrorObserver = null;
+        }
+      }
+
+      function scheduleStartupTimeout(version) {
+        startupTimeoutId = window.setTimeout(() => {
+          if (version !== loadVersion) return;
+
+          const hasGameCanvas = Boolean(gameContainer.querySelector("canvas"));
+          if (hasGameCanvas) return;
+
+          const waitingForManualStart = Boolean(gameContainer.querySelector(".ejs_start_button"));
+          if (waitingForManualStart) {
+            scheduleStartupTimeout(version);
+            return;
+          }
+
+          setStatus(
+            `The emulator UI loaded, but the game did not start. ${browserSupportMessage()}`,
+            "error",
+          );
+          clearStartupWatchers();
+        }, 15000);
+      }
+
+      function watchForEmulatorErrors(version) {
+        clearStartupWatchers();
+
+        emulatorErrorObserver = new MutationObserver(() => {
+          if (version !== loadVersion) return;
+
+          const errorText = gameContainer.querySelector(".ejs_error_text")?.textContent?.trim();
+          if (!errorText) return;
+
+          setStatus(`${errorText}. ${browserSupportMessage()}`, "error");
+          clearStartupWatchers();
+        });
+
+        emulatorErrorObserver.observe(gameContainer, {
+          childList: true,
+          subtree: true,
+          characterData: true,
+        });
+        scheduleStartupTimeout(version);
+      }
+
+      function configureControls() {
+        window.EJS_defaultControls = {
+          0: {
+            0: { value: "x", value2: "BUTTON_2" },
+            8: { value: "z", value2: "BUTTON_1" },
+            4: { value: "up arrow", value2: "DPAD_UP" },
+            5: { value: "down arrow", value2: "DPAD_DOWN" },
+            6: { value: "left arrow", value2: "DPAD_LEFT" },
+            7: { value: "right arrow", value2: "DPAD_RIGHT" },
+            2: { value: "shift", value2: "SELECT" },
+            3: { value: "enter", value2: "START" },
+          },
+          1: {},
+          2: {},
+          3: {},
+        };
+      }
+
+      function cleanupEmulator({ clearRom = false } = {}) {
+        clearStartupWatchers();
+
+        const oldLoader = document.getElementById("emulatorjs-loader");
+        if (oldLoader) oldLoader.remove();
+
+        try {
+          if (window.EJS_emulator) {
+            window.EJS_emulator.pause?.();
+            window.EJS_emulator.destroy?.();
+          }
+        } catch (error) {
+          console.warn("Failed to destroy previous emulator instance", error);
+        }
+
+        window.EJS_emulator = null;
+        gameContainer.replaceChildren();
+
+        if (clearRom && currentRomUrl && currentRomUrl.startsWith("blob:")) {
+          URL.revokeObjectURL(currentRomUrl);
+        }
+
+        if (clearRom) {
+          currentRomUrl = "";
+          currentRomName = "";
+        }
+      }
+
+      function getFileNameFromUrl(url) {
+        try {
+          const parsedUrl = new URL(url, window.location.href);
+          const segments = parsedUrl.pathname.split("/");
+          return decodeURIComponent(segments[segments.length - 1] || "bundled-rom.gba");
+        } catch {
+          const segments = url.split("/");
+          return decodeURIComponent(segments[segments.length - 1] || "bundled-rom.gba");
+        }
+      }
+
+      function loadBundledRom(url) {
+        if (!url) return;
+
+        cleanupEmulator({ clearRom: true });
+        currentRomUrl = url;
+        currentRomName = getFileNameFromUrl(url);
+        loadCurrentRom();
+      }
+
+      function loadCurrentRom() {
+        if (!currentRomUrl) return;
+
+        if (!hasWebGLSupport()) {
+          emulatorCard.classList.add("visible");
+          setStatus(
+            `WebGL is not available in this browser session. ${browserSupportMessage()}`,
+            "error",
+          );
+          return;
+        }
+
+        const version = ++loadVersion;
+        cleanupEmulator();
+        configureControls();
+
+        emulatorCard.classList.add("visible");
+        gameContainer.tabIndex = 0;
+        setStatus("");
+        watchForEmulatorErrors(version);
+
+        const gameId = `gba-${Date.now()}-${Math.random().toString(36).slice(2)}`;
+        const gameName = currentRomName.replace(/\.(gba|zip)$/i, "");
+
+        window.EJS_player = "#game";
+        window.EJS_core = "gba";
+        window.EJS_gameUrl = currentRomUrl;
+        window.EJS_gameID = gameId;
+        window.EJS_gameName = gameName;
+        window.EJS_pathtodata = emulatorDataPath;
+        window.EJS_startOnLoaded = false;
+        window.EJS_startButtonName = "Play FireRed";
+        window.EJS_volume = 1;
+        window.EJS_threads = supportsThreadedCore();
+        window.EJS_language = "en-US";
+        window.EJS_disableAutoLang = true;
+        window.EJS_backgroundColor = "#000000";
+        window.EJS_color = "#ffffff";
+        persistRecommendedSettings(gameId, gameName);
+        window.EJS_ready = function () {
+          if (version !== loadVersion) return;
+          ensureExternalToolbarBridge();
+          setStatus("");
+          postControlState();
+        };
+        window.EJS_onGameStart = function () {
+          if (version !== loadVersion) return;
+          clearStartupWatchers();
+          ensureExternalToolbarBridge();
+          setStatus("");
+          postControlState();
+        };
+
+        const script = document.createElement("script");
+        script.id = "emulatorjs-loader";
+        script.src = `${emulatorDataPath}loader.js`;
+        script.onerror = function () {
+          if (version !== loadVersion) return;
+          setStatus(
+            "Failed to load EmulatorJS. Check your network connection or self-host the data files.",
+            "error",
+          );
+        };
+        document.body.appendChild(script);
+      }
+
+      function loadFile(file) {
+        if (!file) return;
+
+        const fileName = file.name || "local-rom.gba";
+        const lowerName = fileName.toLowerCase();
+
+        if (!lowerName.endsWith(".gba") && !lowerName.endsWith(".zip")) {
+          setStatus("Unsupported file. Please choose a .gba file, or a .zip containing one.", "error");
+          return;
+        }
+
+        if (file.size > maxRomSizeBytes) {
+          setStatus("This file is too large for the browser emulator. Please choose a smaller ROM.", "error");
+          return;
+        }
+
+        cleanupEmulator({ clearRom: true });
+        currentRomUrl = URL.createObjectURL(file);
+        currentRomName = fileName;
+        loadCurrentRom();
+      }
+
+      async function importSaveFile(file) {
+        const emulator = getEmulator();
+        const savePath = emulator?.gameManager?.getSaveFilePath?.();
+        const fileSystem = emulator?.gameManager?.FS;
+        if (!emulator || !savePath || !fileSystem) {
+          throw new Error("The save system is not ready yet.");
+        }
+
+        const saveData = new Uint8Array(await file.arrayBuffer());
+        const saveDirectory = savePath.split("/").slice(0, -1);
+        let currentPath = "";
+
+        saveDirectory.forEach((segment) => {
+          if (!segment) return;
+          currentPath += `/${segment}`;
+          try {
+            fileSystem.mkdir(currentPath);
+          } catch {}
+        });
+
+        try {
+          fileSystem.unlink(savePath);
+        } catch {}
+
+        fileSystem.writeFile(savePath, saveData);
+        await emulator.gameManager.loadSaveFiles();
+      }
+
+      async function handleExternalAction(data) {
+        if (data.type === "gba-restart-rom") {
+          loadCurrentRom();
+          return;
+        }
+
+        if (data.type === "gba-load-rom-file") {
+          loadFile(data.file);
+          return;
+        }
+
+        const emulator = getEmulator();
+        if (!emulator) {
+          throw new Error("The emulator is still starting up.");
+        }
+
+        if (data.type === "gba-toggle-pause") {
+          if (emulator.paused) {
+            emulator.play?.();
+          } else {
+            emulator.pause?.();
+          }
+          postControlState();
+          return;
+        }
+
+        if (data.type === "gba-save-state-request") {
+          const state = emulator.gameManager?.getState?.();
+          if (!state) {
+            throw new Error("No save state is available yet.");
+          }
+
+          const baseName = emulator.getBaseFileName?.() || currentRomName || "game";
+          postDownloadToParent(`${baseName}.state`, "application/octet-stream", state);
+          return;
+        }
+
+        if (data.type === "gba-load-state-file") {
+          const state = new Uint8Array(await data.file.arrayBuffer());
+          await emulator.gameManager?.loadState?.(state);
+          postControlState();
+          return;
+        }
+
+        if (data.type === "gba-open-gamepad") {
+          if (!emulator.controlMenu) {
+            throw new Error("The controls menu is not ready yet.");
+          }
+
+          emulator.controlMenu.style.display = "";
+          return;
+        }
+
+        if (data.type === "gba-open-cheats") {
+          if (!emulator.cheatMenu) {
+            throw new Error("The cheats menu is not ready yet.");
+          }
+
+          emulator.cheatMenu.style.display = "";
+          return;
+        }
+
+        if (data.type === "gba-open-cache") {
+          emulator.openCacheMenu?.();
+          return;
+        }
+
+        if (data.type === "gba-export-save-request") {
+          const saveFile = await emulator.gameManager?.getSaveFile?.();
+          if (!saveFile) {
+            throw new Error("No cartridge save is available yet.");
+          }
+
+          const savePath = emulator.gameManager?.getSaveFilePath?.() || "game.sav";
+          const fileName = savePath.split("/").pop() || "game.sav";
+          postDownloadToParent(fileName, "application/octet-stream", saveFile);
+          return;
+        }
+
+        if (data.type === "gba-import-save-file") {
+          await importSaveFile(data.file);
+          postControlState();
+          return;
+        }
+
+        if (data.type === "gba-toggle-mute") {
+          const currentVolume = typeof emulator.volume === "number" ? emulator.volume : 1;
+          if (currentVolume > 0) {
+            lastNonZeroVolume = currentVolume;
+            emulator.setVolume?.(0);
+          } else {
+            emulator.setVolume?.(lastNonZeroVolume || 1);
+          }
+          postControlState();
+          return;
+        }
+
+        if (data.type === "gba-set-volume") {
+          const nextVolume = Math.max(0, Math.min(1, Number(data.volume) || 0));
+          if (nextVolume > 0) {
+            lastNonZeroVolume = nextVolume;
+          }
+          emulator.setVolume?.(nextVolume);
+          postControlState();
+          return;
+        }
+
+        if (data.type === "gba-open-settings") {
+          openSettingsMenu();
+          return;
+        }
+      }
+
+      window.addEventListener("message", async function (event) {
+        if (event.origin !== window.location.origin) return;
+
+        const data = event.data;
+        if (!data || data.source !== "gba-page") return;
+
+        try {
+          setStatus("");
+          await handleExternalAction(data);
+        } catch (error) {
+          const message = error instanceof Error ? error.message : "The emulator action failed.";
+          setStatus(message, "error");
+        }
+      });
+
+      window.addEventListener(
+        "keydown",
+        function (event) {
+          if (isTextField(event.target)) return;
+          if (["ArrowUp", "ArrowDown", "ArrowLeft", "ArrowRight", " "].includes(event.key)) {
+            event.preventDefault();
+          }
+        },
+        { passive: false },
+      );
+
+      window.addEventListener("beforeunload", function () {
+        cleanupEmulator({ clearRom: true });
+      });
+
+      if (defaultRomUrl) {
+        loadBundledRom(defaultRomUrl);
+      }
+    </script>
+  </body>
+</html>

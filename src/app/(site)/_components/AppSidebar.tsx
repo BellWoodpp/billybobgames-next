@@ -24,6 +24,7 @@ type NavItem = {
 
 const primaryItems: NavItem[] = [
   { href: "/", label: "Home", icon: <Home className="sidebar-icon text-cyan-300" /> },
+  { href: "/gba", label: "Pokémon FireRed", icon: <Gamepad className="sidebar-icon text-lime-300" /> },
   { href: "/recently-played", label: "Recently played", icon: <Clock3 className="sidebar-icon text-sky-300" /> },
   { href: "/?sort=new", label: "New", icon: <Sparkles className="sidebar-icon text-amber-300" /> },
   { href: "/?sort=popular", label: "Popular Games", icon: <Flame className="sidebar-icon text-orange-300" /> },
