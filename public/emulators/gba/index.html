@@ -477,6 +477,7 @@
       );
       const maxRomSizeBytes = 64 * 1024 * 1024;
       const recommendedAudioLatency = "128";
+      const automaticSaveFlushMs = 10000;
       const defaultRomUrl = romQuery ? decodeURIComponent(romQuery) : bundledRomUrl;
 
       const emulatorCard = document.getElementById("emulatorCard");
@@ -489,9 +490,33 @@
       let emulatorErrorObserver = null;
       let startupTimeoutId = 0;
       let lastNonZeroVolume = 1;
+      let automaticSaveIntervalId = 0;
+      let saveSyncInFlight = false;
+      let saveSyncPending = false;
 
       function ensureTrailingSlash(path) {
         return path.endsWith("/") ? path : `${path}/`;
+      }
+
+      function getStableGameId(fileName) {
+        const baseName = (fileName || "bundled-rom")
+          .replace(/\.(gba|zip)$/i, "")
+          .trim()
+          .toLowerCase();
+        const normalized = baseName.replace(/[^a-z0-9]+/g, "-").replace(/^-+|-+$/g, "");
+        return `gba-${normalized || "bundled-rom"}`;
+      }
+
+      function getStableGameName(fileName) {
+        return (fileName || "bundled-rom").replace(/\.(gba|zip)$/i, "").trim() || "bundled-rom";
+      }
+
+      function getCurrentGameIdentity() {
+        const fileName = currentRomName || getFileNameFromUrl(currentRomUrl);
+        return {
+          gameId: getStableGameId(fileName),
+          gameName: getStableGameName(fileName),
+        };
       }
 
       function postToParent(type, payload = {}) {
@@ -581,6 +606,61 @@
       function openSettingsMenu() {
         const settingsButton = getSettingsTriggerButton();
         settingsButton?.click?.();
+      }
+
+      function syncCartridgeSaveToStorage() {
+        const fileSystem = getEmulator()?.gameManager?.FS;
+        if (!fileSystem || typeof fileSystem.syncfs !== "function") return;
+
+        if (saveSyncInFlight) {
+          saveSyncPending = true;
+          return;
+        }
+
+        saveSyncInFlight = true;
+
+        try {
+          fileSystem.syncfs(false, function (error) {
+            saveSyncInFlight = false;
+
+            if (error) {
+              console.warn("Failed to sync GBA save data", error);
+            }
+
+            if (saveSyncPending) {
+              saveSyncPending = false;
+              syncCartridgeSaveToStorage();
+            }
+          });
+        } catch (error) {
+          saveSyncInFlight = false;
+          console.warn("Failed to queue GBA save sync", error);
+        }
+      }
+
+      function persistCartridgeSave() {
+        try {
+          const gameManager = getEmulator()?.gameManager;
+          if (!gameManager) return;
+
+          gameManager.saveSaveFiles?.();
+          syncCartridgeSaveToStorage();
+        } catch (error) {
+          console.warn("Failed to persist GBA save data", error);
+        }
+      }
+
+      function stopAutomaticSaveLoop() {
+        if (!automaticSaveIntervalId) return;
+        window.clearInterval(automaticSaveIntervalId);
+        automaticSaveIntervalId = 0;
+      }
+
+      function startAutomaticSaveLoop() {
+        stopAutomaticSaveLoop();
+        automaticSaveIntervalId = window.setInterval(() => {
+          persistCartridgeSave();
+        }, automaticSaveFlushMs);
       }
 
       function ensureExternalToolbarBridge() {
@@ -758,9 +838,14 @@
         };
       }
 
-      function cleanupEmulator({ clearRom = false } = {}) {
+      function cleanupEmulator({ clearRom = false, persistSave = true } = {}) {
         clearStartupWatchers();
         hideLoadingOverlay();
+        stopAutomaticSaveLoop();
+
+        if (persistSave) {
+          persistCartridgeSave();
+        }
 
         const oldLoader = document.getElementById("emulatorjs-loader");
         if (oldLoader) oldLoader.remove();
@@ -828,8 +913,7 @@
         setStatus("");
         watchForEmulatorErrors(version);
 
-        const gameId = `gba-${Date.now()}-${Math.random().toString(36).slice(2)}`;
-        const gameName = currentRomName.replace(/\.(gba|zip)$/i, "");
+        const { gameId, gameName } = getCurrentGameIdentity();
 
         window.EJS_player = "#game";
         window.EJS_core = "gba";
@@ -856,6 +940,7 @@
           if (version !== loadVersion) return;
           clearStartupWatchers();
           ensureExternalToolbarBridge();
+          startAutomaticSaveLoop();
           hideLoadingOverlay();
           setStatus("");
           postControlState();
@@ -1072,8 +1157,18 @@
         }
       });
 
+      document.addEventListener("visibilitychange", function () {
+        if (document.visibilityState === "hidden") {
+          persistCartridgeSave();
+        }
+      });
+
+      window.addEventListener("pagehide", function () {
+        persistCartridgeSave();
+      });
+
       window.addEventListener("beforeunload", function () {
-        cleanupEmulator({ clearRom: true });
+        persistCartridgeSave();
       });
 
       if (defaultRomUrl) {
