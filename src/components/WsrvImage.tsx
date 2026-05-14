@@ -1,4 +1,4 @@
-import { Image, type ImageProps } from "@unpic/react";
+import type { ImageProps } from "@unpic/react";
 import type { CSSProperties } from "react";
 
 type DistributiveOmit<T, K extends PropertyKey> = T extends unknown ? Omit<T, K> : never;
@@ -19,86 +19,53 @@ type DevRenderableProps = WsrvImageProps & {
   width?: number | string;
 };
 
-const IS_DEVELOPMENT = process.env.NODE_ENV === "development";
-
 export function WsrvImage({ operations, ...props }: WsrvImageProps) {
-  if (IS_DEVELOPMENT) {
-    const devProps = props as DevRenderableProps;
-    const {
-      alt,
-      aspectRatio,
-      background,
-      breakpoints,
-      layout,
-      priority,
-      src,
-      style,
-      unstyled,
-      width,
-      height,
-      ...imgProps
-    } = devProps;
+  const directProps = props as DevRenderableProps;
+  const {
+    alt,
+    aspectRatio,
+    background,
+    breakpoints,
+    layout,
+    priority,
+    src,
+    style,
+    unstyled,
+    width,
+    height,
+    ...imgProps
+  } = directProps;
 
-    void breakpoints;
+  void breakpoints;
+  void operations;
 
-    const devStyle: CSSProperties = {
-      ...(background ? { background } : null),
-      ...(aspectRatio ? { aspectRatio } : null),
-      ...style,
-    };
+  const directStyle: CSSProperties = {
+    ...(background ? { background } : null),
+    ...(aspectRatio ? { aspectRatio } : null),
+    ...style,
+  };
 
-    if (!unstyled) {
-      if (layout === "fixed") {
-        if (devStyle.width == null && width != null) devStyle.width = width;
-        if (devStyle.height == null && height != null) devStyle.height = height;
-      } else {
-        if (devStyle.width == null) devStyle.width = "100%";
-        if (devStyle.maxWidth == null) devStyle.maxWidth = "100%";
-        if (devStyle.height == null) devStyle.height = "auto";
-      }
+  if (!unstyled) {
+    if (layout === "fixed") {
+      if (directStyle.width == null && width != null) directStyle.width = width;
+      if (directStyle.height == null && height != null) directStyle.height = height;
+    } else {
+      if (directStyle.width == null) directStyle.width = "100%";
+      if (directStyle.maxWidth == null) directStyle.maxWidth = "100%";
+      if (directStyle.height == null) directStyle.height = "auto";
     }
-
-    return (
-      <img
-        {...imgProps}
-        alt={alt}
-        src={src}
-        width={typeof width === "number" ? width : undefined}
-        height={typeof height === "number" ? height : undefined}
-        loading={devProps.loading ?? (priority ? "eager" : undefined)}
-        fetchPriority={priority ? "high" : imgProps.fetchPriority}
-        style={devStyle}
-      />
-    );
   }
 
-  const layout = props.layout ?? "constrained";
-  const breakpoints =
-    props.breakpoints ??
-    (layout === "fixed"
-      ? undefined
-      : layout === "fullWidth"
-        ? [640, 960, 1280]
-        : typeof props.width === "number"
-          ? Array.from(
-              new Set(
-                [props.width, props.width * 2, props.width / 2]
-                  .map((value) => Math.round(value))
-                  .filter((value) => value >= 320 && value <= 1920),
-              ),
-            ).sort((a, b) => a - b)
-          : undefined);
-
   return (
-    <Image
-      alt={props.alt}
-      cdn="wsrv"
-      operations={{
-        ...operations,
-        wsrv: { q: 75, we: true, ...(operations?.wsrv ?? {}) },
-      }}
-      breakpoints={breakpoints}
-      {...props}
+    <img
+      {...imgProps}
+      alt={alt}
+      src={src}
+      width={typeof width === "number" ? width : undefined}
+      height={typeof height === "number" ? height : undefined}
+      loading={directProps.loading ?? (priority ? "eager" : undefined)}
+      fetchPriority={priority ? "high" : imgProps.fetchPriority}
+      style={directStyle}
     />
   );
 }

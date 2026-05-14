@@ -29,7 +29,6 @@ export default function ContactPage() {
         <section className={styles.section}>
           <h2>Best contact paths</h2>
           <ul className={styles.list}>
-            <li>Use our public social profiles linked in the site header for the fastest general outreach.</li>
             <li>Include the exact page URL if you are reporting a broken game or layout issue.</li>
             <li>For business requests, mention your company name and what kind of collaboration you have in mind.</li>
           </ul>

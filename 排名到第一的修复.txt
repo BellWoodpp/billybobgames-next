@@ -1,0 +1,11 @@
+先修这 4 个硬伤
+
+  1. 你头部“社交链接”现在指向的是通用首页，不是你的品牌主页，这会削弱品牌实体判断。src/app/(site)/_components/
+     AppHeader.tsx:5
+  2. 你的首页结构化数据有 Organization / WebSite，但没有 sameAs、alternateName 这类更强的品牌佐证。src/app/(site)/
+     page.tsx:82
+  3. 首页后半段文案太长，而且混入了 “Windows Premium Games Library”“安全下载” 这类与你当前站点主打的浏览器游戏不完全
+     一致的内容，容易让主题变糊。src/app/(site)/page.tsx:311
+  4. Contact 页没有真实联系邮箱或表单，只写“去头部社媒联系”，但头部社媒又不是你的真实主页。src/app/(site)/contact/
+     page.tsx:21
+

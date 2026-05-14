@@ -117,7 +117,7 @@ const homeStructuredData = {
 
 const otherGames: HomeGame[] = [
   {
-    href: "/gba",
+    href: "/fire-red",
     title: "Pokémon FireRed",
     img: "https://pub-7a7bcc9e985340b68807f06d96ba2d0a.r2.dev/GBA-Red/red-image.jpeg",
     alt: "Pokémon FireRed artwork",

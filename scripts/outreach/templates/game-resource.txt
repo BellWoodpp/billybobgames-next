@@ -1,0 +1,14 @@
+Subject: Quick browser game suggestion for {{domain}}
+
+{{greeting}}
+
+{{personalization_block}}I came across {{source_url}} while researching browser game/resource pages.
+
+I thought {{recommended_url}} might be a useful fit for your readers because {{reason_why_fit}}.
+
+If it is not a fit, no worries at all. If you would prefer I do not follow up again, just reply to {{reply_to_email}} with "stop" and I will remove you.
+
+Best,
+{{sender_name}}
+{{sender_role}}
+{{sender_site}}

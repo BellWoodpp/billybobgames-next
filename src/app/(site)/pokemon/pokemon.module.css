@@ -1,0 +1,105 @@
+.heroCard,
+.sectionCard {
+  display: grid;
+  gap: 0.9rem;
+  padding: 1.5rem;
+  border: 1px solid #e5e7eb;
+  border-radius: 1.25rem;
+  background: #f8fafc;
+  box-shadow: 0 18px 44px -30px rgba(15, 23, 42, 0.35);
+}
+
+.sectionTitle {
+  margin: 0;
+  font-size: 1.45rem;
+  font-weight: 800;
+}
+
+.sectionText {
+  margin: 0;
+  color: #4b5563;
+  line-height: 1.7;
+}
+
+.routeList {
+  display: grid;
+  gap: 0.8rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.routeItem {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.95rem 1rem;
+  border: 1px solid #d1d5db;
+  border-radius: 1rem;
+  background: #ffffff;
+}
+
+.routePath {
+  display: inline-flex;
+  padding: 0.28rem 0.6rem;
+  border-radius: 999px;
+  background: #111827;
+  color: #f9fafb;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
+  font-size: 0.86rem;
+}
+
+.routeLabel {
+  font-weight: 700;
+  color: #111827;
+}
+
+.routeStatus {
+  margin-left: auto;
+  display: inline-flex;
+  padding: 0.28rem 0.6rem;
+  border: 1px solid rgba(245, 158, 11, 0.28);
+  border-radius: 999px;
+  background: rgba(245, 158, 11, 0.12);
+  color: #92400e;
+  font-size: 0.86rem;
+  font-weight: 700;
+}
+
+@media (max-width: 640px) {
+  .routeItem {
+    align-items: flex-start;
+  }
+
+  .routeStatus {
+    margin-left: 0;
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  .heroCard,
+  .sectionCard {
+    border-color: #3a3a3a;
+    background: #2a2a2a;
+  }
+
+  .sectionText {
+    color: #e5e7eb;
+  }
+
+  .routeItem {
+    border-color: #3a3a3a;
+    background: #1f2937;
+  }
+
+  .routeLabel {
+    color: #f9fafb;
+  }
+
+  .routeStatus {
+    border-color: rgba(251, 191, 36, 0.28);
+    background: rgba(120, 53, 15, 0.4);
+    color: #fde68a;
+  }
+}

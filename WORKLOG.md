@@ -7,6 +7,16 @@ This file is the handoff record for this repo (`/home/lcl/nuxt-to-next/2.billybo
 - Offload **game media assets** (images/audio/video) to Cloudflare R2.
 - Keep game HTML/JS/CSS in repo; keep iframe pointing to site-local `/games/.../index.html` (recommended).
 
+## 2026-05-15 (brand cleanup / header social links)
+### Changed
+- Removed the generic social link block from the global header.
+- Cleaned the related `Contact` page copy so it no longer references header social profiles.
+- Verified there are no remaining `socialLinks` / `nav-social` / `nav__icon` references under `src`.
+
+### TODO (next time)
+- Revisit homepage brand signals and decide whether to add real, owned social/contact channels.
+- Continue the brand-SEO pass for `billybobgames.org` if you want to push the brand query from #2 to #1.
+
 ## R2 Setup (what matters)
 - Upload credentials are **local-only** (do **not** put secrets on Vercel):
   - `R2_ACCESS_KEY_ID`, `R2_SECRET_ACCESS_KEY` (or `AWS_ACCESS_KEY_ID`, `AWS_SECRET_ACCESS_KEY`)
@@ -237,3 +247,83 @@ This file is the handoff record for this repo (`/home/lcl/nuxt-to-next/2.billybo
 - After pushing/deploying, open the site in a real browser and verify `game_click`, `game_start`, `game_heartbeat`, and `game_end` through DevTools Network plus GA4 Realtime / DebugView.
 - Decide whether the remaining `Evolve` runtime files should stay in git long-term or be moved to the R2-based media flow.
 - Add GA4 custom dimensions/metrics for `game_id`, `game_name`, `placement`, `active_time_sec`, `total_time_sec`, and `interaction_count` if not already configured.
+
+## 2026-04-23 (GBA emulator page / public-safe handoff)
+### Changed
+- Added a new `/gba` page backed by a dedicated static emulator shell:
+  - `src/app/(site)/gba/page.tsx`
+  - `src/app/(site)/gba/gba.module.css`
+  - `public/emulators/gba/index.html`
+- Added site navigation + discovery for the new GBA page:
+  - Homepage card entry in `src/app/(site)/page.tsx`
+  - Sidebar link in `src/app/(site)/_components/AppSidebar.tsx`
+  - Sitemap entry in `public/sitemap.xml`
+- Added response headers for the GBA route/emulator assets in `next.config.ts` to improve browser isolation support for EmulatorJS.
+- Improved the emulator shell:
+  - fixed the direct iframe entry path
+  - improved game area sizing/layout
+  - added startup/error watchers and clearer emulator status handling
+  - seeded safer default emulator settings such as higher `audio_latency`
+- Added a generic site-safe GBA cover artwork for the homepage card:
+  - `public/emulators/gba/gba-emulator.svg`
+- Tested multiple builds during the work; final `npm run build` passes.
+
+### Important notes
+- A local Pokémon FireRed ROM and related image were placed under `public/games/gba-red/`, but these remain **untracked local files** and were intentionally **not** wired into the final public-safe page state.
+- The final public-safe `/gba` page is back to **user-supplied local ROM loading only**; it does **not** auto-ship or auto-load copyrighted ROM content.
+- Existing `scripts/upload-r2.js` only uploads image/audio/video media. It does **not** support `.gba` ROM uploads right now.
+- In this Codex environment, `.git` is mounted read-only, so `git add`/`git commit`/`git push` cannot complete here even though the repo workflow says to do so on “收工”.
+
+### TODO (next time)
+- If desired, decide on the legal/product direction for `/gba`:
+  - keep it as a local-ROM-only emulator page, or
+  - add a bundled/demo ROM only if it is legally redistributable.
+- If R2 should ever host legal ROM-like binaries, extend `scripts/upload-r2.js` to support `.gba` (or a separate upload flow) instead of using the current media-only filter.
+- If publishing from a normal writable git environment, commit only the safe GBA page files and exclude `public/games/gba-red/` unless the assets are confirmed redistributable.
+- Revisit the audio issue later if needed; current evidence suggests browser/graphics-stack factors on the test machine, not a bad ROM.
+
+## 2026-04-24 (Pokémon FireRed production rollout handoff)
+### Changed
+- Continued the `/gba` page from generic emulator framing into a FireRed-specific experience:
+  - homepage card renamed to `Pokémon FireRed`
+  - sidebar entry renamed to `Pokémon FireRed`
+  - `/gba` page heading, metadata, and supporting copy updated to FireRed wording
+- Wired the live default ROM through the site-owned same-origin proxy:
+  - `next.config.ts` rewrite `/gba-rom/:path*` → `${R2_ASSET_DOMAIN}/GBA-Red/:path*`
+  - default ROM path in `public/emulators/gba/index.html` now loads `/gba-rom/gba-other-game.gba`
+- Reworked the embedded EmulatorJS shell:
+  - game area fills the iframe cleanly
+  - emulator internal menu bar is hidden
+  - generic top-page emulator clutter was removed
+  - red centered `Play FireRed` button styling was added
+  - click-to-start loading overlay was added so players can see the game is still loading
+- Updated homepage FireRed card artwork to the R2-hosted image:
+  - `https://pub-7a7bcc9e985340b68807f06d96ba2d0a.r2.dev/GBA-Red/red-image.jpeg`
+- Verified repeatedly with `npm run build`; build passes after the FireRed changes.
+- Production GitHub pushes were completed from the writable local machine:
+  - `a6f2c4d` `Add Pokémon FireRed page`
+  - `93ece3f` `Improve FireRed loading feedback`
+
+### Important notes
+- Production currently serves the main page and ROM proxy headers correctly:
+  - `/gba` returns `Cross-Origin-Opener-Policy: same-origin`
+  - `/gba` and `/emulators/gba/index.html` return `Cross-Origin-Embedder-Policy: require-corp`
+  - `/gba-rom/gba-other-game.gba` returns `200`
+- The production failure message `The emulator UI loaded, but the game did not start...` is our own timeout fallback, not the real low-level error.
+- Based on checks so far, the issue looks more like a client/browser/runtime problem than a broken site route:
+  - WebGL / hardware acceleration disabled
+  - browser extension or network blocking EmulatorJS core assets
+  - browser-specific wasm/worker/core startup failure
+- CDN and ROM endpoints looked healthy during checks:
+  - `https://cdn.emulatorjs.org/stable/data/loader.js` returned `200`
+  - `https://r2bucket.billybobgames.org/GBA-Red/gba-other-game.gba` returned `200`
+  - `https://r2bucket.billybobgames.org/GBA-Red/red-image.jpeg` returned `200`
+
+### TODO (next time)
+- Open production `/gba` in a real browser with DevTools and inspect:
+  - `Console` errors
+  - `Network` failures for `cdn.emulatorjs.org`, `mgba`, `wasm`, and workers
+- Capture the true low-level startup error instead of relying only on the current timeout message.
+- If the failure is caused by remote EmulatorJS assets, consider self-hosting the needed EmulatorJS data/core files instead of relying on the external CDN.
+- If browser compatibility remains inconsistent, add a more specific user-facing error panel based on the actual failing resource or API.
+- Before the next push, review unrelated local changes still present in the repo (`.env.example`, `.gitignore`, `package.json`, `src/components/WsrvImage.tsx`, `data/`, `docs/`, `scripts/outreach/`, etc.) so they do not get mixed into the FireRed work by accident.

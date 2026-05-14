@@ -65,6 +65,11 @@ yarn-error.log*
 # local-only Sprunki asset workspace
 Incredibox - Sprunki/
 
+# local-only outreach workspace
+/data/outreach/*.csv
+/data/outreach/*.json
+/data/outreach/*.log
+
 # typescript
 *.tsbuildinfo
 next-env.d.ts

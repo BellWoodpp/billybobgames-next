@@ -1,0 +1,14 @@
+Subject: Quick suggestion for your games/resources page
+
+{{greeting}}
+
+{{personalization_block}}I found {{source_url}} while looking for pages that recommend browser games and related resources.
+
+I thought {{recommended_url}} could be worth a quick look because {{reason_why_fit}}.
+
+If it does not belong there, no problem. If you would prefer I do not follow up again, just reply to {{reply_to_email}} with "stop" and I will remove you.
+
+Best,
+{{sender_name}}
+{{sender_role}}
+{{sender_site}}

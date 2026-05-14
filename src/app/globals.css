@@ -342,33 +342,6 @@ a {
   background: transparent;
 }
 
-.nav-social {
-  display: flex;
-  gap: 0.5rem;
-}
-
-.nav__icon {
-  padding: 0.35rem;
-  border-radius: 999px;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  border: 1px solid transparent;
-  transition: border-color 0.16s ease, background 0.16s ease, transform 0.16s ease;
-}
-
-.nav__icon img {
-  width: 22px;
-  height: 22px;
-  display: block;
-}
-
-.nav__icon:hover {
-  border-color: var(--border);
-  background: var(--panel);
-  transform: translateY(-1px);
-}
-
 .app-footer {
   border-top: 1px solid var(--border);
   background: rgba(255, 255, 255, 0.75);

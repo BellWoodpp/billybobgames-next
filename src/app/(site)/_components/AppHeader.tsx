@@ -2,27 +2,6 @@ import { WsrvImage } from "@/components/WsrvImage";
 import Link from "next/link";
 import { Menu } from "lucide-react";
 
-const socialLinks = [
-  {
-    href: "https://www.facebook.com/",
-    label: "Billy Bob Games on Facebook",
-    icon: "https://r2bucket.billybobgames.org/share/facebook-4.svg",
-    alt: "Facebook",
-  },
-  {
-    href: "https://x.com/home",
-    label: "Billy Bob Games on X",
-    icon: "https://r2bucket.billybobgames.org/share/x-2.svg",
-    alt: "X",
-  },
-  {
-    href: "https://www.reddit.com/",
-    label: "Billy Bob Games on Reddit",
-    icon: "https://r2bucket.billybobgames.org/share/reddit-4.svg",
-    alt: "Reddit",
-  },
-];
-
 export default function AppHeader() {
   return (
     <header className="app-header">
@@ -50,21 +29,6 @@ export default function AppHeader() {
             <span>Billy Bob Games</span>
           </Link>
         </div>
-
-        <nav className="nav-social" aria-label="Social links">
-          {socialLinks.map((link) => (
-            <a
-              key={link.href}
-              className="nav__icon"
-              href={link.href}
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label={link.label}
-            >
-              <WsrvImage src={link.icon} alt={link.alt} width={28} height={28} sizes="28px" layout="fixed" loading="lazy" />
-            </a>
-          ))}
-        </nav>
       </div>
     </header>
   );

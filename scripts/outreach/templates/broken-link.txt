@@ -1,0 +1,14 @@
+Subject: Possible replacement for a broken game/resource link
+
+{{greeting}}
+
+{{personalization_block}}I noticed {{source_url}} while checking browser game/resource pages.
+
+If you are updating any broken or outdated links there, {{recommended_url}} may be a useful replacement because {{reason_why_fit}}.
+
+If it is not relevant, no worries. If you would prefer I do not follow up again, just reply to {{reply_to_email}} with "stop" and I will remove you.
+
+Best,
+{{sender_name}}
+{{sender_role}}
+{{sender_site}}
