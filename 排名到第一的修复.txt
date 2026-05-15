@@ -8,4 +8,67 @@
      一致的内容，容易让主题变糊。src/app/(site)/page.tsx:311
   4. Contact 页没有真实联系邮箱或表单，只写“去头部社媒联系”，但头部社媒又不是你的真实主页。src/app/(site)/contact/
      page.tsx:21
+     
+     
+执行流程
 
+  1. 先修“品牌真实性”。
+     把头部通用社媒链接删掉，或者换成你真实的 X / YouTube / Reddit / Discord / Facebook 品牌主页；没有就先删，不要挂
+     假的。
+     同时在 Contact 页放一个真实邮箱，比如 hello@billybobgames.org，并在 About 页写清楚你是谁、站点做什么、多久更新
+     一次。
+  2. 重写首页，只保留清晰、真实、短的品牌文案。
+     H1 可以保留现在这个方向，但首页正文改成 300 到 500 字，明确说 4 件事：
+     你是谁；你提供什么游戏；核心分类是什么；为什么值得收藏。
+     把那段很长的“品牌故事”整段砍掉，尤其是 Windows 下载、安全扫描、安装流程那部分。品牌词页最怕主题发散。
+  3. 强化首页的品牌结构化数据。
+     在首页的 Organization / WebSite JSON-LD 里补：
+     sameAs、alternateName、contactPoint、siteName。
+     同时给 Open Graph 补 siteName: "Billy Bob Games"。这不是保证排名第一，但对“官方站识别”有帮助。
+  4. 把顶部导航改成“核心栏目导航”，别把最显眼的位置给社交图标。
+     .com 首页我抓到的顶部直接放了 Flash Games、Emulated Games 这类强导航信号。你这里更应该把顶部位置给：
+     Arcade Games、Puzzle Games、Card Games、New Games、Popular Games 之类真实栏目。
+     Google 的 sitelinks 是自动生成的，但强导航结构更容易触发。
+  5. 清理首页的低价值外链。
+     首页的 Friend Links 建议移到底部，或者全部加 nofollow，最好先移除。
+     品牌词首页最重要的是让 Google 一眼看懂“这个站就是 Billy Bob Games”，不是帮别的站分散注意力。src/app/(site)/
+     page.tsx:292
+  6. 做 5 到 10 个“真实品牌出处”。
+     不是垃圾外链，是品牌一致性：
+     同名社媒主页、YouTube 频道简介、GitHub profile、itch.io profile、Reddit profile、游戏目录站个人页。
+     这些页面都统一写 Billy Bob Games，并链接回 https://billybobgames.org/。
+     你现在不是缺“链接数量”，而是缺“Google 能确认这是同一个品牌实体”的一致信号。
+  7. 在 Google Search Console 里立刻推送。
+     改完后，提交这几个 URL 的重新抓取：
+     首页、About、Contact、3 到 5 个核心分类页。
+     然后重新提交 sitemap。这个动作要做，不然你改了也可能要等很久。
+  8. 盯 14 到 28 天，只看品牌词数据。
+     在 GSC 里只看 billy bob games 这个 query，盯这 3 个指标：
+     平均排名、CTR、首页是否开始带 sitelinks。
+     如果 2 周后标题没变、sitelinks 没动，就继续强化导航和品牌出处，不要急着买外链。
+
+  不要做
+
+  1. 不要买一堆垃圾外链。
+  2. 不要把首页再塞更多 “Billy Bob Games” 关键词。
+  3. 不要照抄 .com 的标题和文案。
+  4. 不要继续保留“假社媒链接”。
+
+  如果你按顺序做，我建议优先级是：
+
+  1. 首页文案重写
+  2. 真实社媒/邮箱/Contact 修正
+  3. 结构化数据补全
+  4. 顶部导航改造
+  5. GSC 推送
+  6. 外部品牌出处建设
+
+  如果你愿意，我下一条可以直接给你“第 1 步要改成什么文案、什么结构、改哪些代码文件”，我按可执行清单写给你。
+
+  参考：
+  https://billybobgames.org/
+  https://billybobgames.com/
+  https://developers.google.com/search/docs/appearance/site-names
+  https://developers.google.com/search/docs/appearance/title-link
+  https://developers.google.com/search/docs/crawling-indexing/links-crawlable
+  https://developers.google.com/search/docs/advanced/crawling/ask-google-to-recrawl

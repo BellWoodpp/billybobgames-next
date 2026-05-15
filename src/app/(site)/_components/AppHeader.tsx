@@ -1,6 +1,6 @@
 import { WsrvImage } from "@/components/WsrvImage";
 import Link from "next/link";
-import { Menu } from "lucide-react";
+import { Mail, Menu } from "lucide-react";
 
 export default function AppHeader() {
   return (
@@ -28,6 +28,16 @@ export default function AppHeader() {
             />
             <span>Billy Bob Games</span>
           </Link>
+        </div>
+        <div className="header-actions">
+          <a
+            className="header-contact"
+            href="mailto:stormrobin50@gmail.com"
+            aria-label="Email Billy Bob Games at stormrobin50@gmail.com"
+            data-tooltip="Email me"
+          >
+            <Mail className="header-contact-icon" aria-hidden="true" />
+          </a>
         </div>
       </div>
     </header>
