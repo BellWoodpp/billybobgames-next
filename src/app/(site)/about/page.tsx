@@ -8,7 +8,7 @@ export const metadata: Metadata = {
     absolute: "About Billy Bob Games",
   },
   description:
-    "Learn about Billy Bob Games, our browser-first gaming focus, and how we curate free unblocked games for quick, accessible play.",
+    "Learn who runs Billy Bob Games, what the site publishes, and how this personal browser game site is updated over time.",
   alternates: {
     canonical: "https://billybobgames.org/about",
   },
@@ -21,26 +21,34 @@ export default function AboutPage() {
         <section className={styles.hero}>
           <h1>About Billy Bob Games</h1>
           <p>
-            Billy Bob Games is a browser-first game website focused on fast-loading, free-to-play experiences that work
-            across modern devices with no installs and no paywalls.
+            Billy Bob Games is an independent personal website run by one person. I focus on free, fast-loading games
+            that work in modern browsers with no installs and no paywalls.
           </p>
         </section>
 
         <section className={styles.section}>
-          <h2>What we publish</h2>
+          <h2>Who we are</h2>
           <p>
-            We curate lightweight arcade games, idle games, music experiments, card games, and puzzle games so players
-            can jump in quickly and enjoy a stable experience directly in the browser.
+            Billy Bob Games is a personal project. I run the site myself, choose which games to add, write and update
+            the game pages, organize category pages, and keep the site simple for people who want quick browser play.
           </p>
         </section>
 
         <section className={styles.section}>
-          <h2>What matters to us</h2>
+          <h2>What the site does</h2>
+          <p>
+            Billy Bob Games publishes free browser game pages and category pages for arcade games, idle games, music
+            games, card games, and puzzle games. The main goal is to collect and keep older games online, especially
+            games that are still fun to revisit in the browser, rather than chasing brand-new releases.
+          </p>
+        </section>
+
+        <section className={styles.section}>
+          <h2>How often we update</h2>
           <ul className={styles.list}>
-            <li>Fast access with no download barrier.</li>
-            <li>Clear page structure so players can find the right game type quickly.</li>
-            <li>Practical game pages with instructions, previews, and responsive play areas.</li>
-            <li>Consistent updates that keep Billy Bob Games easy to browse and trust.</li>
+            <li>Because I run the site alone and have limited time, Billy Bob Games is updated irregularly rather than on a fixed schedule.</li>
+            <li>Most updates are new page cleanups, broken link fixes, and old game additions when I find something worth keeping online.</li>
+            <li>The goal is to keep the site readable, playable, and useful for people looking for older browser games.</li>
           </ul>
         </section>
 

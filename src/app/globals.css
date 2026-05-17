@@ -402,14 +402,14 @@ a {
 }
 .app-footer {
   border-top: 1px solid var(--border);
-  background: rgba(255, 255, 255, 0.75);
+  background: rgba(255, 255, 255, 0.92);
 }
 
 .app-footer .bar {
   display: grid;
   gap: 0.65rem;
   padding: 1rem;
-  color: var(--muted);
+  color: var(--muted-foreground);
   text-align: center;
 }
 
@@ -422,7 +422,7 @@ a {
 
 .footer-links a {
   text-decoration: none;
-  color: var(--muted);
+  color: var(--muted-foreground);
 }
 
 .footer-links a:hover,
