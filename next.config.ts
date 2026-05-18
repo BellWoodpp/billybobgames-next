@@ -49,6 +49,16 @@ const nextConfig: NextConfig = {
   async headers() {
     return [
       {
+        // Raw iframe source documents should stay crawlable long enough for Google
+        // to process the directive, but they should not be indexed as standalone pages.
+        source: "/games/:path*/index.html",
+        headers: [{ key: "X-Robots-Tag", value: "noindex, nofollow" }],
+      },
+      {
+        source: "/emulators/:path*/index.html",
+        headers: [{ key: "X-Robots-Tag", value: "noindex, nofollow" }],
+      },
+      {
         source: "/fire-red",
         headers: [
           { key: "Cross-Origin-Opener-Policy", value: "same-origin" },

@@ -13,7 +13,6 @@ const routes = [
     priority: 0.5,
   },
   { path: "/arcade-games", lastModified: "2026-04-16", changeFrequency: "weekly", priority: 0.8 },
-  { path: "/gba", lastModified: "2026-04-24", changeFrequency: "monthly", priority: 0.7 },
   { path: "/pokemon", lastModified: "2026-04-25", changeFrequency: "weekly", priority: 0.75 },
   { path: "/fire-red", lastModified: "2026-04-25", changeFrequency: "monthly", priority: 0.7 },
   { path: "/idle-games", lastModified: "2026-04-16", changeFrequency: "weekly", priority: 0.8 },
