@@ -53,6 +53,8 @@ yarn-error.log*
 /public/games/**/*.ico
 /public/games/**/*.mp3
 /public/games/**/*.ogg
+!/public/games/brush-jjaemu/brushing-a-jjaemu/index.png
+!/public/games/brush-jjaemu/brushing-a-jjaemu/index.icon.png
 /public/games/**/*.wav
 /public/games/**/*.m4a
 /public/games/**/*.flac

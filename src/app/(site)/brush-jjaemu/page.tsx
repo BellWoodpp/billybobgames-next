@@ -39,16 +39,16 @@ export default function BrushJjaemuPage() {
       }}
       iframeSrc="/games/brush-jjaemu/brushing-a-jjaemu/index.html"
       iframeTitle="Brush Jjaemu Game"
-      allow="autoplay; fullscreen"
+      allow="autoplay *; fullscreen *; gamepad; cross-origin-isolated"
       allowFullScreen
       showFullscreenButton
       frameClassName={classNames(styles.gameFrameShort, styles.gameFrameLight)}
-      supportingText="Keep the brush moving to score, but bail out the second Jjaemu pivots toward you. The run ends immediately if you stay in too long."
+      supportingText="Hold down and drag the brush to score. A simple tap does not count as brushing, and the warning cue is the cat switching into its turned, angry pose."
       howToItems={[
-        "Click or tap to start brushing and build points while the cat stays calm.",
-        "Study Jjaemu's movement instead of zoning out on the score. The turn happens fast.",
-        "The correct play is to stop instantly when the cat shifts toward the brush.",
-        "If you hesitate, Jjaemu bites and the round is over.",
+        "Press and drag the brush across the cat. Small taps or holding still will not build score or trigger the brush sound reliably.",
+        "Watch Jjaemu's face, not just the score. The warning is visual: the cat changes from calm to turned and angry.",
+        "Stop the instant Jjaemu pivots back toward the brush instead of squeezing in one more stroke.",
+        "If you keep moving after the turn, Jjaemu bites and the ending sequence starts.",
       ]}
       extraContent={
         <>
@@ -56,8 +56,8 @@ export default function BrushJjaemuPage() {
             <h2 className={styles.detailHeading}>What Is Brush Jjaemu?</h2>
             <p className={styles.detailParagraph}>
               Brush Jjaemu is a fast browser reflex game built around grooming a moody orange cat with a hairbrush.
-              Scoring looks straightforward at first: keep brushing for as long as you can. The catch is that the
-              session only survives if you stop the exact moment Jjaemu turns back at you.
+              Scoring looks straightforward at first: hold down and drag the brush for as long as you can. The catch
+              is that the session only survives if you stop the exact moment Jjaemu turns back at you.
             </p>
             <p className={styles.detailParagraph}>
               That tiny rule is what makes every attempt tense. One extra stroke, one delayed reaction, and the cat
