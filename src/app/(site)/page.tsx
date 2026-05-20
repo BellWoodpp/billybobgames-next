@@ -117,6 +117,14 @@ const homeStructuredData = {
 
 const otherGames: HomeGame[] = [
   {
+    href: "/brush-jjaemu",
+    title: "Brush Jjaemu",
+    img: "https://pub-7a7bcc9e985340b68807f06d96ba2d0a.r2.dev/brush-jjaemu/brush-jjaemu.png",
+    alt: "Brush Jjaemu angry cat artwork",
+    imageFit: "contain",
+    newUntil: "2026-06-20T23:59:59+08:00",
+  },
+  {
     href: "/fire-red",
     title: "Pokémon FireRed",
     img: "https://pub-7a7bcc9e985340b68807f06d96ba2d0a.r2.dev/GBA-Red/red-image.jpeg",

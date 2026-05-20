@@ -56,6 +56,15 @@ export const gameCategories: GameCategory[] = [
 
 export const catalogGames: CatalogGame[] = [
   {
+    href: "/brush-jjaemu",
+    title: "Brush Jjaemu",
+    img: "https://pub-7a7bcc9e985340b68807f06d96ba2d0a.r2.dev/brush-jjaemu/brush-jjaemu.png",
+    alt: "Brush Jjaemu angry cat artwork",
+    description:
+      "Read Jjaemu's mood, brush with steady mouse control, and survive a deceptively tense browser pet-care challenge.",
+    categories: ["arcade-games"],
+  },
+  {
     href: "/evolve",
     title: "Evolve Idle",
     img: "/games/evolve/evolve.webp",

@@ -29,6 +29,7 @@ type SimpleGamePageProps = {
   howToClassName?: string;
   howToListClassName?: string;
   howToTitleClassName?: string;
+  extraContent?: ReactNode;
 };
 
 export default function SimpleGamePage({
@@ -52,6 +53,7 @@ export default function SimpleGamePage({
   howToClassName,
   howToListClassName,
   howToTitleClassName,
+  extraContent,
 }: SimpleGamePageProps) {
   const wrapperClasses = classNames(styles.wrapper, wrapperClassName);
   const headingClasses = classNames(styles.title, titleClassName);
@@ -105,6 +107,8 @@ export default function SimpleGamePage({
             ))}
           </ul>
         </section>
+
+        {extraContent}
       </main>
     </PageShell>
   );

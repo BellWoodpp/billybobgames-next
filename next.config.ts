@@ -10,6 +10,7 @@ const nextConfig: NextConfig = {
   async rewrites() {
     const useR2Games = process.env.GAMES_FROM_R2 === "1";
     const r2AssetDomain = process.env.R2_ASSET_DOMAIN || "https://r2bucket.billybobgames.org";
+    const brushJjaemuArtDomain = "https://pub-7a7bcc9e985340b68807f06d96ba2d0a.r2.dev";
     const gbaRomProxyRewrite = {
       source: "/gba-rom/:path*",
       destination: `${r2AssetDomain}/GBA-Red/:path*`,
@@ -28,20 +29,25 @@ const nextConfig: NextConfig = {
       destination: `${r2AssetDomain}/sprunki/:path*`,
     };
 
+    const brushJjaemuArtRewrite = {
+      source: "/games/brush-jjaemu/art/:path*",
+      destination: `${brushJjaemuArtDomain}/brush-jjaemu/art/:path*`,
+    };
+
     const gamesRewrite = {
       source: "/games/:path*",
       destination: `${r2AssetDomain}/games/:path*`,
     };
 
     if (useR2Games) {
-      return [gbaRomProxyRewrite, sprunkiRewrite, sprunkiGameAssetsRewrite, gamesRewrite];
+      return [gbaRomProxyRewrite, sprunkiRewrite, sprunkiGameAssetsRewrite, brushJjaemuArtRewrite, gamesRewrite];
     }
 
     // Many game bundles are intentionally incomplete in `public/games` (to keep repo size down),
     // but the missing assets are available in R2. Use a fallback rewrite so local files win when
     // present, and only missing `/games/*` assets are proxied to R2.
     return {
-      beforeFiles: [gbaRomProxyRewrite, sprunkiRewrite],
+      beforeFiles: [gbaRomProxyRewrite, sprunkiRewrite, brushJjaemuArtRewrite],
       afterFiles: [],
       fallback: [sprunkiGameAssetsRewrite, gamesRewrite],
     };
@@ -57,6 +63,20 @@ const nextConfig: NextConfig = {
       {
         source: "/emulators/:path*/index.html",
         headers: [{ key: "X-Robots-Tag", value: "noindex, nofollow" }],
+      },
+      {
+        source: "/brush-jjaemu",
+        headers: [
+          { key: "Cross-Origin-Opener-Policy", value: "same-origin" },
+          { key: "Cross-Origin-Embedder-Policy", value: "require-corp" },
+        ],
+      },
+      {
+        source: "/games/brush-jjaemu/brushing-a-jjaemu/:path*",
+        headers: [
+          { key: "Cross-Origin-Embedder-Policy", value: "require-corp" },
+          { key: "Cross-Origin-Resource-Policy", value: "same-site" },
+        ],
       },
       {
         source: "/fire-red",

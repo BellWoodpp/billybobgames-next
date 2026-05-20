@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://brushjjaemu.github.io/sitemap.xml
