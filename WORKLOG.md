@@ -7,6 +7,46 @@ This file is the handoff record for this repo (`/home/lcl/nuxt-to-next/2.billybo
 - Offload **game media assets** (images/audio/video) to Cloudflare R2.
 - Keep game HTML/JS/CSS in repo; keep iframe pointing to site-local `/games/.../index.html` (recommended).
 
+## 2026-05-22 (manual AdSense placements + landing/play split test)
+### Changed
+- Added a reusable manual AdSense block for Next pages:
+  - `src/app/(site)/_components/AdSenseBlock.tsx`
+  - `src/app/(site)/styles/adsense.module.css`
+- Added `.env.example` entries for manual AdSense slot IDs and a preview mode flag:
+  - `NEXT_PUBLIC_ADSENSE_SLOT_HOME_*`
+  - `NEXT_PUBLIC_ADSENSE_SLOT_CATEGORY_*`
+  - `NEXT_PUBLIC_ADSENSE_SLOT_*_LANDING`
+  - `NEXT_PUBLIC_ADSENSE_PREVIEW`
+- Inserted manual responsive ad placements on:
+  - homepage (`src/app/(site)/page.tsx`)
+  - category landing pages (`src/app/(site)/_components/CategoryLandingPage.tsx`)
+  - BLOODMONEY landing (`src/app/(site)/bloodmoney/BloodmoneyContent.tsx`)
+- Added reusable landing/play page building blocks:
+  - `src/app/(site)/_components/GameLandingPage.tsx`
+  - `src/app/(site)/_components/GamePlayPage.tsx`
+  - `src/app/(site)/styles/game-landing.module.css`
+- Converted these games from single-page play views into `landing + /play` structure:
+  - `/fruit-ninja` + `/fruit-ninja/play`
+  - `/flappy-text` + `/flappy-text/play`
+  - `/pac-man` + `/pac-man/play`
+- Kept “Recently played” tracking on `/play` routes instead of landing pages so browsing a landing page does not count as a play session.
+- Fixed an existing lint blocker in `src/app/(site)/_components/HomeGameCard.tsx` related to preview state updates.
+- Verified:
+  - `npm run lint` passes (existing warnings remain)
+  - `npm run build` passes
+
+### TODO (next time)
+- Fill real `NEXT_PUBLIC_ADSENSE_SLOT_*` values in Vercel / local env and disable preview mode where appropriate.
+- Open the homepage, category pages, and new landing pages in browser and evaluate the visual ad placement before shipping.
+- Compare metrics after deployment:
+  - Active View viewability
+  - page RPM / impression RPM
+  - CTR
+  - landing → `/play` click-through rate
+- If the pattern looks good, convert more high-traffic game pages to `landing + /play`, especially `Sprunki` and `Spider Solitaire`.
+- Decide whether to keep `SimpleGamePage` for lower-priority games or gradually replace it with the new split-page pattern.
+- No commit/push was done in this save-progress step.
+
 ## 2026-05-15 (brand cleanup / header social links)
 ### Changed
 - Removed the generic social link block from the global header.

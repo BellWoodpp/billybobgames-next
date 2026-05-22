@@ -56,6 +56,11 @@
   line-height: 1.6;
 }
 
+.homeAd {
+  max-width: 980px;
+  margin-bottom: 2.5rem;
+}
+
 .featuredGameLink {
   display: grid;
   gap: 0.75rem;

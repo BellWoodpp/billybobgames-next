@@ -32,6 +32,10 @@
   grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
 }
 
+.adSection {
+  max-width: 980px;
+}
+
 .card {
   overflow: hidden;
   border: 1px solid #e5e7eb;

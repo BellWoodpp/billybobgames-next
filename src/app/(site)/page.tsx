@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { WsrvImage } from "@/components/WsrvImage";
 import PageShell from "./_components/PageShell";
+import AdSenseBlock from "./_components/AdSenseBlock";
 import HomeGamesSection, { type HomeGame } from "./_components/HomeGamesSection";
 import { gameCategories } from "./_data/game-catalog";
 import styles from "./styles/home.module.css";
@@ -252,6 +253,9 @@ const friendLinks = [
   },
 ];
 
+const homepageTopAdSlot = process.env.NEXT_PUBLIC_ADSENSE_SLOT_HOME_TOP;
+const homepageMidAdSlot = process.env.NEXT_PUBLIC_ADSENSE_SLOT_HOME_MID;
+
 function getSingleQueryValue(value: string | string[] | undefined) {
   return Array.isArray(value) ? value[0] : value;
 }
@@ -286,6 +290,13 @@ export default async function HomePage({ searchParams }: HomePageProps) {
 
         <HomeGamesSection games={otherGames} isNewView={isNewView} />
 
+        <AdSenseBlock
+          slot={homepageTopAdSlot}
+          placement="homepage_after_featured_games"
+          className={styles.homeAd}
+          minHeight={320}
+        />
+
         <section className={styles.categorySection} aria-labelledby="browse-by-category-heading">
           <h2 id="browse-by-category-heading">Browse by Category</h2>
           <nav className={styles.categoryLinks} aria-label="Homepage category links">
@@ -314,6 +325,13 @@ export default async function HomePage({ searchParams }: HomePageProps) {
             ))}
           </nav>
         </section>
+
+        <AdSenseBlock
+          slot={homepageMidAdSlot}
+          placement="homepage_before_brand_story"
+          className={styles.homeAd}
+          minHeight={320}
+        />
 
         <hr className={styles.sectionDivider} />
         <section className={styles.brandStory} aria-labelledby="brand-story-heading">

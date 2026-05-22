@@ -3,6 +3,7 @@ import Link from "next/link";
 import { WsrvImage } from "@/components/WsrvImage";
 import PageShell from "./PageShell";
 import TrackedGameLink from "./TrackedGameLink";
+import AdSenseBlock from "./AdSenseBlock";
 import { gameCategories, getCategory, getGamesByCategory, type GameCategorySlug } from "../_data/game-catalog";
 import styles from "../styles/category-page.module.css";
 
@@ -13,6 +14,13 @@ type CategoryLandingPageProps = {
 export default function CategoryLandingPage({ slug }: CategoryLandingPageProps) {
   const category = getCategory(slug);
   const games = getGamesByCategory(slug);
+  const adSlots: Partial<Record<GameCategorySlug, string | undefined>> = {
+    "arcade-games": process.env.NEXT_PUBLIC_ADSENSE_SLOT_CATEGORY_ARCADE,
+    "idle-games": process.env.NEXT_PUBLIC_ADSENSE_SLOT_CATEGORY_IDLE,
+    "music-games": process.env.NEXT_PUBLIC_ADSENSE_SLOT_CATEGORY_MUSIC,
+    "card-games": process.env.NEXT_PUBLIC_ADSENSE_SLOT_CATEGORY_CARD,
+    "puzzle-games": process.env.NEXT_PUBLIC_ADSENSE_SLOT_CATEGORY_PUZZLE,
+  };
 
   if (!category) return null;
 
@@ -49,6 +57,13 @@ export default function CategoryLandingPage({ slug }: CategoryLandingPageProps) 
             </TrackedGameLink>
           ))}
         </section>
+
+        <AdSenseBlock
+          slot={adSlots[slug]}
+          placement={`category_${slug}_mid_content`}
+          className={styles.adSection}
+          minHeight={320}
+        />
 
         <section className={styles.links} aria-labelledby="browse-more-categories">
           <h2 id="browse-more-categories">Browse more on Billy Bob Games</h2>

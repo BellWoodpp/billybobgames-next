@@ -7,6 +7,7 @@ import { WsrvImage } from "@/components/WsrvImage";
 import PageShell from "../_components/PageShell";
 import GameBreadcrumb from "../_components/GameBreadcrumb";
 import TrackedGameLink from "../_components/TrackedGameLink";
+import AdSenseBlock from "../_components/AdSenseBlock";
 import styles from "./bloodmoney.module.css";
 
 const galleryImages = [
@@ -116,8 +117,15 @@ export default function BloodmoneyContent() {
               />
             ))}
           </aside>
+        </section>
 
-          <details className={styles.detailsMore}>
+        <AdSenseBlock
+          slot={process.env.NEXT_PUBLIC_ADSENSE_SLOT_BLOODMONEY_LANDING}
+          placement="bloodmoney_landing_mid_content"
+          minHeight={320}
+        />
+
+        <details className={styles.detailsMore}>
             <summary className={styles.showMore}>
               <span className={styles.showMoreLabelClosed}>Show more</span>
               <span className={styles.showMoreLabelOpen}>Show less</span>
@@ -298,8 +306,7 @@ export default function BloodmoneyContent() {
                 <li>Replayable paths encourage experimentation and risk-taking.</li>
               </ul>
             </div>
-          </details>
-        </section>
+        </details>
       </main>
     </PageShell>
   );

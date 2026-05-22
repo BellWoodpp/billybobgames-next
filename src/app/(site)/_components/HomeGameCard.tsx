@@ -73,19 +73,44 @@ export default function HomeGameCard({
     const syncCanPreview = () => {
       setCanPreview(hoverMediaQuery.matches);
     };
+    const handlePreviewCapabilityLoss = () => {
+      if (previewDelayTimeoutRef.current !== null) {
+        window.clearTimeout(previewDelayTimeoutRef.current);
+        previewDelayTimeoutRef.current = null;
+      }
+      setIsPreviewActive(false);
+
+      const video = videoRef.current;
+      if (!video) return;
+
+      video.pause();
+      video.currentTime = 0;
+    };
 
     syncCanPreview();
 
     if (typeof hoverMediaQuery.addEventListener === "function") {
-      hoverMediaQuery.addEventListener("change", syncCanPreview);
+      const listener = (event: MediaQueryListEvent) => {
+        setCanPreview(event.matches);
+        if (!event.matches) {
+          handlePreviewCapabilityLoss();
+        }
+      };
+      hoverMediaQuery.addEventListener("change", listener);
       return () => {
-        hoverMediaQuery.removeEventListener("change", syncCanPreview);
+        hoverMediaQuery.removeEventListener("change", listener);
       };
     }
 
-    hoverMediaQuery.addListener(syncCanPreview);
+    const legacyListener = (event: MediaQueryListEvent) => {
+      setCanPreview(event.matches);
+      if (!event.matches) {
+        handlePreviewCapabilityLoss();
+      }
+    };
+    hoverMediaQuery.addListener(legacyListener);
     return () => {
-      hoverMediaQuery.removeListener(syncCanPreview);
+      hoverMediaQuery.removeListener(legacyListener);
     };
   }, []);
 
@@ -149,12 +174,6 @@ export default function HomeGameCard({
       position: trackingPosition,
     });
   }, [href, title, trackingPosition, trackingSource]);
-
-  useEffect(() => {
-    if (canPreview) return;
-
-    stopPreview();
-  }, [canPreview, stopPreview]);
 
   useEffect(() => clearPreviewDelay, [clearPreviewDelay]);
 
