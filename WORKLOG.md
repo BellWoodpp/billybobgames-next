@@ -1,11 +1,38 @@
 # BillyBobGames Migration Worklog
 
-This file is the handoff record for this repo (`/home/lcl/nuxt-to-next/2.billybobgames`).
+This file is the handoff record for this repo (`/home/lcl/billybobgames-next`).
 
 ## Current Goal
-- Deploy on Vercel (code on GitHub/Vercel).
+- Keep the current Vercel deployment running while preparing a tested migration to Cloudflare Workers.
 - Offload **game media assets** (images/audio/video) to Cloudflare R2.
 - Keep game HTML/JS/CSS in repo; keep iframe pointing to site-local `/games/.../index.html` (recommended).
+
+## 2026-09-21 (repo recovery / Vercel verification / Cloudflare handoff)
+### Changed
+- Recovered the project by cloning `https://github.com/BellWoodpp/billybobgames-next` into `/home/lcl/billybobgames-next`.
+- Made a small visible footer copy change (`Play free. Have fun.`), committed it as `4fbaeb2`, and pushed it to `main`.
+- Confirmed with the user that Vercel automatically redeployed from that push, proving this is the active production repository.
+- Ran ESLint after the footer change: 0 errors; 4 pre-existing warnings remain.
+- Reviewed the current Cloudflare deployment path. For this Next.js 16 app with route handlers, cookies, Neon, and `proxy.ts`, use Cloudflare Workers with vinext rather than a static Pages deployment.
+- Inspected `public/` for Cloudflare Workers static-asset compatibility:
+  - 464 files, approximately 179 MiB total.
+  - Two WASM files exceed Cloudflare's 25 MiB per-static-asset limit:
+    - `public/games/brush-jjaemu/itch-brush-jjaemu/index.wasm` (about 35.95 MiB)
+    - `public/games/brush-jjaemu/brushing-a-jjaemu/index.wasm` (about 35.95 MiB)
+- No Cloudflare/vinext project changes have been made yet.
+
+### Cloudflare plan for next time
+1. Upload the two oversized WASM files to R2 under matching `games/brush-jjaemu/.../index.wasm` object keys, verify access, then remove/exclude the local copies from the Worker static asset upload.
+2. Run `pnpx vinext check` and review every reported compatibility issue, especially `next.config.ts` rewrites/headers and `src/proxy.ts`.
+3. Run `pnpx vinext init`, choose Cloudflare Workers, then test `pnpm run dev:vinext` and `pnpm run build:vinext`.
+4. Deploy first to the generated `workers.dev` address and test homepage, game assets, Brush Jjaemu WASM loading, FireRed/GBA isolation headers, R2 fallbacks, and the Neon engagement API.
+5. In Cloudflare, add `DATABASE_URL` as a runtime Secret; add `R2_ASSET_DOMAIN` as a runtime/build variable as needed; copy active `NEXT_PUBLIC_ADSENSE_*` values from Vercel into build variables. Leave `GAMES_FROM_R2` unset unless all `/games` assets are confirmed in R2.
+6. Connect the GitHub repository to Workers Builds only after local build/preview succeeds, using `main` as the production branch.
+7. Keep Vercel live during validation. Test a temporary Cloudflare subdomain before moving `billybobgames.org` and `www` to the Worker.
+
+### Resume point
+- Start with the two oversized WASM/R2 assets. Do not switch production DNS yet.
+- The working tree was clean before this worklog-only save.
 
 ## 2026-05-22 (manual AdSense placements + landing/play split test)
 ### Changed
