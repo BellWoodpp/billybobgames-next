@@ -12,7 +12,7 @@ export default function AppFooter() {
           <Link href="/arcade-games">Arcade Games</Link>
           <Link href="/idle-games">Idle Games</Link>
         </nav>
-        <div>© {year} Billy Bob Games. All rights reserved.</div>
+        <div>© {year} Billy Bob Games. All rights reserved. Play free. Have fun.</div>
       </div>
     </footer>
   );
