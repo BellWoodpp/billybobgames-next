@@ -23,6 +23,7 @@ const MEDIA_EXTENSIONS = new Set([
   ".opus",
   ".mp4",
   ".webm",
+  ".wasm",
 ]);
 
 function getExtension(pathname: string) {

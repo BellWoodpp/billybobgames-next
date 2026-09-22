@@ -1,0 +1,17 @@
+/games/*/index.html
+  X-Robots-Tag: noindex, nofollow
+
+/emulators/*/index.html
+  X-Robots-Tag: noindex, nofollow
+
+/games/brush-jjaemu/brushing-a-jjaemu/*
+  Cross-Origin-Embedder-Policy: require-corp
+  Cross-Origin-Resource-Policy: same-site
+
+/games/brush-jjaemu/itch-brush-jjaemu/*
+  Cross-Origin-Embedder-Policy: require-corp
+  Cross-Origin-Resource-Policy: same-site
+
+/emulators/gba/*
+  Cross-Origin-Embedder-Policy: require-corp
+  Cross-Origin-Resource-Policy: same-site

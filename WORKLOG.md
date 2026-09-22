@@ -3,9 +3,93 @@
 This file is the handoff record for this repo (`/home/lcl/billybobgames-next`).
 
 ## Current Goal
-- Keep the current Vercel deployment running while preparing a tested migration to Cloudflare Workers.
+- Keep the completed Cloudflare Workers production migration stable and monitor it before retiring the old Vercel project.
 - Offload **game media assets** (images/audio/video) to Cloudflare R2.
 - Keep game HTML/JS/CSS in repo; keep iframe pointing to site-local `/games/.../index.html` (recommended).
+
+## 2026-09-22 (Cloudflare production DNS cutover complete)
+### Completed
+- The user removed only the old Vercel DNS records, in two controlled stages:
+  - `A @ -> 216.198.79.1`
+  - `CNAME www -> e4c34f0bb99e2252.vercel-dns-017.com`
+- Added both production Custom Domains to `wrangler.jsonc` while keeping the `workers.dev` preview enabled:
+  - `billybobgames.org`
+  - `www.billybobgames.org`
+- Rebuilt and deployed the vinext Worker after each DNS stage with `.env.local` temporarily isolated. The local credentials were restored afterward and no generated `.dev.vars` remained.
+- Confirmed Cloudflare authoritative DNS and major public resolvers return Cloudflare edge addresses for the apex and `www` domains.
+- Verified the apex domain is served by Cloudflare and returns HTTP 200 for the homepage and production assets.
+- Re-verified the critical migration paths on the production domain:
+  - Brush Jjaemu page and raw Godot HTML return 200 with the required isolation and noindex headers.
+  - The R2-backed Godot WASM returns `application/wasm`, supports byte ranges, reports 37,695,054 bytes, and starts with the valid `0061736d` WASM signature.
+  - FireRed, the GBA emulator HTML, and the R2-backed ROM return 200 with the expected MIME and cross-origin headers.
+  - The engagement API returns the expected HTTP 503 while `DATABASE_URL` is intentionally absent.
+- Verified `www.billybobgames.org` returns a permanent HTTP 301 redirect to `https://billybobgames.org`, preserving both paths and query strings; following the redirect reaches the apex page with HTTP 200.
+- Confirmed `https://billybobgames-next.stormrobin50.workers.dev` remains online as a preview/fallback endpoint.
+
+### Current live state
+- `https://billybobgames.org` is now served by Cloudflare Workers.
+- `https://www.billybobgames.org` is served by the same Worker and permanently redirects to the apex domain.
+- The Vercel project still exists but its former production DNS records have been removed. Keep it temporarily as a rollback reference until the Cloudflare deployment has remained stable.
+- Local Cloudflare and R2 credentials remain ignored and must never be committed or copied into documentation.
+
+### TODO (next time)
+1. Check production uptime, key game loading, and Cloudflare Worker logs/analytics after the DNS cutover has had time to settle.
+2. Keep the Vercel project for a short stability window; decide later when it is safe to remove it.
+3. Decide whether to connect GitHub `main` to Cloudflare Workers Builds for automatic deployments.
+4. Optionally configure `DATABASE_URL` as a Worker secret and run `scripts/sql/neon-game-engagement.sql` to enable engagement persistence.
+5. Keep `.env.local` isolated during `vinext-cloudflare deploy` so R2 credentials cannot be copied into generated local Worker files.
+
+## 2026-09-22 (R2 WASM offload / vinext Worker deployment / pre-DNS cutover)
+### Completed
+- Identified the two oversized Godot WebAssembly engine files as identical Godot 4.6.2 WASM binaries (37,695,054 bytes each), exceeding the 25 MiB Workers Static Assets per-file limit.
+- Uploaded both files to the `billybobgames` R2 bucket under their original site-relative keys and verified HTTP 200, `application/wasm`, size, ETag/hash, and WASM magic bytes:
+  - `games/brush-jjaemu/itch-brush-jjaemu/index.wasm`
+  - `games/brush-jjaemu/brushing-a-jjaemu/index.wasm`
+- Added an exact Next rewrite for those WASM paths, added `.wasm` to the game-media proxy list, ignored those local paths, and staged removal of the two tracked copies from the Worker static asset bundle.
+- Initialized Cloudflare Workers with vinext using the agreed minimal configuration: no CDN cache integration, no data cache integration, and passthrough image handling.
+- Added `vite.config.ts`, `wrangler.jsonc`, `pnpm-workspace.yaml`, `public/_headers`, vinext/Cloudflare scripts and dependencies, and Worker asset/header configuration.
+- Renamed repository Node utility scripts from `.js` to `.cjs` after enabling package `type: module`; updated package scripts, internal imports, README references, and worklog references.
+- `pnpx vinext check` now reports 94%, 0 blocking issues, and only the expected partial notes for Google Fonts and passthrough images.
+- Verified sequential builds:
+  - `pnpm run build` succeeds.
+  - `pnpm run build:vinext` succeeds.
+  - Do not run the Next and vinext builds concurrently because they can overwrite shared `.next/types` output.
+  - ESLint finishes with 0 errors and 4 existing warnings.
+- Authenticated Wrangler with the local Cloudflare API token and linked Vercel CLI to `bellwoodpps-projects/billybobgames-next-svjb`.
+- Confirmed the Vercel project has no user-defined production environment variables. In particular, it has no `DATABASE_URL`; the two engagement APIs already degrade to HTTP 503 when the database is absent.
+- Changed `DATABASE_URL` from a required deployment secret to an optional runtime secret. Add it later to enable engagement/like persistence.
+- Successfully deployed and restored the Cloudflare preview Worker:
+  - `https://billybobgames-next.stormrobin50.workers.dev`
+- Online verification passed for the homepage, Brush Jjaemu page, raw Godot HTML, R2-backed WASM, GBA iframe assets, MIME types, WASM signature, noindex headers, and cross-origin isolation headers.
+- Headless Chrome rendered the homepage and Brush Jjaemu game successfully. The two broken header/logo images on the isolated Brush page also occur on the current Vercel site, so they are pre-existing and not a migration regression.
+- Added a host-based permanent redirect in `next.config.ts` for `www.billybobgames.org` to the apex domain; it will take effect after both Custom Domains are connected.
+- Attempted the Custom Domain cutover. Cloudflare correctly refused to replace the externally managed Vercel root A record (`100117`). The root domain and `www` remained on Vercel. `workers.dev` was then explicitly re-enabled and redeployed successfully.
+
+### Current live state
+- `https://billybobgames.org` is still served by Vercel and returns 200.
+- `https://www.billybobgames.org` is still served by Vercel and redirects to the apex domain.
+- The Cloudflare preview Worker is online and returns 200.
+- `wrangler.jsonc` currently has `workers_dev: true` and intentionally has no Custom Domain routes, so another deployment cannot accidentally cut over production.
+- The user has **not** deleted or changed any production DNS records yet.
+
+### Local-only credentials
+- `.env.local` contains the R2 upload credentials.
+- `.env.cloudflare.local` contains the Cloudflare deployment token/account selection.
+- Both are ignored and must never be committed or copied into documentation.
+- `vinext-cloudflare deploy` rebuilds the app and automatically reads `.env.local`; temporarily move `.env.local` out of the project during production builds/deploys so R2 credentials are not copied into generated `.dev.vars`. The latest deployed build was produced this way, and no `.dev.vars` remained.
+
+### Exact resume steps
+1. Keep Vercel running. Ask the user to delete only the Cloudflare DNS record `A @ -> 216.198.79.1`; do not touch `www`, `r2bucket`, or mail records yet.
+2. Add only `billybobgames.org` as a `custom_domain` route in `wrangler.jsonc`, deploy with `.env.local` temporarily isolated, and immediately verify homepage, assets, Brush WASM, GBA, headers, and API behavior on the apex domain.
+3. After the apex is confirmed healthy, ask the user to delete only `CNAME www -> e4c34f0bb99e2252.vercel-dns-017.com`.
+4. Add `www.billybobgames.org` as the second Custom Domain, deploy, and verify it returns a permanent redirect to `https://billybobgames.org` while preserving paths and query strings.
+5. Keep the `workers.dev` preview enabled until post-cutover checks are complete. Do not remove the Vercel project until the Cloudflare production domain has been stable and tested.
+6. Later, optionally configure `DATABASE_URL` as a Worker secret and run the existing Neon engagement schema; this is not required for the current Vercel-equivalent migration.
+7. After local deployment is stable, decide whether to connect GitHub to Cloudflare Workers Builds for automatic deployments from `main`.
+
+### Save status
+- Progress was saved to this worklog at the user's request.
+- No commit or push was performed in this save-progress step.
 
 ## 2026-09-21 (repo recovery / Vercel verification / Cloudflare handoff)
 ### Changed
@@ -99,11 +183,11 @@ This file is the handoff record for this repo (`/home/lcl/billybobgames-next`).
 ## Key Files / Scripts
 - Proxy rewrite for `/games/*` media: `src/proxy.ts`
 - Next rewrites (Sprunki + games fallback): `next.config.ts`
-- Upload media from `public/games/*` to R2: `scripts/upload-r2.js`
+- Upload media from `public/games/*` to R2: `scripts/upload-r2.cjs`
   - `npm run upload:r2:games`
-- Prune local game media after upload (keeps repo small): `scripts/prune-games-media.js`
+- Prune local game media after upload (keeps repo small): `scripts/prune-games-media.cjs`
   - `npm run prune:games:media`
-- Upload Sprunki hashed assets to R2 from `project.json`: `scripts/upload-r2-sprunki-assets.js`
+- Upload Sprunki hashed assets to R2 from `project.json`: `scripts/upload-r2-sprunki-assets.cjs`
   - `npm run upload:r2:sprunki`
 
 ## Fixes Done
@@ -338,14 +422,14 @@ This file is the handoff record for this repo (`/home/lcl/billybobgames-next`).
 ### Important notes
 - A local Pokémon FireRed ROM and related image were placed under `public/games/gba-red/`, but these remain **untracked local files** and were intentionally **not** wired into the final public-safe page state.
 - The final public-safe `/gba` page is back to **user-supplied local ROM loading only**; it does **not** auto-ship or auto-load copyrighted ROM content.
-- Existing `scripts/upload-r2.js` only uploads image/audio/video media. It does **not** support `.gba` ROM uploads right now.
+- Existing `scripts/upload-r2.cjs` uploads image/audio/video/WASM assets. It does **not** support `.gba` ROM uploads right now.
 - In this Codex environment, `.git` is mounted read-only, so `git add`/`git commit`/`git push` cannot complete here even though the repo workflow says to do so on “收工”.
 
 ### TODO (next time)
 - If desired, decide on the legal/product direction for `/gba`:
   - keep it as a local-ROM-only emulator page, or
   - add a bundled/demo ROM only if it is legally redistributable.
-- If R2 should ever host legal ROM-like binaries, extend `scripts/upload-r2.js` to support `.gba` (or a separate upload flow) instead of using the current media-only filter.
+- If R2 should ever host legal ROM-like binaries, extend `scripts/upload-r2.cjs` to support `.gba` (or a separate upload flow) instead of using the current asset filter.
 - If publishing from a normal writable git environment, commit only the safe GBA page files and exclude `public/games/gba-red/` unless the assets are confirmed redistributable.
 - Revisit the audio issue later if needed; current evidence suggests browser/graphics-stack factors on the test machine, not a bad ROM.
 

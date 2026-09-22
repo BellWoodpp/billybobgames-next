@@ -36,12 +36,23 @@ The easiest way to deploy your Next.js app is to use the [Vercel Platform](https
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
 # billybobgames-next
 
-## R2 Game Media Offload (images/audio)
+## Cloudflare Workers (vinext)
+
+The Cloudflare migration runs alongside the existing Next.js/Vercel setup.
+
+- Develop: `pnpm run dev:vinext`
+- Build: `pnpm run build:vinext`
+- Preview the built Worker: `pnpm run start:vinext`
+- Deploy: `pnpm run deploy:vinext`
+
+The Worker is named `billybobgames-next`. `DATABASE_URL` is optional at deployment time; configure it as a Cloudflare Worker secret to enable the engagement APIs. Keep R2 upload credentials local; they are not Worker runtime secrets.
+
+## R2 Game Media Offload (images/audio/video/WASM)
 
 This repo keeps game HTML/JS/CSS under `public/games`, but serves **media files** (images/audio/video) from Cloudflare R2.
 
 - Runtime: `src/proxy.ts` rewrites requests under `/games/**` for common media extensions to `R2_ASSET_DOMAIN` (default: `https://r2bucket.billybobgames.org`).
-- Upload: `scripts/upload-r2.js` uploads only image/audio files from `public/` to the `billybobgames` R2 bucket.
+- Upload: `scripts/upload-r2.cjs` uploads supported media and WASM files from `public/` to the `billybobgames` R2 bucket.
 
 ### Upload game media to R2
 

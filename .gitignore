@@ -63,6 +63,7 @@ yarn-error.log*
 /public/games/**/*.mp4
 /public/games/**/*.webm
 /public/games/**/*.mkv
+/public/games/brush-jjaemu/*/index.wasm
 
 # local-only Sprunki asset workspace
 Incredibox - Sprunki/
@@ -82,3 +83,6 @@ next-env.d.ts
 !/public/games/incredibox-sprunki/sprunki-preview.webm
 !/public/games/spider-solitaire/spider-solitaire-preview.webm
 !/public/games/flappy-text/flappy-text-preview.webm
+/dist/
+.vinext/
+.wrangler/

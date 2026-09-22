@@ -7,6 +7,16 @@ const nextConfig: NextConfig = {
     // 该站点图片优化改走 `images.weserv.nl` + `@unpic/react`（wsrv provider），因此关闭 Next/Vercel 图片优化可直接止血。
     unoptimized: true,
   },
+  async redirects() {
+    return [
+      {
+        source: "/:path*",
+        has: [{ type: "host", value: "www.billybobgames.org" }],
+        destination: "https://billybobgames.org/:path*",
+        permanent: true,
+      },
+    ];
+  },
   async rewrites() {
     const useR2Games = process.env.GAMES_FROM_R2 === "1";
     const r2AssetDomain = process.env.R2_ASSET_DOMAIN || "https://r2bucket.billybobgames.org";
@@ -34,20 +44,39 @@ const nextConfig: NextConfig = {
       destination: `${brushJjaemuArtDomain}/brush-jjaemu/art/:path*`,
     };
 
+    // Godot's Web export is larger than the 25 MiB Workers Static Assets
+    // per-file limit, so always serve these WASM binaries from R2.
+    const brushJjaemuWasmRewrite = {
+      source: "/games/brush-jjaemu/:export/index.wasm",
+      destination: `${r2AssetDomain}/games/brush-jjaemu/:export/index.wasm`,
+    };
+
     const gamesRewrite = {
       source: "/games/:path*",
       destination: `${r2AssetDomain}/games/:path*`,
     };
 
     if (useR2Games) {
-      return [gbaRomProxyRewrite, sprunkiRewrite, sprunkiGameAssetsRewrite, brushJjaemuArtRewrite, gamesRewrite];
+      return [
+        gbaRomProxyRewrite,
+        sprunkiRewrite,
+        sprunkiGameAssetsRewrite,
+        brushJjaemuArtRewrite,
+        brushJjaemuWasmRewrite,
+        gamesRewrite,
+      ];
     }
 
     // Many game bundles are intentionally incomplete in `public/games` (to keep repo size down),
     // but the missing assets are available in R2. Use a fallback rewrite so local files win when
     // present, and only missing `/games/*` assets are proxied to R2.
     return {
-      beforeFiles: [gbaRomProxyRewrite, sprunkiRewrite, brushJjaemuArtRewrite],
+      beforeFiles: [
+        gbaRomProxyRewrite,
+        sprunkiRewrite,
+        brushJjaemuArtRewrite,
+        brushJjaemuWasmRewrite,
+      ],
       afterFiles: [],
       fallback: [sprunkiGameAssetsRewrite, gamesRewrite],
     };
