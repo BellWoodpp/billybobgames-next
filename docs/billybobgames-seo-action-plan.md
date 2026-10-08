@@ -239,7 +239,7 @@ H1：Billy Bob Games – Play Free Browser Games Online
 
 优先级：中。
 
-- [ ] GitHub 仓库 Description 和 Website 设置为 `https://billybobgames.org/`。
+- [x] GitHub 仓库 Description 使用准确的独立维护说明，Website 设置为 `https://billybobgames.org/`。
 - [x] README 中清楚链接到正式网站。
 - [ ] 如果拥有旧 GitHub Pages、GitLab 或旧域名，添加到 `.org` 的明确链接或 301 跳转。
 - [x] 网站各处统一使用 `Billy Bob Games` 名称和同一套 Logo。
@@ -249,7 +249,7 @@ H1：Billy Bob Games – Play Free Browser Games Online
 
 完成标准：GitHub、网站、邮箱、社交资料和结构化数据共同指向同一个品牌实体。
 
-完成记录：日期 ________　提交号 ________
+完成记录：网站、README、Logo、邮箱及 GitHub 仓库资料于 2026-10-08 完成统一。主功能提交：`66e78ff`
 
 ---
 
