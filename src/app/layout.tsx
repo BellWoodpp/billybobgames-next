@@ -4,6 +4,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import AppFooter from "./(site)/_components/AppFooter";
 import AppHeader from "./(site)/_components/AppHeader";
 import AppSidebar from "./(site)/_components/AppSidebar";
+import { siteIdentity } from "@/lib/site";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -16,7 +17,7 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
-const metadataBase = new URL("https://billybobgames.org");
+const metadataBase = new URL(siteIdentity.url);
 
 export const metadata: Metadata = {
   metadataBase,
@@ -25,7 +26,7 @@ export const metadata: Metadata = {
     template: "%s | Billy Bob Games",
   },
   description:
-    "Play free unblocked browser games at Billy Bob Games—no downloads, no paywalls. Enjoy retro favorites, indie gems, and new arcade challenges updated weekly.",
+    "Play free browser games at Billy Bob Games, an independently maintained collection of arcade, idle, music, card, puzzle, and retro titles.",
   keywords: [
     "Billy Bob Games",
     "unblocked browser games",
@@ -37,12 +38,12 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Billy Bob Games | Free Unblocked Browser Games",
     description:
-      "Play free unblocked browser games at Billy Bob Games—no downloads, no paywalls. Enjoy retro favorites, indie gems, and new arcade challenges updated weekly.",
+      "Play free browser games at Billy Bob Games, an independently maintained collection of arcade, idle, music, card, puzzle, and retro titles.",
     url: metadataBase,
     type: "website",
     images: [
       {
-        url: "/logo_amazon-game-development.svg",
+        url: siteIdentity.logoUrl,
         width: 512,
         height: 512,
         alt: "Billy Bob Games",
@@ -54,8 +55,8 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Billy Bob Games | Free Unblocked Browser Games",
     description:
-      "Play free unblocked browser games at Billy Bob Games—no downloads, no paywalls. Enjoy retro favorites, indie gems, and new arcade challenges updated weekly.",
-    images: ["/logo_amazon-game-development.svg"],
+      "Play free browser games at Billy Bob Games, an independently maintained collection of arcade, idle, music, card, puzzle, and retro titles.",
+    images: [siteIdentity.logoUrl],
   },
   icons: {
     icon: [
@@ -85,6 +86,7 @@ export default function RootLayout({
           <main className="page app-content">{children}</main>
         </div>
         <AppFooter />
+        <Script id="mywebastra-tracker" defer data-site="955d8a0f-163f-47dd-bbc4-7d84da45a159" src="https://mywebastra.com/tracker.js" strategy="beforeInteractive" />
 
         <Script
           src="https://www.googletagmanager.com/gtag/js?id=G-DJ7PED4TRM"

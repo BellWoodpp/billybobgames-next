@@ -1,4 +1,5 @@
 import { WsrvImage } from "@/components/WsrvImage";
+import { siteIdentity } from "@/lib/site";
 import Link from "next/link";
 import { Mail, Menu } from "lucide-react";
 
@@ -18,7 +19,7 @@ export default function AppHeader() {
           <Link className="brand" href="/" aria-label="Billy Bob Games home">
             <WsrvImage
               className="logo"
-              src="https://r2bucket.billybobgames.org/logo/amazon-game-development.ico"
+              src={siteIdentity.logoUrl}
               alt="Billy Bob Games logo"
               width={48}
               height={48}
@@ -32,8 +33,8 @@ export default function AppHeader() {
         <div className="header-actions">
           <a
             className="header-contact"
-            href="mailto:stormrobin50@gmail.com"
-            aria-label="Email Billy Bob Games at stormrobin50@gmail.com"
+            href={`mailto:${siteIdentity.contactEmail}`}
+            aria-label={`Email ${siteIdentity.name} at ${siteIdentity.contactEmail}`}
             data-tooltip="Email me"
           >
             <Mail className="header-contact-icon" aria-hidden="true" />

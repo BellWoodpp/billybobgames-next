@@ -1,7 +1,5 @@
-/* eslint-disable react/no-unescaped-entities */
 import type { Metadata } from "next";
 import Link from "next/link";
-import { WsrvImage } from "@/components/WsrvImage";
 import PageShell from "./_components/PageShell";
 import AdSenseBlock from "./_components/AdSenseBlock";
 import HomeGamesSection, { type HomeGame } from "./_components/HomeGamesSection";
@@ -13,7 +11,7 @@ export const metadata: Metadata = {
     absolute: "Billy Bob Games | Free Unblocked Browser Games",
   },
   description:
-    "Play free unblocked browser games at Billy Bob Games—no downloads, no paywalls. Enjoy retro favorites, indie gems, and new arcade challenges updated weekly.",
+    "Play free browser games at Billy Bob Games, an independently maintained collection of arcade, idle, music, card, puzzle, and retro titles.",
   keywords: [
     "Billy Bob Games",
     "unblocked browser games",
@@ -25,7 +23,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Billy Bob Games | Free Unblocked Browser Games",
     description:
-      "Play free unblocked browser games at Billy Bob Games—no downloads, no paywalls. Enjoy retro favorites, indie gems, and new arcade challenges updated weekly.",
+      "Play free browser games at Billy Bob Games, an independently maintained collection of arcade, idle, music, card, puzzle, and retro titles.",
     url: "https://billybobgames.org/",
     type: "website",
     images: [
@@ -42,7 +40,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Billy Bob Games | Free Unblocked Browser Games",
     description:
-      "Play free unblocked browser games at Billy Bob Games—no downloads, no paywalls. Enjoy retro favorites, indie gems, and new arcade challenges updated weekly.",
+      "Play free browser games at Billy Bob Games, an independently maintained collection of arcade, idle, music, card, puzzle, and retro titles.",
     images: ["https://r2bucket.billybobgames.org/logo/amazon-game-development.svg"],
   },
   alternates: {
@@ -226,33 +224,6 @@ const otherGames: HomeGame[] = [
   },
 ];
 
-const friendLinks = [
-  {
-    href: "https://itch.io/",
-    label: "itch.io",
-    img: "https://r2bucket.billybobgames.org/image/itch-io-logo.svg",
-    rel: "nofollow noopener noreferrer",
-  },
-  {
-    href: "https://store.steampowered.com/",
-    label: "Steam",
-    img: "https://r2bucket.billybobgames.org/image/steam-icon-logo.svg",
-    rel: "nofollow noopener noreferrer",
-  },
-  {
-    href: "https://www.xbox.com/",
-    label: "Xbox",
-    img: "https://r2bucket.billybobgames.org/image/xbox-9.svg",
-    rel: "nofollow noopener noreferrer",
-  },
-  {
-    href: "https://silksong.uk/",
-    label: "silksong",
-    img: "https://r2boot.silksong.uk/silksong/silksong3.ico",
-    rel: "noopener noreferrer",
-  },
-];
-
 const homepageTopAdSlot = process.env.NEXT_PUBLIC_ADSENSE_SLOT_HOME_TOP;
 const homepageMidAdSlot = process.env.NEXT_PUBLIC_ADSENSE_SLOT_HOME_MID;
 
@@ -308,24 +279,6 @@ export default async function HomePage({ searchParams }: HomePageProps) {
           </nav>
         </section>
 
-        <section className={styles.friendLinksSection} aria-label="Friend Links">
-          <h2>Friend Links</h2>
-          <nav className={styles.friendLinks}>
-            {friendLinks.map((link) => (
-              <a
-                key={link.href}
-                className={styles.friendLink}
-                href={link.href}
-                target="_blank"
-                rel={link.rel}
-              >
-                <WsrvImage src={link.img} alt={link.label} width={42} height={42} sizes="42px" layout="fixed" />
-                <span>{link.label}</span>
-              </a>
-            ))}
-          </nav>
-        </section>
-
         <AdSenseBlock
           slot={homepageMidAdSlot}
           placement="homepage_before_brand_story"
@@ -335,148 +288,80 @@ export default async function HomePage({ searchParams }: HomePageProps) {
 
         <hr className={styles.sectionDivider} />
         <section className={styles.brandStory} aria-labelledby="brand-story-heading">
-          <h2 id="brand-story-heading">
-            Billy Bob Games: The Ultimate Gaming Ark, a Light in the Digital Maze
-          </h2>
+          <h2 id="brand-story-heading">About Billy Bob Games</h2>
           <p>
-            In this age of information overload, finding a game that truly resonates has become an exhausting modern
-            adventure.
+            Billy Bob Games is an independently maintained collection of free games that run in a modern web browser. The
+            library currently includes arcade, idle, music, card, puzzle, HTML5, and selected retro or emulated titles. You
+            do not need to create an account to browse or start a game.
           </p>
           <p>
-            It's a common frustration today. We jump between many browser tabs, trying to find a working Flash game.
+            This is a one-person project. I choose and organize the games, maintain the site pages, and work on loading or
+            compatibility problems when they are reported. Updates are made when time allows rather than on a fixed weekly
+            schedule. You can read more on the <Link href="/about">About page</Link>.
           </p>
-          <p>
-            We also try to understand a download page filled with fake buttons. Each button seems ready to unleash a
-            digital mess. We lose precious time to this cycle of sifting, waiting, and dodging malware.
-          </p>
-          <p>
-            As time passes, the excitement of playing a game gradually fades into disappointment.
-          </p>
-          <p>What if there was a place that could end all this chaos?</p>
-          <p>Welcome to Billy Bob Games! We are more than just a gaming website.</p>
-          <p>
-            We are a philosophy and a commitment. Our site is a digital ark built for all gamers. We understand your
-            worries and value your time. We aim to change the boring task of "finding games" into the fun of
-            "discovering joy."
-          </p>
-          <p>
-            Our dual-track game system powers Billy Bob Games. This is not just a simple category. It reflects a deep
-            understanding of our users' different life situations and psychological needs.
-          </p>
-          <p>
-            <strong>1. Lightweight Playground: Cloud-Based Ready-to-Play Game Library—Your Zero-Load Source of Fun</strong>
-          </p>
-          <p>
-            Imagine these situations: a ten-minute break at work, waiting for dinner to cook, or a moment before bed to
-            relax. In these times, you don't need a long adventure that lasts for hours. Instead, you want quick fun that
-            you can enjoy right away.
-          </p>
-          <p>We designed our "Cloud-Based Ready-to-Play" game library for this purpose.</p>
-          <p>
-            <strong>Ultimate Convenience, Breaking the Boundaries of Time and Space:</strong> Our core technology is "No
-            Installation Required, One-Stop Access." No matter what device you use, a modern browser can help you access
-            everything. This includes powerful gaming PCs, regular office laptops, and tablets at home. This compatibility
-            across devices lets you play games without limits. You can have fun anytime and anywhere.
-          </p>
-          <p>
-            <strong>Simplified Version:</strong> Our editorial team looks for the latest gaming trends online every day,
-            just like digital fashion buyers do. We look for addictive mini-games that go viral on social media, clever
-            puzzles that test your logic and observation skills, and innovative HTML5 games that show off developers'
-            creativity. We aim to capture, test, and present these trends to you as soon as they arrive. At Billy Bob Games,
-            you'll always be at the forefront of the latest trends.
-          </p>
-          <p>
-            <strong>Safe and Secure Sandbox Environment:</strong> All web games run in a secure sandbox environment. This
-            means they won't access your computer's private files. They won't leave behind hard-to-clean registry clutter.
-            They also won't become a place for malware to grow. You'll enjoy pure, risk-free entertainment, like playing in
-            a carefully managed playground.
-          </p>
-          <p>
-            <strong>2. Deep Experience Hall: The Windows Game Library—Guarding an immersive gaming sanctuary for you</strong>
-          </p>
-          <p>
-            However, the appeal of gaming goes far beyond a brief moment of leisure. There are times when you want to dive
-            into a big and detailed world. You may wish to be the main character in a great story, or you can immerse
-            yourself in our complex gaming system. This need for deep immersion requires client-based games with richer
-            content and more extensive architecture.
-          </p>
-          <p>
-            Our "Windows Premium Games Library" is such a sanctuary, safeguarding your immersive experience.
-          </p>
-          <p>
-            <strong>A Strong Security Promise:</strong> At Billy Bob Games, "safe downloading" is not just a slogan; it is a
-            core principle for us. We understand your hesitation about downloading and installing. We have set up a strict
-            game introduction process. Every Windows game we release must pass scans with top antivirus software. It also
-            needs manual installation testing by our specialists. This ensures it is completely free of viruses, Trojans,
-            and any bundled malware. Your trust is our most precious asset.
-          </p>
-          <p>
-            <strong>Quality Filter:</strong> We don't pursue a massive inventory of ineffective content; we strive to be
-            synonymous with "quality." Two types of light come together here. The first is classic games that have lasted
-            through time, shining with memories and nostalgia from many generations. The second type is independent games full
-            of creativity and passion. The mainstream often misses these games. We find and showcase these hidden gems. We
-            make sure each game has its own unique value and playability.
-          </p>
-          <p>
-            <strong>An All-in-One, Smooth Experience:</strong> We offer a fast and stable download channel. We also provide
-            clear installation guides, system requirements, and troubleshooting help. From clicking "Download" to the game
-            icon appearing on your desktop, the entire process is seamless. We remove any technical hurdles, allowing you to
-            fully focus on the adventure ahead.
-          </p>
-          <p>
-            Billy Bob Games has built its unique platform value on a simple collection of games, which forms the core of our
-            deep user engagement.
-          </p>
-          <p>
-            <strong>A Humanistic Design Philosophy:</strong> We firmly believe that the best design is invisible. The
-            website's navigation is intuitive, and the categorization system is as clear as a detailed treasure map. Whether
-            you are a skilled player or just starting, Billy Bob Games is the perfect place to begin your adventure. You can
-            jump right in without any learning curve.
-          </p>
-          <p>
-            <strong>Professional Curation:</strong> In an age of information overload, curation is far more valuable than
-            aggregation. Billy Bob Games acts as a professional curator. We not only collect, but rigorously screen and
-            recommend. This means our team checks every game you see. We make sure it is fun, safe, and fair. This saves you
-            your most precious resources—time and attention.
-          </p>
-          <p>
-            <strong>Guardian of Time and Emotion:</strong> Billy Bob Games is essentially your loyal digital steward. We
-            safeguard not only your device but also your precious time and your joyful playtime. We remove the noise and
-            risks of the online world. We provide the best and most authentic gaming experience. Choosing us means a more
-            efficient, safe, and fun digital life.
-          </p>
-          <p>Let's take a stroll together and experience the complete journey of being a Billy Bob Games user.</p>
-          <p>
-            <strong>First Encounter: Explore and Discover.</strong> When you first visit our easy-to-use homepage, you can
-            explore in many ways. You can browse the "Editor's Picks" section for our weekly selections. You can use the
-            "Filter by Genre" feature to find your favorite games—strategy, role-playing, or casual puzzle. Or, you can use
-            the search function to find that specific game you want.
-          </p>
-          <p>
-            <strong>Interaction: Start Your Journey with One Click.</strong> Once you've found your destination, everything
-            becomes simple and straightforward. For browser games, a prominent "Play Now" button takes you straight to the
-            heart of the action. For Windows games, a clear "Safe Download" button shows the file size, version info, and
-            user reviews. This helps you understand what to expect before downloading. Click it, and the fast and stable
-            download begins instantly.
-          </p>
-          <p>
-            <strong>Belonging: Join and Share.</strong> Billy Bob Games is more than just a tool; it's a community. We
-            encourage you to rate your favorite games, share your experiences, and connect with like-minded people. Our
-            library isn't static; it's a dynamic stream, with new and exciting content added every week. Bookmark us and
-            check back regularly—we always unveil something unexpected.
-          </p>
-          <p>
-            In the vast universe of digital games, Billy Bob Games stands as the brightest beacon, dispelling the fog and
-            guiding the way. We eliminate the fatigue of searching for games. We want you to enjoy experiencing them again.
-          </p>
-          <p>
-            Whether you are a casual gamer or a hardcore gamer, there is a place for you here. Casual gamers can take a
-            break. Hardcore gamers can find an epic adventure. Billy Bob Games is your trusted starting point and a haven you
-            can always return to.
-          </p>
-          <p>
-            Now, click your mouse and open the door to a new world. Your next unforgettable digital adventure awaits.
-          </p>
+
+          <div className={styles.infoGrid}>
+            <section className={styles.infoCard} aria-labelledby="recent-site-work-heading">
+              <h3 id="recent-site-work-heading">Recently added or maintained</h3>
+              <ul>
+                <li><Link href="/brush-jjaemu">Brush Jjaemu</Link> was added with browser-ready game files.</li>
+                <li><Link href="/fire-red">Pokémon FireRed</Link> received a dedicated browser play page.</li>
+                <li><Link href="/evolve">Evolve Idle</Link> received updated frame controls and preview support.</li>
+                <li><Link href="/bloodmoney">BLOODMONEY</Link> received loading fixes and a separate play page.</li>
+              </ul>
+            </section>
+
+            <section className={styles.infoCard} aria-labelledby="start-playing-heading">
+              <h3 id="start-playing-heading">How to start playing</h3>
+              <ol>
+                <li>Choose a game card or browse one of the categories above.</li>
+                <li>Some games open immediately; others have a landing page with a clear Play button.</li>
+                <li>Allow a moment for larger games to download their browser assets before play begins.</li>
+              </ol>
+            </section>
+
+            <section className={styles.infoCard} aria-labelledby="loading-help-heading">
+              <h3 id="loading-help-heading">If a game does not load</h3>
+              <ol>
+                <li>Reload the page and wait for the loading screen to finish.</li>
+                <li>Try a current version of Chrome, Edge, Firefox, or Safari.</li>
+                <li>For emulator games, make sure browser hardware acceleration is enabled.</li>
+                <li>If the problem continues, send the exact page URL through the <Link href="/contact">contact page</Link>.</li>
+              </ol>
+            </section>
+
+            <section className={styles.infoCard} aria-labelledby="developers-sources-heading">
+              <h3 id="developers-sources-heading">Developers and sources</h3>
+              <p>
+                Billy Bob Games maintains the website and browser integrations but does not claim to have created every
+                game in the library. Individual titles remain the work of their respective developers and rights holders.
+                Developer or source information is included on game pages when it is available. For an attribution,
+                correction, or removal request, please <Link href="/contact">contact the site</Link>.
+              </p>
+            </section>
+          </div>
+
+          <section className={styles.faqSection} aria-labelledby="quick-faq-heading">
+            <h3 id="quick-faq-heading">Quick FAQ</h3>
+            <dl>
+              <div>
+                <dt>Are the games free to play?</dt>
+                <dd>Yes. The games currently listed on Billy Bob Games can be opened without a paid account.</dd>
+              </div>
+              <div>
+                <dt>Do I need to install anything?</dt>
+                <dd>No site installer is required. The listed games are intended to run inside a supported web browser.</dd>
+              </div>
+              <div>
+                <dt>Does every game work on mobile?</dt>
+                <dd>No. Compatibility varies by game, and titles designed around a keyboard or emulator may work best on desktop.</dd>
+              </div>
+              <div>
+                <dt>How do I report a broken game?</dt>
+                <dd>Use the <Link href="/contact">contact page</Link> and include the game URL, browser, and what happened.</dd>
+              </div>
+            </dl>
+          </section>
         </section>
       </section>
     </PageShell>

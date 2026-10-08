@@ -478,3 +478,10 @@ This file is the handoff record for this repo (`/home/lcl/billybobgames-next`).
 - If the failure is caused by remote EmulatorJS assets, consider self-hosting the needed EmulatorJS data/core files instead of relying on the external CDN.
 - If browser compatibility remains inconsistent, add a more specific user-facing error panel based on the actual failing resource or API.
 - Before the next push, review unrelated local changes still present in the repo (`.env.example`, `.gitignore`, `package.json`, `src/components/WsrvImage.tsx`, `data/`, `docs/`, `scripts/outreach/`, etc.) so they do not get mixed into the FireRed work by accident.
+
+## 2026-10-03 (MyWebAstra traffic tracking)
+- Installed the billybobgames.org tracker (site ID 955d8a0f-163f-47dd-bbc4-7d84da45a159) in the root layout using next/script beforeInteractive with defer, which produces a single tag in the rendered head under vinext.
+- Added MyWebAstra to the privacy policy; kept existing GA4, Ahrefs and AdSense configuration.
+- Manually deployed to Cloudflare: version 5536c829-4e47-4d76-8fe8-01ff6ca06aa6. Isolated .env.local during deployment and restored it afterward. No GitHub push.
+- Verified homepage + client navigation pageviews: cross-origin API 202 and matching real D1 records; removed only the verification events/session. The Godot WASM range smoke check returns 206, correct MIME and WASM magic.
+- Evidence: /home/lcl/mywebastra/artifacts/billybob-self-tracker-live-verification.json.

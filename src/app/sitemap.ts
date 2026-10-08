@@ -3,15 +3,19 @@ import type { MetadataRoute } from "next";
 const SITE_URL = "https://billybobgames.org";
 
 const routes = [
-  { path: "/", lastModified: "2026-04-24", changeFrequency: "weekly", priority: 1.0 },
-  { path: "/about", lastModified: "2026-04-16", changeFrequency: "monthly", priority: 0.6 },
-  { path: "/contact", lastModified: "2026-04-16", changeFrequency: "monthly", priority: 0.6 },
+  { path: "/", lastModified: "2026-10-08", changeFrequency: "monthly", priority: 1.0 },
+  { path: "/about", lastModified: "2026-10-08", changeFrequency: "monthly", priority: 0.6 },
+  { path: "/contact", lastModified: "2026-10-08", changeFrequency: "monthly", priority: 0.6 },
   {
     path: "/privacy-policy",
     lastModified: "2026-04-16",
     changeFrequency: "monthly",
     priority: 0.5,
   },
+  { path: "/terms", lastModified: "2026-10-08", changeFrequency: "yearly", priority: 0.4 },
+  { path: "/dmca", lastModified: "2026-10-08", changeFrequency: "yearly", priority: 0.4 },
+  { path: "/disclaimer", lastModified: "2026-10-08", changeFrequency: "yearly", priority: 0.4 },
+  { path: "/credits", lastModified: "2026-10-08", changeFrequency: "monthly", priority: 0.5 },
   { path: "/arcade-games", lastModified: "2026-04-16", changeFrequency: "weekly", priority: 0.8 },
   { path: "/brush-jjaemu", lastModified: "2026-05-20", changeFrequency: "monthly", priority: 0.7 },
   { path: "/pokemon", lastModified: "2026-04-25", changeFrequency: "weekly", priority: 0.75 },

@@ -297,39 +297,6 @@
   box-shadow: 0 12px 28px -18px rgba(0, 0, 0, 0.25);
 }
 
-.friendLinksSection {
-  margin-top: 1.5rem;
-}
-
-.friendLinks {
-  display: flex;
-  gap: 1.5rem;
-  flex-wrap: wrap;
-}
-
-.friendLink {
-  display: flex;
-  align-items: center;
-  gap: 0.75rem;
-  padding: 0.75rem 1rem;
-  border-radius: 0.75rem;
-  border: 1px solid #e5e7eb;
-  background: #f5f5f5;
-  transition: transform 160ms ease, border-color 160ms ease;
-}
-
-.friendLink:hover,
-.friendLink:focus-visible {
-  transform: translateY(-2px);
-  border-color: #9ca3af;
-}
-
-.friendLink img {
-  width: 42px;
-  height: 42px;
-  object-fit: contain;
-}
-
 .brandStory {
   margin-top: 3rem;
   display: grid;
@@ -350,6 +317,86 @@
   margin: 0;
   color: #4b5563;
   line-height: 1.7;
+}
+
+.brandStory a {
+  color: #5b21b6;
+  font-weight: 600;
+  text-underline-offset: 0.18em;
+}
+
+.infoGrid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.infoCard {
+  display: grid;
+  align-content: start;
+  gap: 0.7rem;
+  padding: 1.25rem;
+  border: 1px solid #d1d5db;
+  border-radius: 0.75rem;
+  background: rgba(255, 255, 255, 0.72);
+}
+
+.infoCard h3,
+.faqSection h3 {
+  margin: 0;
+  font-size: 1.15rem;
+  color: #1f2937;
+}
+
+.infoCard ul,
+.infoCard ol {
+  display: grid;
+  gap: 0.55rem;
+  margin: 0;
+  padding-left: 1.25rem;
+  color: #4b5563;
+  line-height: 1.6;
+}
+
+.faqSection {
+  display: grid;
+  gap: 0.85rem;
+  padding-top: 0.25rem;
+}
+
+.faqSection dl {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.85rem;
+  margin: 0;
+}
+
+.faqSection dl > div {
+  padding: 1rem;
+  border-left: 3px solid #8b5cf6;
+  background: rgba(255, 255, 255, 0.58);
+}
+
+.faqSection dt {
+  font-weight: 700;
+  color: #1f2937;
+}
+
+.faqSection dd {
+  margin: 0.35rem 0 0;
+  color: #4b5563;
+  line-height: 1.6;
+}
+
+@media (max-width: 720px) {
+  .infoGrid,
+  .faqSection dl {
+    grid-template-columns: 1fr;
+  }
+
+  .brandStory {
+    padding: 1.25rem;
+  }
 }
 
 @media (prefers-color-scheme: dark) {
@@ -394,11 +441,6 @@
     box-shadow: 0 12px 28px -18px rgba(0, 0, 0, 0.6);
   }
 
-  .friendLink {
-    border-color: #3a3a3a;
-    background: #2a2a2a;
-  }
-
   .featuredGameCta {
     color: #1a1a1a;
   }
@@ -410,6 +452,31 @@
 
   .brandStory p {
     color: #e5e7eb;
+  }
+
+  .brandStory a {
+    color: #c4b5fd;
+  }
+
+  .infoCard {
+    border-color: #3a3a3a;
+    background: rgba(17, 24, 39, 0.62);
+  }
+
+  .infoCard h3,
+  .faqSection h3,
+  .faqSection dt {
+    color: #f3f4f6;
+  }
+
+  .infoCard ul,
+  .infoCard ol,
+  .faqSection dd {
+    color: #e5e7eb;
+  }
+
+  .faqSection dl > div {
+    background: rgba(17, 24, 39, 0.5);
   }
 }
 

@@ -1,4 +1,5 @@
 import { WsrvImage } from "@/components/WsrvImage";
+import { siteIdentity } from "@/lib/site";
 import Link from "next/link";
 import type { ReactNode } from "react";
 import {
@@ -63,7 +64,7 @@ export default function AppSidebar() {
         <div className="sidebar-brand" aria-hidden="true">
           <WsrvImage
             className="sidebar-brand-icon"
-            src="https://r2bucket.billybobgames.org/logo/amazon-game-development.svg"
+            src={siteIdentity.logoUrl}
             alt="Billy Bob Games logo"
             width={34}
             height={34}

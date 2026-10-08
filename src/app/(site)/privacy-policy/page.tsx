@@ -42,6 +42,7 @@ export default function PrivacyPolicyPage() {
           <ul className={styles.list}>
             <li>Google Analytics uses the measurement ID <code>G-DJ7PED4TRM</code> to help us understand visits and engagement.</li>
             <li>Ahrefs Analytics helps us measure traffic and performance trends.</li>
+            <li>MyWebAstra measures page visits, traffic sources, and device/browser categories without analytics cookies or browser storage. Its tracker respects Do Not Track; stored reports omit raw IP addresses, full User-Agent values, and URL query strings.</li>
             <li>Google AdSense may use cookies or similar technologies to serve and measure ads.</li>
           </ul>
           <p>

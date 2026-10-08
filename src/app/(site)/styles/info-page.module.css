@@ -26,10 +26,42 @@
 
 .hero p,
 .section p,
-.list {
+.list,
+.creditsList {
   margin: 0;
   color: #4b5563;
   line-height: 1.7;
+}
+
+.note {
+  font-size: 0.9rem;
+}
+
+.emailLink {
+  width: fit-content;
+  color: #6d28d9;
+  font-size: clamp(1rem, 3vw, 1.25rem);
+  font-weight: 700;
+  overflow-wrap: anywhere;
+}
+
+.creditsList {
+  display: grid;
+  gap: 1rem;
+}
+
+.creditsList div {
+  display: grid;
+  gap: 0.35rem;
+}
+
+.creditsList dt {
+  color: #111827;
+  font-weight: 750;
+}
+
+.creditsList dd {
+  margin: 0;
 }
 
 .list {
@@ -72,8 +104,17 @@
 
   .hero p,
   .section p,
-  .list {
+  .list,
+  .creditsList {
     color: #e5e7eb;
+  }
+
+  .creditsList dt {
+    color: #f9fafb;
+  }
+
+  .emailLink {
+    color: #c4b5fd;
   }
 
   .actionLink {
