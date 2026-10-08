@@ -4,6 +4,7 @@ import PageShell from "./_components/PageShell";
 import AdSenseBlock from "./_components/AdSenseBlock";
 import HomeGamesSection, { type HomeGame } from "./_components/HomeGamesSection";
 import { gameCategories } from "./_data/game-catalog";
+import { popularGamesSnapshot } from "./_data/popular-games.generated";
 import styles from "./styles/home.module.css";
 
 export const metadata: Metadata = {
@@ -224,6 +225,15 @@ const otherGames: HomeGame[] = [
   },
 ];
 
+const popularityRank = new Map<string, number>(
+  popularGamesSnapshot.rankings.map((game, index) => [game.href, index]),
+);
+const gamesByPopularity = [...otherGames].sort((left, right) => {
+  const leftRank = popularityRank.get(left.href) ?? Number.MAX_SAFE_INTEGER;
+  const rightRank = popularityRank.get(right.href) ?? Number.MAX_SAFE_INTEGER;
+  return leftRank - rightRank;
+});
+
 const homepageTopAdSlot = process.env.NEXT_PUBLIC_ADSENSE_SLOT_HOME_TOP;
 const homepageMidAdSlot = process.env.NEXT_PUBLIC_ADSENSE_SLOT_HOME_MID;
 
@@ -259,7 +269,12 @@ export default async function HomePage({ searchParams }: HomePageProps) {
           </div>
         </section>
 
-        <HomeGamesSection games={otherGames} isNewView={isNewView} />
+        <HomeGamesSection
+          games={isNewView ? otherGames : gamesByPopularity}
+          isNewView={isNewView}
+          popularityGeneratedAt={popularGamesSnapshot.generatedAt}
+          popularityWindowDays={popularGamesSnapshot.windowDays}
+        />
 
         <AdSenseBlock
           slot={homepageTopAdSlot}

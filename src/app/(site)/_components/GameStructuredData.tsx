@@ -13,6 +13,10 @@ type GameStructuredDataProps = {
   path: string;
   image?: string;
   breadcrumbs?: BreadcrumbItem[];
+  creatorName?: string;
+  creatorUrl?: string;
+  operatingSystem?: string;
+  gamePlatform?: string[];
 };
 
 function toAbsoluteUrl(pathOrUrl: string) {
@@ -42,6 +46,10 @@ export default function GameStructuredData({
   path,
   image,
   breadcrumbs,
+  creatorName,
+  creatorUrl,
+  operatingSystem = "Any operating system with a modern web browser",
+  gamePlatform = ["Web Browser"],
 }: GameStructuredDataProps) {
   const pageUrl = toAbsoluteUrl(path);
   const imageUrl = image ? toAbsoluteUrl(image) : undefined;
@@ -72,11 +80,18 @@ export default function GameStructuredData({
         thumbnailUrl: imageUrl,
         genre,
         applicationCategory: "Game",
-        operatingSystem: "Any",
-        gamePlatform: ["Web Browser"],
+        operatingSystem,
+        gamePlatform,
         playMode: "SinglePlayer",
         inLanguage: "en",
-        publisher: {
+        creator: creatorName
+          ? {
+              "@type": "Person",
+              name: creatorName,
+              url: creatorUrl,
+            }
+          : undefined,
+        provider: {
           "@type": "Organization",
           name: "Billy Bob Games",
           url: SITE_URL,

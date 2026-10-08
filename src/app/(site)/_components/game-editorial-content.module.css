@@ -1,0 +1,168 @@
+.editorial {
+  display: grid;
+  gap: 1.25rem;
+}
+
+.section {
+  display: grid;
+  gap: 0.8rem;
+  padding: 1.5rem;
+  border: 1px solid #e5e7eb;
+  border-radius: 0.9rem;
+  background: #ffffff;
+}
+
+.section h2,
+.section p,
+.section ul,
+.section ol,
+.section dl,
+.section figure {
+  margin: 0;
+}
+
+.section h2 {
+  font-size: 1.3rem;
+  line-height: 1.25;
+}
+
+.section p,
+.section li,
+.section dd,
+.section figcaption {
+  color: #4b5563;
+  line-height: 1.7;
+}
+
+.section ul,
+.section ol {
+  display: grid;
+  gap: 0.55rem;
+  padding-left: 1.3rem;
+}
+
+.twoColumnGrid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1.25rem;
+}
+
+.compatibilityList,
+.factList {
+  display: grid;
+  gap: 0.75rem;
+}
+
+.compatibilityList > div,
+.factList > div {
+  display: grid;
+  grid-template-columns: minmax(5.5rem, 0.25fr) 1fr;
+  gap: 0.8rem;
+}
+
+.compatibilityList dt,
+.factList dt {
+  font-weight: 700;
+}
+
+.compatibilityList dd,
+.factList dd {
+  margin: 0;
+}
+
+.factList a,
+.relatedLinks a {
+  color: #1d4ed8;
+  font-weight: 650;
+  text-underline-offset: 0.18em;
+}
+
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.gallery figure {
+  display: grid;
+  gap: 0.55rem;
+}
+
+.gallery img {
+  width: 100%;
+  height: auto;
+  border-radius: 0.7rem;
+  border: 1px solid #d1d5db;
+}
+
+.gallery figcaption,
+.note {
+  font-size: 0.9rem;
+}
+
+.warning {
+  color: #b91c1c !important;
+  font-weight: 700;
+}
+
+.relatedLinks {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.65rem;
+}
+
+.relatedLinks a {
+  padding: 0.55rem 0.8rem;
+  border: 1px solid #bfdbfe;
+  border-radius: 999px;
+  background: #eff6ff;
+  text-decoration: none;
+}
+
+.relatedLinks a:hover,
+.relatedLinks a:focus-visible {
+  background: #dbeafe;
+  text-decoration: underline;
+}
+
+@media (prefers-color-scheme: dark) {
+  .section {
+    border-color: #374151;
+    background: #1f2937;
+  }
+
+  .section p,
+  .section li,
+  .section dd,
+  .section figcaption {
+    color: #e5e7eb;
+  }
+
+  .factList a,
+  .relatedLinks a {
+    color: #bfdbfe;
+  }
+
+  .relatedLinks a {
+    border-color: #1d4ed8;
+    background: #1e3a8a;
+  }
+
+  .relatedLinks a:hover,
+  .relatedLinks a:focus-visible {
+    background: #1e40af;
+  }
+}
+
+@media (max-width: 720px) {
+  .twoColumnGrid,
+  .gallery {
+    grid-template-columns: 1fr;
+  }
+
+  .compatibilityList > div,
+  .factList > div {
+    grid-template-columns: 1fr;
+    gap: 0.2rem;
+  }
+}

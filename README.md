@@ -25,6 +25,26 @@ Open [http://localhost:3001](http://localhost:3001). For native Next.js compatib
 
 The main site routes live under `src/app/(site)`.
 
+## Daily popular-game ordering
+
+The homepage defaults to a 28-day popularity order generated from real Billy Bob Games page views in MyWebAstra D1.
+
+- Local update with the existing Wrangler login: `npm run update:popular-games:local`
+- Cloudflare API update: `npm run update:popular-games`
+- Generated file: `src/app/(site)/_data/popular-games.generated.ts`
+- Daily GitHub Action: `.github/workflows/update-popular-games.yml` at 02:15 UTC (10:15 Asia/Shanghai)
+
+The GitHub Action needs these repository secrets:
+
+- `CLOUDFLARE_API_TOKEN`: a dedicated automation token limited to D1 query access and deployment of this Worker
+- `CLOUDFLARE_ACCOUNT_ID`
+- `MYWEBASTRA_DATABASE_ID`
+- `MYWEBASTRA_SITE_ID`
+
+The scheduled job queries the rolling 28-day totals, rebuilds and deploys the Cloudflare Worker, and then commits the
+generated ranking back to GitHub. Do not copy a broad Wrangler OAuth credential into GitHub; create a dedicated token
+for this job with only the required D1 and Workers permissions.
+
 ## Cloudflare Workers (vinext)
 
 The Cloudflare migration runs alongside the existing Next.js/Vercel setup.

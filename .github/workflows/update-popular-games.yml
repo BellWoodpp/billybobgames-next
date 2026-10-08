@@ -1,0 +1,61 @@
+name: Update popular games
+
+on:
+  schedule:
+    - cron: "15 2 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: update-popular-games
+  cancel-in-progress: false
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Enable pnpm
+        run: corepack enable
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Generate 28-day popularity order
+        run: node scripts/update-popular-games.mjs
+        env:
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          MYWEBASTRA_DATABASE_ID: ${{ secrets.MYWEBASTRA_DATABASE_ID }}
+          MYWEBASTRA_SITE_ID: ${{ secrets.MYWEBASTRA_SITE_ID }}
+
+      - name: Build Cloudflare Worker
+        run: pnpm run build:vinext
+
+      - name: Deploy updated homepage
+        run: pnpm run deploy:vinext
+        env:
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+
+      - name: Commit changed ranking
+        run: |
+          if git diff --quiet -- src/app/\(site\)/_data/popular-games.generated.ts; then
+            echo "Popularity order is unchanged."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add src/app/\(site\)/_data/popular-games.generated.ts
+          git commit -m "chore: update popular game order"
+          git push

@@ -58,6 +58,11 @@
   box-shadow: 0 34px 88px -52px rgba(79, 70, 229, 0.75);
 }
 
+.contentWidth {
+  width: min(1040px, calc(100% - 2rem));
+  margin: 0 auto;
+}
+
 
 .gameShell {
   display: flex;

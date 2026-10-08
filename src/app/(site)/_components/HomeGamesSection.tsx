@@ -17,6 +17,8 @@ export type HomeGame = {
 type HomeGamesSectionProps = {
   games: HomeGame[];
   isNewView: boolean;
+  popularityGeneratedAt: string;
+  popularityWindowDays: number;
 };
 
 function isGameCurrentlyNew(game: HomeGame, now: number) {
@@ -26,7 +28,12 @@ function isGameCurrentlyNew(game: HomeGame, now: number) {
   return Number.isFinite(newUntilTimestamp) && now < newUntilTimestamp;
 }
 
-export default function HomeGamesSection({ games, isNewView }: HomeGamesSectionProps) {
+export default function HomeGamesSection({
+  games,
+  isNewView,
+  popularityGeneratedAt,
+  popularityWindowDays,
+}: HomeGamesSectionProps) {
   const [now, setNow] = useState(() => Date.now());
 
   const visibleGames = useMemo(
@@ -59,12 +66,16 @@ export default function HomeGamesSection({ games, isNewView }: HomeGamesSectionP
   return (
     <>
       <hr className={styles.sectionDivider} />
-      <h2 className={styles.otherGamesHeading}>{isNewView ? "New" : "New Game"}</h2>
+      <h2 className={styles.otherGamesHeading}>{isNewView ? "New Games" : "Popular Games"}</h2>
       {isNewView ? (
         <p className={styles.otherGamesDescription}>
           {hasVisibleGames ? "Showing games that currently carry the New badge." : "最近没有发布最新游戏。"}
         </p>
-      ) : null}
+      ) : (
+        <p className={styles.otherGamesDescription}>
+          Ordered by real game-page visits over the previous {popularityWindowDays} days. Last updated {popularityGeneratedAt.slice(0, 10)}.
+        </p>
+      )}
       {hasVisibleGames ? (
         <div className={styles.otherGamesGrid}>
           {visibleGames.map((game, index) => (
@@ -77,7 +88,7 @@ export default function HomeGamesSection({ games, isNewView }: HomeGamesSectionP
               imageFit={game.imageFit}
               newUntil={game.newUntil}
               previewSources={game.previewSources}
-              trackingSource={isNewView ? "home_new_filter" : "home_game_grid"}
+              trackingSource={isNewView ? "home_new_filter" : "home_popular_grid"}
               trackingPosition={index + 1}
             />
           ))}

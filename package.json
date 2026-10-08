@@ -18,6 +18,8 @@
     "outreach:gmail:exchange-code": "node scripts/outreach/gmail-oauth.cjs exchange-code",
     "outreach:gmail:test-profile": "node scripts/outreach/gmail-oauth.cjs test-profile",
     "outreach:gmail:send-test": "node scripts/outreach/gmail-oauth.cjs send-test",
+    "update:popular-games": "node scripts/update-popular-games.mjs",
+    "update:popular-games:local": "node scripts/update-popular-games.mjs --wrangler --wrangler-cwd ../mywebastra",
     "upload:r2:games:dry": "node scripts/upload-r2.cjs --dir games --kind all --dry-run --no-map",
     "upload:r2:games": "node scripts/upload-r2.cjs --dir games --kind all",
     "upload:r2:sprunki:dry": "node scripts/upload-r2-sprunki-assets.cjs --dry-run",

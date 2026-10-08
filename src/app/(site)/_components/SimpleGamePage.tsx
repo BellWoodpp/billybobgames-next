@@ -30,6 +30,10 @@ type SimpleGamePageProps = {
   howToListClassName?: string;
   howToTitleClassName?: string;
   extraContent?: ReactNode;
+  creatorName?: string;
+  creatorUrl?: string;
+  operatingSystem?: string;
+  gamePlatform?: string[];
 };
 
 export default function SimpleGamePage({
@@ -54,6 +58,10 @@ export default function SimpleGamePage({
   howToListClassName,
   howToTitleClassName,
   extraContent,
+  creatorName,
+  creatorUrl,
+  operatingSystem,
+  gamePlatform,
 }: SimpleGamePageProps) {
   const wrapperClasses = classNames(styles.wrapper, wrapperClassName);
   const headingClasses = classNames(styles.title, titleClassName);
@@ -73,6 +81,10 @@ export default function SimpleGamePage({
           description={subtitle}
           path={recentlyPlayed.href}
           image={recentlyPlayed.img}
+          creatorName={creatorName}
+          creatorUrl={creatorUrl}
+          operatingSystem={operatingSystem}
+          gamePlatform={gamePlatform}
         />
       ) : null}
       <main className={wrapperClasses}>
