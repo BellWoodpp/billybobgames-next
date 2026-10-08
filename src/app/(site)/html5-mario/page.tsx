@@ -26,6 +26,7 @@ export default function Html5MarioPage() {
       iframeTitle="HTML5 Mario Game"
       allowFullScreen
       showFullscreenButton
+      showRelatedGames={false}
       creatorName="Robert Kleffner"
       creatorUrl="https://github.com/robertkleffner/mariohtml5"
       operatingSystem="Desktop operating system with a physical keyboard and modern web browser"

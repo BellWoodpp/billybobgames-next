@@ -92,7 +92,7 @@ export default function GameLandingPage({
       <GameStructuredData title={title} description={description} path={path} image={image} />
       <main className={classNames(gamePageStyles.wrapper, gamePageStyles.wrapperWide)}>
         <header className={gamePageStyles.header}>
-          <GameBreadcrumb current={title} />
+          <GameBreadcrumb current={title} gamePath={path} />
           <h1 className={gamePageStyles.titleLarge}>{title}</h1>
           <p className={gamePageStyles.subtitleLarge}>{subtitle}</p>
         </header>

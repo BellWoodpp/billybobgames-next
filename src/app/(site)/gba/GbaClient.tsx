@@ -4,6 +4,7 @@ import { useCallback, useEffect, useRef, useState, type ChangeEvent, type ReactE
 import GameBreadcrumb from "../_components/GameBreadcrumb";
 import GameFrameWithControls from "../_components/GameFrameWithControls";
 import PageShell from "../_components/PageShell";
+import RelatedGamesSection from "../_components/RelatedGamesSection";
 import gameStyles from "../styles/game-page.module.css";
 import styles from "./gba.module.css";
 
@@ -252,7 +253,7 @@ export default function GbaClient() {
     <PageShell>
       <main className={gameStyles.wrapperWide}>
         <header className={gameStyles.header}>
-          <GameBreadcrumb current="Pokémon FireRed" />
+          <GameBreadcrumb current="Pokémon FireRed" gamePath="/fire-red" />
           <h1 className={gameStyles.title}>Pokémon FireRed</h1>
           <p className={gameStyles.subtitle}>Pokémon FireRed loads automatically, so you can jump straight into Kanto.</p>
         </header>
@@ -377,6 +378,7 @@ export default function GbaClient() {
             </p>
           </article>
         </section>
+        <RelatedGamesSection currentPath="/fire-red" />
       </main>
     </PageShell>
   );

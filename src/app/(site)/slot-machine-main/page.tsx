@@ -26,6 +26,7 @@ export default function SlotMachinePage() {
       iframeTitle="HTML5 Slot Machine Game"
       allowFullScreen
       showFullscreenButton
+      showRelatedGames={false}
       creatorName="Johannes Kronmüller"
       creatorUrl="https://github.com/johakr/html5-slot-machine"
       howToItems={[

@@ -1,4 +1,11 @@
-export type GameCategorySlug = "arcade-games" | "idle-games" | "music-games" | "card-games" | "puzzle-games";
+export type GameCategorySlug =
+  | "arcade-games"
+  | "idle-games"
+  | "music-games"
+  | "card-games"
+  | "puzzle-games"
+  | "pokemon"
+  | "retro-games";
 
 export type CatalogGame = {
   href: string;
@@ -52,6 +59,20 @@ export const gameCategories: GameCategory[] = [
     description:
       "Challenge your timing, planning, and pattern-matching skills with puzzle games that load fast and play directly in your browser.",
   },
+  {
+    slug: "pokemon",
+    title: "Pokémon Games",
+    heading: "Pokémon Games on Billy Bob Games",
+    description:
+      "Browse playable Pokémon titles and open the dedicated game pages for controls, save instructions, and browser compatibility notes.",
+  },
+  {
+    slug: "retro-games",
+    title: "Retro Games",
+    heading: "Retro Games on Billy Bob Games",
+    description:
+      "Revisit browser-friendly retro games, including classic maze action, platforming, and handheld adventures.",
+  },
 ];
 
 export const catalogGames: CatalogGame[] = [
@@ -71,6 +92,15 @@ export const catalogGames: CatalogGame[] = [
     alt: "Evolve Idle cover art",
     description: "Guide a civilization from primordial ooze to a spacefaring empire in a deep incremental strategy game.",
     categories: ["idle-games"],
+  },
+  {
+    href: "/fire-red",
+    title: "Pokémon FireRed",
+    img: "https://pub-7a7bcc9e985340b68807f06d96ba2d0a.r2.dev/GBA-Red/red-image.jpeg",
+    alt: "Pokémon FireRed artwork",
+    description:
+      "Explore Kanto, train a Pokémon team, and preserve your progress with browser save and export tools.",
+    categories: ["pokemon", "retro-games"],
   },
   {
     href: "/bloodmoney",
@@ -110,7 +140,7 @@ export const catalogGames: CatalogGame[] = [
     img: "https://r2bucket.billybobgames.org/4-pac-man/4.jpg",
     alt: "Pac-Man gameplay",
     description: "Clear each maze of pellets, dodge the ghosts, and chase classic arcade high scores.",
-    categories: ["arcade-games"],
+    categories: ["arcade-games", "retro-games"],
   },
   {
     href: "/fruit-ninja",
@@ -126,7 +156,7 @@ export const catalogGames: CatalogGame[] = [
     img: "https://r2bucket.billybobgames.org/6-html5-mario/6.jpg",
     alt: "HTML5 Mario gameplay",
     description: "Run, jump, collect coins, and enjoy a browser-friendly platforming adventure.",
-    categories: ["arcade-games"],
+    categories: ["arcade-games", "retro-games"],
   },
   {
     href: "/html5demo7",
@@ -176,4 +206,27 @@ export function getCategory(slug: GameCategorySlug) {
 
 export function getGamesByCategory(slug: GameCategorySlug) {
   return catalogGames.filter((game) => game.categories.includes(slug));
+}
+
+export function getPrimaryCategoryForGame(href: string) {
+  const game = catalogGames.find((entry) => entry.href === href);
+  if (!game) return undefined;
+
+  return gameCategories.find((category) => category.slug === game.categories[0]);
+}
+
+export function getRelatedGames(href: string, limit = 4) {
+  const currentGame = catalogGames.find((entry) => entry.href === href);
+  if (!currentGame) return [];
+
+  return catalogGames
+    .filter((game) => game.href !== href)
+    .map((game, index) => ({
+      game,
+      index,
+      sharedCategories: game.categories.filter((category) => currentGame.categories.includes(category)).length,
+    }))
+    .sort((left, right) => right.sharedCategories - left.sharedCategories || left.index - right.index)
+    .slice(0, limit)
+    .map(({ game }) => game);
 }

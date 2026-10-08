@@ -6,6 +6,7 @@ import PageShell from "../_components/PageShell";
 import GameBreadcrumb from "../_components/GameBreadcrumb";
 import RecentlyPlayedTracker from "../_components/RecentlyPlayedTracker";
 import GameFrameWithControls from "../_components/GameFrameWithControls";
+import RelatedGamesSection from "../_components/RelatedGamesSection";
 import styles from "./sprunki.module.css";
 
 export default function SprunkiClient() {
@@ -192,7 +193,7 @@ export default function SprunkiClient() {
       />
       <main className={styles.wrapper}>
         <header className={styles.header}>
-          <GameBreadcrumb current="Sprunki Incredibox Remix" />
+          <GameBreadcrumb current="Sprunki Incredibox Remix" gamePath="/sprunki" />
           <h1 className={styles.title}>Sprunki Incredibox Remix</h1>
           <p className={styles.subtitle}>
             Mix beats, layer vocals, and experiment with haunting Sprunki sounds directly in your browser.
@@ -263,6 +264,7 @@ export default function SprunkiClient() {
             <li>Share your creations: Share your musical masterpieces with friends and family, or join the Sprunki community to collaborate and learn from other beatmakers.</li>
           </ul>
         </section>
+        <RelatedGamesSection currentPath="/sprunki" />
       </main>
     </PageShell>
   );

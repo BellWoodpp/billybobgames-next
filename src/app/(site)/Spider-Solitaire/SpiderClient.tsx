@@ -6,6 +6,7 @@ import PageShell from "../_components/PageShell";
 import GameBreadcrumb from "../_components/GameBreadcrumb";
 import RecentlyPlayedTracker from "../_components/RecentlyPlayedTracker";
 import GameFrameWithControls from "../_components/GameFrameWithControls";
+import RelatedGamesSection from "../_components/RelatedGamesSection";
 import styles from "./spider.module.css";
 
 type GameInstance = {
@@ -250,7 +251,7 @@ export default function SpiderClient() {
       />
       <main className={styles.wrapper}>
         <header className={styles.header}>
-          <GameBreadcrumb current="Spider Solitaire" />
+          <GameBreadcrumb current="Spider Solitaire" gamePath="/Spider-Solitaire" />
           <h1 className={styles.title}>Spider Solitaire</h1>
           <p className={styles.subtitle}>
             Test your patience and strategy in this classic take on Spider Solitaire—play instantly in your browser.
@@ -293,6 +294,7 @@ export default function SpiderClient() {
             <li>Use Undo to rewind a move, fix mistakes, or explore a better strategy.</li>
           </ul>
         </section>
+        <RelatedGamesSection currentPath="/Spider-Solitaire" />
       </main>
     </PageShell>
   );

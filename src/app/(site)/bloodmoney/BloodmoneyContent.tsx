@@ -39,7 +39,7 @@ export default function BloodmoneyContent() {
     <PageShell containerClassName={styles.fullWidth}>
       <main className={styles.wrapper}>
         <header className={styles.header}>
-          <GameBreadcrumb current="BLOODMONEY" />
+          <GameBreadcrumb current="BLOODMONEY" gamePath="/bloodmoney" />
           <h1 className={styles.title}>BLOODMONEY</h1>
           <p className={styles.subtitle}>
             A dark one-button clicker story about earning $25,000, escalating choices, and the consequences of how you

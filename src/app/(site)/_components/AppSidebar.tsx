@@ -40,6 +40,8 @@ const categoryItems: NavItem[] = [
   { href: "/music-games", label: "Music Games", icon: <Gamepad className="sidebar-icon" /> },
   { href: "/card-games", label: "Card Games", icon: <CreditCard className="sidebar-icon" /> },
   { href: "/puzzle-games", label: "Puzzle Games", icon: <Map className="sidebar-icon" /> },
+  { href: "/pokemon", label: "Pokémon Games", icon: <Gamepad className="sidebar-icon" /> },
+  { href: "/retro-games", label: "Retro Games", icon: <Clock3 className="sidebar-icon" /> },
 ];
 
 function SidebarSection({ items }: { items: NavItem[] }) {

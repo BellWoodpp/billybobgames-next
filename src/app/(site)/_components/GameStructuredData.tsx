@@ -1,4 +1,4 @@
-import { catalogGames, gameCategories } from "../_data/game-catalog";
+import { catalogGames, gameCategories, getPrimaryCategoryForGame } from "../_data/game-catalog";
 
 const SITE_URL = "https://billybobgames.org";
 
@@ -54,10 +54,16 @@ export default function GameStructuredData({
   const pageUrl = toAbsoluteUrl(path);
   const imageUrl = image ? toAbsoluteUrl(image) : undefined;
   const genre = getGenres(path);
-  const breadcrumbItems = breadcrumbs ?? [
-    { name: "Billy Bob Games", path: "/" },
-    { name: title, path },
-  ];
+  const primaryCategory = getPrimaryCategoryForGame(path);
+  const breadcrumbItems =
+    breadcrumbs ??
+    [
+      { name: "Billy Bob Games", path: "/" },
+      primaryCategory
+        ? { name: primaryCategory.title, path: `/${primaryCategory.slug}` }
+        : undefined,
+      { name: title, path },
+    ].filter((item): item is BreadcrumbItem => Boolean(item));
 
   const data = {
     "@context": "https://schema.org",

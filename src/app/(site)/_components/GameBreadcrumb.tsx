@@ -11,6 +11,7 @@ import {
   BreadcrumbPage,
   BreadcrumbSeparator,
 } from "@/components/ui/breadcrumb";
+import { getPrimaryCategoryForGame } from "../_data/game-catalog";
 
 type GameBreadcrumbProps = {
   current: string;
@@ -20,6 +21,7 @@ type GameBreadcrumbProps = {
   pageClassName?: string;
   homeHref?: string;
   homeLabel?: string;
+  gamePath?: string;
 };
 
 export default function GameBreadcrumb({
@@ -30,7 +32,10 @@ export default function GameBreadcrumb({
   pageClassName,
   homeHref = "/",
   homeLabel = "Home",
+  gamePath,
 }: GameBreadcrumbProps) {
+  const category = gamePath ? getPrimaryCategoryForGame(gamePath) : undefined;
+
   return (
     <Breadcrumb className={className}>
       <BreadcrumbList className={cn("justify-center", listClassName)}>
@@ -40,6 +45,16 @@ export default function GameBreadcrumb({
           </BreadcrumbLink>
         </BreadcrumbItem>
         <BreadcrumbSeparator />
+        {category ? (
+          <>
+            <BreadcrumbItem>
+              <BreadcrumbLink asChild className={linkClassName}>
+                <Link href={`/${category.slug}`}>{category.title}</Link>
+              </BreadcrumbLink>
+            </BreadcrumbItem>
+            <BreadcrumbSeparator />
+          </>
+        ) : null}
         <BreadcrumbItem>
           <BreadcrumbPage className={pageClassName}>{current}</BreadcrumbPage>
         </BreadcrumbItem>

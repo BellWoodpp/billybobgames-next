@@ -4,6 +4,7 @@ import { WsrvImage } from "@/components/WsrvImage";
 import PageShell from "./PageShell";
 import TrackedGameLink from "./TrackedGameLink";
 import AdSenseBlock from "./AdSenseBlock";
+import GameBreadcrumb from "./GameBreadcrumb";
 import { gameCategories, getCategory, getGamesByCategory, type GameCategorySlug } from "../_data/game-catalog";
 import styles from "../styles/category-page.module.css";
 
@@ -28,6 +29,7 @@ export default function CategoryLandingPage({ slug }: CategoryLandingPageProps) 
     <PageShell>
       <main className={styles.wrapper}>
         <section className={styles.hero}>
+          <GameBreadcrumb current={category.title} />
           <h1>{category.heading}</h1>
           <p>{category.description}</p>
         </section>

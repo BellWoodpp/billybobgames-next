@@ -6,6 +6,7 @@ import GameBreadcrumb from "./GameBreadcrumb";
 import RecentlyPlayedTracker from "./RecentlyPlayedTracker";
 import GameFrameWithControls from "./GameFrameWithControls";
 import GameStructuredData from "./GameStructuredData";
+import RelatedGamesSection from "./RelatedGamesSection";
 import styles from "../styles/game-page.module.css";
 
 type SimpleGamePageProps = {
@@ -34,6 +35,7 @@ type SimpleGamePageProps = {
   creatorUrl?: string;
   operatingSystem?: string;
   gamePlatform?: string[];
+  showRelatedGames?: boolean;
 };
 
 export default function SimpleGamePage({
@@ -62,6 +64,7 @@ export default function SimpleGamePage({
   creatorUrl,
   operatingSystem,
   gamePlatform,
+  showRelatedGames = true,
 }: SimpleGamePageProps) {
   const wrapperClasses = classNames(styles.wrapper, wrapperClassName);
   const headingClasses = classNames(styles.title, titleClassName);
@@ -92,7 +95,7 @@ export default function SimpleGamePage({
           <RecentlyPlayedTracker href={recentlyPlayed.href} title={recentlyPlayed.title} img={recentlyPlayed.img} />
         ) : null}
         <header className={styles.header}>
-          <GameBreadcrumb current={title} />
+          <GameBreadcrumb current={title} gamePath={recentlyPlayed?.href} />
           <h1 className={headingClasses}>{title}</h1>
           <p className={subtitleClasses}>{subtitle}</p>
         </header>
@@ -121,6 +124,10 @@ export default function SimpleGamePage({
         </section>
 
         {extraContent}
+
+        {showRelatedGames && recentlyPlayed?.href ? (
+          <RelatedGamesSection currentPath={recentlyPlayed.href} />
+        ) : null}
       </main>
     </PageShell>
   );

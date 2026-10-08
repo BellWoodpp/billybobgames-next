@@ -25,6 +25,7 @@ export default function MouseHitPage() {
       iframeTitle="Mouse Hit Mania Game"
       allowFullScreen
       showFullscreenButton
+      showRelatedGames={false}
       operatingSystem="Desktop operating system with a mouse and modern web browser"
       gamePlatform={["Desktop Web Browser"]}
       howToItems={[
