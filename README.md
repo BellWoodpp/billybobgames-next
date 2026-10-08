@@ -25,6 +25,27 @@ Open [http://localhost:3001](http://localhost:3001). For native Next.js compatib
 
 The main site routes live under `src/app/(site)`.
 
+## Safe weekly game publishing
+
+Use [`game-queue.md`](./game-queue.md) to move one candidate at a time through source review, play testing, drafting,
+and publication.
+
+Create a draft page:
+
+```bash
+pnpm game:new -- --slug example-game --title "Example Game" --category arcade-games
+```
+
+The generated route returns 404, uses `noindex`, and stays outside the catalog and Sitemap until it is manually marked
+`published`. Replace every `TODO`, add the verified game to `game-catalog.ts` and the homepage, then run:
+
+```bash
+pnpm game:check
+```
+
+The same check runs automatically before `pnpm run deploy:vinext`. It verifies structural publishing requirements but
+does not replace a real play test or a manual rights/source review.
+
 ## Daily popular-game ordering
 
 The homepage defaults to a 28-day popularity order generated from real Billy Bob Games page views in MyWebAstra D1.
