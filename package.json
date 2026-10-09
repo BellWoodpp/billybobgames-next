@@ -9,6 +9,7 @@
     "lint": "eslint",
     "game:new": "node scripts/create-game-page.mjs",
     "game:check": "node scripts/check-game-publish.mjs",
+    "seo:review": "node scripts/seo-review.mjs",
     "outreach:import:resources": "python3 scripts/outreach/import-resources-xlsx.py",
     "outreach:score": "node scripts/outreach/score-prospects.cjs",
     "outreach:draft": "node scripts/outreach/draft-emails.cjs",

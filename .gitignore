@@ -73,6 +73,10 @@ Incredibox - Sprunki/
 /data/outreach/*.json
 /data/outreach/*.log
 
+# local-only Search Console exports and 28-day SEO snapshots
+/data/seo-review/
+/reports/seo-review/
+
 # typescript
 *.tsbuildinfo
 next-env.d.ts

@@ -300,6 +300,8 @@ H1：Billy Bob Games – Play Free Browser Games Online
 
 优先级：长期。
 
+已建立自动提醒和本地对比工具：参见 [`docs/seo-28-day-review.md`](./seo-28-day-review.md)，运行命令为 `pnpm seo:review`。工具不会自动修改或部署网站。
+
 每周：
 
 - [ ] 检查游戏是否能运行。
