@@ -42,5 +42,16 @@
 	<div id="browser"></div>
 </div>
 <script src="scripts/all.js"></script>
+<script>
+  (function () {
+    function fitGameToViewport() {
+      var scale = Math.min(window.innerWidth / 640, window.innerHeight / 480, 1);
+      document.documentElement.style.setProperty('--game-scale', String(scale));
+    }
+    fitGameToViewport();
+    window.addEventListener('resize', fitGameToViewport);
+    window.addEventListener('orientationchange', fitGameToViewport);
+  })();
+</script>
 </body>
 </html>

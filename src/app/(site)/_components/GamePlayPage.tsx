@@ -1,3 +1,4 @@
+import type { ReactNode } from "react";
 import { classNames } from "@/lib/classNames";
 import { createGameTrackingContext } from "@/lib/analytics";
 import PageShell from "./PageShell";
@@ -25,6 +26,7 @@ type GamePlayPageProps = {
   wrapperClassName?: string;
   frameWrapperClassName?: string;
   frameClassName?: string;
+  compatibilityNotice?: ReactNode;
 };
 
 export default function GamePlayPage({
@@ -42,6 +44,7 @@ export default function GamePlayPage({
   wrapperClassName,
   frameWrapperClassName,
   frameClassName,
+  compatibilityNotice,
 }: GamePlayPageProps) {
   const wrapperClasses = classNames(styles.wrapper, wrapperClassName);
   const analyticsGame = createGameTrackingContext(analyticsHref || recentlyPlayed.href, recentlyPlayed.title);
@@ -55,6 +58,12 @@ export default function GamePlayPage({
           <h1 className={styles.title}>{title}</h1>
           <p className={styles.subtitle}>{subtitle}</p>
         </header>
+
+        {compatibilityNotice ? (
+          <aside className={styles.compatibilityNotice} role="note">
+            {compatibilityNotice}
+          </aside>
+        ) : null}
 
         <GameFrameWithControls
           iframeSrc={iframeSrc}

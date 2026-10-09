@@ -26,6 +26,7 @@ export default function Html5MarioPage() {
       iframeTitle="HTML5 Mario Game"
       allowFullScreen
       showFullscreenButton
+      compatibilityNotice="Desktop keyboard required: this build has no on-screen touch controls, so phones and tablets can view it but cannot play reliably."
       showRelatedGames={false}
       creatorName="Robert Kleffner"
       creatorUrl="https://github.com/robertkleffner/mariohtml5"

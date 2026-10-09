@@ -12,6 +12,8 @@
   max-width: 100%;
   width: 100%;
   margin: 0 auto;
+  box-sizing: border-box;
+  overflow-x: hidden;
 }
 
 .header {
@@ -76,14 +78,14 @@
   padding: 0;
   background: transparent;
   box-shadow: none;
-  overflow: visible;
+  overflow: hidden;
 }
 
 .gameFrameWrapper {
-  display: inline-block;
+  display: block;
   width: 100%;
-  max-width: 1400px;
-  height: min(calc(100vw * 9 / 16), calc(100vh - 120px));
+  max-width: min(1400px, 100%);
+  height: auto;
   aspect-ratio: 16 / 9;
   background: #000;
   margin: 0 auto;

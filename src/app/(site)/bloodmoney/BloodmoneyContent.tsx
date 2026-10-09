@@ -86,7 +86,7 @@ export default function BloodmoneyContent() {
             troubleshooting={[
               "Select the poster above to open the dedicated play view, then wait while the RPG Maker files load.",
               "If the play view stays black, reload once, keep the tab active, and allow additional time on a slow connection.",
-              "If sound is missing, tap or click inside the game first; mobile and desktop browsers may block audio before interaction.",
+              "If sound is missing, tap or click inside the game first. The current archive has OGG audio for desktop and Android browsers, but iPhone and iPad fall back to silent mode because the matching M4A files are unavailable.",
               "If the image is cropped, rotate a phone to landscape or use fullscreen. On desktop, reset browser zoom to 100 percent.",
               "If loading repeatedly fails, close other memory-heavy tabs and try a current version of Chrome, Edge, Firefox, or Safari.",
             ]}

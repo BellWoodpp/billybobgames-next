@@ -25,6 +25,7 @@ export default function MouseHitPage() {
       iframeTitle="Mouse Hit Mania Game"
       allowFullScreen
       showFullscreenButton
+      compatibilityNotice="Desktop mouse required: the strike action uses mouse-down and mouse-up events and is not reliable on phones or tablets."
       showRelatedGames={false}
       operatingSystem="Desktop operating system with a mouse and modern web browser"
       gamePlatform={["Desktop Web Browser"]}

@@ -97,7 +97,9 @@ const nextConfig: NextConfig = {
         source: "/brush-jjaemu",
         headers: [
           { key: "Cross-Origin-Opener-Policy", value: "same-origin" },
-          { key: "Cross-Origin-Embedder-Policy", value: "require-corp" },
+          // Keep SharedArrayBuffer/WebAssembly isolation without blocking the
+          // site's public R2 images, which intentionally load without cookies.
+          { key: "Cross-Origin-Embedder-Policy", value: "credentialless" },
         ],
       },
       {
@@ -111,7 +113,7 @@ const nextConfig: NextConfig = {
         source: "/fire-red",
         headers: [
           { key: "Cross-Origin-Opener-Policy", value: "same-origin" },
-          { key: "Cross-Origin-Embedder-Policy", value: "require-corp" },
+          { key: "Cross-Origin-Embedder-Policy", value: "credentialless" },
         ],
       },
       {

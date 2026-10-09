@@ -86,7 +86,7 @@ export default function RootLayout({
           <main className="page app-content">{children}</main>
         </div>
         <AppFooter />
-        <Script id="mywebastra-tracker" defer data-site="955d8a0f-163f-47dd-bbc4-7d84da45a159" src="https://mywebastra.com/tracker.js" strategy="beforeInteractive" />
+        <Script id="mywebastra-tracker" data-site="955d8a0f-163f-47dd-bbc4-7d84da45a159" src="https://mywebastra.com/tracker.js" strategy="lazyOnload" />
 
         <Script
           src="https://www.googletagmanager.com/gtag/js?id=G-DJ7PED4TRM"
@@ -107,13 +107,7 @@ export default function RootLayout({
         <Script
           src="https://analytics.ahrefs.com/analytics.js"
           data-key="REuFpy6zp+wD6K5vJ1TOSg"
-          strategy="afterInteractive"
-        />
-        <Script
-          async
-          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6581885234407347"
-          crossOrigin="anonymous"
-          strategy="afterInteractive"
+          strategy="lazyOnload"
         />
       </body>
     </html>

@@ -25,6 +25,7 @@ type SimpleGamePageProps = {
   titleClassName?: string;
   subtitleClassName?: string;
   supportingText?: string;
+  compatibilityNotice?: ReactNode;
   howToTitle?: string;
   howToItems: Array<ReactNode>;
   howToClassName?: string;
@@ -54,6 +55,7 @@ export default function SimpleGamePage({
   titleClassName,
   subtitleClassName,
   supportingText,
+  compatibilityNotice,
   howToTitle = "How to Play",
   howToItems,
   howToClassName,
@@ -99,6 +101,12 @@ export default function SimpleGamePage({
           <h1 className={headingClasses}>{title}</h1>
           <p className={subtitleClasses}>{subtitle}</p>
         </header>
+
+        {compatibilityNotice ? (
+          <aside className={styles.compatibilityNotice} role="note">
+            {compatibilityNotice}
+          </aside>
+        ) : null}
 
         <GameFrameWithControls
           iframeSrc={iframeSrc}

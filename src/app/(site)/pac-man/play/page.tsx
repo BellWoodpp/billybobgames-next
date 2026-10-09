@@ -29,6 +29,7 @@ export default function PacManPlayPage() {
       iframeTitle="Pac-Man Game"
       allowFullScreen
       showFullscreenButton
+      compatibilityNotice="Desktop keyboard required: use the arrow keys to move and Space to pause; this build does not include touch controls."
     />
   );
 }

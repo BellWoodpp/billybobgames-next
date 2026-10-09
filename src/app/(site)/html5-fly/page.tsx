@@ -25,6 +25,7 @@ export default function Html5FlyPage() {
       iframeTitle="HTML5 Fly Game"
       allowFullScreen
       showFullscreenButton
+      compatibilityNotice="Desktop controls required: this build depends on a keyboard and mouse and is not playable with touch controls alone."
       howToItems={[
         <>
           Press the arrow keys or WASD to steer the ship away from incoming fire.

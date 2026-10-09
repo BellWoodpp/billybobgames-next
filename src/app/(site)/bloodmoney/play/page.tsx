@@ -4,7 +4,6 @@ import PageShell from "../../_components/PageShell";
 import GameBreadcrumb from "../../_components/GameBreadcrumb";
 import RecentlyPlayedTracker from "../../_components/RecentlyPlayedTracker";
 import BloodmoneyGameClient from "../BloodmoneyGameClient";
-import BloodmoneyEngagementClient from "../BloodmoneyEngagementClient";
 import styles from "../bloodmoney.module.css";
 
 export const metadata: Metadata = {
@@ -37,8 +36,6 @@ export default function BloodmoneyPlayPage() {
         <section className={styles.gameShell}>
           <BloodmoneyGameClient />
         </section>
-
-        <BloodmoneyEngagementClient />
       </main>
     </PageShell>
   );

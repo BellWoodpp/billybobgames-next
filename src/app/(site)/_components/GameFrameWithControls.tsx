@@ -118,6 +118,9 @@ export default function GameFrameWithControls({
   const sessionPagePathRef = useRef<string | null>(null);
   const [isGameFullscreen, setIsGameFullscreen] = useState(false);
   const [isWideMode, setIsWideMode] = useState(false);
+  const [isFrameLoading, setIsFrameLoading] = useState(true);
+  const [isFrameSlow, setIsFrameSlow] = useState(false);
+  const [loadAttempt, setLoadAttempt] = useState(0);
   const gameId = analyticsGame?.gameId;
   const gameName = analyticsGame?.gameName;
   const gamePath = analyticsGame?.gamePath;
@@ -248,12 +251,25 @@ export default function GameFrameWithControls({
 
   const handleFrameLoad: ReactEventHandler<HTMLIFrameElement> = useCallback(
     (event) => {
+      setIsFrameLoading(false);
+      setIsFrameSlow(false);
       startGameSession();
       attachGameInteractionListeners();
       onLoad?.(event);
     },
     [attachGameInteractionListeners, onLoad, startGameSession],
   );
+
+  useEffect(() => {
+    const slowTimer = window.setTimeout(() => setIsFrameSlow(true), 12_000);
+    return () => window.clearTimeout(slowTimer);
+  }, [loadAttempt]);
+
+  const retryFrameLoad = useCallback(() => {
+    setIsFrameLoading(true);
+    setIsFrameSlow(false);
+    setLoadAttempt((attempt) => attempt + 1);
+  }, []);
 
   const getFullscreenElement = useCallback(() => {
     const fullscreenDocument = document as FullscreenDocument;
@@ -414,6 +430,18 @@ export default function GameFrameWithControls({
         isWideMode && styles.frameContainerWideMode,
       )}
     >
+      {isFrameLoading ? (
+        <div className={styles.frameLoading} role="status" aria-live="polite">
+          <span className={styles.frameLoadingSpinner} aria-hidden="true" />
+          <strong>{isFrameSlow ? "This game is taking longer than usual" : `Loading ${iframeTitle}…`}</strong>
+          <span>{isFrameSlow ? "Check your connection, or retry the game frame." : "Large games may need a few seconds."}</span>
+          {isFrameSlow ? (
+            <button type="button" className={styles.frameRetryButton} onClick={retryFrameLoad}>
+              Retry loading
+            </button>
+          ) : null}
+        </div>
+      ) : null}
       {overlayContent}
       {showFullscreenButton ? (
         <div className={styles.frameControls}>
@@ -443,6 +471,7 @@ export default function GameFrameWithControls({
         </div>
       ) : null}
       <iframe
+        key={loadAttempt}
         ref={setIframeElement}
         className={classNames(styles.gameFrame, frameClassName)}
         src={iframeSrc}

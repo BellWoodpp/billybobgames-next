@@ -4,7 +4,7 @@
         <meta charset="UTF-8">
         <meta name="apple-mobile-web-app-capable" content="yes">
         <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-        <meta name="viewport" content="user-scalable=no">
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
         <base href="/games/bloodmoney/">
         <link rel="icon" href="/games/bloodmoney/icon/icon.png" type="image/png">
         <link rel="apple-touch-icon" href="/games/bloodmoney/icon/icon.png">
@@ -200,10 +200,22 @@
         <script type="text/javascript" src="/games/bloodmoney/js/rpg_scenes.js"></script>
         <script type="text/javascript" src="/games/bloodmoney/js/rpg_sprites.js"></script>
         <script type="text/javascript" src="/games/bloodmoney/js/rpg_windows.js"></script>
+        <script>
+            // The game runs inside a responsive 16:9 iframe. RPG Maker only
+            // enables stretch mode after mobile user-agent detection, which
+            // leaves the 1280x720 canvas cropped in desktop-mode mobile tests
+            // and embedded browsers. Always fit the canvas to its frame.
+            if (window.Graphics) {
+                Graphics._defaultStretchMode = function () { return true; };
+            }
+        </script>
         <script type="text/javascript" src="/games/bloodmoney/js/plugins.js"></script>
         <script>
             (function () {
-                const audioProbeUrl = "/games/bloodmoney/audio/bgm/Music%20Normal.ogg";
+                const needsM4aAudio = /iPad|iPhone|iPod/i.test(navigator.userAgent);
+                const audioProbeUrl = needsM4aAudio
+                    ? "/games/bloodmoney/audio/bgm/Music%20Normal.m4a"
+                    : "/games/bloodmoney/audio/bgm/Music%20Normal.ogg";
 
                 function createSilentBuffer() {
                     return {
@@ -306,6 +318,12 @@
                 }
 
                 window.__BBG_START_BLOODMONEY__ = function (startGame) {
+                    if (needsM4aAudio) {
+                        installSilentAudioFallback();
+                        startGame();
+                        return;
+                    }
+
                     probeAudioBundle()
                         .then((hasAudioBundle) => {
                             if (!hasAudioBundle) installSilentAudioFallback();

@@ -2,53 +2,8 @@
 
 
 
-@font-face {
-    font-family: 'SilkscreenNormal';
-    src: url('http://arcade.rawrbitrary.com/mario/silkscreen/slkscr-webfont.eot');
-    src: url('http://arcade.rawrbitrary.com/mario/silkscreen/slkscr-webfont.eot?#iefix') format('embedded-opentype'),
-         url('http://arcade.rawrbitrary.com/mario/silkscreen/slkscr-webfont.woff') format('woff'),
-         url('http://arcade.rawrbitrary.com/mario/silkscreen/slkscr-webfont.ttf') format('truetype'),
-         url('http://arcade.rawrbitrary.com/mario/silkscreen/slkscr-webfont.svg#SilkscreenNormal') format('svg');
-    font-weight: normal;
-    font-style: normal;
-
-}
-
-@font-face {
-    font-family: 'SilkscreenBold';
-    src: url('http://arcade.rawrbitrary.com/mario/silkscreen/slkscrb-webfont.eot');
-    src: url('http://arcade.rawrbitrary.com/mario/silkscreen/slkscrb-webfont.eot?#iefix') format('embedded-opentype'),
-         url('http://arcade.rawrbitrary.com/mario/silkscreen/slkscrb-webfont.woff') format('woff'),
-         url('http://arcade.rawrbitrary.com/mario/silkscreen/slkscrb-webfont.ttf') format('truetype'),
-         url('http://arcade.rawrbitrary.com/mario/silkscreen/slkscrb-webfont.svg#SilkscreenBold') format('svg');
-    font-weight: normal;
-    font-style: normal;
-
-}
-
-@font-face {
-    font-family: 'SilkscreenExpandedNormal';
-    src: url('http://arcade.rawrbitrary.com/mario/silkscreen/slkscre-webfont.eot');
-    src: url('http://arcade.rawrbitrary.com/mario/silkscreen/slkscre-webfont.eot?#iefix') format('embedded-opentype'),
-         url('http://arcade.rawrbitrary.com/mario/silkscreen/slkscre-webfont.woff') format('woff'),
-         url('http://arcade.rawrbitrary.com/mario/silkscreen/slkscre-webfont.ttf') format('truetype'),
-         url('http://arcade.rawrbitrary.com/mario/silkscreen/slkscre-webfont.svg#SilkscreenExpandedNormal') format('svg');
-    font-weight: normal;
-    font-style: normal;
-
-}
-
-@font-face {
-    font-family: 'SilkscreenExpandedBold';
-    src: url('http://arcade.rawrbitrary.com/mario/silkscreen/slkscreb-webfont.eot');
-    src: url('http://arcade.rawrbitrary.com/mario/silkscreen/slkscreb-webfont.eot?#iefix') format('embedded-opentype'),
-         url('http://arcade.rawrbitrary.com/mario/silkscreen/slkscreb-webfont.woff') format('woff'),
-         url('http://arcade.rawrbitrary.com/mario/silkscreen/slkscreb-webfont.ttf') format('truetype'),
-         url('http://arcade.rawrbitrary.com/mario/silkscreen/slkscreb-webfont.svg#SilkscreenExpandedBold') format('svg');
-    font-weight: normal;
-    font-style: normal;
-
-}
+/* The original stylesheet referenced HTTP-only remote fonts. The game uses
+   system fonts here so HTTPS pages do not generate mixed-content failures. */
 
 /*
  * - Crafted by Rob Kleffner -

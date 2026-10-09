@@ -48,6 +48,52 @@
   width: 100%;
 }
 
+.frameLoading {
+  position: absolute;
+  inset: 0;
+  z-index: 3;
+  display: grid;
+  place-content: center;
+  justify-items: center;
+  gap: 0.65rem;
+  padding: 1.25rem;
+  border-radius: 0.75rem;
+  background: #050505;
+  color: #f9fafb;
+  text-align: center;
+}
+
+.frameLoading span:not(.frameLoadingSpinner) {
+  color: #cbd5e1;
+  font-size: 0.9rem;
+}
+
+.frameLoadingSpinner {
+  width: 2rem;
+  height: 2rem;
+  border: 3px solid rgba(255, 255, 255, 0.24);
+  border-top-color: #ffffff;
+  border-radius: 999px;
+  animation: frame-loading-spin 0.8s linear infinite;
+}
+
+.frameRetryButton {
+  margin-top: 0.35rem;
+  padding: 0.65rem 1rem;
+  border: 0;
+  border-radius: 999px;
+  background: #ffffff;
+  color: #111827;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+@keyframes frame-loading-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
 .frameContainerWideMode {
   position: fixed;
   inset: 0;
@@ -178,6 +224,16 @@
   text-align: center;
   color: #4b5563;
   font-size: 0.95rem;
+}
+
+.compatibilityNotice {
+  padding: 0.85rem 1rem;
+  border: 1px solid #f59e0b;
+  border-radius: 0.75rem;
+  background: #fffbeb;
+  color: #78350f;
+  line-height: 1.55;
+  text-align: center;
 }
 
 .howToPlay {
@@ -350,6 +406,12 @@
   .howToPlayListSpacious,
   .detailParagraph {
     color: #e5e7eb;
+  }
+
+  .compatibilityNotice {
+    border-color: #d97706;
+    background: #451a03;
+    color: #fef3c7;
   }
 
   .kbd {
