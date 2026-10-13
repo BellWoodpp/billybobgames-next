@@ -1,0 +1,45 @@
+{
+  "allowedLicenses": [
+    "MIT",
+    "Apache-2.0",
+    "BSD-2-Clause",
+    "BSD-3-Clause",
+    "CC0-1.0",
+    "Unlicense"
+  ],
+  "queries": [
+    "topic:html5-game stars:>=5 archived:false fork:false",
+    "topic:web-game stars:>=5 archived:false fork:false",
+    "topic:phaser-game stars:>=5 archived:false fork:false"
+  ],
+  "excludedKeywords": [
+    "pokemon",
+    "pacman",
+    "pac-man",
+    "mario",
+    "zelda",
+    "sonic",
+    "minecraft",
+    "roblox",
+    "fortnite",
+    "disney",
+    "marvel",
+    "nintendo",
+    "sega",
+    "rom",
+    "roms",
+    "emulator",
+    "decompilation",
+    "fan game",
+    "fangame",
+    "clone",
+    "remake",
+    "template",
+    "boilerplate",
+    "starter kit",
+    "starter-kit"
+  ],
+  "defaultAddLimit": 3,
+  "maxCandidateBacklog": 6,
+  "reportCandidateLimit": 12
+}

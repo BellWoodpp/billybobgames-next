@@ -1,0 +1,46 @@
+name: Discover open game candidates
+
+on:
+  schedule:
+    - cron: "45 3 * * 0"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: discover-open-games
+  cancel-in-progress: false
+
+jobs:
+  discover:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Find licensed web-game candidates
+        run: node scripts/discover-open-games.mjs --limit 3
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+
+      - name: Check publishing safeguards
+        run: node scripts/check-game-publish.mjs
+
+      - name: Commit candidate report and queue
+        run: |
+          if git diff --quiet -- game-queue.md reports/game-discovery.md; then
+            echo "Candidate report and queue are unchanged."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add game-queue.md reports/game-discovery.md
+          git commit -m "chore: refresh open game candidates"
+          git push

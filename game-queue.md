@@ -6,7 +6,7 @@ This file is the small weekly queue for adding real, playable games without mass
 
 `candidate` → `source-check` → `play-test` → `draft` → `ready` → `published`
 
-- `candidate`: Search Console or audience evidence suggests the game may be useful.
+- `candidate`: Search Console, audience evidence, or the automated open-source discovery report suggests the game may be useful. Discovery alone is not publication approval.
 - `source-check`: Confirm the developer, primary source, and permission or license basis.
 - `play-test`: Open the actual game and record controls, goal, device support, loading, sound, and failures.
 - `draft`: The page scaffold exists but returns 404 and is marked `noindex`.
@@ -18,11 +18,16 @@ This file is the small weekly queue for adding real, playable games without mass
 
 Aim for one completed game per week. Skip publication when the source is unclear, the game is not reliably playable, or the page would depend on invented information.
 
+Every Sunday, GitHub Actions refreshes `reports/game-discovery.md` and may add up to three licensed candidates here, while keeping the candidate backlog at six or fewer. It does not copy code or assets, run third-party build scripts, create public pages, or deploy the website. Move a candidate forward only after verifying the developer, the license coverage of every bundled asset, and the actual game.
+
 ## Queue
 
 | Game | Route | Category | Search Console evidence | Source / license | Play test | Status | Next action |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 <!-- GAME_QUEUE_ROWS -->
+| Snake Game | /snake-game | arcade-games | Automated GitHub discovery; no Search Console evidence yet | [ramazancetinkaya/snake-game](https://github.com/ramazancetinkaya/snake-game); MIT detected; bundled-assets review required | Not run; demo responded 200 | candidate | Verify developer and every asset license, then build and play-test in isolation |
+| C4 | /c4 | arcade-games | Automated GitHub discovery; no Search Console evidence yet | [kenrick95/c4](https://github.com/kenrick95/c4); MIT detected; bundled-assets review required | Not run; demo responded 200 | candidate | Verify developer and every asset license, then build and play-test in isolation |
+| Snakeball | /snakeball | arcade-games | Automated GitHub discovery; no Search Console evidence yet | [JIEJOE-Visual/snakeball](https://github.com/JIEJOE-Visual/snakeball); MIT detected; bundled-assets review required | Not run; demo responded 200 | candidate | Verify developer and every asset license, then build and play-test in isolation |
 
 ## Required evidence before publishing
 
@@ -52,6 +57,18 @@ Check the publishing structure:
 
 ```bash
 pnpm game:check
+```
+
+Refresh open-source candidates locally (this updates the report and queue):
+
+```bash
+pnpm game:discover
+```
+
+Preview discovery without changing files:
+
+```bash
+pnpm game:discover -- --dry-run --limit 3
 ```
 
 The generator never adds a draft to the catalog or Sitemap. The generated route returns 404 until `GAME_PAGE_STATUS` is manually changed to `published` after all `TODO` items are replaced.
