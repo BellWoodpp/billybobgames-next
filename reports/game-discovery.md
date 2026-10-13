@@ -1,6 +1,6 @@
 # Open game candidate report
 
-Generated: 2026-10-13T16:30:08.839Z
+Generated: 2026-10-13T16:31:39.151Z
 
 This report is an automated first pass, not permission to publish. Candidates are ranked by GitHub stars, then forks, then recent repository activity. A repository license may not cover bundled art, music, fonts, trademarks, or third-party dependencies. Every candidate must still pass source review, an asset-by-asset rights check, an English-language check inside the running game, a clean-room build, and a real desktop/mobile play test.
 
