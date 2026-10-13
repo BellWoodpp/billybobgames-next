@@ -8,6 +8,7 @@ import { fileURLToPath } from "node:url";
 const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), "..");
 const CATALOG_PATH = resolve(ROOT, "src/app/(site)/_data/game-catalog.ts");
 const QUEUE_PATH = resolve(ROOT, "game-queue.md");
+const HISTORY_PATH = resolve(ROOT, "data/game-publication-history.json");
 const QUEUE_MARKER = "<!-- GAME_QUEUE_ROWS -->";
 
 function usage() {
@@ -182,7 +183,10 @@ async function main() {
     throw new Error("Title must contain at least two characters.");
   }
 
-  const catalogSource = await readFile(CATALOG_PATH, "utf8");
+  const [catalogSource, historySource] = await Promise.all([
+    readFile(CATALOG_PATH, "utf8"),
+    readFile(HISTORY_PATH, "utf8"),
+  ]);
   const validCategories = new Set(
     [...catalogSource.matchAll(/\bslug:\s*"([^"]+)"/g)].map((match) => match[1]),
   );
@@ -190,6 +194,15 @@ async function main() {
     throw new Error(
       `Unknown category "${category}". Choose one of: ${[...validCategories].join(", ")}`,
     );
+  }
+
+  const history = JSON.parse(historySource);
+  const normalizedTitle = title.trim().toLowerCase().replace(/[^a-z0-9]+/g, "");
+  if (history.entries.some((entry) => entry.route === `/${slug}`)) {
+    throw new Error(`Publication history already contains /${slug}.`);
+  }
+  if (history.entries.some((entry) => entry.title.toLowerCase().replace(/[^a-z0-9]+/g, "") === normalizedTitle)) {
+    throw new Error(`Publication history already contains the title "${title.trim()}".`);
   }
 
   const pagePath = resolve(ROOT, `src/app/(site)/${slug}/page.tsx`);
@@ -205,7 +218,7 @@ async function main() {
     throw new Error(`The queue already contains /${slug}.`);
   }
 
-  const row = `| ${escapeMarkdownCell(title.trim())} | /${slug} | ${category} | TODO | TODO | TODO | draft | Replace every TODO and complete a real play test |`;
+  const row = `| ${escapeMarkdownCell(title.trim())} | /${slug} | ${category} | TODO: popularity evidence | TODO: English confirmation | TODO: demand evidence | TODO: primary source and license | TODO: desktop and mobile play test | draft | Replace every TODO, confirm English, and complete a real play test |`;
   const updatedQueue = queueSource.replace(QUEUE_MARKER, `${row}\n${QUEUE_MARKER}`);
 
   await mkdir(dirname(pagePath), { recursive: true });

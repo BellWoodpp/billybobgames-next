@@ -1,5 +1,6 @@
 #!/usr/bin/env node
 
+import { createHash } from "node:crypto";
 import { readdir, readFile } from "node:fs/promises";
 import { dirname, relative, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
@@ -10,6 +11,7 @@ const CATALOG_PATH = resolve(SITE_ROOT, "_data/game-catalog.ts");
 const HOME_PATH = resolve(SITE_ROOT, "page.tsx");
 const SITEMAP_PATH = resolve(ROOT, "src/app/sitemap.ts");
 const QUEUE_PATH = resolve(ROOT, "game-queue.md");
+const HISTORY_PATH = resolve(ROOT, "data/game-publication-history.json");
 const SCAFFOLD_MARKER = "// game-page-scaffold:v1";
 
 const errors = [];
@@ -62,15 +64,18 @@ function parseQueue(source) {
       .slice(1, -1)
       .map((cell) => cell.trim());
     if (cells[0] === "Game" || !cells[1]?.startsWith("/")) continue;
+    const modern = cells.length >= 10;
     rows.set(cells[1], {
       title: cells[0],
       route: cells[1],
       category: cells[2],
-      searchEvidence: cells[3],
-      source: cells[4],
-      playTest: cells[5],
-      status: cells[6],
-      nextAction: cells[7],
+      popularity: modern ? cells[3] : "Not measured",
+      language: modern ? cells[4] : "Not checked",
+      searchEvidence: cells[modern ? 5 : 3],
+      source: cells[modern ? 6 : 4],
+      playTest: cells[modern ? 7 : 5],
+      status: cells[modern ? 8 : 6],
+      nextAction: cells[modern ? 9 : 7],
     });
   }
 
@@ -102,6 +107,82 @@ function hasPlaceholder(value) {
   return !value || /TODO|example\.(com|example)/i.test(value);
 }
 
+function normalizeTitle(value) {
+  return value.toLowerCase().replace(/[^a-z0-9]+/g, "");
+}
+
+function publicationContentHash(game, pageSource) {
+  const snapshot = {
+    route: game.href,
+    title: game.title,
+    image: game.img,
+    description: game.description,
+    categories: game.categories,
+  };
+  return createHash("sha256")
+    .update(JSON.stringify({ game: snapshot, pageSource }))
+    .digest("hex");
+}
+
+function validatePublicationHistory(history, games, pageSources) {
+  if (history.schemaVersion !== 1 || !Array.isArray(history.entries)) {
+    addError("game-publication-history.json must use schemaVersion 1 and contain an entries array.");
+    return;
+  }
+
+  const routeOwners = new Map();
+  const titleOwners = new Map();
+  const sourceOwners = new Map();
+  for (const entry of history.entries) {
+    for (const [label, value, owners] of [
+      ["route", entry.route, routeOwners],
+      ["normalized title", normalizeTitle(entry.title || ""), titleOwners],
+    ]) {
+      if (!value) addError(`Publication history has a blank ${label}.`);
+      else if (owners.has(value)) addError(`Publication history duplicates ${label} ${value}.`);
+      else owners.set(value, entry.route);
+    }
+    for (const sourceUrl of entry.sourceUrls || []) {
+      if (sourceOwners.has(sourceUrl) && sourceOwners.get(sourceUrl) !== entry.route) {
+        addError(`Publication history source ${sourceUrl} is reused by ${sourceOwners.get(sourceUrl)} and ${entry.route}.`);
+      } else {
+        sourceOwners.set(sourceUrl, entry.route);
+      }
+    }
+  }
+
+  const historyByRoute = new Map(history.entries.map((entry) => [entry.route, entry]));
+  let legacyLanguageCount = 0;
+  for (const game of games) {
+    const entry = historyByRoute.get(game.href);
+    if (!entry || !entry.currentlyPublished) {
+      addError(`${game.href}: published catalog game is missing from the active publication history.`);
+      continue;
+    }
+    if (entry.title !== game.title) addError(`${game.href}: history title does not match the catalog.`);
+    if (entry.languageStatus === "legacy-unverified" && entry.legacy) {
+      legacyLanguageCount += 1;
+    } else if (!["english-confirmed", "language-neutral-confirmed"].includes(entry.languageStatus)) {
+      addError(`${game.href}: new publications require English or language-neutral confirmation in publication history.`);
+    }
+    if (!entry.legacy && !(entry.sourceUrls || []).length) {
+      addError(`${game.href}: new publication history entry requires at least one primary source URL.`);
+    }
+    const currentHash = publicationContentHash(game, pageSources.get(game.href) || "");
+    if (entry.revisions?.at(-1)?.contentSha256 !== currentHash) {
+      addError(`${game.href}: published content changed; run pnpm game:history to record the revision.`);
+    }
+  }
+  for (const entry of history.entries) {
+    if (entry.currentlyPublished && !games.some((game) => game.href === entry.route)) {
+      addError(`${entry.route}: history says currentlyPublished but the route is absent from the catalog.`);
+    }
+  }
+  if (legacyLanguageCount) {
+    addWarning(`${legacyLanguageCount} legacy game(s) predate language tracking; every new publication is language-gated.`);
+  }
+}
+
 function validatePublishedScaffold({ route, source, catalogByHref, homeSource, queueRows }) {
   if (source.includes("TODO")) {
     addError(`${route}: published scaffold still contains TODO placeholders.`);
@@ -123,11 +204,16 @@ function validatePublishedScaffold({ route, source, catalogByHref, homeSource, q
       addError(`${route}: queue status must be published, currently ${queueRow.status || "blank"}.`);
     }
     for (const [label, value] of [
+      ["popularity", queueRow.popularity],
+      ["language", queueRow.language],
       ["Search Console evidence", queueRow.searchEvidence],
       ["source / license", queueRow.source],
       ["play test", queueRow.playTest],
     ]) {
       if (hasPlaceholder(value)) addError(`${route}: queue ${label} is incomplete.`);
+    }
+    if (!/(English confirmed|Language-neutral confirmed)/i.test(queueRow.language || "")) {
+      addError(`${route}: queue language must be confirmed from a real play test before publication.`);
     }
   }
 
@@ -181,11 +267,12 @@ function validatePublishedScaffold({ route, source, catalogByHref, homeSource, q
 }
 
 async function main() {
-  const [catalogSource, homeSource, sitemapSource, queueSource] = await Promise.all([
+  const [catalogSource, homeSource, sitemapSource, queueSource, historySource] = await Promise.all([
     readFile(CATALOG_PATH, "utf8"),
     readFile(HOME_PATH, "utf8"),
     readFile(SITEMAP_PATH, "utf8"),
     readFile(QUEUE_PATH, "utf8"),
+    readFile(HISTORY_PATH, "utf8"),
   ]);
 
   if (!queueSource.includes("<!-- GAME_QUEUE_ROWS -->")) {
@@ -197,7 +284,9 @@ async function main() {
 
   const { categories, games } = parseCatalog(catalogSource);
   const queueRows = parseQueue(queueSource);
+  const history = JSON.parse(historySource);
   const catalogByHref = new Map();
+  const pageSources = new Map();
 
   if (games.length === 0) addError("No catalog games could be parsed.");
 
@@ -215,11 +304,13 @@ async function main() {
 
     const pagePath = resolve(SITE_ROOT, game.href.slice(1), "page.tsx");
     try {
-      await readFile(pagePath, "utf8");
+      pageSources.set(game.href, await readFile(pagePath, "utf8"));
     } catch {
       addError(`${game.href}: catalog route has no page.tsx.`);
     }
   }
+
+  validatePublicationHistory(history, games, pageSources);
 
   for (const category of categories) {
     const categoryPage = resolve(SITE_ROOT, category, "page.tsx");

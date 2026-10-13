@@ -69,6 +69,10 @@ New games move through the queue in [`game-queue.md`](./game-queue.md):
 candidate -> source-check -> play-test -> draft -> ready -> published
 ```
 
+The automated discovery job ranks candidates by GitHub stars, using forks and recent activity only as tie-breakers.
+Only games with an English or language-neutral signal enter the queue, and the running game must be manually
+confirmed before publication.
+
 Create a draft page:
 
 ```bash
@@ -76,11 +80,16 @@ pnpm game:new -- --slug example-game --title "Example Game" --category arcade-ga
 ```
 
 Draft pages remain excluded from the public catalog and Sitemap. Before publishing, verify the source and license,
-test the game on desktop and mobile, replace every placeholder, and run:
+test the English experience on desktop and mobile, replace every placeholder, record the publication, and run:
 
 ```bash
+pnpm game:history -- --route /example-game --language english-confirmed
 pnpm game:check
 ```
+
+[`data/game-publication-history.json`](./data/game-publication-history.json) permanently records published titles,
+routes, primary sources, catalog snapshots, and content hashes so retired or renamed games are not accidentally
+published again.
 
 The same validation runs before a Cloudflare deployment.
 

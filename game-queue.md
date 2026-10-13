@@ -16,27 +16,28 @@ This file is the small weekly queue for adding real, playable games without mass
 
 ## Weekly rule
 
-Aim for one completed game per week. Skip publication when the source is unclear, the game is not reliably playable, or the page would depend on invented information.
+Aim for one completed game per week. Process qualified candidates from the top of the queue: GitHub stars determine popularity, forks break ties, and recent repository activity is the final tie-breaker. Skip a higher-ranked game when its source, asset rights, English-language experience, or playability cannot be verified; record the reason instead of forcing publication.
 
 Every Sunday, GitHub Actions refreshes `reports/game-discovery.md` and may add up to three licensed candidates here, while keeping the candidate backlog at six or fewer. It does not copy code or assets, run third-party build scripts, create public pages, or deploy the website. Move a candidate forward only after verifying the developer, the license coverage of every bundled asset, and the actual game.
 
 ## Queue
 
-| Game | Route | Category | Search Console evidence | Source / license | Play test | Status | Next action |
-| --- | --- | --- | --- | --- | --- | --- | --- |
+| Game | Route | Category | Popularity | Language | Search Console evidence | Source / license | Play test | Status | Next action |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 <!-- GAME_QUEUE_ROWS -->
-| Letreco | /letreco | puzzle-games | Automated GitHub discovery; no Search Console evidence yet | [gabtoschi/letreco](https://github.com/gabtoschi/letreco); MIT detected; bundled-assets review required | Not run; demo responded 200 | candidate | Verify developer and every asset license, then build and play-test in isolation |
-| Tinyhumans | /tinyhumans | arcade-games | Automated GitHub discovery; no Search Console evidence yet | [thesephist/tinyhumans](https://github.com/thesephist/tinyhumans); MIT detected; bundled-assets review required | Not run; demo responded 200 | candidate | Verify developer and every asset license, then build and play-test in isolation |
-| MedievalWar | /medievalwar | arcade-games | Automated GitHub discovery; no Search Console evidence yet | [tranchikhang/MedievalWar](https://github.com/tranchikhang/MedievalWar); MIT detected; bundled-assets review required | Not run; demo responded 200 | candidate | Verify developer and every asset license, then build and play-test in isolation |
-| Snake Game | /snake-game | arcade-games | Automated GitHub discovery; no Search Console evidence yet | [ramazancetinkaya/snake-game](https://github.com/ramazancetinkaya/snake-game); MIT detected; bundled-assets review required | Not run; demo responded 200 | candidate | Verify developer and every asset license, then build and play-test in isolation |
-| C4 | /c4 | arcade-games | Automated GitHub discovery; no Search Console evidence yet | [kenrick95/c4](https://github.com/kenrick95/c4); MIT detected; bundled-assets review required | Not run; demo responded 200 | candidate | Verify developer and every asset license, then build and play-test in isolation |
-| Snakeball | /snakeball | arcade-games | Automated GitHub discovery; no Search Console evidence yet | [JIEJOE-Visual/snakeball](https://github.com/JIEJOE-Visual/snakeball); MIT detected; bundled-assets review required | Not run; demo responded 200 | candidate | Verify developer and every asset license, then build and play-test in isolation |
+| HTML5 Asteroids | /html5-asteroids | arcade-games | GitHub 355 stars; 336 forks | Language-neutral or text-light; confirm in play test | Automated GitHub discovery; no Search Console evidence yet | [dmcinnes/HTML5-Asteroids](https://github.com/dmcinnes/HTML5-Asteroids); MIT detected; bundled-assets review required | Not run; no live demo detected | candidate | Verify English UI, developer, and every asset license, then build and play-test in isolation |
+| C4 | /c4 | arcade-games | GitHub 281 stars; 105 forks | English declared in HTML; confirm in play test | Automated GitHub discovery; no Search Console evidence yet | [kenrick95/c4](https://github.com/kenrick95/c4); MIT detected; bundled-assets review required | Not run; demo responded 200 | candidate | Verify English UI, developer, and every asset license, then build and play-test in isolation |
+| Snake Game | /snake-game | arcade-games | GitHub 184 stars; 75 forks | English declared in HTML; confirm in play test | Automated GitHub discovery; no Search Console evidence yet | [ramazancetinkaya/snake-game](https://github.com/ramazancetinkaya/snake-game); MIT detected; bundled-assets review required | Not run; demo responded 200 | candidate | Verify English UI, developer, and every asset license, then build and play-test in isolation |
+| Starfall Phaser3 Typescript | /starfall-phaser3-typescript | arcade-games | GitHub 54 stars; 17 forks | Language-neutral or text-light; confirm in play test | Automated GitHub discovery; no Search Console evidence yet | [mariyadavydova/starfall-phaser3-typescript](https://github.com/mariyadavydova/starfall-phaser3-typescript); MIT detected; bundled-assets review required | Not run; no live demo detected | candidate | Verify English UI, developer, and every asset license, then build and play-test in isolation |
+| MedievalWar | /medievalwar | arcade-games | GitHub 39 stars; 7 forks | Language-neutral or text-light; confirm in play test | Automated GitHub discovery; no Search Console evidence yet | [tranchikhang/MedievalWar](https://github.com/tranchikhang/MedievalWar); MIT detected; bundled-assets review required | Not run; demo responded 200 | candidate | Verify English UI, developer, and every asset license, then build and play-test in isolation |
+| StackQuest | /stackquest | arcade-games | GitHub 21 stars; 5 forks | Language-neutral or text-light; confirm in play test | Automated GitHub discovery; no Search Console evidence yet | [FinalStackQuest/StackQuest](https://github.com/FinalStackQuest/StackQuest); MIT detected; bundled-assets review required | Not run; no live demo detected | candidate | Verify English UI, developer, and every asset license, then build and play-test in isolation |
 
 ## Required evidence before publishing
 
 - [ ] The game actually loads and can be played through its basic loop.
 - [ ] Developer and primary source are identified without guessing.
 - [ ] Hosting or distribution basis is recorded; unclear rights block publication.
+- [ ] The running game is confirmed to use English, or to be genuinely language-neutral.
 - [ ] Title, description, unique H1, and original introduction are complete.
 - [ ] Controls and gameplay goal come from a real play test.
 - [ ] Desktop and mobile behavior are described accurately.
@@ -46,6 +47,7 @@ Every Sunday, GitHub Actions refreshes `reports/game-discovery.md` and may add u
 - [ ] Three to six related games use specific game names as anchor text.
 - [ ] The game is added to `game-catalog.ts` with at least one real category.
 - [ ] The homepage links the new game in its game list or recent-update section.
+- [ ] `pnpm game:history -- --route /example-game --language english-confirmed` records the publication, source, and content revision.
 - [ ] `pnpm game:check`, TypeScript, lint, and the Cloudflare build pass.
 
 ## Commands
@@ -61,6 +63,14 @@ Check the publishing structure:
 ```bash
 pnpm game:check
 ```
+
+Record a new English publication before the final check:
+
+```bash
+pnpm game:history -- --route /example-game --language english-confirmed
+```
+
+For a game with no player-facing language, use `language-neutral-confirmed` instead. Existing legacy games are recorded without invented publication dates; all new games must pass this language gate.
 
 Refresh open-source candidates locally (this updates the report and queue):
 

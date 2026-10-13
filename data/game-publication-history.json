@@ -1,0 +1,377 @@
+{
+  "schemaVersion": 1,
+  "updatedAt": "2026-10-14",
+  "purpose": "Permanent publication ledger used to prevent duplicate game titles, routes, and source repositories.",
+  "entries": [
+    {
+      "title": "Brush Jjaemu",
+      "route": "/brush-jjaemu",
+      "currentlyPublished": true,
+      "legacy": true,
+      "firstRecordedAt": "2026-10-14",
+      "publishedAt": null,
+      "publicationDateNote": "Published before history tracking; original date unknown.",
+      "languageStatus": "legacy-unverified",
+      "sourceUrls": [],
+      "catalogSnapshot": {
+        "description": "Read Jjaemu's mood, brush with steady mouse control, and survive a deceptively tense browser pet-care challenge.",
+        "image": "https://pub-7a7bcc9e985340b68807f06d96ba2d0a.r2.dev/brush-jjaemu/brush-jjaemu.png",
+        "categories": [
+          "arcade-games"
+        ]
+      },
+      "revisions": [
+        {
+          "recordedAt": "2026-10-14",
+          "contentSha256": "69e1660fbf930896a7ae14cc2efd1834634fafdb51f381ba5307f4b3f3f2eae0"
+        }
+      ]
+    },
+    {
+      "title": "Evolve Idle",
+      "route": "/evolve",
+      "currentlyPublished": true,
+      "legacy": true,
+      "firstRecordedAt": "2026-10-14",
+      "publishedAt": null,
+      "publicationDateNote": "Published before history tracking; original date unknown.",
+      "languageStatus": "legacy-unverified",
+      "sourceUrls": [],
+      "catalogSnapshot": {
+        "description": "Guide a civilization from primordial ooze to a spacefaring empire in a deep incremental strategy game.",
+        "image": "/games/evolve/evolve.webp",
+        "categories": [
+          "idle-games"
+        ]
+      },
+      "revisions": [
+        {
+          "recordedAt": "2026-10-14",
+          "contentSha256": "27b5b0cdc627961ccff16f23d4a239f3ac7a3643307767c52640c6203f111680"
+        }
+      ]
+    },
+    {
+      "title": "Pokémon FireRed",
+      "route": "/fire-red",
+      "currentlyPublished": true,
+      "legacy": true,
+      "firstRecordedAt": "2026-10-14",
+      "publishedAt": null,
+      "publicationDateNote": "Published before history tracking; original date unknown.",
+      "languageStatus": "legacy-unverified",
+      "sourceUrls": [],
+      "catalogSnapshot": {
+        "description": "Explore Kanto, train a Pokémon team, and preserve your progress with browser save and export tools.",
+        "image": "https://pub-7a7bcc9e985340b68807f06d96ba2d0a.r2.dev/GBA-Red/red-image.jpeg",
+        "categories": [
+          "pokemon",
+          "retro-games"
+        ]
+      },
+      "revisions": [
+        {
+          "recordedAt": "2026-10-14",
+          "contentSha256": "6d118a3801313839ab27dcc41f869b8c8fbea530d8abbf57ef3d47401fd45220"
+        }
+      ]
+    },
+    {
+      "title": "BLOODMONEY",
+      "route": "/bloodmoney",
+      "currentlyPublished": true,
+      "legacy": true,
+      "firstRecordedAt": "2026-10-14",
+      "publishedAt": null,
+      "publicationDateNote": "Published before history tracking; original date unknown.",
+      "languageStatus": "legacy-unverified",
+      "sourceUrls": [],
+      "catalogSnapshot": {
+        "description": "Play a dark clicker horror game built around choices, upgrades, and multiple endings.",
+        "image": "https://r2bucket.billybobgames.org/bloodmoney-webp/bloodmoney.webp",
+        "categories": [
+          "arcade-games"
+        ]
+      },
+      "revisions": [
+        {
+          "recordedAt": "2026-10-14",
+          "contentSha256": "625f88938c3915d595a69bca7c123b38dc639caefc35178c887fc46a12651039"
+        }
+      ]
+    },
+    {
+      "title": "Sprunki Remix",
+      "route": "/sprunki",
+      "currentlyPublished": true,
+      "legacy": true,
+      "firstRecordedAt": "2026-10-14",
+      "publishedAt": null,
+      "publicationDateNote": "Published before history tracking; original date unknown.",
+      "languageStatus": "legacy-unverified",
+      "sourceUrls": [],
+      "catalogSnapshot": {
+        "description": "Layer eerie beats and drag-and-drop performers in a browser music remix experience.",
+        "image": "https://r2bucket.billybobgames.org/sprunki/sprunki.webp",
+        "categories": [
+          "music-games"
+        ]
+      },
+      "revisions": [
+        {
+          "recordedAt": "2026-10-14",
+          "contentSha256": "d0340d1a5fea88cdcc45b11ab480b084c5aaff1d888aba81ff2c72d0b81fa3f3"
+        }
+      ]
+    },
+    {
+      "title": "Spider Solitaire",
+      "route": "/Spider-Solitaire",
+      "currentlyPublished": true,
+      "legacy": true,
+      "firstRecordedAt": "2026-10-14",
+      "publishedAt": null,
+      "publicationDateNote": "Published before history tracking; original date unknown.",
+      "languageStatus": "legacy-unverified",
+      "sourceUrls": [],
+      "catalogSnapshot": {
+        "description": "Stack cards by suit, plan each move, and clear the tableau in a classic solitaire challenge.",
+        "image": "https://r2bucket.billybobgames.org/Spider-Solitaire/ogOjlb.webp",
+        "categories": [
+          "card-games",
+          "puzzle-games"
+        ]
+      },
+      "revisions": [
+        {
+          "recordedAt": "2026-10-14",
+          "contentSha256": "f1fae81559b6429ce4d7fd95e24db54cf6d8e828b3ca1cef9968fcb6cf558c68"
+        }
+      ]
+    },
+    {
+      "title": "Flappy Text",
+      "route": "/flappy-text",
+      "currentlyPublished": true,
+      "legacy": true,
+      "firstRecordedAt": "2026-10-14",
+      "publishedAt": null,
+      "publicationDateNote": "Published before history tracking; original date unknown.",
+      "languageStatus": "legacy-unverified",
+      "sourceUrls": [],
+      "catalogSnapshot": {
+        "description": "Type your own word and guide it through obstacles in a playful Flappy-style challenge.",
+        "image": "https://r2bucket.billybobgames.org/flappy-text/3.jpg",
+        "categories": [
+          "arcade-games"
+        ]
+      },
+      "revisions": [
+        {
+          "recordedAt": "2026-10-14",
+          "contentSha256": "5f370f5ea1d0456b683b478fbdc175a5bc6015bd09195b961f8051a269b81482"
+        }
+      ]
+    },
+    {
+      "title": "Pac-Man",
+      "route": "/pac-man",
+      "currentlyPublished": true,
+      "legacy": true,
+      "firstRecordedAt": "2026-10-14",
+      "publishedAt": null,
+      "publicationDateNote": "Published before history tracking; original date unknown.",
+      "languageStatus": "legacy-unverified",
+      "sourceUrls": [],
+      "catalogSnapshot": {
+        "description": "Clear each maze of pellets, dodge the ghosts, and chase classic arcade high scores.",
+        "image": "https://r2bucket.billybobgames.org/4-pac-man/4.jpg",
+        "categories": [
+          "arcade-games",
+          "retro-games"
+        ]
+      },
+      "revisions": [
+        {
+          "recordedAt": "2026-10-14",
+          "contentSha256": "680144e1a24a009d9e398f10d7485cfbe203f9977b53265c84389324eeb33679"
+        }
+      ]
+    },
+    {
+      "title": "Fruit Ninja",
+      "route": "/fruit-ninja",
+      "currentlyPublished": true,
+      "legacy": true,
+      "firstRecordedAt": "2026-10-14",
+      "publishedAt": null,
+      "publicationDateNote": "Published before history tracking; original date unknown.",
+      "languageStatus": "legacy-unverified",
+      "sourceUrls": [],
+      "catalogSnapshot": {
+        "description": "Slice flying fruit, avoid bombs, and build combos in a fast browser arcade game.",
+        "image": "https://r2bucket.billybobgames.org/1-FruitNinja/1.jpg",
+        "categories": [
+          "arcade-games"
+        ]
+      },
+      "revisions": [
+        {
+          "recordedAt": "2026-10-14",
+          "contentSha256": "d0d0c90f759f70e141ff2ad9839893d019df2a4cc1a6ac3e40af2f4a4427b411"
+        }
+      ]
+    },
+    {
+      "title": "HTML5 Mario",
+      "route": "/html5-mario",
+      "currentlyPublished": true,
+      "legacy": true,
+      "firstRecordedAt": "2026-10-14",
+      "publishedAt": null,
+      "publicationDateNote": "Published before history tracking; original date unknown.",
+      "languageStatus": "legacy-unverified",
+      "sourceUrls": [
+        "https://github.com/robertkleffner/mariohtml5"
+      ],
+      "catalogSnapshot": {
+        "description": "Run, jump, collect coins, and enjoy a browser-friendly platforming adventure.",
+        "image": "https://r2bucket.billybobgames.org/6-html5-mario/6.jpg",
+        "categories": [
+          "arcade-games",
+          "retro-games"
+        ]
+      },
+      "revisions": [
+        {
+          "recordedAt": "2026-10-14",
+          "contentSha256": "be1c581b55147ce73dd81a8569891348bee5b02d32f2fe647e154edd90e18904"
+        }
+      ]
+    },
+    {
+      "title": "Fish Joy Reloaded",
+      "route": "/html5demo7",
+      "currentlyPublished": true,
+      "legacy": true,
+      "firstRecordedAt": "2026-10-14",
+      "publishedAt": null,
+      "publicationDateNote": "Published before history tracking; original date unknown.",
+      "languageStatus": "legacy-unverified",
+      "sourceUrls": [
+        "https://github.com/d4vucat/Fish-Joy"
+      ],
+      "catalogSnapshot": {
+        "description": "Aim the cannon, catch colorful fish, and chase arcade fishing combos under the sea.",
+        "image": "https://r2bucket.billybobgames.org/9-html5demo7/9.jpg",
+        "categories": [
+          "arcade-games"
+        ]
+      },
+      "revisions": [
+        {
+          "recordedAt": "2026-10-14",
+          "contentSha256": "5ac1871b51ae677dab1dde2a1db6be3d3f50b0bb4c2d95dc934fe86d903d4000"
+        }
+      ]
+    },
+    {
+      "title": "HTML5 City Match",
+      "route": "/html5-xxl",
+      "currentlyPublished": true,
+      "legacy": true,
+      "firstRecordedAt": "2026-10-14",
+      "publishedAt": null,
+      "publicationDateNote": "Published before history tracking; original date unknown.",
+      "languageStatus": "legacy-unverified",
+      "sourceUrls": [],
+      "catalogSnapshot": {
+        "description": "Swap city tiles, trigger cascading matches, and unlock boosters in a browser puzzle game.",
+        "image": "https://r2bucket.billybobgames.org/7-Html5-xxl/7.png",
+        "categories": [
+          "puzzle-games"
+        ]
+      },
+      "revisions": [
+        {
+          "recordedAt": "2026-10-14",
+          "contentSha256": "d7bc42fa1ce2f297b98d0a08bf386a555941f2faceb6dc717561e6f70bb99df7"
+        }
+      ]
+    },
+    {
+      "title": "Mouse Hit Mania",
+      "route": "/mouseHit",
+      "currentlyPublished": true,
+      "legacy": true,
+      "firstRecordedAt": "2026-10-14",
+      "publishedAt": null,
+      "publicationDateNote": "Published before history tracking; original date unknown.",
+      "languageStatus": "legacy-unverified",
+      "sourceUrls": [],
+      "catalogSnapshot": {
+        "description": "Aim quickly, hit every mole, and build fast combos in a whac-a-mole arcade game.",
+        "image": "https://r2bucket.billybobgames.org/8-mouseHit/8.jpg",
+        "categories": [
+          "arcade-games"
+        ]
+      },
+      "revisions": [
+        {
+          "recordedAt": "2026-10-14",
+          "contentSha256": "258b060cf7f1f1ee9b8f806c3eccb75f2813dea8497078c255a814dcaadaa223"
+        }
+      ]
+    },
+    {
+      "title": "HTML5 Fly",
+      "route": "/html5-fly",
+      "currentlyPublished": true,
+      "legacy": true,
+      "firstRecordedAt": "2026-10-14",
+      "publishedAt": null,
+      "publicationDateNote": "Published before history tracking; original date unknown.",
+      "languageStatus": "legacy-unverified",
+      "sourceUrls": [],
+      "catalogSnapshot": {
+        "description": "Pilot a starfighter, dodge enemy fire, collect upgrades, and survive wave after wave.",
+        "image": "https://r2bucket.billybobgames.org/5-html5-fly/5.jpg",
+        "categories": [
+          "arcade-games"
+        ]
+      },
+      "revisions": [
+        {
+          "recordedAt": "2026-10-14",
+          "contentSha256": "e61233b5489dbe973d716994f2d2cb976f8f1a2af923aec8b55b167bd21529cf"
+        }
+      ]
+    },
+    {
+      "title": "HTML5 Slot Machine",
+      "route": "/slot-machine-main",
+      "currentlyPublished": true,
+      "legacy": true,
+      "firstRecordedAt": "2026-10-14",
+      "publishedAt": null,
+      "publicationDateNote": "Published before history tracking; original date unknown.",
+      "languageStatus": "legacy-unverified",
+      "sourceUrls": [
+        "https://github.com/johakr/html5-slot-machine"
+      ],
+      "catalogSnapshot": {
+        "description": "Spin five reels, test autoplay, and enjoy a lightweight browser slot-machine game.",
+        "image": "https://r2bucket.billybobgames.org/10-slot-machine-main/10.png",
+        "categories": [
+          "arcade-games"
+        ]
+      },
+      "revisions": [
+        {
+          "recordedAt": "2026-10-14",
+          "contentSha256": "7d35d0dc4af355348eeab086e6ba4fa2d4715daac77e664b1007128097c21176"
+        }
+      ]
+    }
+  ]
+}

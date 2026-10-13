@@ -39,6 +39,10 @@
     "starter kit",
     "starter-kit"
   ],
+  "languagePolicy": {
+    "acceptedDeclaredLanguages": ["en"],
+    "allowLanguageNeutral": true
+  },
   "defaultAddLimit": 3,
   "maxCandidateBacklog": 6,
   "reportCandidateLimit": 12
