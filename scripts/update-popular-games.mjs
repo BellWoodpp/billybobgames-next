@@ -14,6 +14,7 @@ const OUTPUT_PATH = fileURLToPath(
 );
 
 const GAME_PATHS = [
+  "/c4",
   "/brush-jjaemu",
   "/fire-red",
   "/evolve",

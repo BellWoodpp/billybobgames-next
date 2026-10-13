@@ -4,6 +4,36 @@
   "purpose": "Permanent publication ledger used to prevent duplicate game titles, routes, and source repositories.",
   "entries": [
     {
+      "title": "C4 – Connect Four",
+      "route": "/c4",
+      "currentlyPublished": true,
+      "legacy": false,
+      "firstRecordedAt": "2026-10-14",
+      "publishedAt": "2026-10-14",
+      "languageStatus": "english-confirmed",
+      "sourceUrls": [
+        "https://github.com/kenrick95/c4"
+      ],
+      "catalogSnapshot": {
+        "description": "Play an English Connect Four game against AI or another local player on desktop and mobile.",
+        "image": "/images/games/c4-gameplay.png",
+        "categories": [
+          "puzzle-games",
+          "arcade-games"
+        ]
+      },
+      "revisions": [
+        {
+          "recordedAt": "2026-10-14",
+          "contentSha256": "cdee93f28351f1d29fefb019d8e7176112f56ae159979c6abd4c49aed5e6c81b"
+        },
+        {
+          "recordedAt": "2026-10-14",
+          "contentSha256": "d42014253b42ef6e08f6f79836c0f61b615509198bd06efb91eacd66f7a89e7e"
+        }
+      ]
+    },
+    {
       "title": "Brush Jjaemu",
       "route": "/brush-jjaemu",
       "currentlyPublished": true,

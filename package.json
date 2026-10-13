@@ -11,6 +11,7 @@
     "game:check": "node scripts/check-game-publish.mjs",
     "game:discover": "node scripts/discover-open-games.mjs",
     "game:history": "node scripts/sync-game-publication-history.mjs",
+    "game:release": "node scripts/weekly-game-release.mjs",
     "seo:review": "node scripts/seo-review.mjs",
     "outreach:import:resources": "python3 scripts/outreach/import-resources-xlsx.py",
     "outreach:score": "node scripts/outreach/score-prospects.cjs",

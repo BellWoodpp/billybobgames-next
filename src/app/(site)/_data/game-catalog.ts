@@ -77,6 +77,14 @@ export const gameCategories: GameCategory[] = [
 
 export const catalogGames: CatalogGame[] = [
   {
+    href: "/c4",
+    title: "C4 – Connect Four",
+    img: "/images/games/c4-gameplay.png",
+    alt: "C4 Connect Four board with a red disc in the fourth column",
+    description: "Play an English Connect Four game against AI or another local player on desktop and mobile.",
+    categories: ["puzzle-games", "arcade-games"],
+  },
+  {
     href: "/brush-jjaemu",
     title: "Brush Jjaemu",
     img: "https://pub-7a7bcc9e985340b68807f06d96ba2d0a.r2.dev/brush-jjaemu/brush-jjaemu.png",

@@ -117,6 +117,14 @@ const homeStructuredData = {
 
 const otherGames: HomeGame[] = [
   {
+    href: "/c4",
+    title: "C4 – Connect Four",
+    img: "/images/games/c4-gameplay.png",
+    alt: "C4 Connect Four board with a red disc in the fourth column",
+    imageFit: "contain",
+    newUntil: "2026-11-14T23:59:59+08:00",
+  },
+  {
     href: "/brush-jjaemu",
     title: "Brush Jjaemu",
     img: "https://pub-7a7bcc9e985340b68807f06d96ba2d0a.r2.dev/brush-jjaemu/brush-jjaemu.png",
@@ -311,14 +319,15 @@ export default async function HomePage({ searchParams }: HomePageProps) {
           </p>
           <p>
             This is a one-person project. I choose and organize the games, maintain the site pages, and work on loading or
-            compatibility problems when they are reported. Updates are made when time allows rather than on a fixed weekly
-            schedule. You can read more on the <Link href="/about">About page</Link>.
+            compatibility problems when they are reported. The site aims to publish one fully reviewed game each week;
+            unsafe or unplayable candidates are skipped rather than forced online. You can read more on the <Link href="/about">About page</Link>.
           </p>
 
           <div className={styles.infoGrid}>
             <section className={styles.infoCard} aria-labelledby="recent-site-work-heading">
               <h3 id="recent-site-work-heading">Recently added or maintained</h3>
               <ul>
+                <li><Link href="/c4">C4 – Connect Four</Link> was added with verified English desktop and mobile play.</li>
                 <li><Link href="/brush-jjaemu">Brush Jjaemu</Link> was added with browser-ready game files.</li>
                 <li><Link href="/fire-red">Pokémon FireRed</Link> received a dedicated browser play page.</li>
                 <li><Link href="/evolve">Evolve Idle</Link> received updated frame controls and preview support.</li>

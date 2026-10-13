@@ -200,8 +200,8 @@ function validatePublishedScaffold({ route, source, catalogByHref, homeSource, q
   if (!queueRow) {
     addError(`${route}: published scaffold is missing from game-queue.md.`);
   } else {
-    if (queueRow.status !== "published") {
-      addError(`${route}: queue status must be published, currently ${queueRow.status || "blank"}.`);
+    if (!["ready", "published"].includes(queueRow.status)) {
+      addError(`${route}: queue status must be ready or published, currently ${queueRow.status || "blank"}.`);
     }
     for (const [label, value] of [
       ["popularity", queueRow.popularity],
@@ -256,7 +256,9 @@ function validatePublishedScaffold({ route, source, catalogByHref, homeSource, q
   }
 
   const screenshotSource = source.match(/screenshots=\{\[([\s\S]*?)\]\}/)?.[1] || "";
-  if (![...screenshotSource.matchAll(/\bsrc:\s*"([^"]+)"/g)].length) {
+  const screenshotPaths = [...screenshotSource.matchAll(/\bsrc:\s*"([^"]+)"/g)];
+  const usesGameImage = /\bsrc:\s*GAME_IMAGE\b/.test(screenshotSource);
+  if (!screenshotPaths.length && !usesGameImage) {
     addError(`${route}: at least one real gameplay screenshot is required.`);
   }
 

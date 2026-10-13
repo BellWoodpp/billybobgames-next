@@ -261,6 +261,24 @@ export default function GameFrameWithControls({
   );
 
   useEffect(() => {
+    if (!isFrameLoading) return;
+
+    const frame = localIframeRef.current;
+    if (!frame) return;
+
+    try {
+      // A small same-origin game can finish before React hydrates and attaches
+      // its onLoad listener. Re-dispatch load so the loading shield never traps
+      // an already playable frame.
+      if (frame.contentDocument?.readyState === "complete") {
+        frame.dispatchEvent(new Event("load"));
+      }
+    } catch {
+      // Cross-origin frames still rely on their normal load event.
+    }
+  }, [isFrameLoading, loadAttempt]);
+
+  useEffect(() => {
     const slowTimer = window.setTimeout(() => setIsFrameSlow(true), 12_000);
     return () => window.clearTimeout(slowTimer);
   }, [loadAttempt]);
