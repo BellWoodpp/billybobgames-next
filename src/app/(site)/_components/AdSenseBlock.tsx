@@ -1,7 +1,6 @@
 "use client";
 
 import { useEffect, useRef } from "react";
-import Script from "next/script";
 import { classNames } from "@/lib/classNames";
 import styles from "../styles/adsense.module.css";
 
@@ -48,42 +47,31 @@ export default function AdSenseBlock({
   }
 
   return (
-    <>
-      {!shouldPreview ? (
-        <Script
-          id="adsense-explicit-slots"
-          async
-          src={`https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${adsenseClient}`}
-          crossOrigin="anonymous"
-          strategy="afterInteractive"
-        />
-      ) : null}
-      <section className={classNames(styles.root, className)} aria-label="Advertisement">
-        <div className={styles.labelRow}>
-          <span className={styles.label}>Advertisement</span>
+    <section className={classNames(styles.root, className)} aria-label="Advertisement">
+      <div className={styles.labelRow}>
+        <span className={styles.label}>Advertisement</span>
+      </div>
+      {shouldPreview ? (
+        <div className={styles.preview} style={{ minHeight }}>
+          <strong>Responsive Ad Preview</strong>
+          <span>{placement}</span>
+          <p>
+            Add a real slot with <code>NEXT_PUBLIC_ADSENSE_SLOT_*</code> to render live AdSense here.
+          </p>
         </div>
-        {shouldPreview ? (
-          <div className={styles.preview} style={{ minHeight }}>
-            <strong>Responsive Ad Preview</strong>
-            <span>{placement}</span>
-            <p>
-              Add a real slot with <code>NEXT_PUBLIC_ADSENSE_SLOT_*</code> to render live AdSense here.
-            </p>
-          </div>
-        ) : (
-          <div className={styles.liveShell} style={{ minHeight }}>
-            <ins
-              className={classNames("adsbygoogle", styles.slot)}
-              style={{ display: "block" }}
-              data-ad-client={adsenseClient}
-              data-ad-slot={slot}
-              data-ad-format="auto"
-              data-full-width-responsive="true"
-              data-adtest={isDevelopment ? "on" : undefined}
-            />
-          </div>
-        )}
-      </section>
-    </>
+      ) : (
+        <div className={styles.liveShell} style={{ minHeight }}>
+          <ins
+            className={classNames("adsbygoogle", styles.slot)}
+            style={{ display: "block" }}
+            data-ad-client={adsenseClient}
+            data-ad-slot={slot}
+            data-ad-format="auto"
+            data-full-width-responsive="true"
+            data-adtest={isDevelopment ? "on" : undefined}
+          />
+        </div>
+      )}
+    </section>
   );
 }

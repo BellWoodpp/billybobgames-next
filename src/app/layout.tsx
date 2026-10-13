@@ -109,6 +109,13 @@ export default function RootLayout({
           data-key="REuFpy6zp+wD6K5vJ1TOSg"
           strategy="lazyOnload"
         />
+        <Script
+          id="adsense-auto-ads"
+          async
+          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6581885234407347"
+          crossOrigin="anonymous"
+          strategy="afterInteractive"
+        />
       </body>
     </html>
   );
