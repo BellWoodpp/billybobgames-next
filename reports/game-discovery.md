@@ -1,6 +1,6 @@
 # Open game candidate report
 
-Generated: 2026-10-13T16:19:03.985Z
+Generated: 2026-10-13T16:20:28.303Z
 
 This report is an automated first pass, not permission to publish. A repository license may not cover bundled art, music, fonts, trademarks, or third-party dependencies. Every candidate must still pass source review, an asset-by-asset rights check, a clean-room build, and a real desktop/mobile play test.
 
