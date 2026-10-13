@@ -1,6 +1,15 @@
 {
   "schemaVersion": 1,
-  "updatedAt": null,
+  "updatedAt": "2026-10-14",
   "purpose": "Append-only record of successful weekly game deployments.",
-  "releases": []
+  "releases": [
+    {
+      "route": "/c4",
+      "title": "C4 – Connect Four",
+      "publishedAt": "2026-10-14",
+      "popularityAtRelease": "GitHub 281 stars; 105 forks",
+      "languageAtRelease": "English confirmed on desktop and 390px mobile",
+      "deploymentRun": "https://github.com/BellWoodpp/billybobgames-next/actions/runs/38433637840"
+    }
+  ]
 }
