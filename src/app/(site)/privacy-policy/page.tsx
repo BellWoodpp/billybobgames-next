@@ -22,13 +22,14 @@ export default function PrivacyPolicyPage() {
             This Privacy Policy explains how Billy Bob Games handles information when you visit{" "}
             <Link href="/">billybobgames.org</Link>.
           </p>
-          <p>Effective date: April 16, 2026.</p>
+          <p>Effective date: October 16, 2026.</p>
         </section>
 
         <section className={styles.section}>
           <h2>Information we collect</h2>
           <ul className={styles.list}>
             <li>Basic usage data such as page visits, referrers, device/browser information, and aggregated traffic trends.</li>
+            <li>Game interaction events such as successful loading, first interaction, coarse play-duration milestones, retries, display-mode changes, and supported round events.</li>
             <li>Recently played game data stored in your browser so we can remember games you opened on this device.</li>
             <li>Information you choose to share with us if you contact Billy Bob Games through public channels or our contact page.</li>
           </ul>
@@ -42,7 +43,7 @@ export default function PrivacyPolicyPage() {
           <ul className={styles.list}>
             <li>Google Analytics uses the measurement ID <code>G-DJ7PED4TRM</code> to help us understand visits and engagement.</li>
             <li>Ahrefs Analytics helps us measure traffic and performance trends.</li>
-            <li>MyWebAstra measures page visits, traffic sources, and device/browser categories without analytics cookies or browser storage. Its tracker respects Do Not Track; stored reports omit raw IP addresses, full User-Agent values, and URL query strings.</li>
+            <li>MyWebAstra measures page visits, traffic sources, device/browser categories, and named game events without analytics cookies or browser storage. Its tracker respects Do Not Track; stored reports omit raw IP addresses, full User-Agent values, URL query strings, typed names, keystroke contents, scores, and save files.</li>
             <li>Google AdSense may use cookies or similar technologies to serve and measure ads.</li>
           </ul>
           <p>

@@ -1,6 +1,7 @@
 "use client";
 
 import { useCallback, useEffect, useRef, useState, type ChangeEvent, type ReactEventHandler } from "react";
+import { createGameTrackingContext } from "@/lib/analytics";
 import GameBreadcrumb from "../_components/GameBreadcrumb";
 import GameFrameWithControls from "../_components/GameFrameWithControls";
 import PageShell from "../_components/PageShell";
@@ -268,6 +269,7 @@ export default function GbaClient() {
             loading="eager"
             showFullscreenButton
             frameClassName={styles.gbaFrame}
+            analyticsGame={createGameTrackingContext("/fire-red", "Pokémon FireRed")}
             onLoad={handleFrameLoad}
           />
 

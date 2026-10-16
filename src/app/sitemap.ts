@@ -2,7 +2,7 @@ import type { MetadataRoute } from "next";
 import { catalogGames, gameCategories } from "./(site)/_data/game-catalog";
 
 const SITE_URL = "https://billybobgames.org";
-const CONTENT_LAST_MODIFIED = "2026-10-14";
+const CONTENT_LAST_MODIFIED = "2026-10-16";
 
 const staticRoutes = [
   { path: "/", lastModified: CONTENT_LAST_MODIFIED, changeFrequency: "daily", priority: 1.0 },

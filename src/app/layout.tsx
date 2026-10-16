@@ -86,7 +86,7 @@ export default function RootLayout({
           <main className="page app-content">{children}</main>
         </div>
         <AppFooter />
-        <Script id="mywebastra-tracker" data-site="955d8a0f-163f-47dd-bbc4-7d84da45a159" src="https://mywebastra.com/tracker.js" strategy="lazyOnload" />
+        <Script id="mywebastra-tracker" data-site="955d8a0f-163f-47dd-bbc4-7d84da45a159" src="https://mywebastra.com/tracker.js" strategy="afterInteractive" />
 
         <Script
           src="https://www.googletagmanager.com/gtag/js?id=G-DJ7PED4TRM"

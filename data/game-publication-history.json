@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-10-14",
+  "updatedAt": "2026-10-16",
   "purpose": "Permanent publication ledger used to prevent duplicate game titles, routes, and source repositories.",
   "entries": [
     {
@@ -30,6 +30,10 @@
         {
           "recordedAt": "2026-10-14",
           "contentSha256": "d42014253b42ef6e08f6f79836c0f61b615509198bd06efb91eacd66f7a89e7e"
+        },
+        {
+          "recordedAt": "2026-10-16",
+          "contentSha256": "363feb9a34d7e1b8bb268549bf8a53560db0a79ee4fbcf020463d194548e8af2"
         }
       ]
     },

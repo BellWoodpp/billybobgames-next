@@ -82,7 +82,7 @@ export default function C4Page() {
             sourceUrl: "https://github.com/kenrick95/c4",
             note: "Billy Bob Games hosts a locally tested browser build, preserves the MIT notice, and does not claim to be the game's developer.",
           }}
-          lastTested="2026-10-14"
+          lastTested="2026-10-16"
           relatedGames={[
             { href: "/html5-xxl", title: "HTML5 City Match" },
             { href: "/Spider-Solitaire", title: "Spider Solitaire" },

@@ -41,6 +41,42 @@ type FullscreenElement = HTMLElement & {
   webkitRequestFullscreen?: () => Promise<void> | void;
 };
 
+const ENGAGEMENT_MILESTONES = [15, 60, 180] as const;
+const GAME_BRIDGE_EVENTS = new Set([
+  "game_round_start",
+  "game_first_move",
+  "game_round_complete",
+  "game_round_restart",
+  "game_round_abandon",
+  "game_error",
+]);
+const GAME_BRIDGE_PARAM_VALUES = {
+  mode: new Set<string>(["offline_ai", "offline_human", "ai_vs_ai"]),
+  outcome: new Set<string>(["win", "draw"]),
+  reason: new Set<string>(["script_error", "unhandled_rejection"]),
+} as const;
+
+function currentDeviceType() {
+  const coarsePointer = window.matchMedia?.("(pointer: coarse)").matches;
+  if (window.innerWidth < 768) return "mobile";
+  if (coarsePointer && window.innerWidth < 1180) return "tablet";
+  return "desktop";
+}
+
+function normalizedInteractionType(eventName: string) {
+  if (eventName === "keydown") return "keyboard";
+  if (eventName === "touchstart") return "touch";
+  if (eventName === "wheel") return "wheel";
+  return "pointer";
+}
+
+function exitBucket(activeTimeSec: number) {
+  if (activeTimeSec < 15) return "under_15s";
+  if (activeTimeSec < 60) return "15_to_59s";
+  if (activeTimeSec < 180) return "60_to_179s";
+  return "180s_plus";
+}
+
 function assignForwardedIframeRef(ref: Ref<HTMLIFrameElement> | undefined, node: HTMLIFrameElement | null) {
   if (typeof ref === "function") {
     ref(node);
@@ -112,6 +148,10 @@ export default function GameFrameWithControls({
   const heartbeatCountRef = useRef(0);
   const interactionCountRef = useRef(0);
   const lastInteractionAtRef = useRef(0);
+  const engagementMilestonesRef = useRef(new Set<number>());
+  const frameLoadStartedAtRef = useRef(0);
+  const loadedAttemptRef = useRef(-1);
+  const fullscreenAnalyticsStateRef = useRef(false);
   const sessionEndedRef = useRef(false);
   const sessionStartedRef = useRef(false);
   const sessionStartedAtRef = useRef(0);
@@ -124,6 +164,10 @@ export default function GameFrameWithControls({
   const gameId = analyticsGame?.gameId;
   const gameName = analyticsGame?.gameName;
   const gamePath = analyticsGame?.gamePath;
+
+  useEffect(() => {
+    frameLoadStartedAtRef.current = Date.now();
+  }, []);
 
   const analyticsParams = useMemo(() => {
     if (!gameId || !gameName) return null;
@@ -159,7 +203,7 @@ export default function GameFrameWithControls({
     };
   }, []);
 
-  const startGameSession = useCallback(() => {
+  const startGameSession = useCallback((interactionType: string) => {
     if (sessionStartedRef.current) return;
     sessionPagePathRef.current = window.location.pathname + window.location.search;
 
@@ -171,13 +215,19 @@ export default function GameFrameWithControls({
     activeStartedAtRef.current = document.visibilityState === "visible" ? now : null;
     heartbeatCountRef.current = 0;
     interactionCountRef.current = 0;
+    engagementMilestonesRef.current.clear();
     lastInteractionAtRef.current = 0;
     sessionEndedRef.current = false;
     sessionStartedAtRef.current = now;
     sessionStartedRef.current = true;
 
-    trackAnalyticsEvent("game_start", baseParams);
-  }, [buildAnalyticsParams]);
+    trackAnalyticsEvent("game_start", {
+      ...baseParams,
+      input_type: interactionType,
+      device_type: currentDeviceType(),
+      load_attempt: loadAttempt + 1,
+    });
+  }, [buildAnalyticsParams, loadAttempt]);
 
   const endGameSession = useCallback(
     (beacon = false) => {
@@ -186,6 +236,17 @@ export default function GameFrameWithControls({
 
       sessionEndedRef.current = true;
       const timing = collectSessionTiming(true);
+      const durationBucket = exitBucket(timing.active_time_sec);
+
+      trackAnalyticsEvent(
+        `game_exit_${durationBucket}`,
+        {
+          ...baseParams,
+          ...timing,
+          interaction_count: interactionCountRef.current,
+        },
+        { beacon },
+      );
 
       trackAnalyticsEvent(
         "game_end",
@@ -201,19 +262,21 @@ export default function GameFrameWithControls({
     [buildAnalyticsParams, collectSessionTiming],
   );
 
-  const noteGameInteraction = useCallback(() => {
+  const noteGameInteraction = useCallback((eventName: string) => {
+    const interactionType = normalizedInteractionType(eventName);
+    startGameSession(interactionType);
+
     const now = Date.now();
     if (now - lastInteractionAtRef.current < 250) return;
 
     lastInteractionAtRef.current = now;
     interactionCountRef.current += 1;
-  }, []);
+  }, [startGameSession]);
 
   const attachGameInteractionListeners = useCallback(() => {
     frameListenerCleanupRef.current?.();
 
     const targets: EventTarget[] = [];
-    if (frameRef.current) targets.push(frameRef.current);
 
     try {
       const frame = localIframeRef.current;
@@ -222,14 +285,38 @@ export default function GameFrameWithControls({
     } catch {}
 
     const eventNames = ["pointerdown", "keydown", "touchstart", "wheel"];
-    const listener: EventListener = () => noteGameInteraction();
+    const listener: EventListener = (event) => noteGameInteraction(event.type);
     const options: AddEventListenerOptions = { capture: true, passive: true };
+    const messageListener = (event: MessageEvent) => {
+      const frame = localIframeRef.current;
+      if (!frame?.contentWindow || event.source !== frame.contentWindow) return;
+
+      const data = event.data as { source?: unknown; name?: unknown; params?: unknown } | null;
+      if (!data || data.source !== "billybob-game-analytics" || typeof data.name !== "string") return;
+      if (!GAME_BRIDGE_EVENTS.has(data.name)) return;
+
+      const baseParams = buildAnalyticsParams();
+      if (!baseParams) return;
+      const params: Record<string, string> = {};
+      if (data.params && typeof data.params === "object") {
+        for (const key of Object.keys(GAME_BRIDGE_PARAM_VALUES) as Array<keyof typeof GAME_BRIDGE_PARAM_VALUES>) {
+          const value = (data.params as Record<string, unknown>)[key];
+          if (typeof value === "string" && GAME_BRIDGE_PARAM_VALUES[key].has(value)) params[key] = value;
+        }
+      }
+
+      trackAnalyticsEvent(data.name, { ...baseParams, ...params });
+      if (data.name === "game_round_start" && params.mode) {
+        trackAnalyticsEvent(`game_mode_${params.mode}`, baseParams);
+      }
+    };
 
     targets.forEach((target) => {
       eventNames.forEach((eventName) => {
         target.addEventListener(eventName, listener, options);
       });
     });
+    window.addEventListener("message", messageListener);
 
     frameListenerCleanupRef.current = () => {
       targets.forEach((target) => {
@@ -237,8 +324,9 @@ export default function GameFrameWithControls({
           target.removeEventListener(eventName, listener, options);
         });
       });
+      window.removeEventListener("message", messageListener);
     };
-  }, [noteGameInteraction]);
+  }, [buildAnalyticsParams, noteGameInteraction]);
 
   const setIframeElement = useCallback(
     (node: HTMLIFrameElement | null) => {
@@ -253,12 +341,34 @@ export default function GameFrameWithControls({
     (event) => {
       setIsFrameLoading(false);
       setIsFrameSlow(false);
-      startGameSession();
+      if (loadedAttemptRef.current !== loadAttempt) {
+        loadedAttemptRef.current = loadAttempt;
+        const baseParams = buildAnalyticsParams();
+        if (baseParams) {
+          trackAnalyticsEvent("game_loaded", {
+            ...baseParams,
+            device_type: currentDeviceType(),
+            load_attempt: loadAttempt + 1,
+            load_time_ms: frameLoadStartedAtRef.current
+              ? Math.max(0, Date.now() - frameLoadStartedAtRef.current)
+              : 0,
+          });
+        }
+      }
       attachGameInteractionListeners();
       onLoad?.(event);
     },
-    [attachGameInteractionListeners, onLoad, startGameSession],
+    [attachGameInteractionListeners, buildAnalyticsParams, loadAttempt, onLoad],
   );
+
+  const handleFrameError = useCallback(() => {
+    const baseParams = buildAnalyticsParams();
+    if (!baseParams) return;
+    trackAnalyticsEvent("game_load_error", {
+      ...baseParams,
+      load_attempt: loadAttempt + 1,
+    });
+  }, [buildAnalyticsParams, loadAttempt]);
 
   useEffect(() => {
     if (!isFrameLoading) return;
@@ -279,15 +389,35 @@ export default function GameFrameWithControls({
   }, [isFrameLoading, loadAttempt]);
 
   useEffect(() => {
-    const slowTimer = window.setTimeout(() => setIsFrameSlow(true), 12_000);
+    if (!isFrameLoading) return;
+
+    const slowTimer = window.setTimeout(() => {
+      setIsFrameSlow(true);
+      const baseParams = buildAnalyticsParams();
+      if (baseParams) {
+        trackAnalyticsEvent("game_load_slow", {
+          ...baseParams,
+          load_attempt: loadAttempt + 1,
+          threshold_sec: 12,
+        });
+      }
+    }, 12_000);
     return () => window.clearTimeout(slowTimer);
-  }, [loadAttempt]);
+  }, [buildAnalyticsParams, isFrameLoading, loadAttempt]);
 
   const retryFrameLoad = useCallback(() => {
+    const baseParams = buildAnalyticsParams();
+    if (baseParams) {
+      trackAnalyticsEvent("game_load_retry", {
+        ...baseParams,
+        previous_attempt: loadAttempt + 1,
+      });
+    }
+    frameLoadStartedAtRef.current = Date.now();
     setIsFrameLoading(true);
     setIsFrameSlow(false);
     setLoadAttempt((attempt) => attempt + 1);
-  }, []);
+  }, [buildAnalyticsParams, loadAttempt]);
 
   const getFullscreenElement = useCallback(() => {
     const fullscreenDocument = document as FullscreenDocument;
@@ -297,9 +427,16 @@ export default function GameFrameWithControls({
 
   const syncFullscreenState = useCallback(() => {
     const fullscreenElement = getFullscreenElement();
+    const isFullscreen = fullscreenElement === frameRef.current;
 
-    setIsGameFullscreen(fullscreenElement === frameRef.current);
-  }, [getFullscreenElement]);
+    if (fullscreenAnalyticsStateRef.current !== isFullscreen) {
+      fullscreenAnalyticsStateRef.current = isFullscreen;
+      const baseParams = buildAnalyticsParams();
+      if (baseParams) trackAnalyticsEvent(isFullscreen ? "game_fullscreen_enter" : "game_fullscreen_exit", baseParams);
+    }
+
+    setIsGameFullscreen(isFullscreen);
+  }, [buildAnalyticsParams, getFullscreenElement]);
 
   useEffect(() => {
     if (!analyticsParams) return;
@@ -338,16 +475,34 @@ export default function GameFrameWithControls({
       });
     };
 
+    const sendEngagementMilestones = () => {
+      const baseParams = buildAnalyticsParams();
+      if (!baseParams || !sessionStartedRef.current || document.visibilityState !== "visible") return;
+
+      const timing = collectSessionTiming();
+      for (const threshold of ENGAGEMENT_MILESTONES) {
+        if (timing.active_time_sec < threshold || engagementMilestonesRef.current.has(threshold)) continue;
+        engagementMilestonesRef.current.add(threshold);
+        trackAnalyticsEvent(`game_engaged_${threshold}s`, {
+          ...baseParams,
+          ...timing,
+          interaction_count: interactionCountRef.current,
+        });
+      }
+    };
+
     const handlePageHide = () => {
       endGameSession(true);
     };
 
     const heartbeatInterval = window.setInterval(sendHeartbeat, 30_000);
+    const milestoneInterval = window.setInterval(sendEngagementMilestones, 5_000);
     document.addEventListener("visibilitychange", handleVisibilityChange);
     window.addEventListener("pagehide", handlePageHide);
 
     return () => {
       window.clearInterval(heartbeatInterval);
+      window.clearInterval(milestoneInterval);
       document.removeEventListener("visibilitychange", handleVisibilityChange);
       window.removeEventListener("pagehide", handlePageHide);
       frameListenerCleanupRef.current?.();
@@ -429,8 +584,13 @@ export default function GameFrameWithControls({
   }, [exitFullscreen, getFullscreenElement, requestFullscreen, syncFullscreenState]);
 
   const toggleWideMode = useCallback(() => {
-    setIsWideMode((current) => !current);
-  }, []);
+    setIsWideMode((current) => {
+      const next = !current;
+      const baseParams = buildAnalyticsParams();
+      if (baseParams) trackAnalyticsEvent(next ? "game_wide_mode_enter" : "game_wide_mode_exit", baseParams);
+      return next;
+    });
+  }, [buildAnalyticsParams]);
 
   const fullscreenSupported =
     typeof document === "undefined"
@@ -498,6 +658,7 @@ export default function GameFrameWithControls({
         allowFullScreen={allowFullScreen}
         loading={loading}
         onLoad={handleFrameLoad}
+        onError={handleFrameError}
       />
     </div>
   );

@@ -5,5 +5,5 @@
 - Developer: Kenrick
 - License: MIT; the complete notice is preserved in `LICENSE.txt`.
 - Build: `@kenrick95/c4-browser` built with Vite 8.0.16 using a relative asset base.
-- Local change: the unavailable online multiplayer choice is hidden; verified offline AI, local two-player, and AI-versus-AI modes remain.
-- Tested: 2026-10-14 on desktop and a 390 x 844 mobile viewport with Google Chrome 155.
+- Local changes: the unavailable online multiplayer choice is hidden; verified offline AI, local two-player, and AI-versus-AI modes remain. A privacy-safe parent-page bridge reports fixed round milestones without player names, free text, or board contents.
+- Tested: 2026-10-16 on desktop and a 390 x 844 mobile viewport with Google Chrome 155.

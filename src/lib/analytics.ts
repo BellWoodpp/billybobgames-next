@@ -17,7 +17,52 @@ declare global {
     dataLayer?: unknown[];
     gtag?: Gtag;
     umami?: UmamiAnalytics;
+    webastra?: (eventName: string) => void;
+    __webastraEventQueue?: string[];
+    __webastraFlushTimer?: number;
   }
+}
+
+function flushWebastraEvents() {
+  if (typeof window === "undefined" || typeof window.webastra !== "function") return false;
+
+  const queue = window.__webastraEventQueue || [];
+  window.__webastraEventQueue = [];
+  for (const eventName of queue) {
+    try {
+      window.webastra(eventName);
+    } catch {}
+  }
+
+  if (window.__webastraFlushTimer !== undefined) {
+    window.clearInterval(window.__webastraFlushTimer);
+    window.__webastraFlushTimer = undefined;
+  }
+  return true;
+}
+
+function trackWebastraEvent(eventName: string) {
+  if (flushWebastraEvents()) {
+    try {
+      window.webastra?.(eventName);
+    } catch {}
+    return;
+  }
+
+  window.__webastraEventQueue = window.__webastraEventQueue || [];
+  window.__webastraEventQueue.push(eventName);
+  if (window.__webastraFlushTimer !== undefined) return;
+
+  let attempts = 0;
+  window.__webastraFlushTimer = window.setInterval(() => {
+    attempts += 1;
+    if (flushWebastraEvents() || attempts >= 120) {
+      if (window.__webastraFlushTimer !== undefined) {
+        window.clearInterval(window.__webastraFlushTimer);
+        window.__webastraFlushTimer = undefined;
+      }
+    }
+  }, 250);
 }
 
 function cleanAnalyticsParams(params: AnalyticsEventParams) {
@@ -76,6 +121,8 @@ export function trackAnalyticsEvent(
   try {
     void window.umami?.track?.(eventName, payload);
   } catch {}
+
+  trackWebastraEvent(eventName);
 }
 
 export function trackGameClick({
